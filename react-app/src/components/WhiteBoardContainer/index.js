@@ -37,6 +37,9 @@ const WhiteBoardContainer = () => {
         </div>
 
         <div className="board-container">
+            <div className="sketch" id="sketch">
+                <canvas className="board" id="board"></canvas>
+            </div>
             <BoardContainer color={color} size={size}></BoardContainer>
         </div>
     </div>

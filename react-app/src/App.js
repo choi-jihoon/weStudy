@@ -9,7 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import Chat from './components/Chat';
 import Whiteboard from './components/Whiteboard';
-// import WhiteBoardContainer from './components/WhiteBoardContainer';
+import WhiteBoardContainer from './components/WhiteBoardContainer';
 import { authenticate } from './store/session';
 
 function App() {
@@ -48,7 +48,7 @@ function App() {
           <Chat />
         </ProtectedRoute>
         <ProtectedRoute path='/users/whiteboard' exact={true} >
-          <Whiteboard />
+          <WhiteBoardContainer />
         </ProtectedRoute>
         {/* <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>

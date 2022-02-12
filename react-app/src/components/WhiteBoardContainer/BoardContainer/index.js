@@ -1,45 +1,50 @@
 import { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';
 
+let socket;
+
 const BoardContainer = ({ size, color }) => {
 
     // const canvas = document.querySelector('#board');
     // const ctx = canvas.getContext('2d');
-    // const [isDrawing, setIsDrawing] = useState(false);
+    const [isDrawing, setIsDrawing] = useState(false);
+    const [timeout, updateTimeout] = useState(null);
     // const [timeoutnum, setTimeoutnum] = useState(null)
     // const [ctx, setCtx] = useState();
 
-    let timeout;
-    let ctx;
-    let isDrawing = false;
+    // let isDrawing = false;
 
-    let lineWidth;
-    let strokeStyle;
-
-    let socket = io.connect();
-
-    socket.on('drawing', function (data) {
-        const interval = setInterval(function () {
-            if (isDrawing) return;
-            isDrawing = true;
-            clearInterval(interval);
-
-            const image = new Image();
-            const canvas = document.querySelector('#board');
-            ctx = canvas.getContext('2d');
-
-            image.onload = function () {
-                ctx.drawImage(image, 0, 0);
-                isDrawing = false;
-            };
-            image.src = data;
-        }, 200)
-    })
+    // let socket = io.connect();
 
 
-    const drawOnCanvas = () => {
+
+
+    useEffect(() => {
+        socket = io();
+
+        socket.on('drawing', function (data) {
+            const interval = setInterval(function () {
+                if (isDrawing) return;
+                // isDrawing = true;
+                setIsDrawing(true);
+                clearInterval(interval);
+
+                const image = new Image();
+                const canvas = document.querySelector('#board');
+                const ctx = canvas.getContext('2d');
+
+                image.onload = function () {
+                    ctx.drawImage(image, 0, 0);
+                    // isDrawing = false;
+                    setIsDrawing(false);
+                };
+                image.src = data;
+            }, 200)
+        })
+
+
         const canvas = document.querySelector('#board');
-        ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d');
 
         const sketch = document.querySelector('#sketch');
         const sketch_style = getComputedStyle(sketch);
@@ -78,26 +83,26 @@ const BoardContainer = ({ size, color }) => {
             ctx.stroke();
 
             if (timeout) clearTimeout(timeout);
-            timeout = setTimeout(function () {
+            updateTimeout(setTimeout(function () {
                 const base64ImageData = canvas.toDataURL('image/png');
                 socket.emit('drawing', base64ImageData);
-            }, 1000)
+            }, 1000))
         }
-    }
 
-    useEffect(() => {
-        drawOnCanvas();
-        return (() => console.log('cleanup'))
-    }, [drawOnCanvas]);
+        return (() => {
+            socket.disconnect();
+        })
 
-    useEffect(() => {
-        ctx.strokeStyle = color;
-        ctx.lineWidth = size;
-    }, [color, size, ctx, strokeStyle, lineWidth])
+    }, []);
+
+    // useEffect(() => {
+    //     ctx.strokeStyle = color;
+    //     ctx.lineWidth = size;
+    // }, [color, size, ctx, strokeStyle, lineWidth])
 
     return (
-        <div className="sketch" id="sketch">
-            <canvas className="board" id="board"></canvas>
+        <div>
+
         </div>
     )
 }

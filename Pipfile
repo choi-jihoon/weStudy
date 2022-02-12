@@ -25,6 +25,8 @@ python-dateutil = "==2.8.1"
 python-editor = "==1.0.4"
 greenlet = "==1.1.0"
 Mako = "==1.1.4"
+flask-socketio = "*"
+eventlet = "==0.30.2"
 
 [dev-packages]
 psycopg2-binary = "==2.8.6"

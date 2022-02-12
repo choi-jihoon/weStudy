@@ -5,8 +5,6 @@ let socket;
 
 const BoardContainer = ({ size, color }) => {
 
-    // const canvas = document.querySelector('#board');
-    // const ctx = canvas.getContext('2d');
     const [isDrawing, setIsDrawing] = useState(false);
     const [timeout, updateTimeout] = useState(null);
     // const [timeoutnum, setTimeoutnum] = useState(null)
@@ -15,6 +13,13 @@ const BoardContainer = ({ size, color }) => {
     // let isDrawing = false;
 
     // let socket = io.connect();
+
+    useEffect(() => {
+        const canvas = document.querySelector('#board');
+        const ctx = canvas.getContext('2d');
+        ctx.strokeStyle = color;
+        ctx.lineWidth = size;
+    }, [size, color])
 
 
 
@@ -96,9 +101,10 @@ const BoardContainer = ({ size, color }) => {
     }, []);
 
     // useEffect(() => {
+    //     // console.log(ctx)
     //     ctx.strokeStyle = color;
     //     ctx.lineWidth = size;
-    // }, [color, size, ctx, strokeStyle, lineWidth])
+    // }, [color, size, ctx])
 
     return (
         <div>

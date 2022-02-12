@@ -1,1 +1,14 @@
 /* TODO Add site wide styles */
+@import url("https://use.typekit.net/kyk0anv.css");
+
+*,
+body,
+html {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	text-decoration: none;
+	list-style-type: none;
+	font-family: proxima-nova, sans-serif;
+
+}

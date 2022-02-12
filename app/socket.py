@@ -22,3 +22,8 @@ socketio = SocketIO(cors_allowed_origins="*")
 @socketio.on("chat")
 def handle_chat(data):
     emit("chat", data, broadcast=True)
+
+# handle whiteboard drawings
+@socketio.on("drawing")
+def handle_draw(data):
+    emit("drawing", data, broadcast=True)

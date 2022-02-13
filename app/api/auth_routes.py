@@ -109,7 +109,7 @@ def sign_up():
                 username=form.data['username'],
                 email=form.data['email'],
                 password=form.data['password'],
-                image="https://splitabill.s3.us-east-2.amazonaws.com/preserve/f395dfcdb332496bb5700cc328339e5d.png"
+                image="https://fionacapstonebucket.s3.amazonaws.com/defaults/52638a4b87654527b8fa25d13d81862a.png"
             )
             db.session.add(user)
             db.session.commit()

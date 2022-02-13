@@ -4,9 +4,9 @@ from app.models import db, User
 # Adds a demo user, you can add other users here if you want
 def seed_users():
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', image='https://splitabill.s3.amazonaws.com/preserve/8929d513ddd9492583b11e68e393cc3b.png')
+        username='Demo', email='demo@aa.io', password='password', image='https://fionacapstonebucket.s3.amazonaws.com/defaults/52638a4b87654527b8fa25d13d81862a.png')
     fiona = User(
-        username='fiona', email='fiona@aa.io', password='password', image='https://splitabill.s3.amazonaws.com/preserve/5291b74b486d48b19223f3aab8097bd4.jpg')
+        username='fiona', email='fiona@aa.io', password='password', image='https://fionacapstonebucket.s3.amazonaws.com/defaults/52638a4b87654527b8fa25d13d81862a.png')
 
     db.session.add(demo)
     db.session.add(fiona)

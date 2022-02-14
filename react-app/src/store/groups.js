@@ -76,7 +76,7 @@ export const deleteGroup = (groupId) => async (dispatch) => {
 }
 
 
-const initialState = {}
+const initialState = {};
 
 const groups = (state = initialState, action) => {
     switch (action.type) {
@@ -103,7 +103,7 @@ const groups = (state = initialState, action) => {
         }
 
         default:
-            return state
+            return state;
     }
 }
 

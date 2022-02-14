@@ -38,3 +38,12 @@ def edit_room(roomId):
         db.session.commit()
         return room.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@room_routes.route('/<int:roomId>', methods=['DELETE'])
+def delete_room(roomId):
+    room = Room.query.get(int(roomId))
+    data = room.to_dict()
+    db.session.delete(room)
+    db.session.commit()
+    return data

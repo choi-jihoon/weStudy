@@ -30,10 +30,14 @@ const NavBar = () => {
         </li>
         <li>
           {user &&
-          <p>
-            <img src={user.image} alt={user.username}></img>
-            {user.username}
-          </p>
+            <>
+              <div className='profile-pic-div'>
+                <img className='profile-pic' src={user.image} alt={user.username}></img>
+              </div>
+              <div>
+                {user.username}
+              </div>
+            </>
           }
         </li>
       </ul>

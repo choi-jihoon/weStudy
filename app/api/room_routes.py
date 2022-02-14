@@ -26,3 +26,15 @@ def create_room():
         db.session.commit()
         return {'room': room.to_dict()}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@room_routes.route('/<int:roomId>', methods=['PATCH'])
+def edit_room(roomId):
+    form = RoomForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        room = Room.query.get(int(roomId))
+        room.room_name = form.data['room_name']
+        db.session.commit()
+        return room.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

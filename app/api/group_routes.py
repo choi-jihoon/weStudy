@@ -70,6 +70,16 @@ def join_group(groupId):
     return group.to_dict()
 
 
+@group_routes.route('/<int:groupId>/leave', methods=['PATCH'])
+def leave_group(groupId):
+    curr_user_id = current_user.get_id()
+    user = User.query.get(curr_user_id)
+    group = Group.query.get(int(groupId))
+    group.users.pop(group.users.index(user))
+    db.session.commit()
+    return group.to_dict()
+
+
 @group_routes.route('/<int:groupId>/rooms')
 def get_rooms(groupId):
     rooms = Room.query.filter(Room.group_id == groupId)

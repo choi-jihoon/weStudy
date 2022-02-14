@@ -7,7 +7,15 @@
     /* object-fit: cover;
     vertical-align: bottom; */
 
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.btn-container {
+    z-index: 10;
+    position: absolute;
+    top: 10%;
+    right: 10%;
 }

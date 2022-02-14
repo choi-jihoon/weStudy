@@ -1,6 +1,7 @@
 const LOAD_GROUPS = 'groups/LOAD_GROUPS';
 const CREATE_GROUP = 'groups/CREATE_GROUP';
 const REMOVE_GROUP = 'groups/REMOVE_GROUP';
+const EDIT_GROUP = 'groups/EDIT_GROUP';
 
 const loadGroups = (groups) => ({
     type: LOAD_GROUPS,
@@ -14,6 +15,11 @@ const create = (group) => ({
 
 const remove = (group) => ({
     type: REMOVE_GROUP,
+    group
+})
+
+const edit = (group) => ({
+    type: EDIT_GROUP,
     group
 })
 
@@ -75,6 +81,34 @@ export const deleteGroup = (groupId) => async (dispatch) => {
 
 }
 
+export const editGroup = (groupId, group_name, description, owner_id) => async (dispatch) => {
+    console.log("HELLO?????????????")
+    const res = await fetch(`/api/groups/${groupId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            group_name,
+            description,
+            owner_id
+        })
+    })
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(edit(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return {'ERROR': 'An error occurred. Please try again.'}
+    }
+}
+
 
 const initialState = {};
 
@@ -99,6 +133,12 @@ const groups = (state = initialState, action) => {
         case REMOVE_GROUP: {
             const newState = { ...state };
             delete newState[action.group.id];
+            return newState;
+        }
+
+        case EDIT_GROUP: {
+            const newState = { ...state };
+            newState[action.group.id] = action.group;
             return newState;
         }
 

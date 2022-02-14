@@ -2,22 +2,21 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from '../../auth/LogoutButton';
+import LogoutButton from '../auth/LogoutButton';
+import LoginFormModal from '../auth/LoginFormModal';
+import SignUpFormModal from '../auth/SignUpFormModal';
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
 
-  return (
-    <nav>
-      <ul style={{ display: 'flex' }}>
+  let sessionLinks;
+
+  if (user) {
+    sessionLinks = (
+      <>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/chat' exact={true} activeClassName='active'>
-            Chat
           </NavLink>
         </li>
         <li>
@@ -40,6 +39,25 @@ const NavBar = () => {
             </>
           }
         </li>
+      </>
+    )
+  } else {
+    sessionLinks = (
+      <>
+        <li>
+          <LoginFormModal />
+        </li>
+        <li>
+          <SignUpFormModal />
+        </li>
+      </>
+    )
+  }
+
+  return (
+    <nav>
+      <ul style={{ display: 'flex' }}>
+        {sessionLinks}
       </ul>
     </nav>
   );

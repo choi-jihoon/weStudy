@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { io } from 'socket.io-client';
 
 let socket;
 
 const Chat = () => {
+    const { roomId } = useParams();
 
     const user = useSelector(state => state.session.user)
 

@@ -16,5 +16,6 @@ class Room(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'group_id': self.group_id,
+            'group': self.group.group_name,
             'room_name': self.room_name,
         }

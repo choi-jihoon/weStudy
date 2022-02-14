@@ -36,7 +36,12 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'image': self.image
+            'image': self.image,
+        }
+
+    def groups_to_dict(self):
+        return {
+            'groups': [group.to_dict() for group in self.groups]
         }
 
 
@@ -54,5 +59,5 @@ class Group(db.Model):
         return {
             'id': self.id,
             'group_name': self.group_name,
-            'description': self.description
+            'description': self.description,
         }

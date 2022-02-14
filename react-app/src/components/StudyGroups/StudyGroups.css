@@ -1,0 +1,16 @@
+.study-groups-container {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.study-groups-container > ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.study-groups-container > ul > li {
+    height: 40vh;
+    flex-grow: 1;
+}

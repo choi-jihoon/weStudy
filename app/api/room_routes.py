@@ -15,17 +15,13 @@ def validation_errors_to_error_messages(validation_errors):
 
 room_routes = Blueprint('rooms', __name__)
 
-@room_routes.route('/')
-def get_rooms():
-    rooms = Room.query.all()
-    return {'rooms': [room.to_dict() for room in rooms]}
 
 @room_routes.route('/', methods=['POST'])
 def create_room():
     form = RoomForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        room = Room(user_id=current_user.get_id(), room_name=form['room_name'].data)
+        room = Room(user_id=current_user.get_id(), room_name=form['room_name'].data, group_id=form['group_id'].data)
         db.session.add(room)
         db.session.commit()
         return {'room': room.to_dict()}

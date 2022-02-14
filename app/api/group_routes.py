@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
-from app.models import db, Group, User
+from app.models import db, Group, User, Room
 from app.forms import GroupForm
 
 def validation_errors_to_error_messages(validation_errors):
@@ -68,3 +68,9 @@ def join_group(groupId):
     group.users.append(user)
     db.session.commit()
     return group.to_dict()
+
+
+@group_routes.route('/<int:groupId>/rooms')
+def get_rooms(groupId):
+    rooms = Room.query.filter(Room.group_id == groupId)
+    return {'rooms': [room.to_dict() for room in rooms]}

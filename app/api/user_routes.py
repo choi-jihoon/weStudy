@@ -1,8 +1,9 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, request
 from flask_login import login_required, current_user
 from app.aws_s3 import (
     upload_file_to_s3, allowed_file, get_unique_filename)
-from app.models import User
+from app.models import db, User
+from app.forms import UpdateImage
 
 def validation_errors_to_error_messages(validation_errors):
     """

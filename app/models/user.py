@@ -60,4 +60,5 @@ class Group(db.Model):
             'id': self.id,
             'group_name': self.group_name,
             'description': self.description,
+            'users': [user.to_dict() for user in self.users]
         }

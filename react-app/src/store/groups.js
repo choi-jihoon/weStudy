@@ -1,21 +1,79 @@
-const LOAD_GROUPS = 'groups/LOAD_GROUPS'
+const LOAD_GROUPS = 'groups/LOAD_GROUPS';
+const CREATE_GROUP = 'groups/CREATE_GROUP';
+const REMOVE_GROUP = 'groups/REMOVE_GROUP';
 
 const loadGroups = (groups) => ({
     type: LOAD_GROUPS,
     groups
 });
 
+const create = (group) => ({
+    type: CREATE_GROUP,
+    group
+})
+
+const remove = (group) => ({
+    type: REMOVE_GROUP,
+    group
+})
+
 export const getGroups = () => async (dispatch) => {
     const res = await fetch(`/api/groups/`);
     if (res.ok) {
         const data = await res.json();
-        console.log("HIIIIIIIIII", data)
         if (data.errors) {
             return;
         }
         dispatch(loadGroups(data.groups));
     }
 };
+
+export const createGroup = (group_name, description, owner_id) => async (dispatch) => {
+    const res = await fetch(`/api/groups/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            group_name,
+            description,
+            owner_id
+        })
+    })
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(create(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return {'ERROR': 'An error occurred. Please try again.'}
+    }
+}
+
+export const deleteGroup = (groupId) => async (dispatch) => {
+    const res = await fetch(`/api/groups/${groupId}`, {
+        method: 'DELETE'
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(remove(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return {'ERROR': 'An error occurred. Please try again.'}
+    }
+
+}
 
 
 const initialState = {}
@@ -31,6 +89,19 @@ const groups = (state = initialState, action) => {
                 ...loadGroups
             }
         }
+
+        case CREATE_GROUP: {
+            const newState = { ...state };
+            newState[action.group.id] = action.group
+            return newState;
+        }
+
+        case REMOVE_GROUP: {
+            const newState = { ...state };
+            delete newState[action.group.id];
+            return newState;
+        }
+
         default:
             return state
     }

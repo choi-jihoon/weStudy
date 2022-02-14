@@ -29,7 +29,7 @@ def create_group():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         user = User.query.get(current_user.get_id())
-        group = Group(group_name=form['group_name'].data, description=form['description'].data)
+        group = Group(group_name=form['group_name'].data, description=form['description'].data, owner_id=form['owner_id'].data)
         group.users.append(user)
         db.session.add(group)
         db.session.commit()

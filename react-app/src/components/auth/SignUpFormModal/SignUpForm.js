@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 
+import DemoLogin from "../DemoLogin";
 import { signUp } from "../../../store/session";
 
 
@@ -179,6 +180,7 @@ const SignUpForm = () => {
 			<div className="sf-btn-container">
 				<button type="submit">Sign Up</button>
 			</div>
+			<DemoLogin />
 		</form>
 	);
 };

@@ -82,7 +82,6 @@ export const deleteGroup = (groupId) => async (dispatch) => {
 }
 
 export const editGroup = (groupId, group_name, description, owner_id) => async (dispatch) => {
-    console.log("HELLO?????????????")
     const res = await fetch(`/api/groups/${groupId}`, {
         method: 'PUT',
         headers: {

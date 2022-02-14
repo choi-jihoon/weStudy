@@ -53,13 +53,11 @@ def edit_group(groupId):
     form['csrf_token'].data = request.cookies['csrf_token']
     print('oh no')
     if form.validate_on_submit():
-        print('HELLOOOOOOOOOOOOOOO')
         group = Group.query.get(groupId)
         group.group_name = form.data['group_name']
         group.description = form.data['description']
         db.session.commit()
         return group.to_dict()
-    print('****************************************', form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

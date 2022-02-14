@@ -15,7 +15,6 @@ const EditGroupForm = ({ setShowModal, group }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-        console.log("IN SUBMIT")
 		const data = await dispatch(editGroup(group.id, groupName, description, user.id));
 
 		if (data) {

@@ -13,8 +13,6 @@ const Rooms = () => {
 
     const group = useSelector(state => state.groups[groupId])
 
-    console.log(rooms)
-
     useEffect(() => {
         dispatch(getRooms(groupId));
     }, [dispatch, groupId]);

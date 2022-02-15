@@ -1,6 +1,8 @@
 const LOAD_ROOMS = 'rooms/LOAD_ROOMS';
 const LOAD_ROOM = 'rooms/LOAD_ROOM';
 const CREATE_ROOM = 'rooms/CREATE_ROOM';
+const DELETE_ROOM = 'rooms/DELETE_ROOM';
+const EDIT_ROOM = 'rooms/EDIT_ROOM';
 
 const loadRooms = (rooms) => ({
     type: LOAD_ROOMS,
@@ -14,6 +16,16 @@ const loadRoom = (room) => ({
 
 const create = (room) => ({
     type: CREATE_ROOM,
+    room
+})
+
+const remove = (room) => ({
+    type: DELETE_ROOM,
+    room
+})
+
+const edit = (room) => ({
+    type: EDIT_ROOM,
     room
 })
 
@@ -53,7 +65,51 @@ export const createRoom = (room_name, group_id) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(create(data.room));
+        dispatch(create(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return {'ERROR': 'An error occurred. Please try again.'}
+    }
+}
+
+export const deleteRoom = (roomId) => async (dispatch) => {
+    const res = await fetch(`/api/rooms/${roomId}`, {
+        method: 'DELETE'
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(remove(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return {'ERROR': 'An error occurred. Please try again.'}
+    }
+}
+
+export const editRoom = (roomId, room_name) => async (dispatch) => {
+    const res = await fetch(`/api/rooms/${roomId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            room_name
+        })
+    })
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(edit(data));
         return null;
     } else if (res.status < 500) {
         const data = await res.json();
@@ -86,6 +142,18 @@ const rooms = (state = initialState, action) => {
         }
 
         case CREATE_ROOM: {
+            const newState = { ...state };
+            newState[action.room.id] = action.room;
+            return newState;
+        }
+
+        case DELETE_ROOM: {
+            const newState = { ...state };
+            delete newState[action.room.id];
+            return newState;
+        }
+
+        case EDIT_ROOM: {
             const newState = { ...state };
             newState[action.room.id] = action.room;
             return newState;

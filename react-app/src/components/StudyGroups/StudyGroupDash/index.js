@@ -6,6 +6,7 @@ import { getGroup } from '../../../store/groups';
 import Rooms from "../Group/Rooms";
 import AddUserToGroupModal from '../AddUserToGroupModal';
 import LeaveGroupModal from '../LeaveGroupModal';
+import CreateRoomModal from './CreateRoomModal';
 
 
 import './StudyGroupDash.css'
@@ -29,6 +30,7 @@ const StudyGroupDash = () => {
                 {user.id !== group.owner_id &&
                 <LeaveGroupModal group={group} />
                 }
+                <CreateRoomModal group={group} />
                 <Rooms group={group} />
             </div>
             }

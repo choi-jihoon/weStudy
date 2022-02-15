@@ -1,5 +1,6 @@
 const LOAD_ROOMS = 'rooms/LOAD_ROOMS';
 const LOAD_ROOM = 'rooms/LOAD_ROOM';
+const CREATE_ROOM = 'rooms/CREATE_ROOM';
 
 const loadRooms = (rooms) => ({
     type: LOAD_ROOMS,
@@ -8,6 +9,11 @@ const loadRooms = (rooms) => ({
 
 const loadRoom = (room) => ({
     type: LOAD_ROOM,
+    room
+})
+
+const create = (room) => ({
+    type: CREATE_ROOM,
     room
 })
 
@@ -33,6 +39,32 @@ export const getRoom = (roomId) => async (dispatch) => {
     }
 }
 
+export const createRoom = (room_name, group_id) => async (dispatch) => {
+    const res = await fetch(`/api/rooms/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            room_name,
+            group_id
+        })
+    })
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(create(data.room));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return {'ERROR': 'An error occurred. Please try again.'}
+    }
+}
+
 const initialState = {};
 
 const rooms = (state = initialState, action) => {
@@ -48,6 +80,12 @@ const rooms = (state = initialState, action) => {
         }
 
         case LOAD_ROOM: {
+            const newState = { ...state };
+            newState[action.room.id] = action.room;
+            return newState;
+        }
+
+        case CREATE_ROOM: {
             const newState = { ...state };
             newState[action.room.id] = action.room;
             return newState;

@@ -171,7 +171,7 @@ export const leaveStudyGroup = (groupId) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(addToGroup(data));
+        dispatch(leaveGroup(data));
         return null;
     } else if (res.status < 500) {
         const data = await res.json();

@@ -29,7 +29,7 @@ const Chat = () => {
 
     useEffect(() => {
         dispatch(getRoom(roomId));
-    }, [dispatch])
+    }, [dispatch, roomId])
 
     useEffect(() => {
         socket = io();

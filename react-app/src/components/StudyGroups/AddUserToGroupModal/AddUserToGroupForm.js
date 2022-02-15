@@ -1,13 +1,11 @@
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addUserToGroup } from '../../../store/groups';
 
 
 const AddUserToGroupForm = ({ group, setShowModal }) => {
     const [errors, setErrors] = useState({});
     const [username, setUsername] = useState('');
-
-    const user = useSelector(state => state.session.user);
 
     const dispatch = useDispatch();
 

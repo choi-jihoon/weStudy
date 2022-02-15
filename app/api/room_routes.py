@@ -29,7 +29,7 @@ def create_room():
         room = Room(user_id=current_user.get_id(), room_name=form['room_name'].data, group_id=form['group_id'].data)
         db.session.add(room)
         db.session.commit()
-        return {'room': room.to_dict()}
+        return room.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

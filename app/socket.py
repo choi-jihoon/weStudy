@@ -21,12 +21,15 @@ socketio = SocketIO(cors_allowed_origins="*")
 # handle chat messages
 @socketio.on("chat")
 def handle_chat(data):
-    emit("chat", data, broadcast=True)
+    room = data['room']
+    emit("chat", data, broadcast=True, to=room)
+    # emit("chat", data)
 
 # handle whiteboard drawings
 @socketio.on("drawing")
 def handle_draw(data):
     emit("drawing", data, broadcast=True)
+    # emit("drawing", data)
 
 
 @socketio.on('join')

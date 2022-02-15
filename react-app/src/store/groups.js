@@ -4,6 +4,7 @@ const REMOVE_GROUP = 'groups/REMOVE_GROUP';
 const EDIT_GROUP = 'groups/EDIT_GROUP';
 const ADD_TO_GROUP = 'groups/ADD_TO_GROUP';
 const LOAD_GROUP = 'groups/LOAD_GROUP';
+const LEAVE_GROUP = 'groups/LEAVE_GROUP';
 
 const loadGroups = (groups) => ({
     type: LOAD_GROUPS,
@@ -32,6 +33,11 @@ const addToGroup = (group) => ({
 
 const loadGroup = (group) => ({
     type: LOAD_GROUP,
+    group
+})
+
+const leaveGroup = (group) => ({
+    type: LEAVE_GROUP,
     group
 })
 
@@ -154,6 +160,30 @@ export const addUserToGroup = (groupId, username) => async (dispatch) => {
     }
 }
 
+export const leaveStudyGroup = (groupId) => async (dispatch) => {
+    const res = await fetch(`/api/groups/${groupId}/leave`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ group_id: groupId })
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(addToGroup(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return {'ERROR': 'An error occurred. Please try again.'}
+    }
+
+}
+
 
 const initialState = {};
 
@@ -194,6 +224,12 @@ const groups = (state = initialState, action) => {
         }
 
         case LOAD_GROUP: {
+            const newState = { ...state };
+            newState[action.group.id] = action.group;
+            return newState;
+        }
+
+        case LEAVE_GROUP: {
             const newState = { ...state };
             newState[action.group.id] = action.group;
             return newState;

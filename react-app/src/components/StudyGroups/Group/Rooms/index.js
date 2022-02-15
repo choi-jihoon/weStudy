@@ -1,21 +1,19 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRooms } from "../../../../store/rooms";
 import Room from './Room';
 
-const Rooms = () => {
+const Rooms = ({ group }) => {
     const dispatch = useDispatch();
-    const { groupId } = useParams();
 
     const roomsObject = useSelector(state => state.rooms);
     const rooms = Object.values(roomsObject);
 
-    const group = useSelector(state => state.groups[groupId])
+    // const group = useSelector(state => state.groups[group.id]);
 
     useEffect(() => {
-        dispatch(getRooms(groupId));
-    }, [dispatch, groupId]);
+        dispatch(getRooms(group.id));
+    }, [dispatch, group.id]);
 
     return (
         <>

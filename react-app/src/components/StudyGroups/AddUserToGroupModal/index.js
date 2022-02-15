@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Modal } from "../../../context/Modal";
 import AddUserToGroupForm from "./AddUserToGroupForm";
 
-function AddUserToGroupModal() {
+function AddUserToGroupModal({ group }) {
 	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
@@ -19,7 +19,7 @@ function AddUserToGroupModal() {
 			</button>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
-					<AddUserToGroupForm setShowModal={setShowModal} />
+					<AddUserToGroupForm setShowModal={setShowModal} group={group} />
 				</Modal>
 			)}
 		</>

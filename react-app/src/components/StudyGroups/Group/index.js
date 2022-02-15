@@ -13,6 +13,7 @@ const Group = ({ group }) => {
             <div className='btn-container'>
                 <DeleteGroupModal group={group} />
                 <EditGroupModal group={group} />
+
             </div>
         </div>
     )

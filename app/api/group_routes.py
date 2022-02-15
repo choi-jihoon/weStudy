@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import current_user
 from app.models import db, Group, User, Room
-from app.forms import GroupForm
+from app.forms import GroupForm, AddToGroupForm
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -21,6 +21,11 @@ group_routes = Blueprint('groups', __name__)
 def get_groups():
     user = User.query.get(current_user.get_id())
     return user.groups_to_dict()
+
+@group_routes.route('/<int:groupId>')
+def get_group(groupId):
+    group = Group.query.get(int(groupId))
+    return group.to_dict()
 
 
 @group_routes.route('/', methods=['POST'])
@@ -51,11 +56,24 @@ def delete_group(groupId):
 def edit_group(groupId):
     form = GroupForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('oh no')
     if form.validate_on_submit():
         group = Group.query.get(groupId)
         group.group_name = form.data['group_name']
         group.description = form.data['description']
+        db.session.commit()
+        return group.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@group_routes.route('/<int:groupId>/add', methods=['PATCH'])
+def add_to_group(groupId):
+    form = AddToGroupForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        group = Group.query.get(groupId)
+        print('*********************************', group)
+        user = User.query.filter(User.username == form.data['username']).first()
+        group.users.append(user)
         db.session.commit()
         return group.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401

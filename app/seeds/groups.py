@@ -23,6 +23,7 @@ def seed_groups():
     user2 = User.query.get(2)
 
     group1.users.append(user1)
+    group1.users.append(user2)
     group2.users.append(user2)
 
     group3.users.append(user1)

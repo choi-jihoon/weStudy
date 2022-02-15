@@ -20,6 +20,7 @@ class User(db.Model, UserMixin):
     rooms = db.relationship('Room', back_populates='user')
     groups = db.relationship('Group', back_populates='users', secondary=study_groups)
     owned_groups = db.relationship('Group', back_populates='owner')
+    notes = db.relationship('Note', back_populates='user')
 
     @property
     def password(self):
@@ -53,10 +54,13 @@ class Group(db.Model):
     group_name = db.Column(db.String(40), nullable=False)
     description = db.Column(db.String(255))
     owner_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    group_image = db.Column(db.String(255))
 
     rooms = db.relationship('Room', back_populates='group')
     users = db.relationship('User', back_populates='groups', secondary=study_groups)
     owner = db.relationship('User', back_populates='owned_groups')
+
+    notes = db.relationship('Note', back_populates='group')
 
     def to_dict(self):
         return {
@@ -64,5 +68,6 @@ class Group(db.Model):
             'group_name': self.group_name,
             'description': self.description,
             'owner_id': self.owner_id,
+            'group_image': self.group_image,
             'users': [user.to_dict() for user in self.users]
         }

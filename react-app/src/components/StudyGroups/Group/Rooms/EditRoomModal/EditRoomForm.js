@@ -5,7 +5,7 @@ import { editRoom } from "../../../../../store/rooms";
 
 const EditRoomForm = ({ setShowModal, room }) => {
 	const [errors, setErrors] = useState({});
-	const [roomName, setRoomName] = useState("");
+	const [roomName, setRoomName] = useState(room.room_name);
 
 	const dispatch = useDispatch();
 

@@ -23,11 +23,11 @@ function EditRoomModal({ room }) {
 					handleClick(e);
 				}}
 			>
-				Edit Room Name
+				<i className="fas fa-edit edit-bill-icon"></i>
 			</button>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
-					<EditRoomForm showModal={setShowModal} room={room} />
+					<EditRoomForm setShowModal={setShowModal} room={room} />
 				</Modal>
 			)}
 		</>

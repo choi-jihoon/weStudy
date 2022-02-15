@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { io } from 'socket.io-client';
+import { getRoom } from '../../store/rooms';
 
 let socket;
 
 const Chat = () => {
     const { roomId } = useParams();
+    const dispatch = useDispatch();
 
     const user = useSelector(state => state.session.user)
     const rooms = useSelector(state => state.rooms)
@@ -26,8 +28,12 @@ const Chat = () => {
     }
 
     useEffect(() => {
+        dispatch(getRoom(roomId));
+    }, [dispatch])
+
+    useEffect(() => {
         socket = io();
-        socket.emit('join', {'username': user.username, 'room': room.room_name})
+        socket.emit('join', {'username': user.username, 'room': room?.room_name})
         console.log('joined room')
 
         socket.on('chat', (chat) => {

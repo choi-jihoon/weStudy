@@ -23,13 +23,12 @@ socketio = SocketIO(cors_allowed_origins="*")
 def handle_chat(data):
     room = data['room']
     emit("chat", data, broadcast=True, to=room)
-    # emit("chat", data)
+
 
 # handle whiteboard drawings
 @socketio.on("drawing")
 def handle_draw(data):
     emit("drawing", data, broadcast=True)
-    # emit("drawing", data)
 
 
 @socketio.on('join')
@@ -38,6 +37,7 @@ def on_join(data):
     room = data['room']
     join_room(room)
     send(username + ' has entered the room.', to=room)
+
 
 @socketio.on('leave')
 def on_leave(data):

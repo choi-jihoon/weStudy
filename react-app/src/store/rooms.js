@@ -1,8 +1,14 @@
 const LOAD_ROOMS = 'rooms/LOAD_ROOMS';
+const LOAD_ROOM = 'rooms/LOAD_ROOM';
 
 const loadRooms = (rooms) => ({
     type: LOAD_ROOMS,
     rooms
+})
+
+const loadRoom = (room) => ({
+    type: LOAD_ROOM,
+    room
 })
 
 export const getRooms = (groupId) => async (dispatch) => {
@@ -13,6 +19,17 @@ export const getRooms = (groupId) => async (dispatch) => {
             return;
         }
         dispatch(loadRooms(data.rooms))
+    }
+}
+
+export const getRoom = (roomId) => async (dispatch) => {
+    const res = await fetch(`/api/rooms/${roomId}`);
+    if (res.ok) {
+        const data = await res.json();
+        if (data.errors) {
+            return;
+        }
+        dispatch(loadRoom(data));
     }
 }
 
@@ -28,6 +45,12 @@ const rooms = (state = initialState, action) => {
             return {
                 ...loadRooms
             }
+        }
+
+        case LOAD_ROOM: {
+            const newState = { ...state };
+            newState[action.room.id] = action.room;
+            return newState;
         }
 
         default:

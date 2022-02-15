@@ -15,6 +15,11 @@ def validation_errors_to_error_messages(validation_errors):
 
 room_routes = Blueprint('rooms', __name__)
 
+@room_routes.route('/<int:roomId>')
+def get_room(roomId):
+    room = Room.query.get(roomId)
+    return room.to_dict()
+
 
 @room_routes.route('/', methods=['POST'])
 def create_room():

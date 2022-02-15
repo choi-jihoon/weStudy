@@ -22,7 +22,7 @@ const NavBar = () => {
         <div>
           Welcome, {user.username}!
         </div>
-        <div className='profile-pic-div'>
+        <div className='profile-pic-div user-profile-nav'>
           <img className='profile-pic' src={user.image} alt={user.username}></img>
         </div>
       </>

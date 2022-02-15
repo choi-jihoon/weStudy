@@ -2,11 +2,8 @@
     position: absolute;
     background-color: var(--base-color);
     top: 100px;
-    height: 100%;
-    width: 100%;
+
 }
-
-
 
 .dashboard-nav-links {
     /* border: 1px solid red; */
@@ -17,10 +14,13 @@
     border: 1px solid green;
 } */
 
-.user-profile-nav {
-    border: 1px solid yellow;
+.profile-pic-div.user-profile-nav {
     display: flex;
     align-items: center;
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    background-color: aliceblue;
 }
 
 .user-profile-nav > .profile-pic-div {

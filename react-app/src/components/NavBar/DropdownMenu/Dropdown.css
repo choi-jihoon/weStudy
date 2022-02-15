@@ -5,6 +5,7 @@
     align-items: center;
     color: white;
     /* background: #C06162; */
+    padding: 10px 20px;
     /* background: #34495e; */
     position: relative;
     font-size: 18px;
@@ -46,6 +47,10 @@
 
 .dropdown_menu li:hover {
     background-color: var(--honeydew);
+}
+
+.dropdown_menu li > div:hover {
+    color: var(--raisin-black);
 }
 
 .dropdown:hover .dropdown_menu--animated {

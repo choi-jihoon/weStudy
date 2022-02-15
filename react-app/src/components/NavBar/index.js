@@ -6,6 +6,8 @@ import LogoutButton from '../auth/LogoutButton';
 import LoginFormModal from '../auth/LoginFormModal';
 import SignUpFormModal from '../auth/SignUpFormModal';
 
+import './NavBar.css';
+
 const NavBar = () => {
   const user = useSelector(state => state.session.user);
 
@@ -56,7 +58,7 @@ const NavBar = () => {
 
   return (
     <nav>
-      <ul style={{ display: 'flex' }}>
+      <ul>
         {sessionLinks}
       </ul>
     </nav>

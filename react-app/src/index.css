@@ -1,6 +1,18 @@
 /* TODO Add site wide styles */
 @import url("https://use.typekit.net/kyk0anv.css");
 
+:root {
+	--raisin-black: #221D23;
+	--oxford-blue: #0B132B;
+	--rhythm: #767B91;
+	--skobeloff: #0F7173;
+	--powder-blue: #A8DADC;
+	--honeydew: #F1FAEE;
+	--red-violet: #912F40;
+	--terra-cotta: #ED6A5A;
+
+}
+
 *,
 body,
 html {
@@ -10,7 +22,29 @@ html {
 	text-decoration: none;
 	list-style-type: none;
 	font-family: proxima-nova, sans-serif;
+	color: var(--honeydew);
+}
 
+body,
+html {
+	width: 100%;
+	height: 100%;
+}
+
+a,
+a:hover,
+a:visited,
+a:active {
+	color: inherit;
+	text-decoration: none;
+}
+
+button {
+	border: none;
+	background-color: var(--skobeloff);
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 3px;
 }
 
 .whole-page-container {
@@ -18,7 +52,11 @@ html {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	width: 100vw;
+	height: 100%;
+	width: 100%;
+	background-color: var(--oxford-blue);
+	position: absolute;
+
 }
 
 .profile-pic-div {

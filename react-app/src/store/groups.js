@@ -137,7 +137,7 @@ export const addUserToGroup = (groupId, username) => async (dispatch) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username })
+        body: JSON.stringify({ group_id: groupId, username })
     })
 
     if (res.ok) {

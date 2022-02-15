@@ -71,7 +71,6 @@ def add_to_group(groupId):
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         group = Group.query.get(groupId)
-        print('*********************************', group)
         user = User.query.filter(User.username == form.data['username']).first()
         group.users.append(user)
         db.session.commit()

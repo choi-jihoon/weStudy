@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
 
 import { createGroup } from "../../../store/groups";
 
 import "./CreateGroupForm.css";
 
 const CreateGroupForm = ({ setShowModal }) => {
+	const history = useHistory();
+	const location = useLocation();
 	const [errors, setErrors] = useState({});
 	const [groupName, setGroupName] = useState("");
 	const [description, setDescription] = useState("");
@@ -27,6 +30,8 @@ const CreateGroupForm = ({ setShowModal }) => {
 			return;
 		}
         setShowModal(false);
+
+		if (location.pathname !=='/') history.push('/');
 	};
 
 

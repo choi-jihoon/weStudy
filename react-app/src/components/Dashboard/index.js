@@ -1,12 +1,14 @@
 
 import StudyGroups from '../StudyGroups';
 
+import './Dashboard.css';
+
 const Dashboard = () => {
     return (
-        <>
-            <h1>Dashboard</h1>
+        <div className='dashboard-container'>
+            {/* <h1>Dashboard</h1> */}
             <StudyGroups />
-        </>
+        </div>
     )
 }
 

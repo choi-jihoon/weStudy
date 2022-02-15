@@ -1,0 +1,38 @@
+.dashboard-container {
+    position: absolute;
+    background-color: var(--base-color);
+    top: 100px;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+.dashboard-nav-links {
+    /* border: 1px solid red; */
+    justify-content: space-between;
+}
+
+/* .dashboard-nav-links > li {
+    border: 1px solid green;
+} */
+
+.user-profile-nav {
+    border: 1px solid yellow;
+    display: flex;
+    align-items: center;
+}
+
+.user-profile-nav > .profile-pic-div {
+    width: 50px;
+    height: 50px;
+}
+
+
+
+.study-groups-container {
+    display: flex;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}

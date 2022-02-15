@@ -5,6 +5,8 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import LoginFormModal from '../auth/LoginFormModal';
 import SignUpFormModal from '../auth/SignUpFormModal';
+import DropdownMenu from './DropdownMenu';
+import CreateGroupModal from '../StudyGroups/CreateGroupModal';
 
 import './NavBar.css';
 
@@ -12,8 +14,20 @@ const NavBar = () => {
   const user = useSelector(state => state.session.user);
 
   let sessionLinks;
+  let userMenu;
 
   if (user) {
+    userMenu = (
+      <>
+        <div>
+          Welcome, {user.username}!
+        </div>
+        <div className='profile-pic-div'>
+          <img className='profile-pic' src={user.image} alt={user.username}></img>
+        </div>
+      </>
+    )
+
     sessionLinks = (
       <ul className='dashboard-nav-links'>
         <li>
@@ -21,26 +35,27 @@ const NavBar = () => {
             Home
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to='/whiteboard' exact={true} activeClassName='active'>
             Whiteboard
           </NavLink>
-        </li>
-        <li>
+        </li> */}
+        {/* <li>
           <LogoutButton />
-        </li>
-        <li>
+        </li> */}
+        <DropdownMenu title={userMenu} items={[<CreateGroupModal />, <LogoutButton />]} />
+        {/* <li className='user-profile-nav'>
           {user &&
             <>
+              <div>
+                Welcome, {user.username}!
+              </div>
               <div className='profile-pic-div'>
                 <img className='profile-pic' src={user.image} alt={user.username}></img>
               </div>
-              <div>
-                {user.username}
-              </div>
             </>
           }
-        </li>
+        </li> */}
       </ul>
     )
   } else {

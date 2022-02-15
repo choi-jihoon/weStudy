@@ -6,4 +6,4 @@ from app.models import Room
 
 class RoomForm(FlaskForm):
     room_name = StringField('room_name', validators=[DataRequired()])
-    group_id = IntegerField('group_id', validators=[DataRequired()])
+    group_id = IntegerField('group_id')

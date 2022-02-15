@@ -1,6 +1,7 @@
 const LOAD_ROOMS = 'rooms/LOAD_ROOMS';
 const LOAD_ROOM = 'rooms/LOAD_ROOM';
 const CREATE_ROOM = 'rooms/CREATE_ROOM';
+const DELETE_ROOM = 'rooms/DELETE_ROOM';
 
 const loadRooms = (rooms) => ({
     type: LOAD_ROOMS,
@@ -14,6 +15,11 @@ const loadRoom = (room) => ({
 
 const create = (room) => ({
     type: CREATE_ROOM,
+    room
+})
+
+const remove = (room) => ({
+    type: DELETE_ROOM,
     room
 })
 
@@ -65,6 +71,25 @@ export const createRoom = (room_name, group_id) => async (dispatch) => {
     }
 }
 
+export const deleteRoom = (roomId) => async (dispatch) => {
+    const res = await fetch(`/api/rooms/${roomId}`, {
+        method: 'DELETE'
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(remove(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return {'ERROR': 'An error occurred. Please try again.'}
+    }
+}
+
 const initialState = {};
 
 const rooms = (state = initialState, action) => {
@@ -88,6 +113,12 @@ const rooms = (state = initialState, action) => {
         case CREATE_ROOM: {
             const newState = { ...state };
             newState[action.room.id] = action.room;
+            return newState;
+        }
+
+        case DELETE_ROOM: {
+            const newState = { ...state };
+            delete newState[action.room.id];
             return newState;
         }
 

@@ -11,6 +11,11 @@
 	--red-violet: #912F40;
 	--terra-cotta: #ED6A5A;
 
+	--base-color: #0B132B;
+	--main-text-color: #F1FAEE;
+	--nav-color: #912F40;
+	--button-color: #0F7173;
+
 }
 
 *,
@@ -22,7 +27,7 @@ html {
 	text-decoration: none;
 	list-style-type: none;
 	font-family: proxima-nova, sans-serif;
-	color: var(--honeydew);
+	color: var(--main-text-color);
 }
 
 body,
@@ -41,7 +46,7 @@ a:active {
 
 button {
 	border: none;
-	background-color: var(--skobeloff);
+	background-color: var(--button-color);
 	padding: 5px 10px;
 	cursor: pointer;
 	border-radius: 3px;
@@ -54,7 +59,7 @@ button {
 	align-items: center;
 	height: 100%;
 	width: 100%;
-	background-color: var(--oxford-blue);
+	background-color: var(--base-color);
 	position: absolute;
 
 }

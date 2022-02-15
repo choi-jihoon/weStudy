@@ -6,7 +6,7 @@ nav {
     height: 100px;
     justify-content: center;
     align-items: center;
-    background-color: var(--red-violet);
+    background-color: var(--nav-color);
 }
 
 nav > ul {

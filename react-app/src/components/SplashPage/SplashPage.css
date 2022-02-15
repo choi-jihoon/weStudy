@@ -1,0 +1,151 @@
+.splash-page-container {
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.title-container {
+    align-self: flex-start;
+
+    width: 100%;
+    height: 300px;
+    border-top: 1px solid var(--honeydew);
+    border-bottom: 1px solid var(--honeydew);
+    padding: 30px 0 30px 100px;
+    margin-bottom: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.title-image {
+    display: flex;
+    align-items: center;
+}
+
+.title-image > h1 {
+    font-size: 100px;
+}
+
+.title-container > h4 {
+    font-size: 20px;
+    font-style: italic;
+}
+
+
+.title-image > img {
+    height: 100px;
+    width: 100px;
+    margin-left: 50px;
+}
+
+
+.splash-page-nav-links {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.splash-page-nav-links > li {
+    padding: 0 20px;
+}
+
+#login,
+#signup {
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#login:hover,
+#signup:hover {
+    color: var(--powder-blue);
+}
+
+
+
+.splash-page-footer {
+    background-color: var(--honeydew);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: var(--raisin-black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: var(--raisin-black);
+}
+
+.technologies {
+    display: flex;
+    padding: 10px 24px;
+    justify-content: space-around;
+    align-items: center;
+    width: 90%;
+    border-bottom: 1px dashed var(--raisin-black);
+    min-width: 550px;
+}
+
+.technologies li {
+    color: var(--raisin-black);
+    font-size: 15px;
+}
+
+.copyright {
+    color: var(--raisin-black);
+    padding: 10px 0px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    min-width: 260px;
+}
+
+.footer-text {
+    color: var(--raisin-black);
+}
+
+.about-me {
+    display: flex;
+    color: var(--raisin-black);
+}
+
+.about-me li {
+    margin: 0 10px;
+    color: var(--raisin-black);
+
+}
+
+.fa-github,
+.fa-linkedin {
+    font-size: 18px;
+    transition-duration: 0.2s;
+    color: var(--raisin-black);
+}
+
+.copyright > .footer-text {
+    padding-right: 20px;
+}
+
+.fa-github:hover,
+.fa-linkedin:hover,
+.copyright > .footer-text:hover {
+    color: var(--powder-blue);
+    transform: scale(1.2);
+}
+
+.footer-text {
+    transition-duration: 0.2s;
+}
+
+/* .footer-text:hover {
+    color: white;
+    transform: scale(1.1);
+} */

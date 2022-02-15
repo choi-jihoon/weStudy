@@ -169,11 +169,11 @@ const SignUpForm = () => {
 						)}
 					</div>
 					<label htmlFor="file-upload">Add Profile Image</label>
-					{imageLoading && (
+					{/* {imageLoading && (
 						<p>
 							<i className="fas fa-spinner fa-pulse"></i>
 						</p>
-					)}
+					)} */}
 				</div>
 			</div>
 

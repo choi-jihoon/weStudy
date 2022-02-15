@@ -6,7 +6,7 @@ def seed_users():
     demo = User(
         username='Demo', email='demo@aa.io', password='password', image='https://fionacapstonebucket.s3.amazonaws.com/defaults/52638a4b87654527b8fa25d13d81862a.png')
     fiona = User(
-        username='fiona', email='fiona@aa.io', password='password', image='https://fionacapstonebucket.s3.amazonaws.com/defaults/52638a4b87654527b8fa25d13d81862a.png')
+        username='fiona', email='fiona@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/c203d7ca558d417b9aea8cd102ae32cf.jpg')
 
     db.session.add(demo)
     db.session.add(fiona)

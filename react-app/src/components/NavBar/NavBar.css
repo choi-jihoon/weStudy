@@ -6,12 +6,13 @@ nav {
     height: 100px;
     justify-content: center;
     align-items: center;
-    background-color: var(--nav-color);
+    /* background-color: var(--nav-color); */
+    background-color: transparent;
 }
 
 nav > ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
+    width: 90%;
 }

@@ -15,7 +15,7 @@ const NavBar = () => {
 
   if (user) {
     sessionLinks = (
-      <>
+      <ul className='dashboard-nav-links'>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
@@ -41,26 +41,24 @@ const NavBar = () => {
             </>
           }
         </li>
-      </>
+      </ul>
     )
   } else {
     sessionLinks = (
-      <>
+      <ul className='splash-page-nav-links'>
         <li>
           <LoginFormModal />
         </li>
         <li>
           <SignUpFormModal />
         </li>
-      </>
+      </ul>
     )
   }
 
   return (
     <nav>
-      <ul>
-        {sessionLinks}
-      </ul>
+      {sessionLinks}
     </nav>
   );
 }

@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SplashPage from './components/SplashPage';
 import Dashboard from './components/Dashboard';
-import Rooms from './components/StudyGroups/Group/Rooms';
+import StudyGroupDash from './components/StudyGroups/StudyGroupDash';
 import NavBar from './components/NavBar';
 import Chat from './components/Chat';
 import Whiteboard from './components/Whiteboard';
@@ -34,7 +34,7 @@ function App() {
           {sessionUser ? <Dashboard /> : <SplashPage />}
         </Route>
         <Route path='/groups/:groupId'>
-          <Rooms />
+          <StudyGroupDash />
         </Route>
         <Route exact path='/whiteboard'>
           <Whiteboard />

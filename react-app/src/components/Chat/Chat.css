@@ -1,7 +1,26 @@
-.chat-room-container {
-    width: 700px;
+/* .chat-and-input-container {
     display: flex;
+    justify-content: center;
+    width: 100%;
+    position: absolute;
+    top: 100px;
+    height: calc(100vh - 100px);
+    padding: 50px;
+    margin-bottom: 200px;
+} */
+
+.chat-room-container {
+    position: absolute;
+    top: 100px;
+    width: 70%;
+    display: flex;
+    max-height: calc(100vh - 200px);
     flex-direction: column;
+    overflow-y: scroll;
+    /* border: 1px solid white; */
+    padding: 25px;
+
+
 }
 
 .profile-pic-div.chat-profile-pic {
@@ -25,4 +44,39 @@
 
 .center {
     align-self: center;
+    font-style: italic;
+}
+
+.chat-input-form {
+    width: 72%;
+    display: flex;
+    /* position: relative; */
+    padding: 20px 0;
+    position: absolute;
+    bottom: 5%;
+
+}
+
+.chat-input-form > input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.chat-input-form > button {
+    position: absolute;
+    right: 0;
+    visibility: hidden;
+}
+
+.chat-msg {
+    padding: 10px;
+}
+
+.chat-msg.left > .chat-message {
+    padding-left: 20px;
+}
+
+.chat-msg.right > .chat-message {
+    padding-right: 20px;
 }

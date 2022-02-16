@@ -45,6 +45,10 @@ a:active {
 	text-decoration: none;
 }
 
+*::-webkit-scrollbar {
+	display: none;
+  }
+
 button {
 	border: none;
 	background-color: var(--button-color);

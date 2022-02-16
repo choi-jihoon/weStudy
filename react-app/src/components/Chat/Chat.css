@@ -1,0 +1,19 @@
+.chat-room-container {
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+}
+
+.right {
+    display: flex;
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.left {
+    align-self: flex-start;
+}
+
+.center {
+    align-self: center;
+}

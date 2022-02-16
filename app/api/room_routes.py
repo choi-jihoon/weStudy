@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
-from app.models import db, Room
+from app.models import db, Room, Chat
 from app.forms import RoomForm
 
 def validation_errors_to_error_messages(validation_errors):
@@ -52,3 +52,9 @@ def delete_room(roomId):
     db.session.delete(room)
     db.session.commit()
     return data
+
+
+@room_routes.route('/<int:roomId>/chats')
+def get_chats(roomId):
+    chats = Chat.query.filter(Chat.room_id == roomId).all()
+    return { 'chats': [chat.to_dict() for chat in chats] }

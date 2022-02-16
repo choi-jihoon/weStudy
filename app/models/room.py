@@ -10,6 +10,7 @@ class Room(db.Model):
 
     user = db.relationship('User', back_populates='rooms')
     group = db.relationship('Group', back_populates='rooms')
+    chats = db.relationship('Chat', back_populates='room')
 
     def to_dict(self):
         return {
@@ -18,4 +19,5 @@ class Room(db.Model):
             'group_id': self.group_id,
             'group': self.group.group_name,
             'room_name': self.room_name,
+            'chats': [chat.to_dict() for chat in self.chats]
         }

@@ -4,12 +4,14 @@ import session from './session';
 import groups from './groups';
 import rooms from './rooms';
 import notes from './notes';
+import chats from './chats';
 
 const rootReducer = combineReducers({
   session,
   groups,
   rooms,
   notes,
+  chats,
 });
 
 

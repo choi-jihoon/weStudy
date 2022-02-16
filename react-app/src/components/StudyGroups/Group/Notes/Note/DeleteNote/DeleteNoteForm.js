@@ -1,17 +1,21 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 
 import { deleteNote } from "../../../../../../store/notes";
 
 function DeleteNoteForm({ showModal, note }) {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation();
 
         await dispatch(deleteNote(note.id));
+
+        history.push(`/groups/${note.group_id}`)
 
         showModal(false);
     };

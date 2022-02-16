@@ -49,7 +49,7 @@ const LoginForm = () => {
 
 	return (
 		<form onSubmit={onLogin} className="login-form">
-			<div className="modal-head">Login to SplitaBill</div>
+			<div className="modal-head">Log in to Existing Account</div>
 			<div className='login-element-container'>
 				<input
 					name="email"

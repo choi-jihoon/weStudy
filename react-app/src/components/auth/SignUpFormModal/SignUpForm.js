@@ -91,7 +91,7 @@ const SignUpForm = () => {
 	return (
 		<form onSubmit={onSignUp} className="signup-form">
 			<div className="modal-head sign-up-modal-head">
-				Sign Up for SplitaBill
+				Make an Account
 			</div>
 			<div className="signup-form-elements-container">
 				<div className="sf-form-inputs-container">

@@ -24,6 +24,7 @@ class Note(db.Model):
             'id': self.id,
             'user_id': self.user_id,
             'group_id': self.group_id,
+            'note_title': self.note_title,
             'note_text': self.note_text,
             'user': self.user.username,
             'created_at': created_at,

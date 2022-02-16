@@ -56,11 +56,11 @@ export const createNote = (user_id, group_id, note_title) => async (dispatch) =>
     if (res.ok) {
         const data = await res.json();
         dispatch(create(data));
-        return null;
+        return data.id;
     } else if (res.status < 500) {
         const data = await res.json();
         if (data.errors) {
-            return data.errors;
+            return data;
         }
     } else {
         return {'ERROR': 'An error occurred. Please try again.'}

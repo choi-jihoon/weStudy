@@ -1,31 +1,35 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from 'react-router-dom';
 
 import { createNote } from "../../../../../store/notes";
 
 const CreateNoteForm = ({ setShowModal, group }) => {
+	const dispatch = useDispatch();
+    const history = useHistory();
 
 	const [errors, setErrors] = useState({});
 	const [title, setTitle] = useState("");
 
 	const user = useSelector(state => state.session.user);
 
-	const dispatch = useDispatch();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const data = await dispatch(createNote(user.id, group.id, title));
 
-		if (data) {
+		if (data.errors) {
 			const errors = {}
-			for (let i = 0; i < data.length; i++) {
-				const error = data[i].split(": ");
+			for (let i = 0; i < data.errors.length; i++) {
+				const error = data.errors[i].split(": ");
 				errors[error[0]] = error[1]
 			}
 			setErrors(errors)
 			return;
 		}
+
         setShowModal(false);
+        history.push(`/notes/${data}`)
 	};
 
 

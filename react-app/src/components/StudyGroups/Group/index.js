@@ -15,9 +15,8 @@ const Group = ({ group }) => {
             </Link>
             {user.id === group.owner_id &&
             <div className='btn-container'>
-                <DeleteGroupModal group={group} />
                 <EditGroupModal group={group} />
-
+                <DeleteGroupModal group={group} />
             </div>
             }
         </div>

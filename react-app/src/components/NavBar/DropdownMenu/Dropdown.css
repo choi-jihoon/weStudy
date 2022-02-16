@@ -37,21 +37,36 @@
 
 .dropdown_menu li {
     display: none;
-    color: white;
+    /* color: white; */
     /* background-color: #34495e; */
     background-color: var(--drop-down);
     padding: 10px 20px;
     font-size: 16px;
     opacity: 0;
+    height: 100%;
 }
 
 .dropdown_menu li:hover {
     background-color: var(--honeydew);
-}
-
-.dropdown_menu li > div:hover {
     color: var(--raisin-black);
 }
+
+.dropdown_menu li:hover > div {
+    background-color: var(--honeydew);
+    color: var(--raisin-black);
+}
+
+.dropdown_menu li:hover > div > .fa-sign-out-alt {
+    background-color: var(--honeydew);
+    color: var(--raisin-black);
+}
+
+.dropdown_menu li > div:hover,
+.dropdonw_menu li > div > i:hover {
+    color: var(--raisin-black);
+}
+
+
 
 .dropdown:hover .dropdown_menu--animated {
     display: block;

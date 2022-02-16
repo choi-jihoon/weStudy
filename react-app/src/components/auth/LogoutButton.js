@@ -11,7 +11,7 @@ const LogoutButton = () => {
     history.push('/');
   };
 
-  return <div id='logout' onClick={onLogout}>Logout</div>;
+  return <div id='logout' onClick={onLogout}>Logout <i className="fas fa-sign-out-alt"></i></div>;
 };
 
 export default LogoutButton;

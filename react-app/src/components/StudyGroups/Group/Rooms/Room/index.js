@@ -12,7 +12,7 @@ const Room = ({ room }) => {
         <>
             <div className='room-container'>
                 <Link to={`/rooms/${room.id}/chat`}>
-                    {room.room_name}
+                    {room.room_name} <span><i className="fas fa-door-open"></i></span>
                 </Link>
                 {user.id === room.user_id &&
                     <div className='btn-container'>

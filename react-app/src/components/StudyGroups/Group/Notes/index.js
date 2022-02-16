@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getNotes } from '../../../../store/notes';
 import Note from './Note';
+import CreateNoteModal from './CreateNoteModal';
 
 const Notes = ({ group }) => {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const Notes = ({ group }) => {
 
     return (
         <div className='all-notes-container'>
+            <CreateNoteModal group={group} />
             <ul>
                 {notes?.map(note => {
                     return (<li key={note.id}>

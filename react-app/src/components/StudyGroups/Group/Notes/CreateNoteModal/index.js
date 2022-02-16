@@ -1,0 +1,29 @@
+import React, { useState, useEffect } from "react";
+import { Modal } from "../../../../../context/Modal";
+import CreateNoteForm from "./CreateNoteForm";
+
+function CreateNoteModal({ group }) {
+	const [showModal, setShowModal] = useState(false);
+
+	useEffect(() => {
+		return () => setShowModal(false);
+	}, []);
+
+	return (
+		<>
+			<div
+				id="create-note"
+				onClick={() => setShowModal(true)}
+			>
+				Create a Note
+			</div>
+			{showModal && (
+				<Modal onClose={() => setShowModal(false)}>
+					<CreateNoteForm setShowModal={setShowModal} group={group} />
+				</Modal>
+			)}
+		</>
+	);
+}
+
+export default CreateNoteModal;

@@ -3,7 +3,7 @@ from app.models import db, Group, User
 def seed_groups():
     group1 = Group(
         group_name = 'Suhayl & Co LLC',
-        description = 'The best study group to exist.',
+        description = '9/20 Bootbamp Cohort',
         owner_id = 1,
         group_image = 'https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/956dd8e3405b4874ae587292f0609c8a.png'
     )

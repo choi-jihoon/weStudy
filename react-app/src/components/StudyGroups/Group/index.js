@@ -10,8 +10,10 @@ const Group = ({ group }) => {
 
     return (
         <div className='group-container'>
-            <Link to={`/groups/${group.id}`}>
-                {group.group_name}
+            <img src={group.group_image} alt={group.group_name}></img>
+            <Link className='group-title' to={`/groups/${group.id}`}>
+                <h4>{group.group_name}</h4>
+                <p>{group.description}</p>
             </Link>
             {user.id === group.owner_id &&
             <div className='btn-container'>

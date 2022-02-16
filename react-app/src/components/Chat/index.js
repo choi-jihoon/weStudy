@@ -63,12 +63,11 @@ const Chat = () => {
 
     return (
         <div className='chat-room-container'>
-            {/* <div> */}
                 {chats.map(chat => {
                     return <div
                         className={chat.username === user.username ? 'right chat-msg' : 'left chat-msg'}
                         key={chat.id}>
-                            <div className='profile-pic-div'>
+                            <div className='profile-pic-div chat-profile-pic'>
                                 <img src={chat.user_image} alt={chat.username}></img>
                             </div>
                             <div className='chat-message'>
@@ -76,12 +75,9 @@ const Chat = () => {
                             </div>
                         </div>
                 })}
-            {/* </div> */}
-            {/* <div> */}
                 {messages.map((message, idx) => (
                     <div className={message.user === 'weStudy-Bot' ? 'center chat-msg' : 'chat-msg'} key={idx}>{`${message.user}: ${message.msg}`}</div>
                 ))}
-            {/* </div> */}
             <form className='chat-input-form' onSubmit={sendChat}>
                 <input
                     value={chatInput}

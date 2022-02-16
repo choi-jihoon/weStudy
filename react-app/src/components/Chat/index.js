@@ -5,6 +5,8 @@ import { io } from 'socket.io-client';
 import { getRoom } from '../../store/rooms';
 import { getChatMessages, createChatMessage } from '../../store/chats';
 
+import './Chat.css';
+
 let socket;
 
 const Chat = () => {
@@ -44,6 +46,7 @@ const Chat = () => {
         console.log(user.username, 'joined room')
 
         socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: room.room_name })
+        // dispatch(createChatMessage(roomId, `${user.username} has joined the room.`))
 
         socket.on('chat', (chat) => {
             setMessages(messages => [...messages, chat]);
@@ -53,13 +56,14 @@ const Chat = () => {
             console.log('leaving room')
             socket.emit('leave', { 'username': user.username, 'room': room.room_name })
             socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has left the room.`, room: room.room_name })
+            // dispatch(createChatMessage(roomId, `${user.username} has left the room.`))
 
             socket.disconnect();
         })
     }, [])
 
     return (
-        <>
+        <div className='chat-room-container'>
             <div>
                 {chats.map(chat => {
                     return <div key={chat.id}>{`${chat.username}: ${chat.message}`}</div>
@@ -70,14 +74,14 @@ const Chat = () => {
                     <div key={idx}>{`${message.user}: ${message.msg}`}</div>
                 ))}
             </div>
-            <form onSubmit={sendChat}>
+            <form className='chat-form' onSubmit={sendChat}>
                 <input
                     value={chatInput}
                     onChange={updateChatInput}
                 />
                 <button type='submit'>Send</button>
             </form>
-        </>
+        </div>
     )
 }
 

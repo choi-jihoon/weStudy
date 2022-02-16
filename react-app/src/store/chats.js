@@ -88,10 +88,14 @@ const chats = (state = initialState, action) => {
             }
         }
 
+        // case CREATE_CHAT: {
+        //     const newState = { ...state };
+        //     newState[action.chat.id] = action.chat;
+        //     return newState;
+        // }
+
         case CREATE_CHAT: {
-            const newState = { ...state };
-            newState[action.chat.id] = action.chat;
-            return newState;
+            return state;
         }
 
         case REMOVE_CHAT: {

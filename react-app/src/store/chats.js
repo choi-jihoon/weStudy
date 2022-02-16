@@ -1,5 +1,6 @@
 const LOAD_CHATS = 'chats/LOAD_CHATS';
 const CREATE_CHAT = 'chats/CREATE_CHAT';
+const REMOVE_CHAT = 'chats/REMOVE_CHAT';
 
 const load = (chats) => ({
     type: LOAD_CHATS,

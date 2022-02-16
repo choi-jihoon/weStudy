@@ -12,13 +12,16 @@ const CreateGroupForm = ({ setShowModal }) => {
 	const [errors, setErrors] = useState({});
 	const [groupName, setGroupName] = useState("");
 	const [description, setDescription] = useState("");
+	const [image, setImage] = useState(null);
+	const [imageLoading, setImageLoading] = useState(false);
 	const user = useSelector(state => state.session.user);
 
 	const dispatch = useDispatch();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const data = await dispatch(createGroup(groupName, description, user.id));
+		const data = await dispatch(createGroup(groupName, description, user.id, image));
+		setImageLoading(false);
 
 		if (data) {
 			const errors = {}
@@ -26,14 +29,19 @@ const CreateGroupForm = ({ setShowModal }) => {
 				const error = data[i].split(": ");
 				errors[error[0]] = error[1]
 			}
-			setErrors(errors)
+			setErrors(errors);
+			setImageLoading(false);
 			return;
 		}
         setShowModal(false);
 
-		if (location.pathname !=='/') history.push('/');
+		if (location.pathname !== '/') history.push('/');
 	};
 
+	const updateImage = (e) => {
+		const file = e.target.files[0];
+		setImage(file);
+	};
 
 	const updateGroupName = (e) => {
 		setGroupName(e.target.value);
@@ -45,7 +53,7 @@ const CreateGroupForm = ({ setShowModal }) => {
 
 	useEffect(() => {
 		setErrors(errors)
-	}, [errors])
+	}, [errors]);
 
 
 	return (
@@ -78,6 +86,26 @@ const CreateGroupForm = ({ setShowModal }) => {
 					{errors.description ? `${errors.description}` : ""}
 				</div>
 			</div>
+
+			<div className="sf-add-image-container">
+					<input
+						id="file-upload"
+						type="file"
+						accept="image/*"
+						onChange={updateImage}
+					></input>
+					<div className="preview-container">
+						{image && (
+							<img
+								alt="preview"
+								src={URL.createObjectURL(image)}
+								className="preview-image"
+							></img>
+						)}
+					</div>
+					<label htmlFor="file-upload">Add Group Image</label>
+				</div>
+
 			<button type="submit">Create Group</button>
 		</form>
 	);

@@ -1,5 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
+from app.aws_s3 import (upload_file_to_s3, allowed_file, get_unique_filename)
 from app.models import db, Group, User, Room, Note
 from app.forms import GroupForm, AddToGroupForm
 
@@ -32,14 +33,54 @@ def get_group(groupId):
 def create_group():
     form = GroupForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        user = User.query.get(current_user.get_id())
-        group = Group(group_name=form['group_name'].data, description=form['description'].data, owner_id=form['owner_id'].data)
-        group.users.append(user)
-        db.session.add(group)
-        db.session.commit()
 
-        return group.to_dict()
+    if form['group_image'].data:
+        group_image = form['group_image'].data
+        if not allowed_file(group_image.filename):
+            return {'errors': 'file type not allowed'}, 400
+        group_image.filename = get_unique_filename(group_image.filename)
+
+        upload = upload_file_to_s3(group_image)
+
+        if 'url' not in upload:
+            return upload, 400
+
+        url = upload['url']
+        if form.validate_on_submit():
+            group = Group(
+                group_name=form['group_name'].data,
+                description=form['description'].data,
+                owner_id=form['owner_id'].data,
+                group_image=url
+            )
+            group.users.append(user)
+            db.session.add(group)
+            db.session.commit()
+
+            default_room1 = Room(user_id=user.id, room_name='Icebreakers', group_id=group.id)
+            db.session.add(default_room1)
+            db.session.commit()
+
+            return group.to_dict()
+
+    else:
+        if form.validate_on_submit():
+            user = User.query.get(current_user.get_id())
+            group = Group(
+                group_name=form['group_name'].data,
+                description=form['description'].data,
+                owner_id=form['owner_id'].data,
+                group_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/956dd8e3405b4874ae587292f0609c8a.png'
+                )
+            group.users.append(user)
+            db.session.add(group)
+            db.session.commit()
+
+            default_room1 = Room(user_id=user.id, room_name='Icebreakers', group_id=group.id)
+            db.session.add(default_room1)
+            db.session.commit()
+
+            return group.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

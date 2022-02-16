@@ -63,7 +63,7 @@ export const getGroup = (groupId) => async (dispatch) => {
     }
 }
 
-export const createGroup = (group_name, description, owner_id) => async (dispatch) => {
+export const createGroup = (group_name, description, owner_id, group_image) => async (dispatch) => {
     const res = await fetch(`/api/groups/`, {
         method: 'POST',
         headers: {
@@ -72,7 +72,8 @@ export const createGroup = (group_name, description, owner_id) => async (dispatc
         body: JSON.stringify({
             group_name,
             description,
-            owner_id
+            owner_id,
+            group_image
         })
     })
 

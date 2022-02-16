@@ -1,4 +1,4 @@
-from app.models import db, Chat, User, Room
+from app.models import db, Chat
 
 def seed_chats():
     chat1 = Chat(

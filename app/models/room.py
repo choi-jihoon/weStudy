@@ -19,4 +19,5 @@ class Room(db.Model):
             'group_id': self.group_id,
             'group': self.group.group_name,
             'room_name': self.room_name,
+            'chats': [chat.to_dict() for chat in self.chats]
         }

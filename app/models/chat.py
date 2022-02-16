@@ -15,11 +15,13 @@ class Chat(db.Model):
     room = db.relationship('Room', back_populates='chats')
 
     def to_dict(self):
+        created_at = self.created_at.strftime("%m/%d/%Y at %I:%M:%S%p")
+
         return {
             'id': self.id,
             'user_id': self.user_id,
             'username': self.user.username,
             'room_id': self.room_id,
             'message': self.message,
-            'created_at': self.created_at
+            'created_at': created_at
         }

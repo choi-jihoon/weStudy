@@ -30,8 +30,8 @@ def create_note():
     if form.validate_on_submit():
         note = Note(user_id=form['user_id'].data,
                     group_id=form['group_id'].data,
-                    note_title=form['note_title'].data,
-                    note_text=form['note_text'].data)
+                    note_title=form['note_title'].data
+                    )
         db.session.add(note)
         db.session.commit()
         return note.to_dict()

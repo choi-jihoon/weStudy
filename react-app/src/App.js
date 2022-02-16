@@ -7,6 +7,7 @@ import StudyGroupDash from './components/StudyGroups/StudyGroupDash';
 import NavBar from './components/NavBar';
 import Chat from './components/Chat';
 import Whiteboard from './components/Whiteboard';
+import NoteDetail from './components/StudyGroups/Group/Notes/Note/NoteDetail';
 import { authenticate } from './store/session';
 
 function App() {
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path='/groups/:groupId'>
           <StudyGroupDash />
+        </Route>
+        <Route path='/notes/:noteId'>
+          <NoteDetail />
         </Route>
         <Route exact path='/whiteboard'>
           <Whiteboard />

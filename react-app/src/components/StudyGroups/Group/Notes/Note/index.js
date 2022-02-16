@@ -1,7 +1,11 @@
+import { Link } from 'react-router-dom';
+
 const Note = ({ note }) => {
     return (
         <>
-            {note.note_title}
+            <Link to={`/notes/${note.id}`}>
+                {note.note_title}
+            </Link>
         </>
     )
 };

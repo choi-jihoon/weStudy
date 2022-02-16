@@ -1,5 +1,6 @@
 const LOAD_NOTES = 'notes/LOAD_NOTES';
 const CREATE_NOTE = 'notes/CREATE_NOTE';
+const LOAD_NOTE = 'notes/LOAD_NOTE';
 
 const loadNotes = (notes) => ({
     type: LOAD_NOTES,
@@ -10,6 +11,11 @@ const create = (note) => ({
     type: CREATE_NOTE,
     note
 });
+
+const loadNote = (note) => ({
+    type: LOAD_NOTE,
+    note
+})
 
 export const getNotes = (groupId) => async (dispatch) => {
     const res = await fetch(`/api/groups/${groupId}/notes`);
@@ -22,7 +28,18 @@ export const getNotes = (groupId) => async (dispatch) => {
     }
 };
 
-export const createNote = (user_id, group_id, note_title, note_text) => async (dispatch) => {
+export const getNote = (noteId) => async (dispatch) => {
+    const res = await fetch(`/api/notes/${noteId}`)
+    if (res.ok) {
+        const data = await res.json();
+        if (data.errors) {
+            return;
+        }
+        dispatch(loadNote(data))
+    }
+}
+
+export const createNote = (user_id, group_id, note_title) => async (dispatch) => {
     const res = await fetch(`/api/notes/`, {
         method: 'POST',
         headers: {
@@ -65,6 +82,12 @@ const notes = (state = initialState, action) => {
         }
 
         case CREATE_NOTE: {
+            const newState = { ...state };
+            newState[action.note.id] = action.note;
+            return newState;
+        }
+
+        case LOAD_NOTE: {
             const newState = { ...state };
             newState[action.note.id] = action.note;
             return newState;

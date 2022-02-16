@@ -7,7 +7,6 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 
 	const [errors, setErrors] = useState({});
 	const [title, setTitle] = useState("");
-	const [noteText, setNoteText] = useState("");
 
 	const user = useSelector(state => state.session.user);
 
@@ -15,7 +14,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const data = await dispatch(createNote(user.id, group.id, title, noteText));
+		const data = await dispatch(createNote(user.id, group.id, title));
 
 		if (data) {
 			const errors = {}
@@ -34,9 +33,9 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 		setTitle(e.target.value);
 	};
 
-	const updateText = (e) => {
-		setNoteText(e.target.value);
-	};
+	// const updateText = (e) => {
+	// 	setNoteText(e.target.value);
+	// };
 
 	useEffect(() => {
 		setErrors(errors)
@@ -60,7 +59,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 				</div>
 			</div>
 
-			<div className='form-element-container'>
+			{/* <div className='form-element-container'>
                 <textarea
                     name='note_text'
                     value={noteText}
@@ -68,7 +67,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 				<div className='errors-container'>
 					{errors.note_text ? `${errors.note_text}` : ""}
 				</div>
-			</div>
+			</div> */}
 			<button type="submit">Create</button>
 		</form>
 	);

@@ -48,7 +48,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 
 	return (
 		<form onSubmit={handleSubmit} className="form-container">
-			<div className="modal-head">Create Notes</div>
+			<div className="modal-head">Create a Note</div>
 			<div className='form-element-container'>
 				<input
 					name="note_title"

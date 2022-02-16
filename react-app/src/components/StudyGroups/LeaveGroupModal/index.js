@@ -16,15 +16,15 @@ function LeaveGroupModal({ group }) {
 
 	return (
 		<>
-			<button
+			<div
 				id="leave-group"
 				onClick={(e) => {
 					setShowModal(true);
 					handleClick(e);
 				}}
 			>
-				Leave Group
-			</button>
+				<i className="fas fa-sign-out-alt"></i>
+			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<LeaveGroupForm showModal={setShowModal} group={group} />

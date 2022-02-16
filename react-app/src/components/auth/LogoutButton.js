@@ -7,8 +7,8 @@ const LogoutButton = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const onLogout = async (e) => {
-    await dispatch(logout());
     history.push('/');
+    await dispatch(logout());
   };
 
   return <div id='logout' onClick={onLogout}>Logout <i className="fas fa-sign-out-alt"></i></div>;

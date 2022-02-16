@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getNotes } from '../../../../store/notes';
 import Note from './Note';
 import CreateNoteModal from './CreateNoteModal';
@@ -18,12 +19,16 @@ const Notes = ({ group }) => {
             <CreateNoteModal group={group} />
             <ul>
                 {notes?.map(note => {
-                    return (<li key={note.id}>
-                        <Note note={note} />
-                    </li>)
+                    return (
+                        <Link to={`/notes/${note.id}`}>
+                            <li className='note-title' key={note.id}>
+                                <Note note={note} />
+                            </li>
+                        </Link>
+                    )
                 })}
             </ul>
-        </div>
+        </div >
     )
 
 };

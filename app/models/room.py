@@ -10,7 +10,7 @@ class Room(db.Model):
 
     user = db.relationship('User', back_populates='rooms')
     group = db.relationship('Group', back_populates='rooms')
-    chats = db.relationship('Chat', back_populates='room')
+    chats = db.relationship('Chat', back_populates='room', cascade="all, delete")
 
     def to_dict(self):
         return {

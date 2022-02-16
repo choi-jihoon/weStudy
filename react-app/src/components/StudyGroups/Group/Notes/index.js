@@ -8,7 +8,7 @@ import CreateNoteModal from './CreateNoteModal';
 const Notes = ({ group }) => {
     const dispatch = useDispatch();
     const notesObj = useSelector(state => state.notes);
-    const notes = Object.values(notesObj);
+    // const notes = Object.values(notesObj);
 
     useEffect(() => {
         dispatch(getNotes(group.id))
@@ -18,15 +18,19 @@ const Notes = ({ group }) => {
         <div className='all-notes-container'>
             <CreateNoteModal group={group} />
             <ul>
-                {notes?.map(note => {
-                    return (
-                        <Link to={`/notes/${note.id}`}>
-                            <li className='note-title' key={note.id}>
-                                <Note note={note} />
-                            </li>
-                        </Link>
-                    )
-                })}
+                {notesObj.byGroupId[group.id] &&
+                    <>
+                        {Object.values(notesObj.byGroupId[group.id]).map(note => {
+                            return (
+                                <Link to={`/notes/${note.id}`} key={note.id}>
+                                    <li className='note-title'>
+                                        <Note note={note} />
+                                    </li>
+                                </Link>
+                            )
+                        })}
+                    </>
+                }
             </ul>
         </div >
     )

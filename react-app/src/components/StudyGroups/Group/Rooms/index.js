@@ -9,7 +9,7 @@ const Rooms = ({ group }) => {
     const dispatch = useDispatch();
 
     const roomsObject = useSelector(state => state.rooms);
-    const rooms = Object.values(roomsObject);
+    // const rooms = Object.values(roomsObject.byGroupId[group.id]);
 
     // const group = useSelector(state => state.groups[group.id]);
 
@@ -19,13 +19,13 @@ const Rooms = ({ group }) => {
 
     return (
         <>
-            {rooms &&
+            {roomsObject.byGroupId[group.id] &&
                 <>
                     <div className='rooms-container'>
                         <ul>
-                            {rooms.map(room => {
+                            {Object.values(roomsObject.byGroupId[group.id]).map(room => {
                                 return (
-                                    <li key={room.id}>
+                                    <li key={room.room_name}>
                                         <Room room={room} />
                                     </li>
                                 )

@@ -121,41 +121,57 @@ export const editRoom = (roomId, room_name) => async (dispatch) => {
     }
 }
 
-const initialState = {};
+const initialState = {
+    rooms: {},
+    byGroupId: {}
+};
 
 const rooms = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_ROOMS: {
+            const newState = { ...state }
             const loadRooms = {};
             action.rooms.forEach(room => {
                 loadRooms[room.id] = room;
             });
-            return {
-                ...loadRooms
+            newState.rooms = { ...loadRooms };
+            if (action.rooms.length) {
+                newState.byGroupId[action.rooms[0].group_id] = { ...loadRooms }
             }
+            return newState;
         }
 
         case LOAD_ROOM: {
             const newState = { ...state };
-            newState[action.room.id] = action.room;
+            newState.rooms[action.room.id] = action.room;
+            newState.byGroupId[action.room.group_id] = {
+                ...newState.byGroupId[action.room.group_id],
+                [action.room.id]: action.room
+            }
             return newState;
         }
 
         case CREATE_ROOM: {
             const newState = { ...state };
-            newState[action.room.id] = action.room;
+            newState.rooms[action.room.id] = action.room;
+            newState.byGroupId[action.room.group_id] = {
+                ...newState.byGroupId[action.room.group_id],
+                [action.room.id]: action.room
+            }
             return newState;
         }
 
         case DELETE_ROOM: {
             const newState = { ...state };
-            delete newState[action.room.id];
+            delete newState.rooms[action.room.id];
+            delete newState.byGroupId[action.room.group_id][action.room.id];
             return newState;
         }
 
         case EDIT_ROOM: {
             const newState = { ...state };
-            newState[action.room.id] = action.room;
+            newState.rooms[action.room.id] = action.room;
+            newState.byGroupId[action.room.group_id][action.room.id] = action.room;
             return newState;
         }
 

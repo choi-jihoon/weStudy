@@ -16,7 +16,7 @@ const NoteDetail = () => {
     const { noteId } = useParams();
     const dispatch = useDispatch();
     const notes = useSelector(state => state.notes);
-    const note = notes[noteId];
+    const note = notes.notes[noteId];
 
     const [title, setTitle] = useState('');
     const [noteText, setNoteText] = useState('');

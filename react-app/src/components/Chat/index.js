@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import { getRoom } from '../../store/rooms';
-import { getChatMessages } from '../../store/chats';
+import { getChatMessages, createChatMessage } from '../../store/chats';
 
 let socket;
 
@@ -29,6 +29,7 @@ const Chat = () => {
     const sendChat = (e) => {
         e.preventDefault();
         socket.emit('chat', { user: user.username, msg: chatInput, room: room.room_name });
+        dispatch(createChatMessage(roomId, chatInput));
         setChatInput("");
     }
 

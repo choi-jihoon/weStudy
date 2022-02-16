@@ -21,6 +21,7 @@ class User(db.Model, UserMixin):
     groups = db.relationship('Group', back_populates='users', secondary=study_groups)
     owned_groups = db.relationship('Group', back_populates='owner', cascade="all, delete")
     notes = db.relationship('Note', back_populates='user')
+    chats = db.relationship('Chat', back_populates='user')
 
     @property
     def password(self):

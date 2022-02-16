@@ -1,6 +1,7 @@
 const LOAD_NOTES = 'notes/LOAD_NOTES';
 const CREATE_NOTE = 'notes/CREATE_NOTE';
 const LOAD_NOTE = 'notes/LOAD_NOTE';
+const EDIT_NOTE = 'notes/EDIT_NOTE';
 
 const loadNotes = (notes) => ({
     type: LOAD_NOTES,
@@ -14,6 +15,11 @@ const create = (note) => ({
 
 const loadNote = (note) => ({
     type: LOAD_NOTE,
+    note
+})
+
+const edit = (note) => ({
+    type: EDIT_NOTE,
     note
 })
 
@@ -49,7 +55,6 @@ export const createNote = (user_id, group_id, note_title) => async (dispatch) =>
             user_id,
             group_id,
             note_title,
-            note_text
         })
     })
 
@@ -68,6 +73,32 @@ export const createNote = (user_id, group_id, note_title) => async (dispatch) =>
 
 }
 
+export const editNote = (noteId, note_title, note_text) => async (dispatch) => {
+    const res = await fetch(`/api/notes/${noteId}`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            note_title,
+            note_text
+        })
+    })
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(edit(data));
+        return data.id;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data;
+        }
+    } else {
+        return {'ERROR': 'An error occurred. Please try again.'}
+    }
+
+}
 
 const initialState = {};
 
@@ -88,6 +119,12 @@ const notes = (state = initialState, action) => {
         }
 
         case LOAD_NOTE: {
+            const newState = { ...state };
+            newState[action.note.id] = action.note;
+            return newState;
+        }
+
+        case EDIT_NOTE: {
             const newState = { ...state };
             newState[action.note.id] = action.note;
             return newState;

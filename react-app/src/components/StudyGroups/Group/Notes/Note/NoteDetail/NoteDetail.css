@@ -1,0 +1,14 @@
+.note-detail-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    top: 100px;
+    padding-left: 50px;
+}
+
+
+
+.fa-pencil-alt {
+    color: var(--honeydew);
+    font-size: 20px;
+}

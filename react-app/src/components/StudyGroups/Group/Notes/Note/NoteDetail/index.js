@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getNote } from '../../../../../../store/notes';
 
+import './NoteDetail.css';
+
 
 const NoteDetail = () => {
     const { noteId } = useParams();
@@ -16,8 +18,9 @@ const NoteDetail = () => {
 
     return (
         <div className='note-detail-container'>
-            <h2>{note.note_title}</h2>
-            <p>{note.note_text}</p>
+            <h2>{note?.note_title}</h2>
+            <i className="fas fa-pencil-alt"></i>
+            <p>{note?.note_text}</p>
         </div>
     )
 

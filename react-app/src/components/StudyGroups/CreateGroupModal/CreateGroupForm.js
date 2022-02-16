@@ -94,12 +94,12 @@ const CreateGroupForm = ({ setShowModal }) => {
 						accept="image/*"
 						onChange={updateImage}
 					></input>
-					<div className="preview-container">
+					<div className="preview-container group">
 						{image && (
 							<img
 								alt="preview"
 								src={URL.createObjectURL(image)}
-								className="preview-image"
+								className="preview-image group"
 							></img>
 						)}
 					</div>

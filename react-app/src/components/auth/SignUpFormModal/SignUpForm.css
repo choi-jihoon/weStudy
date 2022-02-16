@@ -23,3 +23,8 @@
 .sf-add-image-container > label {
     color: var(--oxford-blue);
 }
+
+.preview-container.group,
+.preview-image.group {
+	border-radius: 10%;
+}

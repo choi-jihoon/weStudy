@@ -124,39 +124,57 @@ export const deleteNote = (noteId) => async (dispatch) => {
     }
 }
 
-const initialState = {};
+const initialState = {
+    notes: {},
+    byGroupId: {}
+};
 
 const notes = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_NOTES: {
+            const newState = { ...state }
             const loadNotes = {};
             action.notes.forEach(note => {
                 loadNotes[note.id] = note;
             });
-            return { ...loadNotes }
+            newState.notes = { ...loadNotes };
+            if (action.notes.length) {
+                newState.byGroupId[action.notes[0].group_id] = { ...loadNotes };
+            };
+            return newState;
         }
 
         case CREATE_NOTE: {
             const newState = { ...state };
-            newState[action.note.id] = action.note;
+            newState.notes[action.note.id] = action.note;
+            newState.byGroupId[action.note.group_id] = {
+                ...newState.byGroupId[action.note.group_id],
+                [action.note.id]: action.note
+            }
             return newState;
         }
 
         case LOAD_NOTE: {
             const newState = { ...state };
-            newState[action.note.id] = action.note;
+            newState.notes[action.note.id] = action.note;
+            newState.byGroupId[action.note.group_id] = {
+                ...newState.byGroupId[action.note.group_id],
+                [action.note.id]: action.note
+            }
             return newState;
         }
 
         case EDIT_NOTE: {
             const newState = { ...state };
-            newState[action.note.id] = action.note;
+            newState.notes[action.note.id] = action.note;
+            newState.byGroupId[action.note.group_id][action.note.id] = action.note;
             return newState;
         }
 
         case DELETE_NOTE: {
             const newState = { ...state };
-            delete newState[action.note.id];
+            delete newState.notes[action.note.id];
+            delete newState.byGroupId[action.note.group_id][action.note.id];
             return newState;
         }
 

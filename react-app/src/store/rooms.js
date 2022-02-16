@@ -146,7 +146,7 @@ const rooms = (state = initialState, action) => {
             newState.rooms[action.room.id] = action.room;
             newState.byGroupId[action.room.group_id] = {
                 ...newState.byGroupId[action.room.group_id],
-                ...action.room
+                [action.room.id]: action.room
             }
             return newState;
         }

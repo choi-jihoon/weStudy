@@ -2,6 +2,7 @@ const LOAD_NOTES = 'notes/LOAD_NOTES';
 const CREATE_NOTE = 'notes/CREATE_NOTE';
 const LOAD_NOTE = 'notes/LOAD_NOTE';
 const EDIT_NOTE = 'notes/EDIT_NOTE';
+const DELETE_NOTE = 'notes/DELETE_NOTE';
 
 const loadNotes = (notes) => ({
     type: LOAD_NOTES,
@@ -16,10 +17,15 @@ const create = (note) => ({
 const loadNote = (note) => ({
     type: LOAD_NOTE,
     note
-})
+});
 
 const edit = (note) => ({
     type: EDIT_NOTE,
+    note
+});
+
+const remove = (note) => ({
+    type: DELETE_NOTE,
     note
 })
 
@@ -97,7 +103,25 @@ export const editNote = (noteId, note_title, note_text) => async (dispatch) => {
     } else {
         return {'ERROR': 'An error occurred. Please try again.'}
     }
+}
 
+export const deleteNote = (noteId) => async (dispatch) => {
+    const res = await fetch(`/api/notes/${noteId}`, {
+        method: 'DELETE'
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(remove(data));
+        return
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data;
+        }
+    } else {
+        return {'ERROR': 'An error occurred. Please try again.'}
+    }
 }
 
 const initialState = {};
@@ -127,6 +151,12 @@ const notes = (state = initialState, action) => {
         case EDIT_NOTE: {
             const newState = { ...state };
             newState[action.note.id] = action.note;
+            return newState;
+        }
+
+        case DELETE_NOTE: {
+            const newState = { ...state };
+            delete newState[action.note.id];
             return newState;
         }
 

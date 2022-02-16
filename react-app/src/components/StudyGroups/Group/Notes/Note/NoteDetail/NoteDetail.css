@@ -64,3 +64,10 @@
     top: 20px;
     right: 20px;
 }
+
+.edit-delete-btn-container {
+    font-size: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

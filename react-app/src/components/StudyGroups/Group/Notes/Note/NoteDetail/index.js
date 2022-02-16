@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getNote, editNote } from '../../../../../../store/notes';
+import DeleteNote from '../DeleteNote';
 
 
 import './NoteDetail.css';
@@ -65,7 +66,10 @@ const NoteDetail = () => {
                         onClick={handleSave}>
                         Save
                     </button>
-                    <i className="fas fa-pencil-alt"></i>
+                    <div className='edit-delete-btn-container'>
+                        {/* <i className="fas fa-pencil-alt"></i> */}
+                        <DeleteNote note={note} />
+                    </div>
             </div>
         </div>
     )

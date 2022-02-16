@@ -11,12 +11,12 @@ function AddUserToGroupModal({ group }) {
 
 	return (
 		<>
-			<button
+			<div
 				id="add-user-to-group"
 				onClick={() => setShowModal(true)}
 			>
-				Add User to Group
-			</button>
+				<i className="fas fa-user-plus"></i>
+			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<AddUserToGroupForm setShowModal={setShowModal} group={group} />

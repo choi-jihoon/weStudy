@@ -10,7 +10,7 @@ const Room = ({ room }) => {
 
     return (
         <>
-            <div className='room-container group-container'>
+            <div className='room-container'>
                 <Link to={`/rooms/${room.id}/chat`}>
                     {room.room_name}
                 </Link>

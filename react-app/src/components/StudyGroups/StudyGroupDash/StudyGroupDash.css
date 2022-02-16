@@ -5,4 +5,25 @@
     align-items: center;
     position: absolute;
     top: 100px;
+
+    width: 100%;
+
+}
+
+.study-group-dash-container > h1 {
+    display: flex;
+    width: 100%;
+    padding-left: 50px;
+    font-size: 50px;
+}
+
+#add-user-to-group {
+    padding-left: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#add-user-to-group:hover {
+
 }

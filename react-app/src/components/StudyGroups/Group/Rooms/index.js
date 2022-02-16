@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getRooms } from "../../../../store/rooms";
 import Room from './Room';
 
+import './Rooms.css';
+
 const Rooms = ({ group }) => {
     const dispatch = useDispatch();
 
@@ -19,8 +21,7 @@ const Rooms = ({ group }) => {
         <>
             {rooms &&
                 <>
-                    <h1>Rooms for {group.group_name}</h1>
-                    <div className='rooms-container study-groups-container'>
+                    <div className='rooms-container'>
                         <ul>
                             {rooms.map(room => {
                                 return (

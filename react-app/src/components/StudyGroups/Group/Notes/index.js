@@ -20,8 +20,8 @@ const Notes = ({ group }) => {
             <ul>
                 {notes?.map(note => {
                     return (
-                        <Link to={`/notes/${note.id}`}>
-                            <li className='note-title' key={note.id}>
+                        <Link to={`/notes/${note.id}`} key={note.id}>
+                            <li className='note-title'>
                                 <Note note={note} />
                             </li>
                         </Link>

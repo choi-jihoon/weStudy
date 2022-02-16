@@ -3,6 +3,7 @@ from .users import seed_users, undo_users
 from .groups import seed_groups, undo_groups
 from .rooms import seed_rooms, undo_rooms
 from .notes import seed_notes, undo_notes
+from .chats import seed_chats, undo_chats
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -16,6 +17,7 @@ def seed():
     seed_groups()
     seed_rooms()
     seed_notes()
+    seed_chats()
     # Add other seed functions here
 
 
@@ -26,4 +28,5 @@ def undo():
     undo_groups()
     undo_rooms()
     undo_notes()
+    undo_chats()
     # Add other undo functions here

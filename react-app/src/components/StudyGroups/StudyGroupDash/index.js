@@ -7,6 +7,7 @@ import Rooms from "../Group/Rooms";
 import AddUserToGroupModal from '../AddUserToGroupModal';
 import LeaveGroupModal from '../LeaveGroupModal';
 import CreateRoomModal from './CreateRoomModal';
+import Notes from '../Group/Notes';
 
 
 import './StudyGroupDash.css'
@@ -33,7 +34,9 @@ const StudyGroupDash = () => {
                 }
                 <CreateRoomModal group={group} />
                 <Rooms group={group} />
+                <Notes group={group} />
             </div>
+
             }
         </>
     )

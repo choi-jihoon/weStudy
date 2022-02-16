@@ -28,6 +28,7 @@ def create_chat():
         db.session.add(chat)
         db.session.commit()
         return chat.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @chat_routes.route('/<int:chatId>', methods=['DELETE'])

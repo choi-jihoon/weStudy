@@ -1,14 +1,66 @@
 .note-detail-container {
-    position: relative;
-    height: 100%;
+    position: absolute;
+    /* height: 100%; */
     width: 100%;
     top: 100px;
     padding-left: 50px;
+
+    min-height: fit-content;
+
+}
+
+.edit-container {
+    display: flex;
+    flex-direction: column;
+    width: 75vw;
+    border-radius: 10px;
+
+    position: relative;
+
+}
+
+.edit-container > input,
+.edit-container > textarea {
+    background-color: var(--honeydew);
+    color: var(--raisin-black);
+    border: 2px solid var(--honeydew);
+    resize: none;
+    /* padding: 50px 0 40px 50px; */
+}
+
+.edit-container > input {
+    height: 80px;
+    font-size: 50px;
+    padding: 50px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px dashed var(--raisin-black);
+
+}
+
+.edit-container > textarea {
+    width: 75vw;
+    height: 75vh;
+    padding: 20px 55px;
+    font-size: 18px;
+    border-radius: 0 0 10px 10px;
+
+
+}
+
+#save-btn {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    font-size: 30px;
+    border-radius: 5px;
+    padding: 0 20px;
 }
 
 
-
 .fa-pencil-alt {
-    color: var(--honeydew);
+    color: var(--terra-cotta);
     font-size: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }

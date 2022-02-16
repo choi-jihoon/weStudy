@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getNote } from '../../../../../../store/notes';
+import { getNote, editNote } from '../../../../../../store/notes';
+
 
 import './NoteDetail.css';
 
@@ -12,15 +13,60 @@ const NoteDetail = () => {
     const notes = useSelector(state => state.notes);
     const note = notes[noteId];
 
+    const [title, setTitle] = useState('');
+    const [noteText, setNoteText] = useState('');
+
+    const updateTitle = (e) => {
+        setTitle(e.target.value);
+    }
+
+    const updateText = (e) => {
+        setNoteText(e.target.value);
+    }
+
+    const handleSave = (e) => {
+        dispatch(editNote(noteId, title, noteText))
+    }
+
     useEffect(() => {
         dispatch(getNote(noteId));
     }, [dispatch, noteId]);
 
+    useEffect(() => {
+        if (note) {
+            setTitle(note.note_title);
+            setNoteText(note.note_text);
+        } else {
+            setTitle("");
+            setNoteText("");
+        }
+    }, [note])
+
     return (
         <div className='note-detail-container'>
-            <h2>{note?.note_title}</h2>
-            <i className="fas fa-pencil-alt"></i>
-            <p>{note?.note_text}</p>
+            <div className='edit-container'>
+                    <input
+                        name='note_title'
+                        id='edit-note-title'
+                        type='text'
+                        value={title}
+                        onChange={updateTitle}
+                        onBlur={handleSave}
+                    />
+                    <textarea
+                        name='note_text'
+                        id='note-area'
+                        value={noteText}
+                        onChange={updateText}
+                        // onBlur={handleSave}
+                    />
+                    <button
+                        id='save-btn'
+                        onClick={handleSave}>
+                        Save
+                    </button>
+                    <i className="fas fa-pencil-alt"></i>
+            </div>
         </div>
     )
 

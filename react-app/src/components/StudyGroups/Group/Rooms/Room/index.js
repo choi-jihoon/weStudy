@@ -11,7 +11,7 @@ const Room = ({ room }) => {
     return (
         <>
             <div className='room-container'>
-                <Link to={`/rooms/${room.id}/chat`}>
+                <Link to={`/groups/${room.group_id}/rooms/${room.id}/chat`}>
                     {room.room_name} <span><i className="fas fa-door-open"></i></span>
                 </Link>
                 {user.id === room.user_id &&

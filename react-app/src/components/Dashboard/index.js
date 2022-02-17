@@ -17,13 +17,13 @@ const Dashboard = () => {
                     <Route exact path='/'>
                         <StudyGroups />
                     </Route>
-                    <Route path='/groups/:groupId'>
+                    <Route exact path='/groups/:groupId'>
                         <StudyGroupDash />
                     </Route>
-                    <Route path='/rooms/:roomId/chat'>
+                    <Route exact path='/groups/:groupId/rooms/:roomId/chat'>
                         <Chat />
                     </Route>
-                    <Route path='/notes/:noteId'>
+                    <Route exact path='/groups/:groupId/notes/:noteId'>
                         <NoteDetail />
                     </Route>
                 </Switch>

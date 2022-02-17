@@ -11,12 +11,12 @@ function CreateGroupModal() {
 
 	return (
 		<>
-			<div
+			<li className='create-study-group'
 				id="create-group"
 				onClick={() => setShowModal(true)}
 			>
 				Create a Study Group
-			</div>
+			</li>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<CreateGroupForm setShowModal={setShowModal} />

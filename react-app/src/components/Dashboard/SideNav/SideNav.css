@@ -16,16 +16,20 @@
 
 .side-panel-nav-links > a > li:hover,
 .room-container:hover,
-.side-panel-nav-links > ul > a > li.note-title:hover {
+.side-panel-nav-links > ul > a > li.note-title:hover,
+.side-panel-nav-links > li.create-study-group:hover {
     background-color: var(--side-panel-hover);
 }
 
 
 .side-panel-nav-links > a > li,
 .room-container,
-.side-panel-nav-links > ul > a > li {
+.side-panel-nav-links > ul > a > li,
+.side-panel-nav-links > li.create-study-group {
     padding: 10px 40px;
     color: var(--side-panel-text);
+    font-weight: normal;
+    cursor: pointer;
 }
 
 .side-panel-nav-links > li {

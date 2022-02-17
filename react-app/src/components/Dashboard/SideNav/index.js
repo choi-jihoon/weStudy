@@ -45,6 +45,11 @@ const SideNav = () => {
                         Dashboard
                     </li>
                 </NavLink>
+                {!groupId &&
+
+                    <CreateGroupModal />
+
+                }
                 {(groupId && groupObj) &&
                     <>
                         <NavLink exact activeClassName='active'

@@ -39,8 +39,8 @@ const SideNav = () => {
             </div>
             <ul className='side-panel-nav-links'>
                 <NavLink exact activeClassName='active' to='/'>
-                    <li>
-                        Home
+                    <li id='home-link'>
+                        Dashboard
                     </li>
                 </NavLink>
                 {(groupId && groupObj) &&

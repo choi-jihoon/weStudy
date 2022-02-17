@@ -13,3 +13,18 @@
 .side-panel-nav-links > ul > a > li.note-title:hover {
     background-color: var(--side-panel-hover);
 }
+
+.side-panel-nav-links > a > li,
+.room-container,
+.side-panel-nav-links > ul > a > li {
+    padding: 10px 20px;
+}
+
+.side-panel-nav-links > li {
+    padding: 20px 0 0 5px;
+    font-weight: bold;
+}
+
+#home-link {
+    font-weight: bold;
+}

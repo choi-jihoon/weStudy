@@ -30,8 +30,9 @@
 	--top-highlight: #353330;
 	--header-text: #CFD0D1;
 
-	--chat-box-container: #222529;
+	--chat-box-container: #1A1D21;
 	--chat-box-placeholder: #6F7073;
+	--chat-box-hover: #222529;
 
 	--send-message: #007A5A;
 	/* CHOCO MINT SLACK THEME */
@@ -74,7 +75,7 @@ a:active {
 
 button {
 	border: none;
-	background-color: var(--button-color);
+	/* background-color: var(--button-color); */
 	padding: 5px 10px;
 	cursor: pointer;
 	border-radius: 3px;

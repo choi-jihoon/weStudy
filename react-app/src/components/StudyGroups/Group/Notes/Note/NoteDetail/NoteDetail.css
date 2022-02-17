@@ -42,6 +42,7 @@
     height: 111px;
     font-size: 50px;
     padding: 50px;
+    border-bottom: 1px solid var(--side-panel-text);
     /* border-bottom: 1px solid var(--header-text); */
     /* border-radius: 10px 10px 0 0; */
 }
@@ -49,7 +50,7 @@
 .edit-container > textarea {
     /* width: 75vw; */
     height: 100%;
-    padding: 20px 55px;
+    padding: 55px 55px;
     font-size: 18px;
     /* border-radius: 0 0 10px 10px; */
     font-family: proxima-nova-condensed, sans-serif;
@@ -58,7 +59,7 @@
 
     background-color: var(--main-container);
     color: var(--main-container-text);
-    border-top: 1px solid var(--header-text);
+    /* border-top: 1px solid var(--header-text); */
 }
 
 #save-btn {

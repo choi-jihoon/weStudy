@@ -41,7 +41,7 @@ const Chat = () => {
 
 
     const scroll = () => {
-        const chatContainer = document.querySelector('.chat-room-container');
+        const chatContainer = document.querySelector('.chat-messages-container');
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }
 
@@ -79,18 +79,21 @@ const Chat = () => {
 
     return (
         // <div className='chat-and-input-container'>
-        <>
-            <h2 className='room-name'>Welcome to #{room?.room_name}!</h2>
-            <div className='chat-room-container'>
+        <div className='chat-room-container'>
+            <div className='chat-header-container'>
+                <h2 className='room-name'>Welcome to #{room?.room_name}!</h2>
+            </div>
+
+            <div className='chat-messages-container'>
                 {chats?.map(chat => {
                     return <div
                         className={chat.username === user.username ? 'right chat-msg' : 'left chat-msg'}
-                        key={chat.message+chat.id}>
+                        key={chat.message + chat.id}>
                         <div className='profile-pic-div chat-profile-pic'>
                             <img src={chat.user_image} alt={chat.username}></img>
                         </div>
                         <div className='chat-message'>
-                            <p className='chat-username'>{chat.username}</p>
+                            <p className='chat-username'>{chat.username}<span className='created-at-msg'>{(chat.created_at).slice(13)}</span></p>
                             <p className='chat-text'>{chat.message}</p>
                         </div>
                     </div>
@@ -120,9 +123,9 @@ const Chat = () => {
                     onChange={updateChatInput}
                     placeholder={`Message #${room?.room_name}`}
                 />
-                <button type='submit'><i className="fas fa-paper-plane"></i></button>
+                <button id='send-chat' type='submit'><i className="fas fa-paper-plane"></i></button>
             </form>
-        </>
+        </div>
         // </div>
     )
 }

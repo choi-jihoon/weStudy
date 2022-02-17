@@ -4,15 +4,10 @@
     color: var(--main-container-text) !important;
 }
 
-.active > li > .fa-door-open {
+.active > li > .fa-door-open,
+.active > li > .fa-file-alt {
     color: var(--main-container-text) !important;
-    visibility: visible;
 }
-
-/* .active ~ .btn-container > div > i {
-    color: white !important;
-} */
-
 
 .active li:hover {
     background-color: var(--side-panel-selected) !important;
@@ -34,6 +29,10 @@
     color: var(--side-panel-text);
     font-weight: normal;
     cursor: pointer;
+}
+
+.fa-file-alt {
+    color: var(--side-panel-text);
 }
 
 .side-panel-nav-links > li {
@@ -90,7 +89,8 @@
     /* visibility: visible; */
 }
 
-.room-container > .fa-door-open {
+.room-container > .fa-door-open,
+.note-title > .fa-file-alt {
     color: var(--side-panel-text);
     padding-right: 10px;
 }

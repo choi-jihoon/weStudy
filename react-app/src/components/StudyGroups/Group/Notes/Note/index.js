@@ -5,6 +5,7 @@ const Note = ({ note }) => {
         <NavLink activeClassName='active'
             to={`/groups/${note.group_id}/notes/${note.id}`}>
             <li className='note-title'>
+                <i className="far fa-file-alt"></i>
                 {note.note_title}
             </li>
         </NavLink>

@@ -11,12 +11,12 @@ function EditGroupModal({ group }) {
 
 	return (
 		<>
-			<button
+			<div
 				id="edit-group"
 				onClick={() => setShowModal(true)}
 			>
 				<i className="fas fa-edit edit-bill-icon"></i>
-			</button>
+			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<EditGroupForm setShowModal={setShowModal} group={group} />

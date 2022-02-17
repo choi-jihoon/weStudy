@@ -16,7 +16,7 @@ function DeleteGroupModal({ group }) {
 
 	return (
 		<>
-			<button
+			<div
 				id="delete-group"
 				onClick={(e) => {
 					setShowModal(true);
@@ -24,7 +24,7 @@ function DeleteGroupModal({ group }) {
 				}}
 			>
 				<i className="fas fa-trash"></i>
-			</button>
+			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<DeleteGroupForm showModal={setShowModal} group={group} />

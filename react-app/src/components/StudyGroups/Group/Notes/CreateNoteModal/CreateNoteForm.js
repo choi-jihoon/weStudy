@@ -29,7 +29,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 		}
 
         setShowModal(false);
-        history.push(`/notes/${data}`)
+        history.push(`/groups/${group.id}/notes/${data}`)
 	};
 
 

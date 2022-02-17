@@ -48,7 +48,8 @@ const NoteDetail = () => {
     useEffect(() => {
         if (note) {
             setTitle(note.note_title);
-            setNoteText(note.note_text);
+            if (note.note_text) setNoteText(note.note_text)
+            else setNoteText("");
         } else {
             setTitle("");
             setNoteText("");

@@ -34,10 +34,12 @@ const SideNav = () => {
     const notesObj = useSelector(state => state.notes)
 
 
+
+
     return (
         <div className='side-nav-container'>
             <div className='user-pic-name-container'>
-                <DropdownMenu title={userMenu} items={[<CreateGroupModal />, <LogoutButton />]} />
+                <DropdownMenu title={userMenu} items={[<LogoutButton />]} />
             </div>
             <ul className='side-panel-nav-links'>
                 <NavLink exact activeClassName='active' to='/'>
@@ -55,16 +57,16 @@ const SideNav = () => {
                         <NavLink exact activeClassName='active'
                             to={`/groups/${groupId}`}>
                             <li>
-                                {groups[Number(groupId) - 1]?.group_name}
+                                {groupObj[groupId]?.group_name}
                             </li>
                         </NavLink>
-                        <li>Rooms <CreateRoomModal group={groups[Number(groupId) - 1]} /></li>
+                        <li>Rooms <CreateRoomModal group={groupObj[groupId]} /></li>
                         <ul className='room-with-btns'>
                             {roomObj.byGroupId[groupId] && Object.values(roomObj.byGroupId[groupId]).map(room => (
                                 <Room key={room.id} room={room} />
                             ))}
                         </ul>
-                        <li>Notes <CreateNoteModal group={groups[Number(groupId) - 1]} /></li>
+                        <li>Notes <CreateNoteModal group={groupObj[groupId]} /></li>
                         <ul>
                             {notesObj.byGroupId[groupId] && Object.values(notesObj.byGroupId[groupId]).map(note => (
                                 <Note key={note.id} note={note} />

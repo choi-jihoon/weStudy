@@ -1,12 +1,19 @@
 import { Link, NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 import EditRoomModal from '../EditRoomModal';
 import DeleteRoomModal from '../DeleteRoomModal';
+import { getChatMessages } from '../../../../../store/chats';
 
 const Room = ({ room }) => {
-
+    const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
+    const chatsObj = useSelector(state => state.chats);
+
+    useEffect(() => {
+        dispatch(getChatMessages(room.id));
+    }, [dispatch])
 
     // return (
     //     <>

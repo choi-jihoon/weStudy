@@ -13,12 +13,16 @@ const Chat = () => {
     const { roomId } = useParams();
     const dispatch = useDispatch();
 
+    let chats;
+
     const user = useSelector(state => state.session.user);
     const rooms = useSelector(state => state.rooms);
     const room = rooms.rooms[roomId];
 
     const chatsObj = useSelector(state => state.chats);
-    const chats = Object.values(chatsObj);
+    if (chatsObj.byRoomId[roomId]) {
+        chats = Object.values(chatsObj.byRoomId[roomId]);
+    };
 
 
     const [messages, setMessages] = useState([]);
@@ -44,14 +48,20 @@ const Chat = () => {
     useEffect(() => {
         dispatch(getRoom(roomId));
         dispatch(getChatMessages(roomId));
+
+        setMessages([]);
+
         scroll();
     }, [dispatch, roomId])
+
 
     useEffect(() => {
         socket = io();
 
-        socket.emit('join', { 'username': user.username, 'room': room?.room_name })
-        socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: room?.room_name })
+        socket.emit('join', { 'username': user.username, 'room': room.room_name })
+        console.log('joining', room.room_name)
+
+        socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: room.room_name })
 
         socket.on('chat', (chat) => {
             setMessages(messages => [...messages, chat]);
@@ -59,23 +69,23 @@ const Chat = () => {
         })
 
         return (() => {
-            console.log('leaving room')
+            console.log('leaving room', room.room_name)
             socket.emit('leave', { 'username': user.username, 'room': room?.room_name })
-            socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has left the room.`, room: room?.room_name })
+            socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has left the room.`, room: room.room_name })
 
             socket.disconnect();
         })
-    }, [])
+    }, [roomId])
 
     return (
         // <div className='chat-and-input-container'>
         <>
             <h2 className='room-name'>Welcome to #{room?.room_name}!</h2>
             <div className='chat-room-container'>
-                {chats.map(chat => {
+                {chats?.map(chat => {
                     return <div
                         className={chat.username === user.username ? 'right chat-msg' : 'left chat-msg'}
-                        key={chat.id}>
+                        key={chat.message+chat.id}>
                         <div className='profile-pic-div chat-profile-pic'>
                             <img src={chat.user_image} alt={chat.username}></img>
                         </div>

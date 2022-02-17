@@ -74,18 +74,24 @@ export const deleteChatMessage = (chatId) => async (dispatch) => {
     }
 }
 
-const initialState = {};
+const initialState = {
+    chats: {},
+    byRoomId: {}
+};
 
 const chats = (state = initialState, action) => {
     switch (action.type) {
         case LOAD_CHATS: {
+            const newState = { ...state };
             const loadChats = {};
             action.chats.forEach(chat => {
                 loadChats[chat.id] = chat;
             });
-            return {
-                ...loadChats
-            }
+            newState.chats = { ...loadChats };
+            if (action.chats.length) {
+                newState.byRoomId[action.chats[0].room_id] = { ...loadChats }
+            };
+            return newState;
         }
 
         // case CREATE_CHAT: {

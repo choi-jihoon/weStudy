@@ -4,11 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { getGroup } from '../../../store/groups';
 import { getRooms } from '../../../store/rooms';
-import Rooms from "../Group/Rooms";
+
+
 import AddUserToGroupModal from '../AddUserToGroupModal';
 import LeaveGroupModal from '../LeaveGroupModal';
-import CreateRoomModal from './CreateRoomModal';
-import Notes from '../Group/Notes';
+
 
 
 import './StudyGroupDash.css'
@@ -19,6 +19,8 @@ const StudyGroupDash = () => {
     const groups = useSelector(state => state.groups);
     const group = groups[groupId];
     const user = useSelector(state => state.session.user);
+
+
 
     useEffect(() => {
         dispatch(getGroup(groupId));

@@ -75,7 +75,7 @@ a:active {
 
 button {
 	border: none;
-	background-color: var(--button-color);
+	/* background-color: var(--button-color); */
 	padding: 5px 10px;
 	cursor: pointer;
 	border-radius: 3px;

@@ -123,7 +123,7 @@ const Chat = () => {
                     onChange={updateChatInput}
                     placeholder={`Message #${room?.room_name}`}
                 />
-                <button type='submit'><i className="fas fa-paper-plane"></i></button>
+                <button id='send-chat' type='submit'><i className="fas fa-paper-plane"></i></button>
             </form>
         </div>
         // </div>

@@ -4,25 +4,36 @@
     justify-content: center;
     align-items: center;
 
-    width: 100%;
-    height: 100%;
 
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-rows: 20% 80%;
+    grid-template-columns: 100%;
+    width: 100%;
+    height: 100%;
 
     padding: 50px;
 }
 
-.study-group-dash-container > h1 {
+.group-title-container {
+    width: 100%;
+}
+
+.group-title-container > h1 {
+    font-size: 50px;
+    display: flex;
+    cursor: default;
+}
+
+/* .study-group-dash-container > h1 {
     display: flex;
     width: 100%;
     padding-left: 50px;
     font-size: 50px;
     position: absolute;
     top: 0;
-}
+} */
 
-.study-group-dash-container > h1 > span {
+.group-title-container > h1 > span {
     display: flex;
 }
 
@@ -40,7 +51,7 @@
 
 #add-user-to-group > i:hover,
 #leave-group > i:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 #leave-group > i:hover {
@@ -48,7 +59,8 @@
 }
 
 #add-user-to-group > i:hover {
-    color: var(--powder-blue);
+    color: var(--send-message);
+
 }
 
 

@@ -27,14 +27,16 @@ const StudyGroupDash = () => {
         <>
             {group &&
                 <div className='study-group-dash-container'>
-                    <h1>{group.group_name} <span><AddUserToGroupModal group={group} />{user.id !== group.owner_id &&
-                        <LeaveGroupModal group={group} />
-                    }</span></h1>
-                    <div className='rooms-and-btn-container'>
+                    <div className='group-title-container'>
+                        <h1>{group.group_name} <span><AddUserToGroupModal group={group} />{user.id !== group.owner_id &&
+                            <LeaveGroupModal group={group} />
+                        }</span></h1>
+                    </div>
+                    {/* <div className='rooms-and-btn-container'>
                         <CreateRoomModal group={group} />
                         <Rooms group={group} />
                     </div>
-                    <Notes group={group} />
+                    <Notes group={group} /> */}
                 </div>
 
             }

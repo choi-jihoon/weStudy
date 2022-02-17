@@ -79,13 +79,16 @@ const Chat = () => {
 
     return (
         // <div className='chat-and-input-container'>
-        <>
-            <h2 className='room-name'>Welcome to #{room?.room_name}!</h2>
-            <div className='chat-room-container'>
+        <div className='chat-room-container'>
+            <div className='chat-header-container'>
+                <h2 className='room-name'>Welcome to #{room?.room_name}!</h2>
+            </div>
+
+            <div className='chat-messages-container'>
                 {chats?.map(chat => {
                     return <div
                         className={chat.username === user.username ? 'right chat-msg' : 'left chat-msg'}
-                        key={chat.message+chat.id}>
+                        key={chat.message + chat.id}>
                         <div className='profile-pic-div chat-profile-pic'>
                             <img src={chat.user_image} alt={chat.username}></img>
                         </div>
@@ -122,7 +125,7 @@ const Chat = () => {
                 />
                 <button type='submit'><i className="fas fa-paper-plane"></i></button>
             </form>
-        </>
+        </div>
         // </div>
     )
 }

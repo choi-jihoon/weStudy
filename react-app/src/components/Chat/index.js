@@ -41,7 +41,7 @@ const Chat = () => {
 
 
     const scroll = () => {
-        const chatContainer = document.querySelector('.chat-room-container');
+        const chatContainer = document.querySelector('.chat-messages-container');
         chatContainer.scrollTop = chatContainer.scrollHeight;
     }
 

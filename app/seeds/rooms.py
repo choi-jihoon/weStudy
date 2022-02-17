@@ -13,8 +13,22 @@ def seed_rooms():
         group_id=1
     )
 
+    room3 = Room(
+        room_name='Icebreakers',
+        user_id=1,
+        group_id=3
+    )
+
+    room4 = Room(
+        room_name='Icebreakers',
+        user_id=2,
+        group_id=2
+    )
+
     db.session.add(room1)
     db.session.add(room2)
+    db.session.add(room3)
+    db.session.add(room4)
 
     db.session.commit()
 

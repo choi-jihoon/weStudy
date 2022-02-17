@@ -81,8 +81,9 @@
 
 .chat-input-form > button {
     position: absolute;
-    right: 10px;
-    bottom: 10px;
+    right: 20px;
+    bottom: 20px;
+    border-radius: 7px;
 }
 
 .profile-pic-div.chat-profile-pic {
@@ -197,4 +198,10 @@
 
 button#send-chat {
     background-color: var(--send-message);
+
+    transition: all 0.2s ease-in-out;
+}
+
+button#send-chat:hover {
+    transform: scale(1.1);
 }

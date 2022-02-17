@@ -16,7 +16,7 @@ const StudyGroups = () => {
 
 
     return (
-        <>
+        <div className='all-groups-container'>
             <ul>
                 {groups && groups.map(group => {
                     return (
@@ -26,7 +26,7 @@ const StudyGroups = () => {
                     )
                 })}
             </ul>
-        </>
+        </div>
     )
 }
 

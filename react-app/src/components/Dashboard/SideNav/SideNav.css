@@ -1,8 +1,14 @@
-
 .active li {
     background-color: var(--side-panel-selected);
-    width: 100%
+    width: 100%;
+    color: var(--main-container-text) !important;
 }
+
+.active > li > .fa-door-open {
+    color: var(--main-container-text) !important;
+    visibility: visible;
+}
+
 
 .active li:hover {
     background-color: var(--side-panel-selected) !important;
@@ -17,14 +23,59 @@
 .side-panel-nav-links > a > li,
 .room-container,
 .side-panel-nav-links > ul > a > li {
-    padding: 10px 20px;
+    padding: 10px 40px;
+    color: var(--side-panel-text);
 }
 
 .side-panel-nav-links > li {
-    padding: 20px 0 0 5px;
+    padding: 20px 20px 10px 20px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+}
+
+.side-panel-nav-links > li > #create-room,
+.side-panel-nav-links > li > #create-note {
+    position: absolute;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#create-room:hover,
+#create-note:hover {
+    border-radius: 7px;
+    background-color: var(--side-panel-hover);
 }
 
 #home-link {
     font-weight: bold;
+    padding: 10px 0 10px 20px;
+    color: var(--main-container-text);
+}
+
+.room-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.room-container:hover .fa-door-open {
+    visibility: visible;
+}
+
+.room-container > .fa-door-open {
+    color: var(--side-panel-text);
+    visibility: hidden;
 }

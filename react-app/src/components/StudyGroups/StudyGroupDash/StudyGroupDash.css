@@ -66,17 +66,16 @@
     padding: 30px;
 }
 
-#create-room {
+/* #create-room {
     justify-self: center;
     align-self: center;
     width: fit-content;
     padding: 10px 20px;
-    /* background-color: var(--powder-blue); */
-    /* color: var(--raisin-black); */
+
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-}
+} */
 /*
 .rooms-container {
     width: 100%;

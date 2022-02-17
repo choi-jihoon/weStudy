@@ -12,7 +12,7 @@
 .side-nav-container {
     height: 100%;
     background-color: var(--side-panel);
-    padding: 50px 20px;
+    padding: 50px 0;
     border-right: 1px solid var(--side-panel-text);
     border-top: 1px solid var(--side-panel-text);
     border: 1px solid var(--side-panel-text);
@@ -28,7 +28,7 @@
 }
 
 .user-pic-name-container {
-    padding-bottom: 10px;
+    padding-bottom: 50px;
 }
 
 .user-pic-name-container > ul > li {

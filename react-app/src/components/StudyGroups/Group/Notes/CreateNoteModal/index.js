@@ -15,7 +15,7 @@ function CreateNoteModal({ group }) {
 				id="create-note"
 				onClick={() => setShowModal(true)}
 			>
-				Create a Note
+				<i className="fas fa-plus"></i>
 			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>

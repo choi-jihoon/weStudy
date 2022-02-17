@@ -30,6 +30,7 @@ const Room = ({ room }) => {
                 to={`/groups/${room.group_id}/rooms/${room.id}/chat`}>
                 <li className='room-container'>
                     {room.room_name}
+                    <i className="fas fa-door-open"></i>
                 </li>
             </NavLink>
             {

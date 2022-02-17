@@ -37,11 +37,20 @@ const SideNav = () => {
             <div className='user-pic-name-container'>
                 <DropdownMenu title={userMenu} items={[<CreateGroupModal />, <LogoutButton />]} />
             </div>
-            <ul>
-                <li><NavLink activeClassName='active' to='/'>Home</NavLink></li>
+            <ul className='side-panel-nav-links'>
+                <NavLink exact activeClassName='active' to='/'>
+                    <li>
+                        Home
+                    </li>
+                </NavLink>
                 {(groupId && groupObj) &&
                     <>
-                        <li><NavLink activeClassName='active' to={`/groups/${groupId}`}>{groups[Number(groupId) - 1]?.group_name}</NavLink></li>
+                        <NavLink exact activeClassName='active'
+                            to={`/groups/${groupId}`}>
+                            <li>
+                                {groups[Number(groupId) - 1]?.group_name}
+                            </li>
+                        </NavLink>
                         <li>Rooms</li>
                         <ul>
                             {roomObj.byGroupId[groupId] && Object.values(roomObj.byGroupId[groupId]).map(room => (

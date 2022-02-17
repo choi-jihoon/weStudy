@@ -1,0 +1,15 @@
+
+.active li {
+    background-color: var(--side-panel-selected);
+    width: 100%
+}
+
+.active li:hover {
+    background-color: var(--side-panel-selected) !important;
+}
+
+.side-panel-nav-links > a > li:hover,
+.room-container:hover,
+.side-panel-nav-links > ul > a > li.note-title:hover {
+    background-color: var(--side-panel-hover);
+}

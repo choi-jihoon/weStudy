@@ -25,18 +25,21 @@ const Room = ({ room }) => {
     // )
 
     return (
-        <li className='room-container'>
+        <>
             <NavLink activeClassName='active'
                 to={`/groups/${room.group_id}/rooms/${room.id}/chat`}>
-                {room.room_name}
+                <li className='room-container'>
+                    {room.room_name}
+                </li>
             </NavLink>
-            {user.id === room.user_id &&
+            {
+                user.id === room.user_id &&
                 <div className='btn-container'>
                     <EditRoomModal room={room} />
                     <DeleteRoomModal room={room} />
                 </div>
             }
-        </li>
+        </>
     )
 }
 

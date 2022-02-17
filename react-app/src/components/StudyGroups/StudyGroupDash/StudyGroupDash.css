@@ -77,7 +77,7 @@
     cursor: pointer;
     font-size: 16px;
 }
-
+/*
 .rooms-container {
     width: 100%;
 }
@@ -134,4 +134,4 @@
 .note-title:hover {
     background-color: var(--honeydew);
     color: var(--raisin-black);
-}
+} */

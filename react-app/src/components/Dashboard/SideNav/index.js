@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
+import Room from "../../StudyGroups/Group/Rooms/Room";
+import Note from "../../StudyGroups/Group/Notes/Note";
 
 import DropdownMenu from "../../NavBar/DropdownMenu";
 import CreateGroupModal from "../../StudyGroups/CreateGroupModal";
@@ -43,13 +45,13 @@ const SideNav = () => {
                         <li>Rooms</li>
                         <ul>
                             {roomObj.byGroupId[groupId] && Object.values(roomObj.byGroupId[groupId]).map(room => (
-                                <li key={room.id}><NavLink activeClassName='active' to={`/groups/${groupId}/rooms/${room.id}/chat`}>{room.room_name}</NavLink></li>
+                                <Room key={room.id} room={room} />
                             ))}
                         </ul>
                         <li>Notes</li>
                         <ul>
                             {notesObj.byGroupId[groupId] && Object.values(notesObj.byGroupId[groupId]).map(note => (
-                                <li key={note.id}><NavLink activeClassName='active' to={`/groups/${groupId}/notes/${note.id}`}>{note.note_title}</NavLink></li>
+                                <Note key={note.id} note={note} />
                             ))}
                         </ul>
                     </>

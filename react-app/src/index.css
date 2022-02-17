@@ -11,11 +11,31 @@
 	--red-violet: #912F40;
 	--terra-cotta: #ED6A5A;
 
-	--base-color: #0B132B;
+	--base-color: #1A1D21;
 	--main-text-color: #F1FAEE;
 	--nav-color: #912F40;
 	--button-color: #0F7173;
 	--drop-down: #383D59;
+
+	/* CHOCO MINT SLACK THEME */
+	--side-panel: #212121;
+	--side-panel-hover: #353330;
+	--side-panel-selected: #5DB09D;
+	--side-panel-text: #ABABAB;
+
+	--main-container: #1A1D21;
+	--main-container-hover: #222529;
+	--main-container-text: white;
+
+	--top-highlight: #353330;
+	--header-text: #CFD0D1;
+
+	--chat-box-container: #222529;
+	--chat-box-placeholder: #6F7073;
+
+	--send-message: #007A5A;
+	/* CHOCO MINT SLACK THEME */
+
 
 	--chat-container: #6b5c6e5d;
 

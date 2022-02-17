@@ -22,7 +22,7 @@ const Notes = ({ group }) => {
                     <>
                         {Object.values(notesObj.byGroupId[group.id]).map(note => {
                             return (
-                                <Link to={`/notes/${note.id}`} key={note.id}>
+                                <Link to={`/groups/${group.id}/notes/${note.id}`} key={note.id}>
                                     <li className='note-title'>
                                         <Note note={note} />
                                     </li>

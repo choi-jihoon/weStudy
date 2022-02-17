@@ -1,0 +1,138 @@
+.active li {
+    background-color: var(--side-panel-selected);
+    width: 100%;
+    color: var(--main-container-text) !important;
+}
+
+.active > li > .fa-door-open {
+    color: var(--main-container-text) !important;
+    visibility: visible;
+}
+
+
+.active li:hover {
+    background-color: var(--side-panel-selected) !important;
+}
+
+.side-panel-nav-links > a > li:hover,
+.room-container:hover,
+.side-panel-nav-links > ul > a > li.note-title:hover,
+.side-panel-nav-links > li.create-study-group:hover {
+    background-color: var(--side-panel-hover);
+}
+
+
+.side-panel-nav-links > a > li,
+.room-container,
+.side-panel-nav-links > ul > a > li,
+.side-panel-nav-links > li.create-study-group {
+    padding: 10px 40px;
+    color: var(--side-panel-text);
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.side-panel-nav-links > li {
+    padding: 20px 20px 10px 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--header-text);
+
+    cursor: default;
+
+    position: relative;
+}
+
+.side-panel-nav-links > li > #create-room,
+.side-panel-nav-links > li > #create-note {
+    position: absolute;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    color: var(--side-panel-text);
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#create-room:hover,
+#create-note:hover {
+    border-radius: 7px;
+    background-color: var(--side-panel-hover);
+}
+
+#home-link {
+    font-weight: bold;
+    padding: 10px 0 10px 20px;
+    color: var(--header-text);
+}
+
+.room-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.room-container:hover .fa-door-open {
+    visibility: visible;
+}
+
+.room-container > .fa-door-open {
+    color: var(--side-panel-text);
+    visibility: hidden;
+}
+
+.room-with-btns {
+    position: relative;
+}
+
+.btn-container {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    display: flex;
+    cursor: pointer;
+    /* visibility: hidden; */
+}
+
+.btn-container:hover + a > .room-container {
+    background-color: var(--side-panel-hover);
+}
+
+.btn-container > div {
+    padding-right: 10px;
+    font-size: 14px;
+}
+
+/* .room-with-btns > a:hover + .btn-container {
+    visibility: visible !important;
+} */
+
+#edit-room,
+#delete-room {
+    transition: all 0.2s ease-in-out;
+}
+
+#edit-room > i,
+#delete-room > i {
+    color: var(--side-panel-text);
+}
+
+#edit-room:hover,
+#delete-room:hover {
+    transform: scale(1.1);
+}
+
+#edit-room > i:hover,
+#delete-room > i:hover {
+    color: var(--main-container-text);
+}

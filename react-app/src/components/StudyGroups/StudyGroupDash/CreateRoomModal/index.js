@@ -11,12 +11,12 @@ function CreateRoomModal({ group }) {
 
 	return (
 		<>
-			<button
+			<div
 				id="create-room"
 				onClick={() => setShowModal(true)}
 			>
-				Create a Room
-			</button>
+				<i className="fas fa-plus"></i>
+			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<CreateRoomForm setShowModal={setShowModal} group={group} />

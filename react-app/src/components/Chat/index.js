@@ -49,10 +49,9 @@ const Chat = () => {
 
     useEffect(() => {
         socket = io();
+
         socket.emit('join', { 'username': user.username, 'room': room?.room_name })
-
         socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: room?.room_name })
-
 
         socket.on('chat', (chat) => {
             setMessages(messages => [...messages, chat]);

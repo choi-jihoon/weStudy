@@ -17,18 +17,15 @@ const StudyGroups = () => {
 
     return (
         <>
-            {/* <h2>Your Study Groups</h2> */}
-            <div className='study-groups-container'>
-                <ul>
-                    {groups && groups.map(group => {
-                        return (
-                            <li key={group.id}>
-                                <Group group={group} />
-                            </li>
-                        )
-                    })}
-                </ul>
-            </div>
+            <ul>
+                {groups && groups.map(group => {
+                    return (
+                        <li key={group.id}>
+                            <Group group={group} />
+                        </li>
+                    )
+                })}
+            </ul>
         </>
     )
 }

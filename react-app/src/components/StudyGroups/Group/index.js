@@ -1,12 +1,21 @@
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import DeleteGroupModal from '../DeleteGroupModal';
 import EditGroupModal from '../EditGroupModal';
+import { getRooms } from '../../../store/rooms';
+import { getNotes } from '../../../store/notes';
 
 import './Group.css';
 
 const Group = ({ group }) => {
     const user = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getRooms(group.id))
+        dispatch(getNotes(group.id))
+    }, [dispatch])
 
     return (
         <div className='group-container'>

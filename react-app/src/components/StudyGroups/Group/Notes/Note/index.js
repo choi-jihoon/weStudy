@@ -1,10 +1,13 @@
-
+import { NavLink } from "react-router-dom";
 
 const Note = ({ note }) => {
     return (
-        <>
-            {note.note_title}
-        </>
+        <NavLink activeClassName='active'
+            to={`/groups/${note.group_id}/notes/${note.id}`}>
+            <li className='note-title'>
+                {note.note_title}
+            </li>
+        </NavLink>
     )
 };
 

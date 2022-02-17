@@ -81,22 +81,26 @@
 
 .room-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
 }
 
 
 .room-container:hover .fa-door-open {
-    visibility: visible;
+    /* visibility: visible; */
 }
 
 .room-container > .fa-door-open {
     color: var(--side-panel-text);
-    visibility: hidden;
+    padding-right: 10px;
 }
 
 .room-with-btns {
     position: relative;
+}
+
+.room-with-btns:hover > .btn-container {
+    opacity: 1;
 }
 
 .btn-container {
@@ -105,12 +109,14 @@
     top: 10px;
     display: flex;
     cursor: pointer;
-    /* visibility: hidden; */
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
 }
 
-/* .btn-container:hover ~ a li {
+
+.btn-container:hover ~ a li {
     background-color: var(--side-panel-hover);
-} */
+}
 
 .btn-container > div {
     padding-right: 10px;

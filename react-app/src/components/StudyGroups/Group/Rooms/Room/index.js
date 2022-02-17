@@ -32,7 +32,7 @@ const Room = ({ room }) => {
     // )
 
     return (
-        <>
+        <div className='room-with-btns'>
             {
                 user.id === room.user_id &&
                 <div className='btn-container'>
@@ -43,13 +43,14 @@ const Room = ({ room }) => {
             <NavLink activeClassName='active'
                 to={`/groups/${room.group_id}/rooms/${room.id}/chat`}>
                 <li className='room-container'>
+                    <i className="fas fa-door-open"></i>
                     {room.room_name}
-                    {user.id !== room.user_id &&
+                    {/* {user.id !== room.user_id &&
                         <i className="fas fa-door-open"></i>
-                    }
+                    } */}
                 </li>
             </NavLink>
-        </>
+        </div>
     )
 }
 

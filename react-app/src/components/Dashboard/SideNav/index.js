@@ -61,7 +61,7 @@ const SideNav = () => {
                             </li>
                         </NavLink>
                         <li>Rooms <CreateRoomModal group={groupObj[groupId]} /></li>
-                        <ul className='room-with-btns'>
+                        <ul className='all-room-with-btns'>
                             {roomObj.byGroupId[groupId] && Object.values(roomObj.byGroupId[groupId]).map(room => (
                                 <Room key={room.id} room={room} />
                             ))}

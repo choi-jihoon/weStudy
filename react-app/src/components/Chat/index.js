@@ -16,7 +16,6 @@ const Chat = () => {
     const user = useSelector(state => state.session.user);
     const rooms = useSelector(state => state.rooms);
     const room = rooms.rooms[roomId];
-    console.log('ROOM!', room, roomId)
 
     const chatsObj = useSelector(state => state.chats);
     const chats = Object.values(chatsObj);

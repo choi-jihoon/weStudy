@@ -13,12 +13,16 @@ const Chat = () => {
     const { roomId } = useParams();
     const dispatch = useDispatch();
 
+    let chats;
+
     const user = useSelector(state => state.session.user);
     const rooms = useSelector(state => state.rooms);
     const room = rooms.rooms[roomId];
 
     const chatsObj = useSelector(state => state.chats);
-    const chats = Object.values(chatsObj);
+    if (chatsObj.byRoomId[roomId]) {
+        chats = Object.values(chatsObj.byRoomId[roomId]);
+    };
 
 
     const [messages, setMessages] = useState([]);
@@ -72,7 +76,7 @@ const Chat = () => {
         <>
             <h2 className='room-name'>Welcome to #{room?.room_name}!</h2>
             <div className='chat-room-container'>
-                {chats.map(chat => {
+                {chats?.map(chat => {
                     return <div
                         className={chat.username === user.username ? 'right chat-msg' : 'left chat-msg'}
                         key={chat.id}>

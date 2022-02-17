@@ -68,6 +68,23 @@
     font-size: 30px;
     border-radius: 5px;
     padding: 0 20px;
+
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    color: var(--side-panel-text);
+}
+
+#save-btn:hover {
+    transform: scale(1.1);
+    color: white;
+}
+
+#save-btn > i {
+    transition: all 0.2s ease-in-out;
+}
+
+#save-btn:hover > i {
+    color: white;
 }
 
 
@@ -94,5 +111,5 @@
 
 #delete-note > i:hover {
     transform: scale(1.1);
-    color: white;
+    color: var(--terra-cotta);
 }

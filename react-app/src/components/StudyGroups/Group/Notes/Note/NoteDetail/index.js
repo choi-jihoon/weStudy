@@ -23,7 +23,7 @@ const NoteDetail = () => {
 
     const notify = () => {
 		toast(`Your edits have been saved!`, {
-			position: toast.POSITION.TOP_CENTER,
+			position: toast.POSITION.TOP_RIGHT,
 			autoClose: 2000,
 		});
 	};
@@ -60,6 +60,7 @@ const NoteDetail = () => {
         <div className='note-detail-container'>
             <div className='edit-container'>
                     <input
+                        autocomplete="off"
                         name='note_title'
                         id='edit-note-title'
                         type='text'

@@ -16,7 +16,7 @@ function EditRoomModal({ room }) {
 
 	return (
 		<>
-			<button
+			<div
 				id="edit-room"
 				onClick={(e) => {
 					setShowModal(true);
@@ -24,7 +24,7 @@ function EditRoomModal({ room }) {
 				}}
 			>
 				<i className="fas fa-edit edit-bill-icon"></i>
-			</button>
+			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<EditRoomForm setShowModal={setShowModal} room={room} />

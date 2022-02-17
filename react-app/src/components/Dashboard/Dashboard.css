@@ -12,7 +12,7 @@
 .side-nav-container {
     height: 100%;
     background-color: var(--side-panel);
-    padding: 50px 0;
+    padding-bottom: 50px;
     border-right: 1px solid var(--side-panel-text);
     border-top: 1px solid var(--side-panel-text);
     border: 1px solid var(--side-panel-text);
@@ -28,22 +28,31 @@
 }
 
 .user-pic-name-container {
-    padding-bottom: 50px;
+    padding: 15px 0;
+    background-color: var(--top-highlight);
+    border-bottom: 1px solid var(--side-panel-text);
+}
+
+
+
+.username-text {
+    padding-left: 30px;
 }
 
 .user-pic-name-container > ul > li {
     width: 100%;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 
 .profile-pic-div.user-profile-nav {
     display: flex;
     align-items: center;
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background-color: aliceblue;
     border-radius: 20%;
+    margin-left: 30px;
 }
 
 .user-profile-nav > .profile-pic-div {
@@ -128,9 +137,9 @@
     font-size: 15px;
 }
 
-.btn-container {
+/* .btn-container {
     z-index: 10;
     position: absolute;
     top: 5%;
     right: 2%;
-}
+} */

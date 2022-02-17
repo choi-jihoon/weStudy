@@ -16,7 +16,7 @@ function DeleteRoomModal({ room }) {
 
 	return (
 		<>
-			<button
+			<div
 				id="delete-room"
 				onClick={(e) => {
 					setShowModal(true);
@@ -24,7 +24,7 @@ function DeleteRoomModal({ room }) {
 				}}
 			>
 				<i className="fas fa-trash"></i>
-			</button>
+			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<DeleteRoomForm showModal={setShowModal} room={room} />

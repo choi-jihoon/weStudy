@@ -26,13 +26,6 @@ const Room = ({ room }) => {
 
     return (
         <>
-            <NavLink activeClassName='active'
-                to={`/groups/${room.group_id}/rooms/${room.id}/chat`}>
-                <li className='room-container'>
-                    {room.room_name}
-                    <i className="fas fa-door-open"></i>
-                </li>
-            </NavLink>
             {
                 user.id === room.user_id &&
                 <div className='btn-container'>
@@ -40,6 +33,15 @@ const Room = ({ room }) => {
                     <DeleteRoomModal room={room} />
                 </div>
             }
+            <NavLink activeClassName='active'
+                to={`/groups/${room.group_id}/rooms/${room.id}/chat`}>
+                <li className='room-container'>
+                    {room.room_name}
+                    {user.id !== room.user_id &&
+                        <i className="fas fa-door-open"></i>
+                    }
+                </li>
+            </NavLink>
         </>
     )
 }

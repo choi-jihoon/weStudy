@@ -19,7 +19,7 @@ const SideNav = () => {
             <div className='profile-pic-div user-profile-nav'>
                 <img className='profile-pic' src={user.image} alt={user.username}></img>
             </div>
-            <div>
+            <div className='username-text'>
                 {user.username}
             </div>
         </>
@@ -54,7 +54,7 @@ const SideNav = () => {
                             </li>
                         </NavLink>
                         <li>Rooms <CreateRoomModal group={groups[Number(groupId) - 1]} /></li>
-                        <ul>
+                        <ul className='room-with-btns'>
                             {roomObj.byGroupId[groupId] && Object.values(roomObj.byGroupId[groupId]).map(room => (
                                 <Room key={room.id} room={room} />
                             ))}

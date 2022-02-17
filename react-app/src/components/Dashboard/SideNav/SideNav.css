@@ -20,6 +20,7 @@
     background-color: var(--side-panel-hover);
 }
 
+
 .side-panel-nav-links > a > li,
 .room-container,
 .side-panel-nav-links > ul > a > li {
@@ -33,6 +34,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    color: var(--header-text);
+
+    cursor: default;
 
     position: relative;
 }
@@ -48,6 +53,8 @@
     align-items: center;
     padding: 15px;
 
+    color: var(--side-panel-text);
+
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
@@ -61,7 +68,7 @@
 #home-link {
     font-weight: bold;
     padding: 10px 0 10px 20px;
-    color: var(--main-container-text);
+    color: var(--header-text);
 }
 
 .room-container {
@@ -78,4 +85,50 @@
 .room-container > .fa-door-open {
     color: var(--side-panel-text);
     visibility: hidden;
+}
+
+.room-with-btns {
+    position: relative;
+}
+
+.btn-container {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    display: flex;
+    cursor: pointer;
+    /* visibility: hidden; */
+}
+
+.btn-container:hover + a > .room-container {
+    background-color: var(--side-panel-hover);
+}
+
+.btn-container > div {
+    padding-right: 10px;
+    font-size: 14px;
+}
+
+/* .room-with-btns > a:hover + .btn-container {
+    visibility: visible !important;
+} */
+
+#edit-room,
+#delete-room {
+    transition: all 0.2s ease-in-out;
+}
+
+#edit-room > i,
+#delete-room > i {
+    color: var(--side-panel-text);
+}
+
+#edit-room:hover,
+#delete-room:hover {
+    transform: scale(1.1);
+}
+
+#edit-room > i:hover,
+#delete-room > i:hover {
+    color: var(--main-container-text);
 }

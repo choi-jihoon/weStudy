@@ -1,50 +1,64 @@
+
+
 .note-detail-container {
-    /* position: absolute; */
-    /* height: 100%; */
     width: 100%;
-    top: 100px;
-    padding-left: 50px;
-
     min-height: fit-content;
+    height: 100%;
 
+    border-right: 1px solid var(--side-panel-text);
+    border-bottom: 1px solid var(--side-panel-text);
 }
 
 .edit-container {
     display: flex;
     flex-direction: column;
-    width: 75vw;
-    border-radius: 10px;
+    /* width: 75vw; */
 
     position: relative;
+
+    height: 100%;
+
+    background-color: var(--main-container);
+
 
 }
 
 .edit-container > input,
 .edit-container > textarea {
-    background-color: var(--honeydew);
+    /* background-color: var(--honeydew);
     color: var(--raisin-black);
-    border: 2px solid var(--honeydew);
+    border: 2px solid var(--honeydew); */
     resize: none;
     /* padding: 50px 0 40px 50px; */
+    background-color: var(--main-container);
+    color: var(--header-text);
+    /* border: 1px solid var(--header-text); */
+
+    border: none;
 }
 
 .edit-container > input {
-    height: 80px;
+    /* height: 80px; */
+    height: 111px;
     font-size: 50px;
     padding: 50px;
-    border-radius: 10px 10px 0 0;
-    border-bottom: 1px dashed var(--raisin-black);
-
+    /* border-bottom: 1px solid var(--header-text); */
+    /* border-radius: 10px 10px 0 0; */
 }
 
 .edit-container > textarea {
-    width: 75vw;
-    height: 75vh;
+    /* width: 75vw; */
+    height: 100%;
     padding: 20px 55px;
     font-size: 18px;
-    border-radius: 0 0 10px 10px;
+    /* border-radius: 0 0 10px 10px; */
+    font-family: proxima-nova-condensed, sans-serif;
+    font-weight: 400;
+    font-style: normal;
 
-
+    background-color: var(--main-container);
+    color: var(--main-container-text);
+    border-top: 1px solid var(--header-text);
 }
 
 #save-btn {
@@ -58,16 +72,27 @@
 
 
 .fa-pencil-alt {
-    color: var(--terra-cotta);
+    color: var(--side-panel-text);
     font-size: 20px;
-    position: absolute;
+    /* position: absolute;
     top: 20px;
-    right: 20px;
+    right: 20px; */
 }
 
 .edit-delete-btn-container {
     font-size: 20px;
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 5%;
+    right: 5%;
+}
+
+#delete-note > i {
+    color: var(--side-panel-text);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+#delete-note > i:hover {
+    transform: scale(1.1);
+    color: white;
 }

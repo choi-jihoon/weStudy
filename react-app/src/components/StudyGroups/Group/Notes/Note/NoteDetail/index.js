@@ -65,7 +65,7 @@ const NoteDetail = () => {
                         type='text'
                         value={title}
                         onChange={updateTitle}
-                        onBlur={handleSave}
+                        // onBlur={handleSave}
                     />
                     <textarea
                         name='note_text'
@@ -74,13 +74,12 @@ const NoteDetail = () => {
                         onChange={updateText}
                         // onBlur={handleSave}
                     />
-                    <button
+                    <div
                         id='save-btn'
                         onClick={handleSave}>
-                        Save
-                    </button>
+                        Save <i className="fas fa-pencil-alt"></i>
+                    </div>
                     <div className='edit-delete-btn-container'>
-                        {/* <i className="fas fa-pencil-alt"></i> */}
                         <DeleteNote note={note} />
                     </div>
             </div>

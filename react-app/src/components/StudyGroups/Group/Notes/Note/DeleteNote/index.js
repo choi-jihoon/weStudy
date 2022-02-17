@@ -16,7 +16,7 @@ function DeleteNote({ note }) {
 
 	return (
 		<>
-			<button
+			<div
 				id="delete-note"
 				onClick={(e) => {
 					setShowModal(true);
@@ -24,7 +24,7 @@ function DeleteNote({ note }) {
 				}}
 			>
 				<i className="fas fa-trash"></i>
-			</button>
+			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<DeleteNoteForm showModal={setShowModal} note={note} />

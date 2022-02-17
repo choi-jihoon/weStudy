@@ -121,3 +121,7 @@ form > div > div {
 input {
 	color: var(--raisin-black);
 }
+
+.errors-container {
+	color: red;
+}

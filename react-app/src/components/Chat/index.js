@@ -48,8 +48,12 @@ const Chat = () => {
     useEffect(() => {
         dispatch(getRoom(roomId));
         dispatch(getChatMessages(roomId));
+
+        setMessages([]);
+
         scroll();
     }, [dispatch, roomId])
+
 
     useEffect(() => {
         socket = io();

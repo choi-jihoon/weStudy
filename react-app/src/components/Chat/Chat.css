@@ -170,3 +170,24 @@
 .chat-text {
     font-size: 15px;
 }
+
+.created-at-msg {
+    font-weight: normal;
+    font-size: small;
+    font-style: italic;
+    color: var(--side-panel-text);
+}
+
+.right > .chat-message > p {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.left > .chat-message > p > span {
+    padding-left: 10px;
+}
+
+.right > .chat-message > p > span {
+    padding-right: 10px;
+}

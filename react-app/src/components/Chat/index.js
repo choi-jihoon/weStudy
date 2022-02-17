@@ -93,7 +93,7 @@ const Chat = () => {
                             <img src={chat.user_image} alt={chat.username}></img>
                         </div>
                         <div className='chat-message'>
-                            <p className='chat-username'>{chat.username}</p>
+                            <p className='chat-username'>{chat.username}<span className='created-at-msg'>{(chat.created_at).slice(13)}</span></p>
                             <p className='chat-text'>{chat.message}</p>
                         </div>
                     </div>

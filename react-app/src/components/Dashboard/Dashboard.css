@@ -14,8 +14,8 @@
     background-color: var(--side-panel);
     padding-bottom: 50px;
     border-right: 1px solid var(--side-panel-text);
-    border-top: 1px solid var(--side-panel-text);
-    border: 1px solid var(--side-panel-text);
+    /* border-top: 1px solid var(--side-panel-text); */
+    /* border: 1px solid var(--side-panel-text); */
 }
 
 .main-container {

@@ -40,12 +40,15 @@
     width: 100%;
     height: 111px;
     padding: 30px;
+    border-bottom: 1px solid var(--side-panel-text);
+    display: flex;
+    align-items: center;
 }
 
 .chat-messages-container {
     /* max-height: calc(100vh - 200px); */
     overflow-y: scroll;
-    border-top: 1px solid var(--side-panel-text);
+    /* border-top: 1px solid var(--side-panel-text); */
     padding: 20px 0;
 }
 

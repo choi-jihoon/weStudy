@@ -30,11 +30,11 @@ const StudyGroupDash = () => {
                     <h1>{group.group_name} <span><AddUserToGroupModal group={group} />{user.id !== group.owner_id &&
                         <LeaveGroupModal group={group} />
                     }</span></h1>
-                    <Notes group={group} />
                     <div className='rooms-and-btn-container'>
                         <CreateRoomModal group={group} />
                         <Rooms group={group} />
                     </div>
+                    <Notes group={group} />
                 </div>
 
             }

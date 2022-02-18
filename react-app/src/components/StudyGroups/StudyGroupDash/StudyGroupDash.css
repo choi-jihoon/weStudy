@@ -18,38 +18,44 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding-left: 50px;
+    /* padding-left: 50px; */
+
+    /* display: grid;
+    grid-template-columns: 50% 50%; */
 }
 
-.study-group-title-container > h1 {
+.study-group-title {
+    padding: 0 50px;
+}
+
+.study-group-title > h1 {
     font-size: 50px;
     display: flex;
+    justify-content: center;
     cursor: default;
+
+    color: var(--header-text);
 }
 
-/* .study-group-dash-container > h1 {
-    display: flex;
-    width: 100%;
-    padding-left: 50px;
-    font-size: 50px;
-    position: absolute;
-    top: 0;
-} */
-
-.group-title-container > h1 > span {
+.study-group-title-btn-container {
     display: flex;
 }
+
 
 #add-user-to-group,
 #leave-group {
-    padding-left: 20px;
-    font-size: 20px;
+    font-size: 30px;
+}
+
+#add-user-to-group {
+    padding-right: 50px;
 }
 
 #add-user-to-group > i,
 #leave-group > i {
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+    color: var(--header-text);
 }
 
 #add-user-to-group > i:hover,
@@ -80,72 +86,3 @@
     align-items: flex-start;
     padding: 30px;
 }
-
-/* #create-room {
-    justify-self: center;
-    align-self: center;
-    width: fit-content;
-    padding: 10px 20px;
-
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 16px;
-} */
-/*
-.rooms-container {
-    width: 100%;
-}
-
-.rooms-container > ul {
-    padding-top: 30px;
-}
-
-.room-container {
-    position: relative;
-    padding: 20px;
-    width: 100%;
-    transition: all 0.2s ease-in-out;
-}
-
-.room-container:hover {
-    background-color: var(--honeydew);
-    color: var(--raisin-black);
-}
-
-.room-container:hover .fa-door-open {
-    color: var(--raisin-black);
-}
-
-.all-notes-container {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
-.all-notes-container > ul {
-    width: 100%;
-    padding-top: 30px;
-}
-
-#create-note {
-    align-self: center;
-    width: fit-content;
-    padding: 10px 20px;
-    background-color: var(--powder-blue);
-    color: var(--raisin-black);
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.note-title {
-    padding: 20px 0 20px 40px;
-    width: 100%;
-    transition: all 0.2s ease-in-out;
-}
-
-.note-title:hover {
-    background-color: var(--honeydew);
-    color: var(--raisin-black);
-} */

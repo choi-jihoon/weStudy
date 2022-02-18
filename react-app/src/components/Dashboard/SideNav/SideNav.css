@@ -159,9 +159,11 @@ li.logout-btn-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: var(--side-panel-text);
 }
 #logout > i {
     padding-left: 10px;
+    color: var(--side-panel-text);
 }
 
 .logout-btn-container:hover {

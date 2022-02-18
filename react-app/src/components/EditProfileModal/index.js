@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import { Modal } from "../../../../context/Modal";
+import { Modal } from "../../context/Modal";
 import EditProfile from "./EditProfile";
 
-function EditProfileModal ({ user }) {
+function EditProfileModal () {
 	const [showModal, setShowModal] = useState(false);
 
 	return (
 		<>
-			<button
+			<div
 				id="edit-user"
 				onClick={() => setShowModal(true)}
 				style={{
@@ -16,10 +16,10 @@ function EditProfileModal ({ user }) {
 				className="edit-user-pic-btn"
 			>
 				<i className="fas fa-edit"></i>
-			</button>
+			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
-					<EditProfile showModal={setShowModal} user={user} />
+					<EditProfile showModal={setShowModal} />
 				</Modal>
 			)}
 		</>

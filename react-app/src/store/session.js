@@ -16,7 +16,7 @@ const updateUser = (user) => ({
   type: UPDATE_USER,
   user,
 });
-const initialState = { user: null };
+
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch("/api/auth/", {
@@ -105,6 +105,8 @@ export const updateUserImage = (formData, id) => async (dispatch) => {
       errors: ["Something went wrong, please try again"],
     };
 };
+
+const initialState = { user: null };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {

@@ -171,5 +171,58 @@ li.logout-btn-container {
 }
 
 .user-pic-name-container {
-    cursor: default;
+    width: 100%;
+    height: 111px;
+
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.user-profile-edit-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.username-text {
+    display: flex;
+    align-items: center;
+    font-size: 22px;
+}
+
+div#edit-user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    opacity: 0;
+    width: 60px;
+    height: 60px;
+
+    transition: all 0.2s ease-in-out;
+}
+
+.user-profile-nav:hover + div#edit-user {
+    opacity: 1;
+}
+
+.user-profile-nav:hover {
+    opacity: 0.4;
+}
+
+div#edit-user:hover ~ .user-profile-nav {
+    opacity: 0.4
+}
+
+div#edit-user:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+div#edit-user > i {
+    color: var(--header-text);
 }

@@ -31,8 +31,8 @@ const Dashboard = () => {
 
     useEffect(() => {
         dispatch(getGroups());
-        dispatch(getRooms(groupId));
-        dispatch(getNotes(groupId));
+        // dispatch(getRooms(groupId));
+        // dispatch(getNotes(groupId));
     }, [dispatch]);
 
     useEffect(() => {

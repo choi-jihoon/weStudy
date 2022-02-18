@@ -62,14 +62,19 @@ const StudyGroupDash = () => {
                             {group.users?.map(user => {
                                 return (
                                     <div key={user.id} className='sg-member'>
-                                        <div className='profile-pic-div sg-member-profile-pic'>
-                                            <img src={user.image} alt={user.username}></img>
+                                        <div className='pic-and-status-container'>
+                                            <div className='profile-pic-div sg-member-profile-pic'>
+                                                <img src={user.image} alt={user.username}></img>
+                                            </div>
+                                            <div className={user.online ? 'status-circle online' : 'status-circle offline'}>
+                                                <div className='inner-circle'></div>
+                                            </div>
                                         </div>
                                         <div className='sg-member-name'>
                                             {user.username}
                                         </div>
                                         {(sessionUser.id === group.owner_id && sessionUser.id !== user.id) &&
-                                        <RemoveFromGroupModal group={group} user={user} />
+                                            <RemoveFromGroupModal group={group} user={user} />
                                         }
                                     </div>
                                 )

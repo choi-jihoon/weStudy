@@ -14,8 +14,9 @@ const Footer = () => {
                 <li>Flask</li>
                 <li>HTML5</li>
                 <li>CSS</li>
-                <li>JSON API</li>
                 <li>Docker</li>
+                <li>SocketIO</li>
+                <li>AWS S3</li>
             </ul>
         }
         <ul className='copyright'>

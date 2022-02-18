@@ -24,7 +24,7 @@ const SideNav = () => {
                 </div>
             </div>
             <div className='username-text'>
-                {user.username}
+                <NavLink to='/'>{user.username}</NavLink>
             </div>
         </>
     )

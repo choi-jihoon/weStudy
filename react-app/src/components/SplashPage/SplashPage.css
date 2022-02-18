@@ -1,11 +1,13 @@
 .splash-page-container {
-    top: 100px;
+    /* top: 100px; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     height: 100%;
     width: 100%;
+
+    position: relative;
 
     background-color: var(--main-container);
 }
@@ -13,12 +15,15 @@
 .title-container {
     align-self: flex-start;
 
+    position: absolute;
+    top: 150px;
+
     width: 100%;
-    height: 40%;
+    height: 40vh;
     border-top: 1px solid var(--side-panel-text);
     border-bottom: 1px solid var(--side-panel-text);
     padding: 30px 0 0 100px;
-    margin-bottom: 200px;
+    /* margin-bottom: 200px; */
 
     display: flex;
     flex-direction: column;
@@ -27,6 +32,7 @@
 
     /* background-color: var(--side-panel); */
     position: relative;
+
 }
 
 .title-image {
@@ -35,13 +41,15 @@
     position: absolute;
     bottom: -10%;
 
+
 }
 
 .title-image > h1 {
-    font-size: 13vw;
+    /* font-size: 13vw; */
     font-family: proxima-nova, sans-serif;
+
     /* font-weight: 400; */
-    /* font-size: 200px; */
+    font-size: 200px;
 
 }
 
@@ -55,8 +63,8 @@
 
 .title-image > img {
     /* height: 100px; */
-    width: 10vw;
-    /* width: 175px; */
+    /* width: 10vw; */
+    width: 175px;
     margin-left: 50px;
 }
 
@@ -72,6 +80,8 @@
 
 #login,
 #signup {
+    /* font-size: 3vh; */
+    font-size: 20px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
 }
@@ -79,12 +89,13 @@
 #login:hover,
 #signup:hover {
     color: var(--powder-blue);
+    transform: scale(1.1);
 }
 
 
 
 .splash-page-footer {
-    background-color: var(--top-lighter-hightlight);
+    background-color: var(--header-text);
     position: fixed;
     bottom: 0;
     left: 0;
@@ -94,7 +105,7 @@
     justify-content: center;
     align-items: center;
 
-    color: var(--header-text);
+    /* color: var(--header-text); */
 }
 
 .technologies {
@@ -103,17 +114,17 @@
     justify-content: space-around;
     align-items: center;
     width: 90%;
-    border-bottom: 1px dashed var(--header-text);
+    border-bottom: 1px dashed var(--main-container);
     min-width: 550px;
 }
 
 .technologies li {
-    color: var(--header-text);
+    color: var(--main-container);
     font-size: 15px;
 }
 
 .copyright {
-    color: var(--header-text);
+    color: var(--main-container);
     padding: 10px 0px;
     font-size: 15px;
     display: flex;
@@ -123,17 +134,17 @@
 }
 
 .footer-text {
-    color: var(--header-text);
+    color: var(--main-container);
 }
 
 .about-me {
     display: flex;
-    color: var(--header-text);
+    color: var(--main-container);
 }
 
 .about-me li {
     margin: 0 10px;
-    color: var(--header-text);
+    color: var(--main-container);
 
 }
 
@@ -141,7 +152,7 @@
 .fa-linkedin {
     font-size: 18px;
     transition-duration: 0.2s;
-    color: var(--header-text);
+    color: var(--main-container);
 }
 
 .copyright > .footer-text {

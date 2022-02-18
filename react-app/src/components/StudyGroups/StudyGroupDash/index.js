@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { io } from 'socket.io-client';
 
 
-import { getGroups, getGroup } from '../../../store/groups';
+import { getGroup } from '../../../store/groups';
 import { getRooms } from '../../../store/rooms';
 
 
@@ -35,10 +35,10 @@ const StudyGroupDash = () => {
         socket = io();
 
         // socket.emit('connect', { 'username': sessionUser.username, 'room': group?.group_name})
-        socket.emit('login', {'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': true})
+        socket.emit('login', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': true })
         console.log('connecting', sessionUser.username)
         socket.on('login', (online_status) => {
-            dispatch(getGroups());
+            dispatch(getGroup(groupId));
             console.log(online_status.username, 'LOGGED IN!')
         })
 
@@ -47,10 +47,10 @@ const StudyGroupDash = () => {
             console.log('disconnecting from group', sessionUser.username)
 
             // socket.emit('disconnect', { 'username': sessionUser.username, 'room': group?.group_name })
-            socket.emit('logout', {'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': false})
+            socket.emit('logout', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': false })
             socket.on('logout', (online_status) => {
-                dispatch(getGroups());
                 console.log(online_status.username, 'LOGGED OUT!')
+                dispatch(getGroup(groupId));
             })
             socket.disconnect();
         });

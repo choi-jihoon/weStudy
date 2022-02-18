@@ -1,7 +1,7 @@
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { io } from 'socket.io-client';
+// import { io } from 'socket.io-client';
 
 import StudyGroupDash from '../StudyGroups/StudyGroupDash';
 import NoteDetail from '../StudyGroups/Group/Notes/Note/NoteDetail';

@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import { deleteGroup } from "../../../store/groups";
 
@@ -8,12 +9,15 @@ import './DeleteGroupForm.css'
 
 function DeleteGroupForm({ showModal, group }) {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation();
 
         await dispatch(deleteGroup(group.id));
+
+        history.push('/');
 
         showModal(false);
     };

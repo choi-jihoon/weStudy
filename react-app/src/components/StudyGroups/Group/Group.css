@@ -15,6 +15,7 @@
 }
 
 .group-container img {
+    background-color: rgba(255, 255, 255, 0.322);
     border-radius: 10px;
     height: 150px;
     width: 150px;

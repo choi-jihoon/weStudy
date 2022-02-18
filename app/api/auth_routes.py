@@ -115,7 +115,7 @@ def sign_up():
                 username=form.data['username'],
                 email=form.data['email'],
                 password=form.data['password'],
-                image="https://fionacapstonebucket.s3.amazonaws.com/defaults/52638a4b87654527b8fa25d13d81862a.png"
+                image="https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/09fb955ae10c4aff9708b4d6293fd1d8.png"
             )
             db.session.add(user)
             db.session.commit()

@@ -71,7 +71,7 @@ def create_group():
                 group_name=form['group_name'].data,
                 description=form['description'].data,
                 owner_id=form['owner_id'].data,
-                group_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/956dd8e3405b4874ae587292f0609c8a.png'
+                group_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/09fb955ae10c4aff9708b4d6293fd1d8.png'
                 )
 
             group.users.append(user)

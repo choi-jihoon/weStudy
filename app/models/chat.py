@@ -23,6 +23,6 @@ class Chat(db.Model):
             'username': self.user.username,
             'room_id': self.room_id,
             'message': self.message,
-            'created_at': created_at,
+            'created_at': self.created_at,
             'user_image': self.user.image,
         }

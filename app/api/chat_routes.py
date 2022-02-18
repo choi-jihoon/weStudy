@@ -25,7 +25,7 @@ def create_chat():
             user_id=current_user.get_id(),
             room_id=form['room_id'].data,
             message=form['message'].data,
-            created_at=datetime.now()
+            created_at=datetime.utcnow()
         )
         db.session.add(chat)
         db.session.commit()

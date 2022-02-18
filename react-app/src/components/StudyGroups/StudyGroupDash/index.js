@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { io } from 'socket.io-client';
 
 
-import { getGroup } from '../../../store/groups';
+import { getGroups, getGroup } from '../../../store/groups';
 import { getRooms } from '../../../store/rooms';
 
 
@@ -15,7 +16,7 @@ import DeleteGroupModal from '../../StudyGroups/DeleteGroupModal';
 
 import './StudyGroupDash.css';
 
-
+let socket;
 
 const StudyGroupDash = () => {
     const dispatch = useDispatch();
@@ -24,14 +25,36 @@ const StudyGroupDash = () => {
     const group = groups[groupId];
     const sessionUser = useSelector(state => state.session.user);
 
-    const online_users = localStorage.getItem('online_users');
-    console.log(online_users)
-
-
     useEffect(() => {
         dispatch(getGroup(groupId));
         dispatch(getRooms(groupId));
     }, [dispatch, groupId]);
+
+
+    useEffect(() => {
+        socket = io();
+
+        // socket.emit('connect', { 'username': sessionUser.username, 'room': group?.group_name})
+        socket.emit('login', {'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': true})
+        console.log('connecting', sessionUser.username)
+        socket.on('login', (online_status) => {
+            dispatch(getGroups());
+            console.log(online_status.username, 'LOGGED IN!')
+        })
+
+
+        return (() => {
+            console.log('disconnecting from group', sessionUser.username)
+
+            // socket.emit('disconnect', { 'username': sessionUser.username, 'room': group?.group_name })
+            socket.emit('logout', {'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': false})
+            socket.on('logout', (online_status) => {
+                dispatch(getGroups());
+                console.log(online_status.username, 'LOGGED OUT!')
+            })
+            socket.disconnect();
+        });
+    }, []);
 
 
     return (

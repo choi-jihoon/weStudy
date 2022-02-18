@@ -1,10 +1,12 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { io } from 'socket.io-client';
 
 
 import { getGroup } from '../../../store/groups';
 import { getRooms } from '../../../store/rooms';
+import { getNotes } from '../../../store/notes';
 
 
 import AddUserToGroupModal from '../AddUserToGroupModal';
@@ -15,7 +17,7 @@ import DeleteGroupModal from '../../StudyGroups/DeleteGroupModal';
 
 import './StudyGroupDash.css';
 
-
+let socket;
 
 const StudyGroupDash = () => {
     const dispatch = useDispatch();
@@ -24,11 +26,33 @@ const StudyGroupDash = () => {
     const group = groups[groupId];
     const sessionUser = useSelector(state => state.session.user);
 
-
     useEffect(() => {
         dispatch(getGroup(groupId));
         dispatch(getRooms(groupId));
+        dispatch(getNotes(groupId));
     }, [dispatch, groupId]);
+
+
+    useEffect(() => {
+        socket = io();
+
+        socket.emit('login', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': true })
+        console.log('connecting', sessionUser.username)
+        socket.on('login', (online_status) => {
+            dispatch(getGroup(groupId));
+            console.log(online_status.username, 'LOGGED IN!')
+        });
+
+        return (() => {
+            console.log('disconnecting from group', sessionUser.username)
+            socket.emit('logout', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': false })
+            socket.on('logout', (online_status) => {
+                console.log(online_status.username, 'LOGGED OUT!')
+                dispatch(getGroup(groupId));
+            })
+            socket.disconnect();
+        });
+    }, []);
 
 
     return (
@@ -44,10 +68,12 @@ const StudyGroupDash = () => {
                                 <LeaveGroupModal group={group} />
                             }
                         </div>
-                        <div className='sg-edit-del-btn-container'>
-                            <EditGroupModal group={group} />
-                            <DeleteGroupModal group={group} />
-                        </div>
+                        {sessionUser.id === group.owner_id &&
+                            <div className='sg-edit-del-btn-container'>
+                                <EditGroupModal group={group} />
+                                <DeleteGroupModal group={group} />
+                            </div>
+                        }
                     </div>
                     <div className='sg-main-container'>
                         <div className='sg-info-container'>

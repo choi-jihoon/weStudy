@@ -6,6 +6,7 @@ import { io } from 'socket.io-client';
 
 import { getGroup } from '../../../store/groups';
 import { getRooms } from '../../../store/rooms';
+import { getNotes } from '../../../store/notes';
 
 
 import AddUserToGroupModal from '../AddUserToGroupModal';
@@ -28,25 +29,22 @@ const StudyGroupDash = () => {
     useEffect(() => {
         dispatch(getGroup(groupId));
         dispatch(getRooms(groupId));
+        dispatch(getNotes(groupId));
     }, [dispatch, groupId]);
 
 
     useEffect(() => {
         socket = io();
 
-        // socket.emit('connect', { 'username': sessionUser.username, 'room': group?.group_name})
         socket.emit('login', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': true })
         console.log('connecting', sessionUser.username)
         socket.on('login', (online_status) => {
             dispatch(getGroup(groupId));
             console.log(online_status.username, 'LOGGED IN!')
-        })
-
+        });
 
         return (() => {
             console.log('disconnecting from group', sessionUser.username)
-
-            // socket.emit('disconnect', { 'username': sessionUser.username, 'room': group?.group_name })
             socket.emit('logout', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': false })
             socket.on('logout', (online_status) => {
                 console.log(online_status.username, 'LOGGED OUT!')
@@ -70,10 +68,12 @@ const StudyGroupDash = () => {
                                 <LeaveGroupModal group={group} />
                             }
                         </div>
-                        <div className='sg-edit-del-btn-container'>
-                            <EditGroupModal group={group} />
-                            <DeleteGroupModal group={group} />
-                        </div>
+                        {sessionUser.id === group.owner_id &&
+                            <div className='sg-edit-del-btn-container'>
+                                <EditGroupModal group={group} />
+                                <DeleteGroupModal group={group} />
+                            </div>
+                        }
                     </div>
                     <div className='sg-main-container'>
                         <div className='sg-info-container'>

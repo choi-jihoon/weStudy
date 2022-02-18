@@ -45,6 +45,11 @@
     align-items: center;
 }
 
+h2.room-name {
+    color: var(--side-panel-text);
+    font-style: italic;
+}
+
 .chat-messages-container {
     /* max-height: calc(100vh - 200px); */
     overflow-y: scroll;

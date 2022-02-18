@@ -28,6 +28,7 @@ def seed_groups():
     group1.users.append(user1)
     group1.users.append(user2)
     group2.users.append(user2)
+    group2.users.append(user1)
 
     group3.users.append(user1)
     group3.users.append(user2)

@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { updateUserImage } from "../../../../store/session";
-import { getBills } from "../../../../store/bills";
+import { updateUserImage } from '../../store/session';
 
 
-const EditProfile = ({ showModal, user }) => {
+const EditProfile = ({ showModal }) => {
 	const dispatch = useDispatch();
 	const [image, setImage] = useState(null);
 	const [imageLoading, setImageLoading] = useState(false);
 	const [errors, setErrors] = useState([]);
 	const sessionUser = useSelector((state) => state.session.user);
+
 	const updateImage = (e) => {
 		const file = e.target.files[0];
 		setImage(file);
@@ -22,7 +22,7 @@ const EditProfile = ({ showModal, user }) => {
 		const formData = new FormData();
 		formData.append("image", image);
 		const data = await dispatch(updateUserImage(formData, sessionUser.id));
-		await dispatch(getBills());
+
 		if (!data) {
 			setTimeout(() => {
 				setImageLoading(false);
@@ -32,6 +32,8 @@ const EditProfile = ({ showModal, user }) => {
 			setErrors(data.errors);
 		}
 	};
+
+
 	return (
 		<div className="edit-image-form">
 			<div className="modal-head" style={{ marginBottom: 20 }}>
@@ -72,11 +74,11 @@ const EditProfile = ({ showModal, user }) => {
 				<button
 				>Save</button>
 			</form>
-			{imageLoading && (
+			{/* {imageLoading && (
 				<p>
 					<i className="fas fa-spinner fa-pulse"></i>
 				</p>
-			)}
+			)} */}
 			{errors.map((err, i) => (
 				<li key={i}>{err}</li>
 			))}

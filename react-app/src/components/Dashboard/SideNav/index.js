@@ -8,7 +8,7 @@ import CreateGroupModal from "../../StudyGroups/CreateGroupModal";
 import LogoutButton from "../../auth/LogoutButton";
 import CreateRoomModal from "../../StudyGroups/StudyGroupDash/CreateRoomModal";
 import CreateNoteModal from "../../StudyGroups/Group/Notes/CreateNoteModal";
-
+import EditProfileModal from "../../EditProfileModal";
 
 import './SideNav.css';
 
@@ -17,8 +17,11 @@ const SideNav = () => {
     const user = useSelector(state => state.session.user);
     const userMenu = (
         <>
-            <div className='profile-pic-div user-profile-nav'>
-                <img className='profile-pic' src={user.image} alt={user.username}></img>
+            <div className='user-profile-edit-container'>
+                <EditProfileModal />
+                <div className='profile-pic-div user-profile-nav'>
+                    <img className='profile-pic' src={user.image} alt={user.username}></img>
+                </div>
             </div>
             <div className='username-text'>
                 {user.username}
@@ -41,12 +44,11 @@ const SideNav = () => {
         <div className='side-nav-container'>
             <div className='user-pic-name-container'>
                 {/* <DropdownMenu title={userMenu} items={[<LogoutButton />]} /> */}
-                <ul className='menu'>
-                    <li className='dropdown'>
+                {/* <ul className='menu'>
+                    <li className='dropdown'> */}
                         {userMenu}
-
-                    </li>
-                </ul>
+                    {/* </li>
+                </ul> */}
             </div>
             <ul className='side-panel-nav-links'>
                 <NavLink exact activeClassName='active' to='/'>

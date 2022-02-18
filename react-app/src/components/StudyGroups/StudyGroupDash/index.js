@@ -24,6 +24,9 @@ const StudyGroupDash = () => {
     const group = groups[groupId];
     const sessionUser = useSelector(state => state.session.user);
 
+    const online_users = localStorage.getItem('online_users');
+    console.log(online_users)
+
 
     useEffect(() => {
         dispatch(getGroup(groupId));

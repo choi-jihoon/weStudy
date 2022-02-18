@@ -1,5 +1,5 @@
 import { Route, Switch, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { io } from 'socket.io-client';
 
@@ -23,6 +23,8 @@ const Dashboard = () => {
     const roomsObj = useSelector(state => state.rooms);
     const sessionUser = useSelector(state => state.session.user);
 
+    const [online, setOnline] = useState([])
+
     const path = location.pathname.split('/');
     let groupId;
     if (path[2]) {
@@ -39,14 +41,30 @@ const Dashboard = () => {
         socket = io();
 
         // socket.emit('connect', { 'username': sessionUser.username, 'room': group?.group_name})
-        socket.emit('login', {'username': sessionUser.username, 'room': 'we-study'})
+        socket.emit('login', {'username': sessionUser.username, 'room': 'we-study', 'online': true})
         console.log('connecting', sessionUser.username)
+        socket.on('login', (online_status) => {
+            setOnline([...online, online_status])
+            setTimeout(() => {
+                console.log("ONLINE!!!!!!!!!", online)
+                localStorage.setItem('online_users', JSON.stringify(online))
+            }, 1000)
+        })
+
 
         return (() => {
             console.log('disconnecting from group', sessionUser.username)
 
             // socket.emit('disconnect', { 'username': sessionUser.username, 'room': group?.group_name })
-            socket.emit('logout', {'username': sessionUser.username, 'room': 'we-study'})
+            socket.emit('logout', {'username': sessionUser.username, 'room': 'we-study', 'online': false})
+            socket.on('logout', (online_status) => {
+                setOnline(online => online.forEach(user => {
+                    if (user.username === online_status.username) user["online"] = false;
+                }))
+                setTimeout(() => {
+                    localStorage.setItem('online_users', JSON.stringify(online))
+                }, 1000)
+            })
             socket.disconnect();
         });
     }, []);

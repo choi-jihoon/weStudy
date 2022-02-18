@@ -9,6 +9,7 @@ import LogoutButton from "../../auth/LogoutButton";
 import CreateRoomModal from "../../StudyGroups/StudyGroupDash/CreateRoomModal";
 import CreateNoteModal from "../../StudyGroups/Group/Notes/CreateNoteModal";
 
+
 import './SideNav.css';
 
 const SideNav = () => {
@@ -39,7 +40,13 @@ const SideNav = () => {
     return (
         <div className='side-nav-container'>
             <div className='user-pic-name-container'>
-                <DropdownMenu title={userMenu} items={[<LogoutButton />]} />
+                {/* <DropdownMenu title={userMenu} items={[<LogoutButton />]} /> */}
+                <ul className='menu'>
+                    <li className='dropdown'>
+                        {userMenu}
+
+                    </li>
+                </ul>
             </div>
             <ul className='side-panel-nav-links'>
                 <NavLink exact activeClassName='active' to='/'>
@@ -75,6 +82,9 @@ const SideNav = () => {
                         </ul>
                     </>
                 }
+                <li className='logout-btn-container'>
+                    <LogoutButton />
+                </li>
             </ul>
         </div>
     )

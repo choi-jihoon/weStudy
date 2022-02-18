@@ -145,3 +145,29 @@
 #delete-room > i:hover {
     color: var(--main-container-text);
 }
+
+
+li.logout-btn-container {
+    width: 100%;
+    padding: 10px 40px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+#logout {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#logout > i {
+    padding-left: 10px;
+}
+
+.logout-btn-container:hover {
+    background-color: var(--side-panel-hover);
+}
+
+.user-pic-name-container {
+    cursor: default;
+}

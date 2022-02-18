@@ -20,7 +20,17 @@ const CreateGroupForm = ({ setShowModal }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		const data = await dispatch(createGroup(groupName, description, user.id, image));
+
+		const formData = new FormData();
+		formData.append('group_name', groupName);
+		formData.append('description', description);
+		formData.append('owner_id', user.id);
+		if (image) {
+			formData.append('group_image', image);
+			setImageLoading(true);
+		}
+
+		const data = await dispatch(createGroup(formData));
 		setImageLoading(false);
 
 		if (data) {
@@ -33,6 +43,7 @@ const CreateGroupForm = ({ setShowModal }) => {
 			setImageLoading(false);
 			return;
 		}
+
         setShowModal(false);
 
 		if (location.pathname !== '/') history.push('/');

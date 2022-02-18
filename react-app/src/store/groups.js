@@ -69,18 +69,10 @@ export const getGroup = (groupId) => async (dispatch) => {
     }
 }
 
-export const createGroup = (group_name, description, owner_id, group_image) => async (dispatch) => {
+export const createGroup = (formData) => async (dispatch) => {
     const res = await fetch(`/api/groups/`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            group_name,
-            description,
-            owner_id,
-            group_image
-        })
+        body: formData,
     })
 
     if (res.ok) {

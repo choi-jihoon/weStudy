@@ -53,6 +53,7 @@ def create_group():
                 owner_id=form['owner_id'].data,
                 group_image=url
             )
+            user = User.query.get(current_user.get_id())
             group.users.append(user)
             db.session.add(group)
             db.session.commit()
@@ -72,6 +73,7 @@ def create_group():
                 owner_id=form['owner_id'].data,
                 group_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/956dd8e3405b4874ae587292f0609c8a.png'
                 )
+
             group.users.append(user)
             db.session.add(group)
             db.session.commit()

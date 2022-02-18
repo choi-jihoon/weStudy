@@ -18,6 +18,7 @@ const EditProfile = ({ showModal }) => {
 
 	const onSubmit = async (e) => {
 		e.preventDefault();
+
 		setImageLoading(true);
 		const formData = new FormData();
 		formData.append("image", image);

@@ -9,6 +9,8 @@ import { getRooms } from '../../../store/rooms';
 import AddUserToGroupModal from '../AddUserToGroupModal';
 import LeaveGroupModal from '../LeaveGroupModal';
 import RemoveFromGroupModal from '../RemoveFromGroupModal';
+import EditGroupModal from '../../StudyGroups/EditGroupModal';
+import DeleteGroupModal from '../../StudyGroups/DeleteGroupModal';
 
 
 
@@ -39,6 +41,10 @@ const StudyGroupDash = () => {
                             <AddUserToGroupModal group={group} />{sessionUser.id !== group.owner_id &&
                                 <LeaveGroupModal group={group} />
                             }
+                        </div>
+                        <div className='sg-edit-del-btn-container'>
+                            <EditGroupModal group={group} />
+                            <DeleteGroupModal group={group} />
                         </div>
                     </div>
                     <div className='sg-main-container'>

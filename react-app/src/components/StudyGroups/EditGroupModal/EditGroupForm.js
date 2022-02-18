@@ -45,7 +45,7 @@ const EditGroupForm = ({ setShowModal, group }) => {
 
 	return (
 		<form onSubmit={handleSubmit} className="form-container">
-			<div className="modal-head">Create a Study Group</div>
+			<div className="modal-head">Edit Study Group</div>
 			<div className='form-element-container'>
 				<input
 					name="group_name"

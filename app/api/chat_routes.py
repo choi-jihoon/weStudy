@@ -1,5 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
+from datetime import datetime
 from app.models import db, User, Room, Chat
 from app.forms import ChatForm
 
@@ -23,7 +24,8 @@ def create_chat():
         chat = Chat(
             user_id=current_user.get_id(),
             room_id=form['room_id'].data,
-            message=form['message'].data
+            message=form['message'].data,
+            created_at=datetime.now()
         )
         db.session.add(chat)
         db.session.commit()

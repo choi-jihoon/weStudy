@@ -1,14 +1,5 @@
-groups = ['hello', {'hello': 'hi'}, 'yo']
 
-groups.append('sup')
+from datetime import datetime
 
-print(groups)
-
-groups.pop(groups.index({'hello': 'hi'}))
-
-print(groups)
-
-
-a = {'a': 1, 'b': 2, 'c': 3}
-
-print(dir(dict(a)))
+print(datetime.now())
+print((datetime.now()).strftime("%m/%d/%Y at %I:%M:%S%p"))

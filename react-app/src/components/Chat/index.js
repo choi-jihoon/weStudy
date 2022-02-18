@@ -32,6 +32,8 @@ const Chat = () => {
         setChatInput(e.target.value)
     };
 
+    const toTimestamp = strDate => Date.parse(strDate);
+
     const sendChat = (e) => {
         e.preventDefault();
         socket.emit('chat', { user: user.username, msg: chatInput, room: room?.room_name, user_image: user.image });
@@ -109,7 +111,7 @@ const Chat = () => {
                         }
                         <div className='chat-message'>
                             {message.user !== 'weStudy-Bot' &&
-                                <p className='chat-username'>{message.user}</p>
+                                <p className='chat-username'>{message.user}<span className='created-at-msg'>{(new Date).toLocaleTimeString()}</span></p>
                             }
                             <p className='chat-text'>{message.msg}</p>
                         </div>

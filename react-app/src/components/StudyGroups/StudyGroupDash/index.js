@@ -14,6 +14,7 @@ import LeaveGroupModal from '../LeaveGroupModal';
 import RemoveFromGroupModal from '../RemoveFromGroupModal';
 import EditGroupModal from '../../StudyGroups/EditGroupModal';
 import DeleteGroupModal from '../../StudyGroups/DeleteGroupModal';
+import EditGroupPicModal from './EditGroupPicModal';
 
 import './StudyGroupDash.css';
 
@@ -80,6 +81,7 @@ const StudyGroupDash = () => {
                             <div className='sg-img-container'>
                                 <img src={group.group_image} alt={group.group_name}></img>
                             </div>
+                            <EditGroupPicModal group={group} />
                             <div className='sg-descrip-container'>
                                 {group.description}
                             </div>

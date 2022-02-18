@@ -6,6 +6,7 @@ const ADD_TO_GROUP = 'groups/ADD_TO_GROUP';
 const LOAD_GROUP = 'groups/LOAD_GROUP';
 const LEAVE_GROUP = 'groups/LEAVE_GROUP';
 const REMOVE_FROM_GROUP = 'groups/REMOVE_FROM_GROUP';
+// const UPDATE_GROUP_PIC = 'groups/UPDATE_GROUP_PIC';
 
 const loadGroups = (groups) => ({
     type: LOAD_GROUPS,
@@ -85,7 +86,7 @@ export const createGroup = (formData) => async (dispatch) => {
             return data.errors;
         }
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
+        return { 'ERROR': 'An error occurred. Please try again.' }
     }
 }
 
@@ -104,7 +105,7 @@ export const deleteGroup = (groupId) => async (dispatch) => {
             return data.errors;
         }
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
+        return { 'ERROR': 'An error occurred. Please try again.' }
     }
 
 }
@@ -132,7 +133,7 @@ export const editGroup = (groupId, group_name, description, owner_id) => async (
             return data.errors;
         }
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
+        return { 'ERROR': 'An error occurred. Please try again.' }
     }
 }
 
@@ -155,7 +156,7 @@ export const addUserToGroup = (groupId, username) => async (dispatch) => {
             return data.errors;
         }
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
+        return { 'ERROR': 'An error occurred. Please try again.' }
     }
 }
 
@@ -178,7 +179,7 @@ export const leaveStudyGroup = (groupId) => async (dispatch) => {
             return data.errors;
         }
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
+        return { 'ERROR': 'An error occurred. Please try again.' }
     }
 }
 
@@ -197,8 +198,22 @@ export const removeUserFromGroup = (groupId, userId) => async (dispatch) => {
             return data.errors;
         }
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
+        return { 'ERROR': 'An error occurred. Please try again.' }
     }
+}
+
+export const updateGroupImage = (formData, groupId) => async (dispatch) => {
+    const res = await fetch(`/api/groups/${groupId}/photo`, {
+        method: 'PATCH',
+        body: formData
+    });
+    const data = await res.json();
+    if (res.ok) {
+        dispatch(edit(data));
+    } else
+        return {
+            errors: ["Something went wrong, please try again"],
+        };
 }
 
 

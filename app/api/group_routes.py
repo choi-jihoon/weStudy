@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import current_user
 from app.aws_s3 import (upload_file_to_s3, allowed_file, get_unique_filename)
 from app.models import db, Group, User, Room, Note
-from app.forms import GroupForm, AddToGroupForm
+from app.forms import GroupForm, AddToGroupForm, UpdateImage
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -160,3 +160,26 @@ def get_rooms(groupId):
 def get_notes(groupId):
     notes = Note.query.filter(Note.group_id == groupId)
     return  {'notes': [note.to_dict() for note in notes]}
+
+
+@group_routes.route('/<int:groupId>/photo', methods=['PATCH'])
+def update_group_photo(groupId):
+    group = Group.query.get(groupId)
+    form = UpdateImage()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    image = form["image"].data
+    if not allowed_file(image.filename):
+        return {"errors": "file type not allowed"}, 400
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    if "url" not in upload:
+        return upload, 400
+
+    url = upload["url"]
+    if form.validate_on_submit():
+        group.group_image=url
+        db.session.commit()
+        return group.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401

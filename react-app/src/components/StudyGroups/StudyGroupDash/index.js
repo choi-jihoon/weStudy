@@ -8,6 +8,7 @@ import { getRooms } from '../../../store/rooms';
 
 import AddUserToGroupModal from '../AddUserToGroupModal';
 import LeaveGroupModal from '../LeaveGroupModal';
+import RemoveFromGroupModal from '../RemoveFromGroupModal';
 
 
 
@@ -18,7 +19,7 @@ const StudyGroupDash = () => {
     const { groupId } = useParams();
     const groups = useSelector(state => state.groups);
     const group = groups[groupId];
-    const user = useSelector(state => state.session.user);
+    const sessionUser = useSelector(state => state.session.user);
 
 
     useEffect(() => {
@@ -35,7 +36,7 @@ const StudyGroupDash = () => {
                             <h1>{group.group_name}</h1>
                         </div>
                         <div className='study-group-title-btn-container'>
-                            <AddUserToGroupModal group={group} />{user.id !== group.owner_id &&
+                            <AddUserToGroupModal group={group} />{sessionUser.id !== group.owner_id &&
                                 <LeaveGroupModal group={group} />
                             }
                         </div>
@@ -52,13 +53,16 @@ const StudyGroupDash = () => {
                         <div className='sg-members-container'>
                             {group.users?.map(user => {
                                 return (
-                                    <div className='sg-member'>
+                                    <div key={user.id} className='sg-member'>
                                         <div className='profile-pic-div sg-member-profile-pic'>
                                             <img src={user.image} alt={user.username}></img>
                                         </div>
                                         <div className='sg-member-name'>
                                             {user.username}
                                         </div>
+                                        {(sessionUser.id === group.owner_id && sessionUser.id !== user.id) &&
+                                        <RemoveFromGroupModal group={group} user={user} />
+                                        }
                                     </div>
                                 )
                             })}

@@ -139,6 +139,15 @@ def leave_group(groupId):
     return group.to_dict()
 
 
+@group_routes.route('/<int:groupId>/remove/<int:userId>', methods=['PATCH'])
+def remove_from_group(groupId, userId):
+    user = User.query.get(int(userId))
+    group = Group.query.get(int(groupId))
+    group.users.pop(group.users.index(user))
+    db.session.commit()
+    return group.to_dict()
+
+
 @group_routes.route('/<int:groupId>/rooms')
 def get_rooms(groupId):
     rooms = Room.query.filter(Room.group_id == groupId)

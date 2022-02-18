@@ -133,11 +133,36 @@
     align-items: center;
     padding: 0 20px;
     height: fit-content;
+
+    position: relative;
+    transition: all 0.2s ease-in-out;
 }
 
-.profile-pic-div.sg-member-profile-pic {
-
+.sg-member:hover .sg-member-profile-pic {
+    opacity: 0.8;
 }
+
+.sg-member:hover #rm-from-group {
+    opacity: 1;
+}
+
+#rm-from-group {
+    position: absolute;
+    top: -5px;
+    right: 12px;
+    opacity: 0;
+
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+#rm-from-group > i {
+    color: var(--terra-cotta);
+}
+
+/* .profile-pic-div.sg-member-profile-pic {
+
+} */
 
 .sg-member-name {
     padding: 10px;

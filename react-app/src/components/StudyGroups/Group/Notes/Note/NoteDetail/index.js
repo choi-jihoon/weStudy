@@ -60,7 +60,7 @@ const NoteDetail = () => {
         <div className='note-detail-container'>
             <div className='edit-container'>
                     <input
-                        autocomplete="off"
+                        autoComplete="off"
                         name='note_title'
                         id='edit-note-title'
                         type='text'

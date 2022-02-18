@@ -149,7 +149,7 @@
 
 li.logout-btn-container {
     width: 100%;
-    padding: 20px;
+    padding: 10px 20px;
     margin-top: 50px;
     cursor: pointer;
 }
@@ -163,7 +163,7 @@ li.logout-btn-container {
 }
 #logout > i {
     padding-left: 10px;
-    color: var(--side-panel-text);
+    color: var(--header-text);
 }
 
 .logout-btn-container:hover {

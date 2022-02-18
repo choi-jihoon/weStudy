@@ -45,3 +45,21 @@ def on_leave(data):
     room = data['room']
     leave_room(room)
     send(username + ' has left the room.', to=room)
+
+
+@socketio.on('login')
+def on_active(data):
+    username = data['username']
+    room = data['room']
+    join_room(room)
+    send(username + ' is active in the group.', to=room)
+    # emit('my response', {'data': 'Connected'})
+
+
+@socketio.on('logout')
+def on_inactive(data):
+    username = data['username']
+    room = data['room']
+    leave_room(room)
+    send(username + ' is no longer active in the group.', to=room)
+    # print('Client disconnected')

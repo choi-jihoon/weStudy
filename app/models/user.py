@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     image = db.Column(db.String(255))
+    online = db.Column(db.Boolean, default=True)
 
     rooms = db.relationship('Room', back_populates='user')
     groups = db.relationship('Group', back_populates='users', secondary=study_groups)
@@ -40,6 +41,7 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'image': self.image,
+            'online': self.online
         }
 
     def groups_to_dict(self):

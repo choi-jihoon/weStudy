@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
+
 import { getGroup } from '../../../store/groups';
 import { getRooms } from '../../../store/rooms';
 
@@ -12,9 +13,9 @@ import RemoveFromGroupModal from '../RemoveFromGroupModal';
 import EditGroupModal from '../../StudyGroups/EditGroupModal';
 import DeleteGroupModal from '../../StudyGroups/DeleteGroupModal';
 
+import './StudyGroupDash.css';
 
 
-import './StudyGroupDash.css'
 
 const StudyGroupDash = () => {
     const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const StudyGroupDash = () => {
         dispatch(getGroup(groupId));
         dispatch(getRooms(groupId));
     }, [dispatch, groupId]);
+
 
     return (
         <>
@@ -60,14 +62,19 @@ const StudyGroupDash = () => {
                             {group.users?.map(user => {
                                 return (
                                     <div key={user.id} className='sg-member'>
-                                        <div className='profile-pic-div sg-member-profile-pic'>
-                                            <img src={user.image} alt={user.username}></img>
+                                        <div className='pic-and-status-container'>
+                                            <div className='profile-pic-div sg-member-profile-pic'>
+                                                <img src={user.image} alt={user.username}></img>
+                                            </div>
+                                            <div className={user.online ? 'status-circle online' : 'status-circle offline'}>
+                                                <div className='inner-circle'></div>
+                                            </div>
                                         </div>
                                         <div className='sg-member-name'>
                                             {user.username}
                                         </div>
                                         {(sessionUser.id === group.owner_id && sessionUser.id !== user.id) &&
-                                        <RemoveFromGroupModal group={group} user={user} />
+                                            <RemoveFromGroupModal group={group} user={user} />
                                         }
                                     </div>
                                 )

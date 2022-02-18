@@ -186,3 +186,39 @@
     text-align: justify;
     font-style: italic;
 }
+
+.pic-and-status-container {
+    position: relative;
+}
+
+.status-circle.online {
+    border-radius: 50%;
+    background-color: white;
+    border: 3px solid var(--side-panel);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+}
+
+.status-circle.offline {
+    border-radius: 50%;
+    background-color: var(--main-container);
+    border: 3px solid var(--side-panel);
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+}
+
+.status-circle.offline > .inner-circle {
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    border: 3px solid grey;
+    position: absolute;
+    background-color: var(--main-container);
+
+}

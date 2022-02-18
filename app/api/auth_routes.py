@@ -41,6 +41,8 @@ def login():
     if form.validate_on_submit():
         # Add the user to the session, we are logged in!
         user = User.query.filter(User.email == form.data['email']).first()
+        user.online = True
+        db.session.commit()
         login_user(user)
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
@@ -51,6 +53,9 @@ def logout():
     """
     Logs a user out
     """
+    user = User.query.get(current_user.get_id())
+    user.online = False
+    db.session.commit()
     logout_user()
     return {'message': 'User logged out'}
 
@@ -125,3 +130,9 @@ def unauthorized():
     Returns unauthorized JSON when flask-login authentication fails
     """
     return {'errors': ['Unauthorized']}, 401
+
+
+# @auth_routes.route('/active', methods=['PATCH'])
+# def set_active():
+#     user = User.query.get(current_user.get_id())
+#     user.online = True

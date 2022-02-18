@@ -12,7 +12,8 @@
 	--terra-cotta: #ED6A5A;
 
 	--base-color: #1A1D21;
-	--main-text-color: #F1FAEE;
+	/* --main-text-color: #F1FAEE; */
+	--main-text-color: #CFD0D1;
 	--nav-color: #912F40;
 	--button-color: #0F7173;
 	--drop-down: #383D59;
@@ -28,11 +29,15 @@
 	--main-container-text: white;
 
 	--top-highlight: #353330;
+	--top-lighter-hightlight: #646260;
 	--header-text: #CFD0D1;
+
 
 	--chat-box-container: #222529;
 	--chat-box-placeholder: #6F7073;
 	--chat-box-hover: #222529;
+
+
 
 	--send-message: #007A5A;
 	/* CHOCO MINT SLACK THEME */
@@ -41,6 +46,8 @@
 	--chat-container: #6b5c6e5d;
 
 	--toastify-color-light: #383D59;
+
+
 }
 
 *,

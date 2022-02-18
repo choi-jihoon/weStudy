@@ -13,8 +13,22 @@ def seed_chats():
         message='Definitely Python. Love me a good list comprehension.'
     )
 
+    chat3 = Chat(
+        room_id=2,
+        user_id=2,
+        message="Here's a neat resource for implementing Flask-SocketIO!:"
+    )
+
+    chat4 = Chat(
+        room_id=2,
+        user_id=2,
+        message="https://flask-socketio.readthedocs.io/en/latest/#rooms"
+    )
+
     db.session.add(chat1)
     db.session.add(chat2)
+    db.session.add(chat3)
+    db.session.add(chat4)
     db.session.commit()
 
 def undo_chats():

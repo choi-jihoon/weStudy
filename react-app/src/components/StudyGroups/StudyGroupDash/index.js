@@ -21,7 +21,6 @@ const StudyGroupDash = () => {
     const user = useSelector(state => state.session.user);
 
 
-
     useEffect(() => {
         dispatch(getGroup(groupId));
         dispatch(getRooms(groupId));
@@ -41,11 +40,30 @@ const StudyGroupDash = () => {
                             }
                         </div>
                     </div>
-                    {/* <div className='rooms-and-btn-container'>
-                        <CreateRoomModal group={group} />
-                        <Rooms group={group} />
+                    <div className='sg-main-container'>
+                        <div className='sg-info-container'>
+                            <div className='sg-img-container'>
+                                <img src={group.group_image} alt={group.group_name}></img>
+                            </div>
+                            <div className='sg-descrip-container'>
+                                {group.description}
+                            </div>
+                        </div>
+                        <div className='sg-members-container'>
+                            {group.users?.map(user => {
+                                return (
+                                    <div className='sg-member'>
+                                        <div className='profile-pic-div sg-member-profile-pic'>
+                                            <img src={user.image} alt={user.username}></img>
+                                        </div>
+                                        <div className='sg-member-name'>
+                                            {user.username}
+                                        </div>
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </div>
-                    <Notes group={group} /> */}
                 </div>
 
             }

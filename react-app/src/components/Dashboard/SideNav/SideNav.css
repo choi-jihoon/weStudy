@@ -86,9 +86,6 @@
 }
 
 
-.room-container:hover .fa-door-open {
-    /* visibility: visible; */
-}
 
 .room-container > .fa-door-open,
 .note-title > .fa-file-alt,

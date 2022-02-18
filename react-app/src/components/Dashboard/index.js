@@ -1,7 +1,7 @@
 import { Route, Switch, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { io } from 'socket.io-client';
 
 import StudyGroupDash from '../StudyGroups/StudyGroupDash';
 import NoteDetail from '../StudyGroups/Group/Notes/Note/NoteDetail';
@@ -14,11 +14,14 @@ import { getNotes } from '../../store/notes';
 
 import './Dashboard.css';
 
+let socket;
+
 const Dashboard = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const groupsObj = useSelector(state => state.groups);
     const roomsObj = useSelector(state => state.rooms);
+    const sessionUser = useSelector(state => state.session.user);
 
     const path = location.pathname.split('/');
     let groupId;
@@ -31,6 +34,23 @@ const Dashboard = () => {
         dispatch(getRooms(groupId));
         dispatch(getNotes(groupId));
     }, [dispatch]);
+
+    useEffect(() => {
+        socket = io();
+
+        // socket.emit('connect', { 'username': sessionUser.username, 'room': group?.group_name})
+        socket.emit('login', {'username': sessionUser.username, 'room': 'we-study'})
+        console.log('connecting', sessionUser.username)
+
+        return (() => {
+            console.log('disconnecting from group', sessionUser.username)
+
+            // socket.emit('disconnect', { 'username': sessionUser.username, 'room': group?.group_name })
+            socket.emit('logout', {'username': sessionUser.username, 'room': 'we-study'})
+            socket.disconnect();
+        });
+    }, []);
+
 
     return (
         <div className='dashboard-container'>

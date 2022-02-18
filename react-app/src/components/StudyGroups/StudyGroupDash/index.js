@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 
+
 import { getGroup } from '../../../store/groups';
 import { getRooms } from '../../../store/rooms';
 
@@ -12,9 +13,9 @@ import RemoveFromGroupModal from '../RemoveFromGroupModal';
 import EditGroupModal from '../../StudyGroups/EditGroupModal';
 import DeleteGroupModal from '../../StudyGroups/DeleteGroupModal';
 
+import './StudyGroupDash.css';
 
 
-import './StudyGroupDash.css'
 
 const StudyGroupDash = () => {
     const dispatch = useDispatch();
@@ -28,6 +29,7 @@ const StudyGroupDash = () => {
         dispatch(getGroup(groupId));
         dispatch(getRooms(groupId));
     }, [dispatch, groupId]);
+
 
     return (
         <>

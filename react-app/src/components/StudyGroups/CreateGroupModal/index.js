@@ -15,7 +15,7 @@ function CreateGroupModal() {
 				id="create-group"
 				onClick={() => setShowModal(true)}
 			>
-				Create a Study Group
+				Create a Study Group <i className="fas fa-plus"></i>
 			</li>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>

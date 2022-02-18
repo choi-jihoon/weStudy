@@ -57,6 +57,7 @@ const SideNav = () => {
                         <NavLink exact activeClassName='active'
                             to={`/groups/${groupId}`}>
                             <li>
+                                <i className="fas fa-users"></i>
                                 {groupObj[groupId]?.group_name}
                             </li>
                         </NavLink>

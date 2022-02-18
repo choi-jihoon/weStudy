@@ -31,7 +31,7 @@ const StudyGroupDash = () => {
         <>
             {group &&
                 <div className='study-group-dash-container'>
-                    <div className='group-title-container'>
+                    <div className='study-group-title-container'>
                         <h1>{group.group_name} <span><AddUserToGroupModal group={group} />{user.id !== group.owner_id &&
                             <LeaveGroupModal group={group} />
                         }</span></h1>

@@ -5,7 +5,8 @@
 }
 
 .active > li > .fa-door-open,
-.active > li > .fa-file-alt {
+.active > li > .fa-file-alt,
+.active > li > .fa-users {
     color: var(--main-container-text) !important;
 }
 
@@ -90,7 +91,8 @@
 }
 
 .room-container > .fa-door-open,
-.note-title > .fa-file-alt {
+.note-title > .fa-file-alt,
+.fa-users {
     color: var(--side-panel-text);
     padding-right: 10px;
 }

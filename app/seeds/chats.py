@@ -4,13 +4,13 @@ def seed_chats():
     chat1 = Chat(
         room_id=1,
         user_id=1,
-        message='First message!'
+        message='Icebreaker question: favorite coding language?'
     )
 
     chat2 = Chat(
         room_id=1,
         user_id=2,
-        message='Second message!'
+        message='Definitely Python. Love me a good list comprehension.'
     )
 
     db.session.add(chat1)

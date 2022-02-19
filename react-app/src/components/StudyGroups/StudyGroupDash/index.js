@@ -81,7 +81,7 @@ const StudyGroupDash = () => {
                             <div className='sg-img-container'>
                                 <img src={group.group_image} alt={group.group_name}></img>
                             </div>
-                            <EditGroupPicModal group={group} />
+                            {/* <EditGroupPicModal group={group} /> */}
                             <div className='sg-descrip-container'>
                                 {group.description}
                             </div>

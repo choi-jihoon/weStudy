@@ -110,17 +110,10 @@ export const deleteGroup = (groupId) => async (dispatch) => {
 
 }
 
-export const editGroup = (groupId, group_name, description, owner_id) => async (dispatch) => {
+export const editGroup = (formData, groupId) => async (dispatch) => {
     const res = await fetch(`/api/groups/${groupId}`, {
         method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            group_name,
-            description,
-            owner_id
-        })
+        body: formData,
     })
 
     if (res.ok) {

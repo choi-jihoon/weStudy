@@ -99,13 +99,52 @@ def delete_group(groupId):
 def edit_group(groupId):
     form = GroupForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    if form.validate_on_submit():
-        group = Group.query.get(groupId)
-        group.group_name = form.data['group_name']
-        group.description = form.data['description']
-        db.session.commit()
-        return group.to_dict()
+
+    if form['group_image'].data:
+        group_image = form['group_image'].data
+        if not allowed_file(group_image.filename):
+            return {'errors': 'file type not allowed'}, 400
+        group_image.filename = get_unique_filename(group_image.filename)
+
+        upload = upload_file_to_s3(group_image)
+
+        if 'url' not in upload:
+            return upload, 400
+
+        url = upload['url']
+        if form.validate_on_submit():
+            group = Group.query.get(groupId)
+            group.group_name = form['group_name'].data
+            group.description = form['description'].data
+            group.group_image=url
+
+            db.session.commit()
+
+            return group.to_dict()
+
+    else:
+        if form.validate_on_submit():
+            group = Group.query.get(groupId)
+            group.group_name = form['group_name'].data
+            group.description = form['description'].data
+
+            db.session.commit()
+
+            return group.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+# @group_routes.route('/<int:groupId>', methods=['PUT'])
+# def edit_group(groupId):
+#     form = GroupForm()
+#     form['csrf_token'].data = request.cookies['csrf_token']
+#     if form.validate_on_submit():
+#         group = Group.query.get(groupId)
+#         group.group_name = form.data['group_name']
+#         group.description = form.data['description']
+#         db.session.commit()
+#         return group.to_dict()
+#     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @group_routes.route('/<int:groupId>/add', methods=['PATCH'])

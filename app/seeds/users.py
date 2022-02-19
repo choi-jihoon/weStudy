@@ -6,10 +6,13 @@ def seed_users():
     demo = User(
         username='Demo', email='demo@aa.io', password='password', image='https://fionacapstonebucket.s3.amazonaws.com/defaults/52638a4b87654527b8fa25d13d81862a.png')
     fiona = User(
-        username='fiona', email='fiona@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/c203d7ca558d417b9aea8cd102ae32cf.jpg')
+        username='FionAH', email='fiona@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/c203d7ca558d417b9aea8cd102ae32cf.jpg')
+    denise = User(
+        username='DAHNEEZ', email='denise@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/b43e30f40d54434e86339e63ecb88f3c.png')
 
     db.session.add(demo)
     db.session.add(fiona)
+    db.session.add(denise)
 
     db.session.commit()
 

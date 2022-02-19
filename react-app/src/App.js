@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import Whiteboard from './components/Whiteboard';
 import { authenticate } from './store/session';
 
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();

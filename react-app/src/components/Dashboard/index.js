@@ -12,6 +12,8 @@ import { getGroups } from '../../store/groups';
 import { getRooms } from '../../store/rooms';
 import { getNotes } from '../../store/notes';
 
+import Calendar from '../Calendar';
+
 import './Dashboard.css';
 
 // let socket;
@@ -80,6 +82,9 @@ const Dashboard = () => {
                     </Route>
                     <Route exact path='/groups/:groupId/notes/:noteId'>
                         <NoteDetail />
+                    </Route>
+                    <Route exact path='/calendar'>
+                        <Calendar />
                     </Route>
                 </Switch>
             </div>

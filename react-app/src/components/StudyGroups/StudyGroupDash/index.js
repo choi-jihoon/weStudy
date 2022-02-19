@@ -44,13 +44,14 @@ const StudyGroupDash = () => {
             console.log(online_status.username, 'LOGGED IN!')
         });
 
+        socket.on('logout', (online_status) => {
+            console.log(online_status.username, 'LOGGED OUT!')
+            dispatch(getGroup(groupId));
+        })
+
         return (() => {
             console.log('disconnecting from group', sessionUser.username)
             socket.emit('logout', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': false })
-            socket.on('logout', (online_status) => {
-                console.log(online_status.username, 'LOGGED OUT!')
-                dispatch(getGroup(groupId));
-            })
             socket.disconnect();
         });
     }, []);

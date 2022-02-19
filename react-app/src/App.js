@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SplashPage from './components/SplashPage';
 import Dashboard from './components/Dashboard';
-import NavBar from './components/NavBar';
 import Whiteboard from './components/Whiteboard';
 import { authenticate } from './store/session';
 
@@ -27,7 +26,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
       <Switch>
         <Route path='/'>
           {sessionUser ? <Dashboard /> : <SplashPage />}

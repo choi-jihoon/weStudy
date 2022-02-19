@@ -1,6 +1,4 @@
 
-import { useSelector } from 'react-redux';
-
 const Calendar = ({ event }) => {
 
     const gapi = window.gapi;

@@ -17,7 +17,7 @@ const Events = () => {
     useEffect(() => {
         dispatch(getGroup(groupId));
         dispatch(getEvents(groupId));
-    }, [dispatch])
+    }, [dispatch, groupId])
 
 
     return (

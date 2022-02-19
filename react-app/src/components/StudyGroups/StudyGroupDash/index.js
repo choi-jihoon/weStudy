@@ -56,7 +56,7 @@ const StudyGroupDash = () => {
             socket.emit('logout', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': false })
             socket.disconnect();
         });
-    }, []);
+    }, [dispatch, groupId, sessionUser.id, sessionUser.username]);
 
 
     return (

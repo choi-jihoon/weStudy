@@ -2,15 +2,11 @@ import { useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import Room from "../../StudyGroups/Group/Rooms/Room";
 import Note from "../../StudyGroups/Group/Notes/Note";
-
-import DropdownMenu from "../../NavBar/DropdownMenu";
 import CreateGroupModal from "../../StudyGroups/CreateGroupModal";
 import LogoutButton from "../../auth/LogoutButton";
 import CreateRoomModal from "../../StudyGroups/StudyGroupDash/CreateRoomModal";
 import CreateNoteModal from "../../StudyGroups/Group/Notes/CreateNoteModal";
 import EditProfileModal from "../../EditProfileModal";
-
-import CreateEventModal from "../../CreateEventModal";
 import './SideNav.css';
 
 const SideNav = () => {
@@ -34,10 +30,9 @@ const SideNav = () => {
     const groupId = path.split('/')[2]
 
     const groupObj = useSelector(state => state.groups);
-    // const groups = Object.values(groupObj);
     const roomObj = useSelector(state => state.rooms);
     const notesObj = useSelector(state => state.notes);
-    const eventsObj = useSelector(state => state.events);
+    // const eventsObj = useSelector(state => state.events);
 
     return (
         <div className='side-nav-container'>

@@ -6,7 +6,8 @@
 
 .active > li > .fa-door-open,
 .active > li > .fa-file-alt,
-.active > li > .fa-users {
+.active > li > .fa-users,
+.active > li > .fa-calendar-alt {
     color: var(--main-container-text) !important;
 }
 
@@ -92,6 +93,10 @@
 .fa-users {
     color: var(--side-panel-text);
     padding-right: 10px;
+}
+
+.fa-calendar-alt {
+    padding-right: 15px;
 }
 
 .room-with-btns {

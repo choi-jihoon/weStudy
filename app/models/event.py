@@ -30,5 +30,6 @@ class Event(db.Model):
             'description': self.description,
             'start_time': self.start_time,
             'end_time': self.end_time,
-            'attendees': [attendee.to_dict() for attendee in self.attendees]
+            'attendees': [attendee.to_dict() for attendee in self.attendees],
+            'group_name': self.group.group_name
         }

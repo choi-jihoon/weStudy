@@ -64,6 +64,12 @@ const SideNav = () => {
                                 {groupObj[groupId]?.group_name}
                             </li>
                         </NavLink>
+                        <NavLink exact activeClassName='active'
+                            to={`/groups/${groupId}/events`}>
+                            <li id='events-link'>
+                                <i className="far fa-calendar-alt"></i>
+                                Calendar</li>
+                        </NavLink>
                         <li>Rooms <CreateRoomModal group={groupObj[groupId]} /></li>
                         <ul className='all-room-with-btns'>
                             {roomObj.byGroupId[groupId] && Object.values(roomObj.byGroupId[groupId]).map(room => (
@@ -76,15 +82,6 @@ const SideNav = () => {
                                 <Note key={note.id} note={note} />
                             ))}
                         </ul>
-                        <NavLink exact activeClassName='active'
-                            to={`/groups/${groupId}/events`}>
-                            <li>Events</li>
-                        </NavLink>
-                        {/* <ul>
-                            {eventsObj.byGroupId[groupId] && Object.values(eventsObj.byGroupId[groupId].map(event => (
-                                <h1>hi</h1>
-                            )))}
-                        </ul> */}
                     </>
                 }
                 <li className='logout-btn-container'>

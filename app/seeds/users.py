@@ -10,7 +10,7 @@ def seed_users():
     denise = User(
         username='DAHNEEZ', email='denise@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/b43e30f40d54434e86339e63ecb88f3c.png')
     peter = User(
-        username='Petur', email='peter@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/46f7186126ad45de941999cc924e71be.jpg')
+        username='petur', email='peter@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/46f7186126ad45de941999cc924e71be.jpg')
     suhal = User(
         username='Suhal', email='suhal@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/b050bc5ad8f84a68a29b2dcc3199e943.jpg')
     suhyl = User(
@@ -18,9 +18,11 @@ def seed_users():
     daniel = User(
         username='Daniel', email='daniel@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/1906edadb99049cab4a59672652b27a7.png')
     christy = User(
-        username='Chrithy', email='christy@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/7b9abb06cf8a403f947a58eb8793ab8f.jpg')
+        username='chrithy', email='christy@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/7b9abb06cf8a403f947a58eb8793ab8f.jpg')
     justin = User(
-        username='Jstnswn', email='justin@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/effec2ca509045a8b356e543a03bfd48.jpg')
+        username='jstnswn', email='justin@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/effec2ca509045a8b356e543a03bfd48.jpg')
+    cameron = User(
+        username='Cameroff', email='cameron@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/269908bae471414aba9186107cc35707.jpg')
 
     db.session.add(demo)
     db.session.add(fiona)
@@ -31,6 +33,7 @@ def seed_users():
     db.session.add(daniel)
     db.session.add(christy)
     db.session.add(justin)
+    db.session.add(cameron)
 
     db.session.commit()
 

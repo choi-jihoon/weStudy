@@ -68,7 +68,7 @@ const events = (state = initialState, action) => {
             });
             newState.events = { ...loadEvents };
             if (action.events.length) {
-                newState.byGroupId[action.events[0].group_id] = { ... loadEvents }
+                newState.byGroupId[action.events[0].group_id] = { ...loadEvents }
             };
             return newState;
         }

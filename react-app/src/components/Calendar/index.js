@@ -2,13 +2,17 @@
 import { useSelector } from 'react-redux';
 
 const Calendar = ({ event }) => {
-    const user = useSelector(state => state.session.user);
 
     const gapi = window.gapi;
     const CLIENT_ID = "1088658194258-u4v5os24sv6pn330i0ebrkrp0mhb03e5.apps.googleusercontent.com";
     const API_KEY = "AIzaSyAC8cnxIzUN8YAkk9uF_gZ2CKdij-QOW8w"
     const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
     const SCOPES = "https://www.googleapis.com/auth/calendar.events"
+
+    const offset = new Date().getTimezoneOffset() / 60;
+    const start = new Date(new Date(event.start_time).setHours((new Date(event.start_time)).getHours() + offset)).toISOString();
+    const end = new Date(new Date(event.end_time).setHours((new Date(event.end_time)).getHours() + offset)).toISOString();
+
 
     const handleClick = () => {
         gapi.load('client:auth2', () => {
@@ -26,23 +30,22 @@ const Calendar = ({ event }) => {
             gapi.auth2.getAuthInstance().signIn()
                 .then(() => {
 
-                    const event = {
-                        'summary': 'Happy Hour!',
-                        'location': '800 Howard St., San Francisco, CA 94103',
-                        'description': 'Really great refreshments',
+                    const googleEvent = {
+                        'summary': event.summary,
+                        'description': event.description,
                         'start': {
                             'timeZone': 'GMT',
-                            'dateTime': '2022-02-20T23:00:00.000Z'
+                            'dateTime': start
                         },
                         'end': {
-                            'dateTime': '2022-02-20T23:00:00.000Z',
-                            'timeZone': 'GMT'
+                            'timeZone': 'GMT',
+                            'dateTime': end
                         },
                         'recurrence': [
                             'RRULE:FREQ=DAILY;COUNT=1'
                         ],
                         'attendees': [
-                            { 'email': user.email },
+                            // { 'email': event.user_id },
                         ],
                         'reminders': {
                             'useDefault': false,
@@ -53,9 +56,40 @@ const Calendar = ({ event }) => {
                         }
                     }
 
+                    for (let i = 0; i < event.attendees.length; i++) {
+                        googleEvent['attendees'].push({'email': event.attendees[i].email})
+                    }
+
+                    // const event = {
+                    //     'summary': 'Happy Hour!',
+                    //     'location': '800 Howard St., San Francisco, CA 94103',
+                    //     'description': 'Really great refreshments',
+                    //     'start': {
+                    //         'timeZone': 'GMT',
+                    //         'dateTime': '2022-02-20T23:00:00.000Z'
+                    //     },
+                    //     'end': {
+                    //         'dateTime': '2022-02-20T23:00:00.000Z',
+                    //         'timeZone': 'GMT'
+                    //     },
+                    //     'recurrence': [
+                    //         'RRULE:FREQ=DAILY;COUNT=1'
+                    //     ],
+                    //     'attendees': [
+                    //         { 'email': user.email },
+                    //     ],
+                    //     'reminders': {
+                    //         'useDefault': false,
+                    //         'overrides': [
+                    //             { 'method': 'email', 'minutes': 24 * 60 },
+                    //             { 'method': 'popup', 'minutes': 10 }
+                    //         ]
+                    //     }
+                    // }
+
                     const request = gapi.client.calendar.events.insert({
                         'calendarId': 'primary',
-                        'resource': event,
+                        'resource': googleEvent,
                     })
 
                     request.execute(event => {
@@ -88,8 +122,7 @@ const Calendar = ({ event }) => {
 
     return (
         <div className='calendar-container'>
-            CALENDAR
-            <button onClick={handleClick}>Add Event</button>
+            <button onClick={handleClick}>Add Event to Google Calendar</button>
         </div>
     )
 }

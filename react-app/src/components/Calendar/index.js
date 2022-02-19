@@ -1,4 +1,7 @@
+import { useSelector } from 'react-redux';
+
 const Calendar = () => {
+    const user = useSelector(state => state.session.user);
 
     const gapi = window.gapi;
     const CLIENT_ID = "1088658194258-u4v5os24sv6pn330i0ebrkrp0mhb03e5.apps.googleusercontent.com";
@@ -38,8 +41,7 @@ const Calendar = () => {
                             'RRULE:FREQ=DAILY;COUNT=1'
                         ],
                         'attendees': [
-                            { 'email': 'lpage@example.com' },
-                            { 'email': 'sbrin@example.com' }
+                            { 'email': user.email },
                         ],
                         'reminders': {
                             'useDefault': false,

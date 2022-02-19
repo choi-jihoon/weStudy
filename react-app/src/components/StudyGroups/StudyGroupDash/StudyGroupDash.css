@@ -147,6 +147,7 @@
     align-items: center;
     padding: 0 20px;
     height: fit-content;
+    width: 130px;
 
     position: relative;
     transition: all 0.2s ease-in-out;

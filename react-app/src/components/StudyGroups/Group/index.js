@@ -15,7 +15,7 @@ const Group = ({ group }) => {
     useEffect(() => {
         dispatch(getRooms(group.id))
         dispatch(getNotes(group.id))
-    }, [dispatch])
+    }, [dispatch, group.id])
 
     return (
         <div className='group-container'>

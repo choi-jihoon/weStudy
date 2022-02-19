@@ -1,4 +1,4 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
@@ -9,11 +9,11 @@ import { getChatMessages } from '../../../../../store/chats';
 const Room = ({ room }) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    const chatsObj = useSelector(state => state.chats);
+    // const chatsObj = useSelector(state => state.chats);
 
     useEffect(() => {
         dispatch(getChatMessages(room.id));
-    }, [dispatch])
+    }, [dispatch, room.id])
 
     // return (
     //     <>
@@ -45,9 +45,6 @@ const Room = ({ room }) => {
                 <li className='room-container'>
                     <i className="fas fa-door-open"></i>
                     {room.room_name}
-                    {/* {user.id !== room.user_id &&
-                        <i className="fas fa-door-open"></i>
-                    } */}
                 </li>
             </NavLink>
         </div>

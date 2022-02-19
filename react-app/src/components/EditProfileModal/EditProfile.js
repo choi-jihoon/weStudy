@@ -75,11 +75,11 @@ const EditProfile = ({ showModal }) => {
 				<button
 				>Save</button>
 			</form>
-			{/* {imageLoading && (
+			{imageLoading && (
 				<p>
 					<i className="fas fa-spinner fa-pulse"></i>
 				</p>
-			)} */}
+			)}
 			{errors.map((err, i) => (
 				<li key={i}>{err}</li>
 			))}

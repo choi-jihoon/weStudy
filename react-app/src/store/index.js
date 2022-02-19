@@ -5,6 +5,7 @@ import groups from './groups';
 import rooms from './rooms';
 import notes from './notes';
 import chats from './chats';
+import events from './events';
 
 const rootReducer = combineReducers({
   session,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   rooms,
   notes,
   chats,
+  events,
 });
 
 

@@ -1,0 +1,22 @@
+.events-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+#create-event {
+    font-size: 30px;
+    cursor: pointer;
+    margin-right: 50px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#create-event:hover {
+    border-radius: 7px;
+    background-color: var(--side-panel-hover);
+}

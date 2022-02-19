@@ -2,15 +2,16 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { io } from 'socket.io-client';
-import { getRoom } from '../../store/rooms';
+import { getRooms } from '../../store/rooms';
 import { getChatMessages, createChatMessage } from '../../store/chats';
+import { getNotes } from '../../store/notes';
 
 import './Chat.css';
 
 let socket;
 
 const Chat = () => {
-    const { roomId } = useParams();
+    const { roomId, groupId } = useParams();
     const dispatch = useDispatch();
 
     let chats;
@@ -46,13 +47,14 @@ const Chat = () => {
     }
 
     useEffect(() => {
-        dispatch(getRoom(roomId));
+        dispatch(getRooms(groupId));
+        dispatch(getNotes(groupId));
         dispatch(getChatMessages(roomId));
 
         setMessages([]);
 
         scroll();
-    }, [dispatch, roomId])
+    }, [dispatch, roomId, groupId])
 
 
     useEffect(() => {
@@ -75,7 +77,7 @@ const Chat = () => {
 
             socket.disconnect();
         })
-    }, [roomId])
+    }, [roomId, room?.room_name, user.username])
 
     return (
         // <div className='chat-and-input-container'>

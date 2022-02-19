@@ -16,7 +16,6 @@ const SignUpForm = () => {
 	const [password, setPassword] = useState("");
 	const [repeatPassword, setRepeatPassword] = useState("");
 	const [image, setImage] = useState(null);
-	const [imageLoading, setImageLoading] = useState(false);
 	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
 
@@ -29,10 +28,10 @@ const SignUpForm = () => {
 			formData.append("password", password);
 			if (image) {
 				formData.append("image", image);
-				setImageLoading(true);
+				// setImageLoading(true);
 			}
 			const data = await dispatch(signUp(formData));
-			setImageLoading(false);
+			// setImageLoading(false);
 			if (data) {
 				const errors = {};
 				const dataArr = data.map((error) => error.split(":"));
@@ -42,7 +41,7 @@ const SignUpForm = () => {
 				}
 
 				setErrors(errors);
-				setImageLoading(false);
+				// setImageLoading(false);
 				return;
 			}
 		} else {
@@ -52,10 +51,12 @@ const SignUpForm = () => {
 			return;
 		}
 	};
-	const updateImage = (e) => {
-		const file = e.target.files[0];
-		setImage(file);
-	};
+
+	// const updateImage = (e) => {
+	// 	const file = e.target.files[0];
+	// 	setImage(file);
+	// };
+
 	const updateUsername = (e) => {
 		setUsername(e.target.value);
 	};
@@ -80,7 +81,7 @@ const SignUpForm = () => {
 			setPassword("");
 			setRepeatPassword("");
 			setImage(null);
-			setImageLoading(false);
+			// setImageLoading(false);
 		};
 	}, []);
 

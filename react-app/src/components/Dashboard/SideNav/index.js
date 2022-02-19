@@ -2,14 +2,11 @@ import { useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import Room from "../../StudyGroups/Group/Rooms/Room";
 import Note from "../../StudyGroups/Group/Notes/Note";
-
-import DropdownMenu from "../../NavBar/DropdownMenu";
 import CreateGroupModal from "../../StudyGroups/CreateGroupModal";
 import LogoutButton from "../../auth/LogoutButton";
 import CreateRoomModal from "../../StudyGroups/StudyGroupDash/CreateRoomModal";
 import CreateNoteModal from "../../StudyGroups/Group/Notes/CreateNoteModal";
 import EditProfileModal from "../../EditProfileModal";
-
 import './SideNav.css';
 
 const SideNav = () => {
@@ -32,23 +29,15 @@ const SideNav = () => {
     const path = location.pathname;
     const groupId = path.split('/')[2]
 
-    const groupObj = useSelector(state => state.groups)
-    const groups = Object.values(groupObj)
-    const roomObj = useSelector(state => state.rooms)
-    const notesObj = useSelector(state => state.notes)
-
-
-
+    const groupObj = useSelector(state => state.groups);
+    const roomObj = useSelector(state => state.rooms);
+    const notesObj = useSelector(state => state.notes);
+    // const eventsObj = useSelector(state => state.events);
 
     return (
         <div className='side-nav-container'>
             <div className='user-pic-name-container'>
-                {/* <DropdownMenu title={userMenu} items={[<LogoutButton />]} /> */}
-                {/* <ul className='menu'>
-                    <li className='dropdown'> */}
-                        {userMenu}
-                    {/* </li>
-                </ul> */}
+                {userMenu}
             </div>
             <ul className='side-panel-nav-links'>
                 <NavLink exact activeClassName='active' to='/'>
@@ -69,6 +58,12 @@ const SideNav = () => {
                                 <i className="fas fa-users"></i>
                                 {groupObj[groupId]?.group_name}
                             </li>
+                        </NavLink>
+                        <NavLink exact activeClassName='active'
+                            to={`/groups/${groupId}/events`}>
+                            <li id='events-link'>
+                                <i className="far fa-calendar-alt"></i>
+                                Calendar</li>
                         </NavLink>
                         <li>Rooms <CreateRoomModal group={groupObj[groupId]} /></li>
                         <ul className='all-room-with-btns'>

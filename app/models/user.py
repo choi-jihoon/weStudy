@@ -1,6 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
+from .event import attendees
 
 study_groups = db.Table(
     'study_group',
@@ -23,6 +24,8 @@ class User(db.Model, UserMixin):
     owned_groups = db.relationship('Group', back_populates='owner', cascade="all, delete")
     notes = db.relationship('Note', back_populates='user')
     chats = db.relationship('Chat', back_populates='user')
+    events = db.relationship('Event', back_populates='user', cascade="all, delete")
+    attending_events = db.relationship('Event', back_populates='attendees', secondary=attendees)
 
     @property
     def password(self):
@@ -64,6 +67,7 @@ class Group(db.Model):
     owner = db.relationship('User', back_populates='owned_groups')
 
     notes = db.relationship('Note', back_populates='group', cascade="all, delete")
+    events = db.relationship('Event', back_populates='group', cascade="all, delete")
 
     def to_dict(self):
         return {

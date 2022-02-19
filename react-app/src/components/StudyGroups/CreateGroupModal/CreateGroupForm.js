@@ -117,7 +117,13 @@ const CreateGroupForm = ({ setShowModal }) => {
 						></img>
 					)}
 				</div>
-				<label htmlFor="file-upload"><i className="fas fa-image"></i></label>
+				<label htmlFor="file-upload">
+					{imageLoading ?
+						<i className="fas fa-spinner fa-pulse"></i>
+						:
+						<i className="fas fa-image"></i>
+					}
+				</label>
 			</div>
 
 		</form>

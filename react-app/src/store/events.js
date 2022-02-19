@@ -87,3 +87,6 @@ const events = (state = initialState, action) => {
             return state;
     }
 }
+
+
+export default events;

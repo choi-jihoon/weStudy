@@ -12,6 +12,7 @@ from .api.group_routes import group_routes
 from .api.room_routes import room_routes
 from .api.note_routes import note_routes
 from .api.chat_routes import chat_routes
+from .api.event_routes import event_routes
 
 from .seeds import seed_commands
 
@@ -42,6 +43,7 @@ app.register_blueprint(group_routes, url_prefix='/api/groups')
 app.register_blueprint(room_routes, url_prefix='/api/rooms')
 app.register_blueprint(note_routes, url_prefix='/api/notes')
 app.register_blueprint(chat_routes, url_prefix='/api/chats')
+app.register_blueprint(event_routes, url_prefix='/api/events')
 db.init_app(app)
 Migrate(app, db)
 

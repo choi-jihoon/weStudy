@@ -132,18 +132,18 @@
 }
 
 .sg-members-container {
-    height: 100%;
+    height: 50%;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    padding: 35px;
+    padding: 35px 50px;
     flex-wrap: wrap;
 }
 
 .sg-member {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    /* justify-content: flex-start; */
     align-items: center;
     padding: 0 20px;
     height: fit-content;

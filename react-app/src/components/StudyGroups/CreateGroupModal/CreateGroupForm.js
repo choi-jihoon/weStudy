@@ -68,9 +68,9 @@ const CreateGroupForm = ({ setShowModal }) => {
 
 
 	return (
-		<form onSubmit={handleSubmit} className="form-container group-form-container">
+		<form autoComplete="off" onSubmit={handleSubmit} className="form-container group-form-container">
 			<div className='group-form-input-container'>
-				<div className="modal-head">Create a Study Group</div>
+				{/* <div className="modal-head gf-modal-head">Create a Study Group</div> */}
 				<div className='form-element-container'>
 					<input
 						name="group_name"
@@ -98,7 +98,7 @@ const CreateGroupForm = ({ setShowModal }) => {
 						{errors.description ? `${errors.description}` : ""}
 					</div>
 				</div>
-				<button type="submit">Create Group</button>
+				<button id='create-group' type="submit">Create Group</button>
 			</div>
 
 			<div className="gf-add-image-container">

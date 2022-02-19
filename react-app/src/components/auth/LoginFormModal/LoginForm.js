@@ -48,37 +48,43 @@ const LoginForm = () => {
 	}
 
 	return (
-		<form onSubmit={onLogin} className="login-form">
-			<div className="modal-head">Log in to Existing Account</div>
-			<div className='login-element-container'>
-				<input
-					name="email"
-					type="email"
-					placeholder="Email"
-					value={email}
-					onChange={updateEmail}
-					required={true}
-				/>
-				<div className='errors-container'>
-					{errors.email ? `${errors.email}` : ""}
+		<form onSubmit={onLogin} className="login-form" autoComplete="off">
+			<div className='form-content'>
+				<div className="modal-head log-in-modal-head">Welcome back!</div>
+				<div className='login-form-elements-container'>
+					<div className='login-element-container'>
+						<input
+							name="email"
+							type="email"
+							placeholder="Email"
+							value={email}
+							onChange={updateEmail}
+							required={true}
+						/>
+						<div className='errors-container'>
+							{errors.email ? `${errors.email}` : ""}
+						</div>
+					</div>
+					<div className='login-element-container'>
+						<input
+							name="password"
+							type="password"
+							placeholder="Password"
+							value={password}
+							onChange={updatePassword}
+							required={true}
+						/>
+						<div className='errors-container'>
+							{errors.password ? `${errors.password}` : ""}
+						</div>
+					</div>
+					<div className="sf-btn-container">
+						<button id='login-account' type="submit">Login</button>
+						<DemoLogin />
+					</div>
 				</div>
 			</div>
 
-			<div className='login-element-container'>
-				<input
-					name="password"
-					type="password"
-					placeholder="Password"
-					value={password}
-					onChange={updatePassword}
-					required={true}
-				/>
-				<div className='errors-container'>
-					{errors.password ? `${errors.password}` : ""}
-				</div>
-			</div>
-			<button type="submit">Login</button>
-			<DemoLogin />
 		</form>
 	);
 };

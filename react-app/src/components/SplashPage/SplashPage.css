@@ -162,13 +162,13 @@
 .fa-github:hover,
 .fa-linkedin:hover,
 .copyright > .footer-text:hover {
-    color: var(--powder-blue);
-    transform: scale(1.2);
+    color: var(--side-panel-selected);
+    transform: scale(1.1);
 }
 
-.footer-text {
+/* .footer-text {
     transition-duration: 0.2s;
-}
+} */
 
 /* .footer-text:hover {
     color: white;

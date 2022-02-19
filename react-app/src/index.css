@@ -136,4 +136,6 @@ input {
 
 .errors-container {
 	color: red;
+	font-size: 13px;
+	padding-left: 10px;
 }

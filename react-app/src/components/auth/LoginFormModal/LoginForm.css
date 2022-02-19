@@ -1,0 +1,55 @@
+form.login-form {
+    padding: 20px;
+    width: 500px;
+}
+
+.log-in-modal-head {
+	padding-left: 25px;
+	padding-bottom: 10px;
+	font-size: 35px;
+	align-self: flex-start;
+}
+
+.login-form-elements-container {
+    width: 80%;
+}
+
+.login-element-container {
+    padding: 10px 0;
+}
+
+.login-element-container > input {
+	width: 100%;
+	height: 40px;
+	font-size: 25px;
+	outline: none;
+	border-radius: 10px;
+	padding: 10px;
+	border: none;
+	color: var(--side-panel);
+
+	transition: all 0.2s ease-in-out;
+}
+
+.login-element-container > input:focus {
+    outline: none;
+}
+
+.login-element-container > input:focus::placeholder {
+    color: var(--side-panel-text);
+}
+
+button#login-account {
+	border: 1px solid var(--side-panel-selected);
+	background-color: var(--side-panel-selected);
+	color: white;
+	border-radius: 15px;
+	font-size: 20px;
+	padding: 10px 40px;
+
+
+}
+
+button#login-account:hover {
+    transform: scale(1.05);
+}

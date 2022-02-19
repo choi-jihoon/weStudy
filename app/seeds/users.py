@@ -9,10 +9,23 @@ def seed_users():
         username='FionAH', email='fiona@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/c203d7ca558d417b9aea8cd102ae32cf.jpg')
     denise = User(
         username='DAHNEEZ', email='denise@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/b43e30f40d54434e86339e63ecb88f3c.png')
+    peter = User(
+        username='Petur', email='peter@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/46f7186126ad45de941999cc924e71be.jpg')
+    suhal = User(
+        username='Suhal', email='suhal@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/b050bc5ad8f84a68a29b2dcc3199e943.jpg')
+    suhyl = User(
+        username='Suhyl', email='suhyl@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/0b99e25c2d2149cda773f44b2010483e.jpg')
+    daniel = User(
+        username='Daniel', email='daniel@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/1906edadb99049cab4a59672652b27a7.png')
+
 
     db.session.add(demo)
     db.session.add(fiona)
     db.session.add(denise)
+    db.session.add(peter)
+    db.session.add(suhal)
+    db.session.add(suhyl)
+    db.session.add(daniel)
 
     db.session.commit()
 

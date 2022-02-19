@@ -24,7 +24,7 @@ class User(db.Model, UserMixin):
     owned_groups = db.relationship('Group', back_populates='owner', cascade="all, delete")
     notes = db.relationship('Note', back_populates='user')
     chats = db.relationship('Chat', back_populates='user')
-    owned_events = db.relationship('Event', back_populates='user', cascade="all, delete")
+    events = db.relationship('Event', back_populates='user', cascade="all, delete")
     attending_events = db.relationship('Event', back_populates='attendees', secondary=attendees)
 
     @property

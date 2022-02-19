@@ -19,7 +19,7 @@ class Event(db.Model):
 
     user = db.relationship('User', back_populates='events')
     group = db.relationship('Group', back_populates='events')
-    attendees = db.relationship('User', back_populates='events', secondary=attendees)
+    attendees = db.relationship('User', back_populates='attending_events', secondary=attendees)
 
     def to_dict(self):
         return {

@@ -120,26 +120,21 @@ button#create-account:hover,
 .preview-container {
 	width: 100px;
 	height: 100px;
-	max-height: 100px;
+	/* max-height: 100px; */
 	border-radius: 50%;
 	object-fit: cover;
 	background-color: rgba(128, 128, 128, 0.363);
 }
 
-.preview-image,
+/* .preview-image,
 .preview-container {
 	width: 100px;
 	height: 100px;
 	max-height: 100px;
 	border-radius: 50%;
 	object-fit: cover;
-}
+} */
 
 .sf-add-image-container > label {
     color: var(--oxford-blue);
-}
-
-.preview-container.group,
-.preview-image.group {
-	border-radius: 10%;
 }

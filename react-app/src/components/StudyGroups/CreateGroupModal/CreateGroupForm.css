@@ -1,0 +1,60 @@
+.group-form-container {
+    width: 835px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100%;
+}
+
+
+.gf-add-image-container > input[type="file"] {
+    display: none;
+}
+
+.gf-add-image-container > label {
+    color: var(--main-container);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-radius: 0 7px 7px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+}
+
+.gf-add-image-container > label:hover {
+    background-color: rgba(0, 0, 0, 0.363);
+}
+
+.gf-add-image-container > label:hover i {
+    transform: scale(1.2);
+    color: white;
+}
+
+.gf-add-image-container > label > i {
+    font-size: 50px;
+    color: var(--side-panel-text);
+    cursor: pointer;
+}
+
+
+.gf-add-image-container {
+    height: 100%;
+    position: relative;
+    border-radius: 0 7px 7px 0;
+
+}
+
+
+.preview-image.group,
+.preview-container.group {
+    border-radius: 0 7px 7px 0;
+    width: 100%;
+    height: 100%;
+	object-fit: cover;
+    background-color: rgba(128, 128, 128, 0.363);
+}

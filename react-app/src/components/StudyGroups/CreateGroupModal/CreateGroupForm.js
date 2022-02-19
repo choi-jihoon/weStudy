@@ -44,7 +44,7 @@ const CreateGroupForm = ({ setShowModal }) => {
 			return;
 		}
 
-        setShowModal(false);
+		setShowModal(false);
 
 		if (location.pathname !== '/') history.push('/');
 	};
@@ -68,56 +68,58 @@ const CreateGroupForm = ({ setShowModal }) => {
 
 
 	return (
-		<form onSubmit={handleSubmit} className="form-container">
-			<div className="modal-head">Create a Study Group</div>
-			<div className='form-element-container'>
-				<input
-					name="group_name"
-					type="text"
-					placeholder="Study Group Name"
-					value={groupName}
-					onChange={updateGroupName}
-					required
-				/>
-				<div className='errors-container'>
-					{errors.group_name ? `${errors.group_name}` : ""}
-				</div>
-			</div>
-
-			<div className='form-element-container'>
-				<input
-					name="description"
-					type="text"
-					placeholder="Description"
-					value={description}
-					onChange={updateDescription}
-					required
-				/>
-				<div className='errors-container'>
-					{errors.description ? `${errors.description}` : ""}
-				</div>
-			</div>
-
-			<div className="sf-add-image-container">
+		<form onSubmit={handleSubmit} className="form-container group-form-container">
+			<div className='group-form-input-container'>
+				<div className="modal-head">Create a Study Group</div>
+				<div className='form-element-container'>
 					<input
-						id="file-upload"
-						type="file"
-						accept="image/*"
-						onChange={updateImage}
-					></input>
-					<div className="preview-container group">
-						{image && (
-							<img
-								alt="preview"
-								src={URL.createObjectURL(image)}
-								className="preview-image group"
-							></img>
-						)}
+						name="group_name"
+						type="text"
+						placeholder="Study Group Name"
+						value={groupName}
+						onChange={updateGroupName}
+						required
+					/>
+					<div className='errors-container'>
+						{errors.group_name ? `${errors.group_name}` : ""}
 					</div>
-					<label htmlFor="file-upload">Add Group Image</label>
 				</div>
 
-			<button type="submit">Create Group</button>
+				<div className='form-element-container'>
+					<input
+						name="description"
+						type="text"
+						placeholder="Description"
+						value={description}
+						onChange={updateDescription}
+						required
+					/>
+					<div className='errors-container'>
+						{errors.description ? `${errors.description}` : ""}
+					</div>
+				</div>
+				<button type="submit">Create Group</button>
+			</div>
+
+			<div className="gf-add-image-container">
+				<input
+					id="file-upload"
+					type="file"
+					accept="image/*"
+					onChange={updateImage}
+				></input>
+				<div className="preview-container group">
+					{image && (
+						<img
+							alt="preview"
+							src={URL.createObjectURL(image)}
+							className="preview-image group"
+						></img>
+					)}
+				</div>
+				<label htmlFor="file-upload"><i className="fas fa-image"></i></label>
+			</div>
+
 		</form>
 	);
 };

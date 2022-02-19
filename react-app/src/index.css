@@ -60,6 +60,8 @@ html {
 	list-style-type: none;
 	font-family: proxima-nova, sans-serif;
 	color: var(--main-text-color);
+
+	transition: all 0.2s ease-in-out;
 }
 
 body,

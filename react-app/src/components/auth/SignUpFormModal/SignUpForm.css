@@ -1,3 +1,118 @@
+form.signup-form {
+	width: 800px;
+
+	display: grid;
+	grid-template-columns: 55% 45%;
+	grid-template-rows: 100%;
+
+	border-radius: 10px;
+
+}
+
+.signup-form-image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	background-color: var(--side-panel-text);
+
+	border-radius: 7px 0 0 7px;
+}
+
+.signup-form-image > img {
+	width: 80%;
+
+}
+
+
+.form-content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	padding: 30px 0;
+}
+
+.sign-up-modal-head {
+	padding-left: 25px;
+	padding-bottom: 10px;
+	font-size: 35px;
+	align-self: flex-start;
+}
+
+.signup-form-elements-container {
+	width: 80%;
+}
+
+.signup-element-container {
+	padding: 10px 0;
+}
+
+.signup-element-container > input {
+	width: 100%;
+	height: 40px;
+	font-size: 25px;
+	outline: none;
+	border-radius: 10px;
+	padding: 10px;
+	border: none;
+	color: var(--side-panel);
+
+	transition: all 0.2s ease-in-out;
+}
+
+.signup-element-container > input:focus {
+	outline: none;
+}
+
+.signup-element-container > input:focus::placeholder {
+	color: var(--side-panel-text);
+}
+
+
+.sf-btn-container {
+	display: flex;
+	flex-direction: column;
+	padding-top: 10px;
+}
+
+button#create-account {
+	border: 1px solid var(--side-panel-selected);
+	background-color: var(--side-panel-selected);
+	color: white;
+	border-radius: 15px;
+	font-size: 20px;
+	padding: 10px 40px;
+	width: 288px;
+}
+
+button#create-account:hover,
+.demo-button:hover {
+	transform: scale(1.05);
+}
+
+.demo-button {
+	color: white;
+	cursor: pointer;
+	border: none;
+	width: 100%;
+	padding: 10px 40px;
+	border-radius: 15px;
+	align-self: center;
+	margin-top: 10px;
+	background-color: var(--send-message);
+	font-size: 20px;
+
+	display: flex;
+	justify-content: center;
+}
+
+
+
 .sf-add-image-container > input[type="file"] {
     display: none;
 }

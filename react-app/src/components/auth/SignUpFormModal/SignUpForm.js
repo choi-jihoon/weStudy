@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 
 import DemoLogin from "../DemoLogin";
 import { signUp } from "../../../store/session";
+import logo from '../../../assets/images/logo.png';
 
 
 import "./SignUpForm.css";
@@ -89,70 +90,74 @@ const SignUpForm = () => {
 
 
 	return (
-		<form onSubmit={onSignUp} className="signup-form">
-			<div className="modal-head sign-up-modal-head">
-				Make an Account
+		<form onSubmit={onSignUp} className="signup-form" autoComplete="off">
+			<div className='signup-form-image'>
+				<img src={logo} alt='logo'></img>
 			</div>
-			<div className="signup-form-elements-container">
-				<div className="sf-form-inputs-container">
-					<div className="signup-element-container">
-						<input
-							type="text"
-							name="username"
-							onChange={updateUsername}
-							placeholder="Username"
-							value={username}
-							required={true}
-
-						></input>
-						<div className="errors-container">
-							{errors.username ? `${errors.username}` : ""}
-						</div>
-					</div>
-
-					<div className="signup-element-container">
-						<input
-							type="email"
-							name="email"
-							placeholder="Email"
-							onChange={updateEmail}
-							value={email}
-							required={true}
-
-						></input>
-						<div className="errors-container">
-							{errors.email ? `${errors.email}` : ""}
-						</div>
-					</div>
-
-					<div className="signup-element-container">
-						<input
-							type="password"
-							name="password"
-							placeholder="Password"
-							onChange={updatePassword}
-							value={password}
-							required={true}
-
-						></input>
-					</div>
-
-					<div className="signup-element-container">
-						<input
-							type="password"
-							name="repeat_password"
-							placeholder="Confirm Password"
-							onChange={updateRepeatPassword}
-							value={repeatPassword}
-							required={true}
-						></input>
-						<div className="errors-container">
-							{errors.password ? `${errors.password}` : ""}
-						</div>
-					</div>
+			<div className='form-content'>
+				<div className="modal-head sign-up-modal-head">
+					Get Started
 				</div>
+				<div className="signup-form-elements-container">
+					<div className="sf-form-inputs-container">
+						<div className="signup-element-container">
+							<input
+								type="text"
+								name="username"
+								onChange={updateUsername}
+								placeholder="Username"
+								value={username}
+								required={true}
 
-				<div className="sf-add-image-container">
+							></input>
+							<div className="errors-container">
+								{errors.username ? `${errors.username}` : ""}
+							</div>
+						</div>
+
+						<div className="signup-element-container">
+							<input
+								type="email"
+								name="email"
+								placeholder="Email"
+								onChange={updateEmail}
+								value={email}
+								required={true}
+
+							></input>
+							<div className="errors-container">
+								{errors.email ? `${errors.email}` : ""}
+							</div>
+						</div>
+
+						<div className="signup-element-container">
+							<input
+								type="password"
+								name="password"
+								placeholder="Password"
+								onChange={updatePassword}
+								value={password}
+								required={true}
+
+							></input>
+						</div>
+
+						<div className="signup-element-container">
+							<input
+								type="password"
+								name="repeat_password"
+								placeholder="Confirm Password"
+								onChange={updateRepeatPassword}
+								value={repeatPassword}
+								required={true}
+							></input>
+							<div className="errors-container">
+								{errors.password ? `${errors.password}` : ""}
+							</div>
+						</div>
+					</div>
+
+					{/* <div className="sf-add-image-container">
 					<input
 						id="file-upload"
 						type="file"
@@ -168,19 +173,20 @@ const SignUpForm = () => {
 							></img>
 						)}
 					</div>
-					<label htmlFor="file-upload">Add Profile Image</label>
+					<label htmlFor="file-upload">Add Profile Image</label> */}
 					{/* {imageLoading && (
 						<p>
 							<i className="fas fa-spinner fa-pulse"></i>
 						</p>
 					)} */}
+					{/* </div> */}
+				</div>
+
+				<div className="sf-btn-container">
+					<button id='create-account' type="submit">Create Account</button>
+					<DemoLogin />
 				</div>
 			</div>
-
-			<div className="sf-btn-container">
-				<button type="submit">Sign Up</button>
-			</div>
-			<DemoLogin />
 		</form>
 	);
 };

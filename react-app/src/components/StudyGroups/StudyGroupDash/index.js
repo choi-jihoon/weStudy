@@ -7,6 +7,7 @@ import { io } from 'socket.io-client';
 import { getGroup } from '../../../store/groups';
 import { getRooms } from '../../../store/rooms';
 import { getNotes } from '../../../store/notes';
+import { getEvents } from '../../../store/events';
 
 
 import AddUserToGroupModal from '../AddUserToGroupModal';
@@ -14,7 +15,7 @@ import LeaveGroupModal from '../LeaveGroupModal';
 import RemoveFromGroupModal from '../RemoveFromGroupModal';
 import EditGroupModal from '../../StudyGroups/EditGroupModal';
 import DeleteGroupModal from '../../StudyGroups/DeleteGroupModal';
-import EditGroupPicModal from './EditGroupPicModal';
+
 
 import './StudyGroupDash.css';
 
@@ -31,6 +32,7 @@ const StudyGroupDash = () => {
         dispatch(getGroup(groupId));
         dispatch(getRooms(groupId));
         dispatch(getNotes(groupId));
+        dispatch(getEvents(groupId));
     }, [dispatch, groupId]);
 
 

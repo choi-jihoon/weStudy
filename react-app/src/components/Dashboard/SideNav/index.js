@@ -10,6 +10,7 @@ import CreateRoomModal from "../../StudyGroups/StudyGroupDash/CreateRoomModal";
 import CreateNoteModal from "../../StudyGroups/Group/Notes/CreateNoteModal";
 import EditProfileModal from "../../EditProfileModal";
 
+import CreateEventModal from "../../CreateEventModal";
 import './SideNav.css';
 
 const SideNav = () => {
@@ -32,23 +33,16 @@ const SideNav = () => {
     const path = location.pathname;
     const groupId = path.split('/')[2]
 
-    const groupObj = useSelector(state => state.groups)
-    const groups = Object.values(groupObj)
-    const roomObj = useSelector(state => state.rooms)
-    const notesObj = useSelector(state => state.notes)
-
-
-
+    const groupObj = useSelector(state => state.groups);
+    // const groups = Object.values(groupObj);
+    const roomObj = useSelector(state => state.rooms);
+    const notesObj = useSelector(state => state.notes);
+    const eventsObj = useSelector(state => state.events);
 
     return (
         <div className='side-nav-container'>
             <div className='user-pic-name-container'>
-                {/* <DropdownMenu title={userMenu} items={[<LogoutButton />]} /> */}
-                {/* <ul className='menu'>
-                    <li className='dropdown'> */}
-                        {userMenu}
-                    {/* </li>
-                </ul> */}
+                {userMenu}
             </div>
             <ul className='side-panel-nav-links'>
                 <NavLink exact activeClassName='active' to='/'>
@@ -82,6 +76,15 @@ const SideNav = () => {
                                 <Note key={note.id} note={note} />
                             ))}
                         </ul>
+                        <NavLink exact activeClassName='active'
+                            to={`/groups/${groupId}/events`}>
+                            <li>Events</li>
+                        </NavLink>
+                        {/* <ul>
+                            {eventsObj.byGroupId[groupId] && Object.values(eventsObj.byGroupId[groupId].map(event => (
+                                <h1>hi</h1>
+                            )))}
+                        </ul> */}
                     </>
                 }
                 <li className='logout-btn-container'>

@@ -8,6 +8,7 @@ import NoteDetail from '../StudyGroups/Group/Notes/Note/NoteDetail';
 import Chat from '../Chat';
 import SideNav from './SideNav';
 import StudyGroups from '../StudyGroups';
+import Events from '../StudyGroups/Group/Events';
 import { getGroups } from '../../store/groups';
 import { getRooms } from '../../store/rooms';
 import { getNotes } from '../../store/notes';
@@ -82,6 +83,9 @@ const Dashboard = () => {
                     </Route>
                     <Route exact path='/groups/:groupId/notes/:noteId'>
                         <NoteDetail />
+                    </Route>
+                    <Route exact path='/groups/:groupId/events'>
+                        <Events />
                     </Route>
                     <Route exact path='/calendar'>
                         <Calendar />

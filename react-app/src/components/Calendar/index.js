@@ -2,8 +2,8 @@
 const Calendar = ({ event }) => {
 
     const gapi = window.gapi;
-    const CLIENT_ID = "1088658194258-u4v5os24sv6pn330i0ebrkrp0mhb03e5.apps.googleusercontent.com";
-    const API_KEY = "AIzaSyAC8cnxIzUN8YAkk9uF_gZ2CKdij-QOW8w"
+    const CLIENT_ID = process.env.REACT_APP_CLIENT_ID
+    const API_KEY = process.env.REACT_APP_API_KEY
     const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
     const SCOPES = "https://www.googleapis.com/auth/calendar.events"
 

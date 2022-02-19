@@ -1,7 +1,7 @@
 
 import { useSelector } from 'react-redux';
 
-const Calendar = () => {
+const Calendar = ({ event }) => {
     const user = useSelector(state => state.session.user);
 
     const gapi = window.gapi;
@@ -31,12 +31,12 @@ const Calendar = () => {
                         'location': '800 Howard St., San Francisco, CA 94103',
                         'description': 'Really great refreshments',
                         'start': {
-                            'dateTime': '2022-02-20T09:00:00-07:00',
-                            'timeZone': 'America/Los_Angeles'
+                            'timeZone': 'GMT',
+                            'dateTime': '2022-02-20T23:00:00.000Z'
                         },
                         'end': {
-                            'dateTime': '2022-02-20T17:00:00-07:00',
-                            'timeZone': 'America/Los_Angeles'
+                            'dateTime': '2022-02-20T23:00:00.000Z',
+                            'timeZone': 'GMT'
                         },
                         'recurrence': [
                             'RRULE:FREQ=DAILY;COUNT=1'

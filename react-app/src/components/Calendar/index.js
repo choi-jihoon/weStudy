@@ -7,6 +7,8 @@ const Calendar = ({ event }) => {
     const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
     const SCOPES = "https://www.googleapis.com/auth/calendar.events"
 
+    console.log(API_KEY)
+
     const offset = new Date().getTimezoneOffset() / 60;
     const start = new Date(new Date(event.start_time).setHours((new Date(event.start_time)).getHours() + offset)).toISOString();
     const end = new Date(new Date(event.end_time).setHours((new Date(event.end_time)).getHours() + offset)).toISOString();

@@ -80,14 +80,13 @@ export const createAlbum = (group_id, title) => async (dispatch) => {
     }
 }
 
-export const editAlbum = (albumId, user_id, group_id, title) => async (dispatch) => {
+export const editAlbum = (albumId, group_id, title) => async (dispatch) => {
     const res = await fetch(`/api/albums/${albumId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            user_id,
             group_id,
             title
         })

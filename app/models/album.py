@@ -19,5 +19,6 @@ class Album(db.Model):
             'user_id': self.user_id,
             'group_id': self.group_id,
             'title': self.title,
-            'images': [image.to_dict() for image in self.images]
+            'images': [image.to_dict() for image in self.images],
+            'group_owner_id': self.group.owner_id
         }

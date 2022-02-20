@@ -9,6 +9,8 @@ import Chat from '../Chat';
 import SideNav from './SideNav';
 import StudyGroups from '../StudyGroups';
 import Events from '../StudyGroups/Group/Events';
+import AlbumDetail from '../StudyGroups/Group/Albums/Album/AlbumDetail';
+
 import { getGroups } from '../../store/groups';
 
 import './Dashboard.css';
@@ -65,6 +67,9 @@ const Dashboard = () => {
                     </Route>
                     <Route exact path='/groups/:groupId/events'>
                         <Events />
+                    </Route>
+                    <Route exact path='/groups/:groupId/albums/:albumId'>
+                        <AlbumDetail />
                     </Route>
                 </Switch>
             </div>

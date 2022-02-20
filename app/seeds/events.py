@@ -5,7 +5,7 @@ def seed_events():
         user_id=1,
         group_id=1,
         summary='Happy Hour',
-        description='Let\'s celebrate!!'
+        description='Let\'s celebrate!!',
         start_time='2022-02-28T17:00',
         end_time='2022-02-28T18:00'
     )

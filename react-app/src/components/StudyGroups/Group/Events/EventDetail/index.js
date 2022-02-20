@@ -37,7 +37,7 @@ const EventDetail = ({ event }) => {
                     }
                 </div>
             </div>
-            {user.id === event.user_id &&
+            {(user.id === event.user_id || user.id === event.group_owner_id) &&
                 <div className='event-btn-container'>
                     <EditEventModal event={event} />
                     <DeleteEventModal event={event} />

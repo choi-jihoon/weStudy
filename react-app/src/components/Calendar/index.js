@@ -101,7 +101,7 @@ const Calendar = ({ event }) => {
 
     return (
         <div className='calendar-container'>
-            <button onClick={handleClick}>Add Event to Google Calendar</button>
+            <button onClick={handleClick}>Add to Google Calendar</button>
         </div>
     )
 }

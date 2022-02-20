@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { getEvents } from "../../../../store/events";
 import { getGroup } from "../../../../store/groups";
+import { getRooms } from "../../../../store/rooms";
+import { getNotes } from "../../../../store/notes";
 import EventDetail from "./EventDetail";
 import CreateEventModal from "../../../CreateEventModal";
 
@@ -19,6 +21,8 @@ const Events = () => {
     useEffect(() => {
         dispatch(getGroup(groupId));
         dispatch(getEvents(groupId));
+        dispatch(getRooms(groupId));
+        dispatch(getNotes(groupId));
     }, [dispatch, groupId])
 
 

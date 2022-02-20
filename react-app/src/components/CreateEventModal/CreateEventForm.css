@@ -21,3 +21,7 @@ button#event-submit {
     color: white;
     margin-top: 10px;
 }
+
+button#event-submit:hover {
+    transform: scale(1.1);
+}

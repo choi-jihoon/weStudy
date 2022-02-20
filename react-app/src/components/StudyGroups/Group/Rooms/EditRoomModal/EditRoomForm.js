@@ -37,7 +37,7 @@ const EditRoomForm = ({ setShowModal, room }) => {
 
 	return (
 		<form onSubmit={handleSubmit} className="form-container">
-			<div className="modal-head">Edit Room Name</div>
+			{/* <div className="modal-head">Edit Room Name</div> */}
 			<div className='form-element-container'>
 				<input
 					name="room_name"
@@ -52,7 +52,7 @@ const EditRoomForm = ({ setShowModal, room }) => {
 				</div>
 			</div>
 
-			<button type="submit">Edit Room Name</button>
+			<button id='edit-room-submit' type="submit">Edit Room Name</button>
 		</form>
 	);
 };

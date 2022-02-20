@@ -48,7 +48,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 
 	return (
 		<form onSubmit={handleSubmit} className="form-container">
-			<div className="modal-head">Create a Note</div>
+			{/* <div className="modal-head">Create a Note</div> */}
 			<div className='form-element-container'>
 				<input
 					name="note_title"
@@ -72,7 +72,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 					{errors.note_text ? `${errors.note_text}` : ""}
 				</div>
 			</div> */}
-			<button type="submit">Create</button>
+			<button id='create-note-submit' type="submit">Create</button>
 		</form>
 	);
 };

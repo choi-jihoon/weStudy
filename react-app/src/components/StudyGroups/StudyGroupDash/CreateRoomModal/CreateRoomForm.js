@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { createRoom } from "../../../../store/rooms";
 
+import './CreateRoomForm.css';
 
 const CreateRoomForm = ({ setShowModal, group }) => {
 	const [errors, setErrors] = useState({});
@@ -38,9 +39,10 @@ const CreateRoomForm = ({ setShowModal, group }) => {
 
 	return (
 		<form onSubmit={handleSubmit} className="form-container">
-			<div className="modal-head">Create a Room</div>
+			{/* <div className="modal-head">Create a Room</div> */}
 			<div className='form-element-container'>
 				<input
+					className='add-room-input'
 					name="room_name"
 					type="text"
 					placeholder="Room Name"
@@ -53,7 +55,7 @@ const CreateRoomForm = ({ setShowModal, group }) => {
 				</div>
 			</div>
 
-			<button type="submit">Create Room</button>
+			<button id='add-room' type="submit">Create Room</button>
 		</form>
 	);
 };

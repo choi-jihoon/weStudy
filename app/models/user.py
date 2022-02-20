@@ -26,6 +26,9 @@ class User(db.Model, UserMixin):
     chats = db.relationship('Chat', back_populates='user')
     events = db.relationship('Event', back_populates='user', cascade="all, delete")
     attending_events = db.relationship('Event', back_populates='attendees', secondary=attendees)
+    albums = db.relationship('Album', back_populates='user', cascade='all, delete')
+    images = db.relationship('Image', back_populates='user', cascade="all, delete")
+
 
     @property
     def password(self):
@@ -68,6 +71,7 @@ class Group(db.Model):
 
     notes = db.relationship('Note', back_populates='group', cascade="all, delete")
     events = db.relationship('Event', back_populates='group', cascade="all, delete")
+    albums = db.relationship('Album', back_populates='group', cascade="all, delete")
 
     def to_dict(self):
         return {

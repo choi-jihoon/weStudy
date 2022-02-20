@@ -1,22 +1,21 @@
 import { useDispatch } from "react-redux";
-import { useHistory, useLocation } from "react-router-dom";
+import { useLocation, useHistory } from 'react-router-dom';
 
-import { deleteRoom } from '../../../../../store/rooms';
+import { deleteAlbum } from '../../../../../../store/albums';
 
-function DeleteRoomForm({ showModal, room }) {
+function DeleteAlbumForm({ showModal, album }) {
     const dispatch = useDispatch();
     const history = useHistory();
     const location = useLocation();
-    const isChat = location.pathname.split('/')
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        await dispatch(deleteRoom(room.id));
+        await dispatch(deleteAlbum(album.id));
 
-        if (isChat[isChat.length - 1] === 'chat') {
-            history.push(`/groups/${room.group_id}`)
+        if (location.pathname.split('/').length === 5) {
+            history.push(`/groups/${album.group_id}`)
         }
 
         showModal(false);
@@ -32,7 +31,7 @@ function DeleteRoomForm({ showModal, room }) {
             <form className='delete-confirmation-container' onSubmit={handleSubmit}>
                 <div className='dc-text-container'>
                     <div className='dc-text'>
-                        Are you sure you want to delete <span className='bold'>#{room.room_name}</span>?
+                        Are you sure you want to delete <span className='bold'>{album.title}</span> and all the images inside it?
                     </div>
                 </div>
                 <div className='dc-btn-container'>
@@ -40,7 +39,7 @@ function DeleteRoomForm({ showModal, room }) {
                         type="submit"
                         className='form-delete-btn'
                     >
-                        Delete Room
+                        Delete Album
                     </button>
                     <button
                         type='button'
@@ -55,4 +54,4 @@ function DeleteRoomForm({ showModal, room }) {
     );
 }
 
-export default DeleteRoomForm;
+export default DeleteAlbumForm;

@@ -1,0 +1,29 @@
+import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
+import EditAlbumModal from './EditAlbumModal';
+import DeleteAlbumModal from './DeleteAlbumModal';
+
+const Album = ({ album }) => {
+    const user = useSelector(state => state.session.user);
+    return (
+        <div className='room-with-btns'>
+            {
+                (user.id === album.user_id || user.id === album.group_owner_id) &&
+                <div className='btn-container'>
+                    <EditAlbumModal album={album} />
+                    <DeleteAlbumModal album={album} />
+                </div>
+            }
+            <NavLink activeClassName='active'
+                to={`/groups/${album.group_id}/albums/${album.id}`}>
+                <li className='album-title room-container'>
+                    <i className="far fa-images"></i>
+                    {album.title}
+                </li>
+            </NavLink>
+        </div>
+    )
+};
+
+export default Album;

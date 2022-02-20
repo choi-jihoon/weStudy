@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Modal } from '../../../../../context/Modal';
-import EditRoomForm from "./EditRoomForm";
+import { Modal } from "../../../../../../context/Modal";
+import EditAlbumForm from "./EditAlbumForm";
 
-function EditRoomModal({ room }) {
+function EditAlbumModal({ album }) {
 	const [showModal, setShowModal] = useState(false);
 
 	const handleClick = (e) => {
@@ -27,11 +27,11 @@ function EditRoomModal({ room }) {
 			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
-					<EditRoomForm setShowModal={setShowModal} room={room} />
+					<EditAlbumForm setShowModal={setShowModal} album={album} />
 				</Modal>
 			)}
 		</>
 	);
 }
 
-export default EditRoomModal;
+export default EditAlbumModal;

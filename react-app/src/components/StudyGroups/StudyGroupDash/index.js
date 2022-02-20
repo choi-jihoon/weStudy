@@ -6,6 +6,7 @@ import { getGroup } from '../../../store/groups';
 import { getRooms } from '../../../store/rooms';
 import { getNotes } from '../../../store/notes';
 import { getEvents } from '../../../store/events';
+import { getAlbums } from '../../../store/albums';
 
 import AddUserToGroupModal from '../AddUserToGroupModal';
 import LeaveGroupModal from '../LeaveGroupModal';
@@ -27,6 +28,7 @@ const StudyGroupDash = () => {
         dispatch(getRooms(groupId));
         dispatch(getNotes(groupId));
         dispatch(getEvents(groupId));
+        dispatch(getAlbums(groupId));
     }, [dispatch, groupId]);
 
     return (
@@ -35,7 +37,7 @@ const StudyGroupDash = () => {
                 <div className='study-group-dash-container'>
                     <div className='study-group-title-container'>
                         <div className='study-group-title'>
-                            <h1>{group.group_name}</h1>
+                            <h2>{group.group_name}</h2>
                         </div>
                         <div className='study-group-title-btn-container'>
                             <AddUserToGroupModal group={group} />{sessionUser.id !== group.owner_id &&

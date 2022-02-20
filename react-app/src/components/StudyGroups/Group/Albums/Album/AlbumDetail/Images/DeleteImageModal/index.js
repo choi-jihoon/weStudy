@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Modal } from '../../../../../context/Modal';
-import EditRoomForm from "./EditRoomForm";
+import { Modal } from '../../../../../../../../context/Modal';
+import DeleteImageForm from "./DeleteImageForm";
 
-function EditRoomModal({ room }) {
+function DeleteImageModal({ image }) {
 	const [showModal, setShowModal] = useState(false);
 
 	const handleClick = (e) => {
@@ -17,21 +17,21 @@ function EditRoomModal({ room }) {
 	return (
 		<>
 			<div
-				id="edit-room"
+				id="delete-image"
 				onClick={(e) => {
 					setShowModal(true);
 					handleClick(e);
 				}}
 			>
-				<i className="fas fa-edit"></i>
+				<i className="fas fa-trash"></i>
 			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
-					<EditRoomForm setShowModal={setShowModal} room={room} />
+					<DeleteImageForm showModal={setShowModal} image={image} />
 				</Modal>
 			)}
 		</>
 	);
 }
 
-export default EditRoomModal;
+export default DeleteImageModal;

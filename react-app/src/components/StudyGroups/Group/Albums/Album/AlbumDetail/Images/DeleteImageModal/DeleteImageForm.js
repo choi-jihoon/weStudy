@@ -1,23 +1,16 @@
 import { useDispatch } from "react-redux";
-import { useHistory, useLocation } from "react-router-dom";
 
-import { deleteRoom } from '../../../../../store/rooms';
+import { deleteImage } from '../../../../../../../../store/images';
 
-function DeleteRoomForm({ showModal, room }) {
+
+function DeleteImageForm({ showModal, image }) {
     const dispatch = useDispatch();
-    const history = useHistory();
-    const location = useLocation();
-    const isChat = location.pathname.split('/')
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         e.stopPropagation();
 
-        await dispatch(deleteRoom(room.id));
-
-        if (isChat[isChat.length - 1] === 'chat') {
-            history.push(`/groups/${room.group_id}`)
-        }
+        await dispatch(deleteImage(image.id));
 
         showModal(false);
     };
@@ -32,7 +25,7 @@ function DeleteRoomForm({ showModal, room }) {
             <form className='delete-confirmation-container' onSubmit={handleSubmit}>
                 <div className='dc-text-container'>
                     <div className='dc-text'>
-                        Are you sure you want to delete <span className='bold'>#{room.room_name}</span>?
+                        Are you sure you want to delete this image?
                     </div>
                 </div>
                 <div className='dc-btn-container'>
@@ -40,7 +33,7 @@ function DeleteRoomForm({ showModal, room }) {
                         type="submit"
                         className='form-delete-btn'
                     >
-                        Delete Room
+                        Delete Image
                     </button>
                     <button
                         type='button'
@@ -55,4 +48,4 @@ function DeleteRoomForm({ showModal, room }) {
     );
 }
 
-export default DeleteRoomForm;
+export default DeleteImageForm;

@@ -7,7 +7,8 @@
 .active > li > .fa-door-open,
 .active > li > .fa-file-alt,
 .active > li > .fa-users,
-.active > li > .fa-calendar-alt {
+.active > li > .fa-calendar-alt,
+.active > li > .fa-images {
     color: var(--main-container-text) !important;
 }
 
@@ -52,7 +53,8 @@
 }
 
 .side-panel-nav-links > li > #create-room,
-.side-panel-nav-links > li > #create-note {
+.side-panel-nav-links > li > #create-note,
+.side-panel-nav-links > li > #create-album {
     position: absolute;
     right: 20px;
     width: 20px;
@@ -69,7 +71,8 @@
 }
 
 #create-room:hover,
-#create-note:hover {
+#create-note:hover,
+#create-album:hover {
     border-radius: 7px;
     background-color: var(--side-panel-hover);
 }
@@ -90,7 +93,8 @@
 
 .room-container > .fa-door-open,
 .note-title > .fa-file-alt,
-.fa-users {
+.fa-users,
+.fa-images {
     color: var(--side-panel-text);
     padding-right: 10px;
 }

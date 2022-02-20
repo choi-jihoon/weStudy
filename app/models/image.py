@@ -14,7 +14,7 @@ class Image(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'group_id': self.group_id,
+            'album_id': self.album_id,
             'user_id': self.user_id,
             'study_image': self.study_image
         }

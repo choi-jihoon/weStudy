@@ -14,6 +14,7 @@ from .api.note_routes import note_routes
 from .api.chat_routes import chat_routes
 from .api.event_routes import event_routes
 from .api.album_routes import album_routes
+from .api.image_routes import image_routes
 
 from .seeds import seed_commands
 
@@ -46,6 +47,7 @@ app.register_blueprint(note_routes, url_prefix='/api/notes')
 app.register_blueprint(chat_routes, url_prefix='/api/chats')
 app.register_blueprint(event_routes, url_prefix='/api/events')
 app.register_blueprint(album_routes, url_prefix='/api/albums')
+app.register_blueprint(image_routes, url_prefix='/api/images')
 db.init_app(app)
 Migrate(app, db)
 

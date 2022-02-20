@@ -28,7 +28,6 @@
 
 .chat-room-container {
     max-height: 100vh;
-    /* border: 1px solid blue; */
     height: 100%;
 
     display: grid;

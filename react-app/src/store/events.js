@@ -1,6 +1,7 @@
 const LOAD_EVENTS = 'events/LOAD_EVENTS';
 const CREATE_EVENT = 'events/CREATE_EVENT';
 const DELETE_EVENT = 'events/DELETE_EVENT';
+const EDIT_EVENT = 'events/EDIT_EVENT';
 
 const load = events => ({
     type: LOAD_EVENTS,
@@ -14,6 +15,11 @@ const create = event => ({
 
 const remove = event => ({
     type: DELETE_EVENT,
+    event
+});
+
+const edit = event => ({
+    type: EDIT_EVENT,
     event
 })
 
@@ -78,6 +84,36 @@ export const deleteEvent = (eventId) => async (dispatch) => {
     }
 }
 
+export const editEvent = (eventId, user_id, group_id, summary, description, start_time, end_time) => async (dispatch) => {
+    const res = await fetch(`/api/events/${eventId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            user_id,
+            group_id,
+            summary,
+            description,
+            start_time,
+            end_time
+        })
+    })
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(edit(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return { 'ERROR': 'An error occurred. Please try again.' }
+    }
+}
+
 
 
 const initialState = {
@@ -114,6 +150,16 @@ const events = (state = initialState, action) => {
             const newState = { ...state };
             delete newState.events[action.event.id];
             delete newState.byGroupId[action.event.group_id][action.even.id];
+            return newState;
+        }
+
+        case EDIT_EVENT: {
+            const newState = { ...state };
+            newState.events[action.event.id] = action.event;
+            newState.byGroupId[action.event.group_id] = {
+                ...newState.byGroupId[action.event.group_id],
+                [action.event.id]: action.event
+            };
             return newState;
         }
 

@@ -25,18 +25,26 @@
 .all-events-container {
     display: flex;
     height: 100%;
-    padding: 20px;
+    padding: 30px;
+
+    overflow-y: scroll;
+
+    flex-wrap: wrap;
 }
 
 .event-container {
     border-radius: 5px;
     width: 300px;
     height: 350px;
-    /* padding: 20px; */
+    margin-right: 40px;
 
     display: grid;
 
     grid-template-rows: 50px auto;
+
+    box-shadow: 5px 5px 5px rgba(87, 87, 87, 0.808);
+
+    position: relative;
 }
 
 .event-summary {
@@ -44,6 +52,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    border-radius: 5px 5px 0 0;
 }
 
 .event-summary > h3 {
@@ -53,9 +63,36 @@
 .event-body {
     height: 100%;
     background-color: var(--top-highlight);
+    padding: 15px;
+
+    border-radius: 0 0 5px 5px;
 }
 
 .event-body > h4,
 .event-body > p {
     color: var(--header-text);
+}
+
+.event-btn-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    padding: 10px;
+}
+
+#edit-event {
+    margin-right: 10px;
+}
+
+#edit-event,
+#delete-event {
+    cursor: pointer;
+}
+
+#edit-event > i:hover,
+#delete-event > i:hover {
+    transform: scale(1.1);
+    color: white;
 }

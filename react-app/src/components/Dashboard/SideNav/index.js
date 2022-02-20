@@ -7,6 +7,8 @@ import LogoutButton from "../../auth/LogoutButton";
 import CreateRoomModal from "../../StudyGroups/StudyGroupDash/CreateRoomModal";
 import CreateNoteModal from "../../StudyGroups/Group/Notes/CreateNoteModal";
 import EditProfileModal from "../../EditProfileModal";
+import CreateAlbumModal from "../../StudyGroups/Group/Albums/CreateAlbumModal";
+import Album from "../../StudyGroups/Group/Albums/Album";
 import './SideNav.css';
 
 const SideNav = () => {
@@ -32,6 +34,7 @@ const SideNav = () => {
     const groupObj = useSelector(state => state.groups);
     const roomObj = useSelector(state => state.rooms);
     const notesObj = useSelector(state => state.notes);
+    const albumsObj = useSelector(state => state.albums);
 
     return (
         <div className='side-nav-container'>
@@ -74,6 +77,12 @@ const SideNav = () => {
                         <ul>
                             {notesObj.byGroupId[groupId] && Object.values(notesObj.byGroupId[groupId]).map(note => (
                                 <Note key={note.id} note={note} />
+                            ))}
+                        </ul>
+                        <li>Albums <CreateAlbumModal group={groupObj[groupId]} /></li>
+                        <ul>
+                            {albumsObj.byGroupId[groupId] && Object.values(albumsObj.byGroupId[groupId]).map(album => (
+                                <Album key={album.id} album={album} />
                             ))}
                         </ul>
                     </>

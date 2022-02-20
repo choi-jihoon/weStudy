@@ -54,14 +54,13 @@ export const getAlbum = (albumId) => async (dispatch) => {
 
 }
 
-export const createAlbum = (user_id, group_id, title) => async (dispatch) => {
+export const createAlbum = (group_id, title) => async (dispatch) => {
     const res = await fetch(`/api/albums/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            user_id,
             group_id,
             title
         })

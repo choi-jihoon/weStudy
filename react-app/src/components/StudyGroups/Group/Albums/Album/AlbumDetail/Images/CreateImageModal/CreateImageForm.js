@@ -82,7 +82,12 @@ const CreateImageForm = ({ setShowModal, albumId }) => {
                 </label>
             </div>
             <div className='post-image-btn-container'>
-                <button id='post-image' type="submit">Post Image</button>
+                {!image && (
+                    <button id='post-image' type="submit" disabled>Post Image</button>
+                )}
+                {image && (
+                    <button id='post-image' type="submit">Post Image</button>
+                )}
                 <button id='cancel-image-post' onClick={handleCancelClick}>Cancel</button>
             </div>
         </form>

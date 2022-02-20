@@ -90,3 +90,12 @@
 #cancel-image-post:hover {
     transform: scale(1.05);
 }
+
+#post-image:disabled {
+    opacity: 0.5;
+}
+
+#post-image:disabled:hover {
+    transform: none;
+    cursor: default;
+}

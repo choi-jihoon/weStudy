@@ -62,9 +62,29 @@ Transaction records
         - Update the corresponding balances in Friends"""
     )
 
+    note4 = Note(
+        user_id = 2,
+        group_id = 2,
+        note_title = 'Gotta Latte Do Wiki',
+        note_text=
+        """Github Link: https://github.com/strewm/Gotta-Latte-Do
+
+Live Site: https://gotta-latte-do.herokuapp.com/
+
+Contributors:
+    Jihoon (Fiona) Choi [ https://www.linkedin.com/in/jihoon-choi-a6967a221/ ]
+
+    Thien Dang [ https://www.linkedin.com/in/thien-dang-ct/ ]
+
+    Tanner Shaw [ https://www.linkedin.com/in/tanner-shaw-a25702162/ ]
+
+    Savanah Trewman [ https://www.linkedin.com/in/savanah-trewman/ ]"""
+    )
+
     db.session.add(note1)
     db.session.add(note2)
     db.session.add(note3)
+    db.session.add(note4)
     db.session.commit()
 
 def undo_notes():

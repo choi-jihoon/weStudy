@@ -35,3 +35,12 @@ def create_event():
         db.session.commit()
         return event.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@event_routes.route('/<int:eventId>', methods=['DELETE'])
+def delete_event(eventId):
+    event = Event.query.get(int(eventId))
+    data = event.to_dict()
+    db.session.delete(event)
+    db.session.commit()
+    return data

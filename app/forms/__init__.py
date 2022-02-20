@@ -7,3 +7,4 @@ from .note_form import NoteForm
 from .add_to_group_form import AddToGroupForm
 from .chat_form import ChatForm
 from .event_form import EventForm
+from .image_form import ImageForm

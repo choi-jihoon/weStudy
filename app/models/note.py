@@ -8,7 +8,7 @@ class Note(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     group_id = db.Column(db.Integer, db.ForeignKey('groups.id'), nullable=False)
-    note_title = db.Column(db.String, nullable=False)
+    note_title = db.Column(db.String(40), nullable=False)
     note_text = db.Column(db.Text)
     created_at = db.Column(db.DateTime, default=datetime.utcnow())
     updated_at = db.Column(db.DateTime, default=datetime.utcnow())

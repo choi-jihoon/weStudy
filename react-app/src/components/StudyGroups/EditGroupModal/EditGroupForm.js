@@ -83,7 +83,7 @@ const EditGroupForm = ({ setShowModal, group }) => {
 
 
 	return (
-		<form autoComplete="off" onSubmit={handleSubmit} className="form-container group-form-container">
+		<form autoComplete="off" onSubmit={handleSubmit} className="group-form-container">
 			{/* <div className="modal-head">Edit Study Group</div> */}
 			<div className='group-form-input-container'>
 				<div className='form-element-container'>

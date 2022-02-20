@@ -17,8 +17,6 @@ def user_already_in_group(form, field):
     if user in group.users:
         raise ValidationError('User already in group.')
 
-
-
 class AddToGroupForm(FlaskForm):
     group_id = IntegerField('group_id', validators=[DataRequired()])
     username = StringField('username', validators=[DataRequired(), user_exists, user_already_in_group])

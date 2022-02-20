@@ -28,10 +28,8 @@ const SignUpForm = () => {
 			formData.append("password", password);
 			if (image) {
 				formData.append("image", image);
-				// setImageLoading(true);
 			}
 			const data = await dispatch(signUp(formData));
-			// setImageLoading(false);
 			if (data) {
 				const errors = {};
 				const dataArr = data.map((error) => error.split(":"));
@@ -41,7 +39,6 @@ const SignUpForm = () => {
 				}
 
 				setErrors(errors);
-				// setImageLoading(false);
 				return;
 			}
 		} else {
@@ -52,10 +49,6 @@ const SignUpForm = () => {
 		}
 	};
 
-	// const updateImage = (e) => {
-	// 	const file = e.target.files[0];
-	// 	setImage(file);
-	// };
 
 	const updateUsername = (e) => {
 		setUsername(e.target.value);
@@ -81,7 +74,6 @@ const SignUpForm = () => {
 			setPassword("");
 			setRepeatPassword("");
 			setImage(null);
-			// setImageLoading(false);
 		};
 	}, []);
 
@@ -157,30 +149,6 @@ const SignUpForm = () => {
 							</div>
 						</div>
 					</div>
-
-					{/* <div className="sf-add-image-container">
-					<input
-						id="file-upload"
-						type="file"
-						accept="image/*"
-						onChange={updateImage}
-					></input>
-					<div className="preview-container">
-						{image && (
-							<img
-								alt="preview"
-								src={URL.createObjectURL(image)}
-								className="preview-image"
-							></img>
-						)}
-					</div>
-					<label htmlFor="file-upload">Add Profile Image</label> */}
-					{/* {imageLoading && (
-						<p>
-							<i className="fas fa-spinner fa-pulse"></i>
-						</p>
-					)} */}
-					{/* </div> */}
 				</div>
 
 				<div className="sf-btn-container">

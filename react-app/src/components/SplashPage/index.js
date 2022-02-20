@@ -1,3 +1,5 @@
+import { useHistory } from 'react-router-dom';
+
 import logo from '../../assets/images/logo.png';
 
 import NavBar from '../NavBar';
@@ -5,6 +7,10 @@ import Footer from './Footer';
 import './SplashPage.css';
 
 const SplashPage = () => {
+
+    const history = useHistory();
+    history.push('/');
+
     return (
         <div className='splash-page-container'>
             <NavBar />

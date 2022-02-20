@@ -44,3 +44,36 @@ def delete_event(eventId):
     db.session.delete(event)
     db.session.commit()
     return data
+
+
+@event_routes.route('/<int:eventId>', methods=['PUT'])
+def edit_event(eventId):
+    form = EventForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        event = Event.query.get(int(eventId))
+        event.summary = form['summary'].data
+        event.description = form['description'].data
+        event.start_time = form['start_time'].data
+        event.end_time = form['end_time'].data
+        db.session.commit()
+        return event.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@event_routes.route('/<int:eventId', methods=['PATCH'])
+def add_attendee(eventId):
+    event = Event.query.get(int(eventId))
+    user = User.query.get(current_user.get_id())
+    event.attendees.append(user)
+    db.session.commit()
+    return event.to_dict()
+
+
+@event_routes.route('/<int:eventId>/bail', methods=['PATCH'])
+def remove_attendee(eventId):
+    event = Event.query.get(int(eventId))
+    user = User.query.get(current_user.get_id())
+    event.attendees.pop(event.attendees.index(user))
+    db.session.commit()
+    return event.to_dict()

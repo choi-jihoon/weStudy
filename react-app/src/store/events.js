@@ -2,6 +2,8 @@ const LOAD_EVENTS = 'events/LOAD_EVENTS';
 const CREATE_EVENT = 'events/CREATE_EVENT';
 const DELETE_EVENT = 'events/DELETE_EVENT';
 const EDIT_EVENT = 'events/EDIT_EVENT';
+const JOIN_EVENT = 'events/JOIN_EVENT';
+const LEAVE_EVENT = 'events/LEAVE_EVENT';
 
 const load = events => ({
     type: LOAD_EVENTS,
@@ -22,6 +24,17 @@ const edit = event => ({
     type: EDIT_EVENT,
     event
 })
+
+const join = event => ({
+    type: JOIN_EVENT,
+    event
+})
+
+const bail = event => ({
+    type: LEAVE_EVENT,
+    event
+})
+
 
 export const getEvents = (groupId) => async (dispatch) => {
     const res = await fetch(`/api/groups/${groupId}/events`);
@@ -114,6 +127,44 @@ export const editEvent = (eventId, user_id, group_id, summary, description, star
     }
 }
 
+export const joinEvent = (eventId) => async (dispatch) => {
+    const res = await fetch(`/api/events/${eventId}`, {
+        method: 'PATCH'
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(join(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return { 'ERROR': 'An error occurred. Please try again.' }
+    }
+}
+
+export const leaveEvent = (eventId) => async (dispatch) => {
+    const res = await fetch(`/api/events/${eventId}/bail`, {
+        method: 'PATCH'
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(leave(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return { 'ERROR': 'An error occurred. Please try again.' }
+    }
+}
+
 
 
 const initialState = {
@@ -154,6 +205,26 @@ const events = (state = initialState, action) => {
         }
 
         case EDIT_EVENT: {
+            const newState = { ...state };
+            newState.events[action.event.id] = action.event;
+            newState.byGroupId[action.event.group_id] = {
+                ...newState.byGroupId[action.event.group_id],
+                [action.event.id]: action.event
+            };
+            return newState;
+        }
+
+        case JOIN_EVENT: {
+            const newState = { ...state };
+            newState.events[action.event.id] = action.event;
+            newState.byGroupId[action.event.group_id] = {
+                ...newState.byGroupId[action.event.group_id],
+                [action.event.id]: action.event
+            };
+            return newState;
+        }
+
+        case LEAVE_EVENT: {
             const newState = { ...state };
             newState.events[action.event.id] = action.event;
             newState.byGroupId[action.event.group_id] = {

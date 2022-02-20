@@ -20,7 +20,51 @@ Lists vs Tuples
     Lists are: mutable and dynamic"""
     )
 
+    note2 = Note(
+        user_id = 2,
+        group_id = 3,
+        note_title = 'SplitaBill Wiki',
+        note_text=
+        """Github Link: https://github.com/choi-jihoon/SplittaBill
+
+Live Site: https://split-a-bill.herokuapp.com/
+
+Contributors:
+    Jihoon (Fiona) Choi [ https://www.linkedin.com/in/jihoon-choi-a6967a221/ ]
+
+    Cody Lavene [ https://www.linkedin.com/in/codylavene/ ]
+
+    Vivian Thach [ https://www.linkedin.com/in/vivianthach1023/ ]"""
+    )
+
+    note3 = Note(
+        user_id = 2,
+        group_id = 3,
+        note_title = 'Workflow',
+        note_text =
+        """Friends
+    - When a friend is added, find User with that email and create 2 records on the Friends table
+    - When a friend is deleted, delete both records on the Friends table
+
+Bills
+    - When a Bill is created,
+        - Grab ids of all users specified by username
+        - Create an expense with the total_amount split between each payer_id
+        - Update all the Friend balances involved
+    - When a Bill is deleted, all related Expenses, Transaction Records, and Comments are also deleted (taken care of by cascade on models)
+    - Editing a Bill's total_amount should edit corresponding Expenses
+    - Editing a Bill's description has no effect on corresponding Expenses
+
+Transaction records
+    - When a user clicks "Settle Up"/"Pay" next to a bill/expense, create a Transaction Record for that expense_id using the Bill's owner_id (as recipient_id)
+        - Decrease (update) that Expense's amount_due
+            - Check if the amount_due is 0. If it is, change "settled" attribute to True.
+        - Update the corresponding balances in Friends"""
+    )
+
     db.session.add(note1)
+    db.session.add(note2)
+    db.session.add(note3)
     db.session.commit()
 
 def undo_notes():

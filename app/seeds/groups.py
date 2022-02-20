@@ -3,23 +3,23 @@ from app.models import db, Group, User
 def seed_groups():
     group1 = Group(
         group_name = 'S&C LLC',
-        description = '9/20 Bootbamp Cohort',
+        description = '9/20 Bootbamp Cohort Study Buddies',
         owner_id = 1,
         group_image = 'https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/956dd8e3405b4874ae587292f0609c8a.png'
     )
 
     group2 = Group(
-        group_name = 'Study Group 2',
-        description = 'This is the description for Study Group 2, owned by User 2.',
+        group_name = 'Group Proj 1',
+        description = 'Gotta Latte Do (dream team) - JavaScript / Express',
         owner_id = 2,
-        group_image = 'https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/8251350a56de42389b48ad0f8e1153f6.png'
+        group_image = 'https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/6f299160a4564f318b0d96a2c80126f8.jpg'
     )
 
     group3 = Group(
-        group_name = 'Study Group 3',
-        description = 'This is the description for Group 3, which has two users and is owned by User 1.',
-        owner_id = 1,
-        group_image ='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/25be9a2779fc414e95c6ddb04ca7a0f6.png'
+        group_name = 'Group Proj 2',
+        description = 'SplitaBill (dream team trio) - React / Python / Flask',
+        owner_id = 2,
+        group_image ='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/d8a241022059400b81ca3d206ddda495.jpg'
     )
 
     user1 = User.query.get(1)
@@ -34,6 +34,8 @@ def seed_groups():
     user10 = User.query.get(10)
     user11 = User.query.get(11)
 
+    user12 = User.query.get(12)
+
     group1.users.append(user1)
     group1.users.append(user2)
     group1.users.append(user3)
@@ -46,11 +48,12 @@ def seed_groups():
     group1.users.append(user10)
     group1.users.append(user11)
 
-    group2.users.append(user2)
     group2.users.append(user1)
+    group2.users.append(user2)
 
     group3.users.append(user1)
     group3.users.append(user2)
+    group3.users.append(user12)
 
     db.session.add(group1)
     db.session.add(group2)

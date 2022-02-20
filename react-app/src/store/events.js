@@ -1,5 +1,6 @@
 const LOAD_EVENTS = 'events/LOAD_EVENTS';
 const CREATE_EVENT = 'events/CREATE_EVENT';
+const DELETE_EVENT = 'events/DELETE_EVENT';
 
 const load = events => ({
     type: LOAD_EVENTS,
@@ -10,6 +11,11 @@ const create = event => ({
     type: CREATE_EVENT,
     event
 });
+
+const remove = event => ({
+    type: DELETE_EVENT,
+    event
+})
 
 export const getEvents = (groupId) => async (dispatch) => {
     const res = await fetch(`/api/groups/${groupId}/events`);
@@ -53,6 +59,27 @@ export const createEvent = (user_id, group_id, summary, description, start_time,
     }
 }
 
+export const deleteEvent = (eventId) => async (dispatch) => {
+    const res = await fetch(`/api/events/${eventId}`, {
+        method: 'DELETE'
+    })
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(remove(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return { 'ERROR': 'An error occurred. Please try again.' }
+    }
+}
+
+
+
 const initialState = {
     events: {},
     byGroupId: {}
@@ -80,6 +107,13 @@ const events = (state = initialState, action) => {
                 ...newState.byGroupId[action.event.group_id],
                 [action.event.id]: action.event
             }
+            return newState;
+        }
+
+        case DELETE_EVENT: {
+            const newState = { ...state };
+            delete newState.events[action.event.id];
+            delete newState.byGroupId[action.event.group_id][action.even.id];
             return newState;
         }
 

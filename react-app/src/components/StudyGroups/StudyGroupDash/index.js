@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { io } from 'socket.io-client';
-
 
 import { getGroup } from '../../../store/groups';
 import { getRooms } from '../../../store/rooms';
@@ -19,7 +17,6 @@ import DeleteGroupModal from '../../StudyGroups/DeleteGroupModal';
 
 import './StudyGroupDash.css';
 
-let socket;
 
 const StudyGroupDash = () => {
     const dispatch = useDispatch();

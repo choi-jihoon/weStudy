@@ -12,11 +12,12 @@ import Events from '../StudyGroups/Group/Events';
 import { getGroups } from '../../store/groups';
 
 import './Dashboard.css';
+
+
 let socket;
 
 
 
-// let socket;
 
 const Dashboard = () => {
     const dispatch = useDispatch();

@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 
 import { createImage } from '../../../../../../../../store/images';
 
+import './CreateImageForm.css';
+
 const CreateImageForm = ({ setShowModal, albumId }) => {
     const [errors, setErrors] = useState({});
     const [image, setImage] = useState(null);
@@ -54,20 +56,20 @@ const CreateImageForm = ({ setShowModal, albumId }) => {
 
 
     return (
-        <form onSubmit={handleSubmit} className='form-container'>
-            <div className="gf-add-image-container">
+        <form onSubmit={handleSubmit} className='create-image-form-container'>
+            <div className="if-add-image-container">
                 <input
                     id="file-upload"
                     type="file"
                     accept="image/*"
                     onChange={updateImage}
                 ></input>
-                <div className="preview-container group">
+                <div className="preview-container image">
                     {image && (
                         <img
                             alt="preview"
                             src={URL.createObjectURL(image)}
-                            className="preview-image group"
+                            className="preview-image image"
                         ></img>
                     )}
                 </div>
@@ -75,12 +77,14 @@ const CreateImageForm = ({ setShowModal, albumId }) => {
                     {imageLoading ?
                         <i className="fas fa-spinner fa-pulse"></i>
                         :
-                        <i className="fas fa-image"></i>
+                        <i className="fas fa-cloud-upload-alt"></i>
                     }
                 </label>
             </div>
-            <button id='create-group' type="submit">Post Image</button>
-            <button className='cancel-btn' onClick={handleCancelClick}>Cancel</button>
+            <div className='post-image-btn-container'>
+                <button id='post-image' type="submit">Post Image</button>
+                <button id='cancel-image-post' onClick={handleCancelClick}>Cancel</button>
+            </div>
         </form>
     );
 };

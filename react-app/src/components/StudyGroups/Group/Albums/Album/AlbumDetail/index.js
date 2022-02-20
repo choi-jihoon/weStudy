@@ -27,7 +27,7 @@ const AlbumDetail = () => {
         dispatch(getImages(albumId));
         dispatch(getRooms(groupId));
         dispatch(getNotes(groupId));
-    }, [dispatch, albumId])
+    }, [dispatch, albumId, groupId])
 
     return(
         <div className='album-container'>

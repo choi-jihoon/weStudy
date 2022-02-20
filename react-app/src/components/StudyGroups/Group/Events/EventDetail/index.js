@@ -1,8 +1,11 @@
+import { useSelector } from "react-redux";
+
 import Calendar from "../../../../Calendar";
 import DeleteEventModal from "./DeleteEventModal";
+import EditEventModal from "./EditEventModal";
 
 const EventDetail = ({ event }) => {
-
+    const user = useSelector(state => state.session.user);
 
     return (
         <div className='event-container'>
@@ -11,7 +14,12 @@ const EventDetail = ({ event }) => {
             <p>Starts: {event.start_time}</p>
             <p>Ends: {event.end_time}</p>
             <p>Attendees: {event.attendees.map(user => user.username)}</p>
-            <DeleteEventModal event={event} />
+            {user.id === event.user_id &&
+                <div className='event-btn-container'>
+                    <EditEventModal event={event} />
+                    <DeleteEventModal event={event} />
+                </div>
+            }
             <Calendar event={event} />
         </div>
     )

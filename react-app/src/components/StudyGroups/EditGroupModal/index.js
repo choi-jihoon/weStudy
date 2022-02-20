@@ -15,7 +15,7 @@ function EditGroupModal({ group }) {
 				id="edit-group"
 				onClick={() => setShowModal(true)}
 			>
-				<i className="fas fa-edit edit-bill-icon"></i>
+				<i className="fas fa-edit"></i>
 			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>

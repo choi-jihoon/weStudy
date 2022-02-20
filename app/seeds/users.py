@@ -33,6 +33,8 @@ def seed_users():
     savanah = User(
         username='savnaha', email='savanah@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/f3eb431407724f1280609dd53c39632a.jpg')
 
+    tanner = User(
+        username='tantan', email='tanner@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/052735d5f6844bc581f223553c96aac0.png')
 
     db.session.add(demo)
     db.session.add(fiona)
@@ -49,6 +51,7 @@ def seed_users():
     db.session.add(viv)
 
     db.session.add(savanah)
+    db.session.add(tanner)
 
     db.session.commit()
 

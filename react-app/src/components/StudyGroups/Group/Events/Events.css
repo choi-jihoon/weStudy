@@ -34,7 +34,7 @@
 
 .event-container {
     border-radius: 5px;
-    width: 350px;
+    width: 380px;
     min-height: fit-content;
     height: 500px;
     margin-right: 40px;
@@ -50,7 +50,7 @@
 }
 
 .event-summary {
-    background-color: var(--top-lighter-highlight);
+    background-color: var(--top-highlight);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,15 +65,17 @@
 .event-body {
     position: relative;
     height: 100%;
-    background-color: var(--top-highlight);
-    padding: 15px;
+    /* background-color: var(--top-highlight); */
+    background-color: whitesmoke;
+    padding: 30px;
 
     border-radius: 0 0 5px 5px;
 }
 
 .event-body > h4,
-.event-body > p {
-    color: var(--header-text);
+.event-body p {
+    /* color: var(--header-text); */
+    color: var(--main-container);
 }
 
 .event-btn-container {
@@ -119,7 +121,7 @@
     cursor: pointer;
     padding: 5px 0;
     color: white;
-    width: 80%;
+    width: 70%;
 }
 
 #join-event:hover,
@@ -128,9 +130,10 @@
 }
 
 .calendar-container > button {
-    font-size: 15px;
-    width: 280px;
-    padding: 10px 0;
+    font-size: 20px;
+    width: 266px;
+    /* width: 100%; */
+    padding: 5px 0;
     background: linear-gradient(-120deg, #4285f4, #34a853, #fbbc05, #ea4335);
     margin-bottom: 10px;
 }
@@ -140,7 +143,7 @@
 }
 
 .event-label {
-    border-bottom: 1px solid white;
+    border-bottom: 1px dotted var(--main-container);;
     font-weight: bold;
 
 }
@@ -172,4 +175,5 @@
 
 .event-description {
     font-weight: normal;
+    font-style: italic;
 }

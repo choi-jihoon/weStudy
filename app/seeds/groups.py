@@ -34,9 +34,10 @@ def seed_groups():
     user10 = User.query.get(10)
     user11 = User.query.get(11)
 
-    user12 = User.query.get(12)
+    user12 = User.query.get(12) # viv
 
-    user13 = User.query.get(13)
+    user13 = User.query.get(13) # savanah
+    user14 = User.query.get(14) # tanner
 
     group1.users.append(user1)
     group1.users.append(user2)
@@ -53,6 +54,7 @@ def seed_groups():
     group2.users.append(user1)
     group2.users.append(user2)
     group2.users.append(user13)
+    group2.users.append(user14)
 
     group3.users.append(user1)
     group3.users.append(user2)

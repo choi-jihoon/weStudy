@@ -47,6 +47,7 @@ def seed_events():
     user2 = User.query.get(2)
     user13 = User.query.get(13)
     user12 = User.query.get(12)
+    user14 = User.query.get(14)
 
     event1.attendees.append(user1)
     event1.attendees.append(user2)
@@ -56,6 +57,7 @@ def seed_events():
 
     event3.attendees.append(user2)
     event3.attendees.append(user13)
+    event3.attendees.append(user14)
 
     event4.attendees.append(user2)
     event4.attendees.append(user12)

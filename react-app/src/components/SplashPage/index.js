@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import logo from '../../assets/images/logo.png';
 
@@ -9,7 +10,10 @@ import './SplashPage.css';
 const SplashPage = () => {
 
     const history = useHistory();
-    history.push('/');
+
+    useEffect(() => {
+        history.push('/');
+    }, [history])
 
     return (
         <div className='splash-page-container'>

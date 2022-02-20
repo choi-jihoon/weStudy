@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import current_user
 from app.aws_s3 import (upload_file_to_s3, allowed_file, get_unique_filename)
-from app.models import db, Group, User, Room, Note, Event
+from app.models import db, Group, User, Room, Note, Event, Album
 from app.forms import GroupForm, AddToGroupForm, UpdateImage
 
 def validation_errors_to_error_messages(validation_errors):
@@ -228,3 +228,9 @@ def update_group_photo(groupId):
 def get_events(groupId):
     events = Event.query.filter(Event.group_id == groupId)
     return {'events': [event.to_dict() for event in events]}
+
+
+@group_routes.route('/<int:groupId>/albums')
+def get_albums(groupId):
+    albums = Album.query.filter(Album.group_id == groupId)
+    return {'albums': [album.to_dict() for album in albums]}

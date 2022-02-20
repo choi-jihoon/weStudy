@@ -95,7 +95,7 @@ export const editAlbum = (albumId, user_id, group_id, title) => async (dispatch)
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(create(data));
+        dispatch(edit(data));
         return null;
     } else if (res.status < 500) {
         const data = await res.json();

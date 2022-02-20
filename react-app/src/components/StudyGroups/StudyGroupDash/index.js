@@ -6,6 +6,7 @@ import { getGroup } from '../../../store/groups';
 import { getRooms } from '../../../store/rooms';
 import { getNotes } from '../../../store/notes';
 import { getEvents } from '../../../store/events';
+import { getAlbums } from '../../../store/albums';
 
 import AddUserToGroupModal from '../AddUserToGroupModal';
 import LeaveGroupModal from '../LeaveGroupModal';
@@ -27,6 +28,7 @@ const StudyGroupDash = () => {
         dispatch(getRooms(groupId));
         dispatch(getNotes(groupId));
         dispatch(getEvents(groupId));
+        dispatch(getAlbums(groupId));
     }, [dispatch, groupId]);
 
     return (

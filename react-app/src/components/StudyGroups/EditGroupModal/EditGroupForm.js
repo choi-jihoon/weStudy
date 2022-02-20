@@ -40,7 +40,11 @@ const EditGroupForm = ({ setShowModal, group }) => {
 			setImageLoading(false);
 			return;
 		}
+		setShowModal(false);
+	};
 
+	const handleCancelClick = async (e) => {
+		e.preventDefault();
 		setShowModal(false);
 	};
 
@@ -110,6 +114,7 @@ const EditGroupForm = ({ setShowModal, group }) => {
 					</div>
 				</div>
 				<button id='create-group' type="submit">Edit Group</button>
+				<button className='cancel-btn' onClick={handleCancelClick}>Cancel</button>
 			</div>
 
 			<div className="gf-add-image-container">

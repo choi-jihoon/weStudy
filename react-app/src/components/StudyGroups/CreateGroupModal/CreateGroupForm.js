@@ -49,6 +49,11 @@ const CreateGroupForm = ({ setShowModal }) => {
 		if (location.pathname !== '/') history.push('/');
 	};
 
+	const handleCancelClick = async (e) => {
+		e.preventDefault();
+		setShowModal(false);
+	};
+
 	const updateImage = (e) => {
 		const file = e.target.files[0];
 		setImage(file);
@@ -99,6 +104,7 @@ const CreateGroupForm = ({ setShowModal }) => {
 					</div>
 				</div>
 				<button id='create-group' type="submit">Create Group</button>
+				<button className='cancel-btn' onClick={handleCancelClick}>Cancel</button>
 			</div>
 
 			<div className="gf-add-image-container">

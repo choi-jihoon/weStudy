@@ -59,11 +59,20 @@ button#create-group {
     margin-top: 40px;
 }
 
-button#create-group:hover {
+button#create-group:hover,
+button.cancel-btn:hover {
     transform: scale(1.1);
 }
 
-
+button.cancel-btn {
+    padding: 10px 40px;
+    font-size: 20px;
+    width: 240px;
+    border-radius: 10px;
+    background-color: var(--terra-cotta);
+    color: white;
+    margin-top: 10px;
+}
 
 
 

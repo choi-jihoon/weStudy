@@ -36,27 +36,27 @@ const StudyGroupDash = () => {
     }, [dispatch, groupId]);
 
 
-    useEffect(() => {
-        socket = io();
+    // useEffect(() => {
+    //     socket = io();
 
-        socket.emit('login', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': true })
-        console.log('connecting', sessionUser.username)
-        socket.on('login', (online_status) => {
-            dispatch(getGroup(groupId));
-            console.log(online_status.username, 'LOGGED IN!')
-        });
+    //     socket.emit('login', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': true })
+    //     console.log('connecting', sessionUser.username)
+    //     socket.on('login', (online_status) => {
+    //         dispatch(getGroup(groupId));
+    //         console.log(online_status.username, 'LOGGED IN!')
+    //     });
 
-        socket.on('logout', (online_status) => {
-            console.log(online_status.username, 'LOGGED OUT!')
-            dispatch(getGroup(groupId));
-        })
+    //     socket.on('logout', (online_status) => {
+    //         console.log(online_status.username, 'LOGGED OUT!')
+    //         dispatch(getGroup(groupId));
+    //     })
 
-        return (() => {
-            console.log('disconnecting from group', sessionUser.username)
-            socket.emit('logout', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': false })
-            socket.disconnect();
-        });
-    }, [dispatch, groupId, sessionUser.id, sessionUser.username]);
+    //     return (() => {
+    //         console.log('disconnecting from group', sessionUser.username)
+    //         socket.emit('logout', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': false })
+    //         socket.disconnect();
+    //     });
+    // }, [dispatch, groupId, sessionUser.id, sessionUser.username]);
 
 
     return (

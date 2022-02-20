@@ -14,7 +14,6 @@ const Calendar = ({ event }) => {
 
     const handleClick = () => {
         gapi.load('client:auth2', () => {
-            console.log('loaded client')
 
             gapi.client.init({
                 apiKey: API_KEY,
@@ -23,7 +22,7 @@ const Calendar = ({ event }) => {
                 scope: SCOPES,
             })
 
-            gapi.client.load('calendar', 'v3', () => console.log('bam!'))
+            gapi.client.load('calendar', 'v3', () => null)
 
             gapi.auth2.getAuthInstance().signIn()
                 .then(() => {
@@ -58,40 +57,12 @@ const Calendar = ({ event }) => {
                         googleEvent['attendees'].push({'email': event.attendees[i].email})
                     }
 
-                    // const event = {
-                    //     'summary': 'Happy Hour!',
-                    //     'location': '800 Howard St., San Francisco, CA 94103',
-                    //     'description': 'Really great refreshments',
-                    //     'start': {
-                    //         'timeZone': 'GMT',
-                    //         'dateTime': '2022-02-20T23:00:00.000Z'
-                    //     },
-                    //     'end': {
-                    //         'dateTime': '2022-02-20T23:00:00.000Z',
-                    //         'timeZone': 'GMT'
-                    //     },
-                    //     'recurrence': [
-                    //         'RRULE:FREQ=DAILY;COUNT=1'
-                    //     ],
-                    //     'attendees': [
-                    //         { 'email': user.email },
-                    //     ],
-                    //     'reminders': {
-                    //         'useDefault': false,
-                    //         'overrides': [
-                    //             { 'method': 'email', 'minutes': 24 * 60 },
-                    //             { 'method': 'popup', 'minutes': 10 }
-                    //         ]
-                    //     }
-                    // }
-
                     const request = gapi.client.calendar.events.insert({
                         'calendarId': 'primary',
                         'resource': googleEvent,
                     })
 
                     request.execute(event => {
-                        console.log(event)
                         window.open(event.htmlLink)
                     })
                 })

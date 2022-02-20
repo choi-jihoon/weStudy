@@ -54,7 +54,7 @@ const EditProfile = ({ showModal }) => {
 				></img>
 			)}
 			<form onSubmit={onSubmit}>
-				<label htmlFor="file-upload">Upload an Image!</label>
+				<label htmlFor="file-upload">Upload an Image</label>
 				<input
 					id="file-upload"
 					type="file"

@@ -30,6 +30,9 @@
 .edit-image-form > form > label {
     background-color: var(--top-highlight);
     padding: 10px 40px;
+    border-radius: 5px;
+    margin: 20px 0 10px 0;
+    color: white;
 
 }
 

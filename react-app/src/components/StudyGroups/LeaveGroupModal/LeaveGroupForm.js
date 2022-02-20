@@ -29,7 +29,7 @@ function LeaveGroupForm({ showModal, group }) {
             <form className='delete-confirmation-container' onSubmit={handleSubmit}>
                 <div className='dc-text-container'>
                     <div className='dc-text'>
-                        Are you sure you want to leave this group?
+                        Are you sure you want to leave <span className='bold'>{group.group_name}</span>?
                     </div>
                 </div>
                 <div className='dc-btn-container'>

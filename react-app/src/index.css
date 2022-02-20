@@ -139,3 +139,7 @@ input {
 	font-size: 13px;
 	padding-left: 10px;
 }
+
+.bold {
+	font-weight: bold;
+}

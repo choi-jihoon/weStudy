@@ -28,7 +28,7 @@ function DeleteEventForm({ showModal, event }) {
             <form className='delete-confirmation-container' onSubmit={handleSubmit}>
                 <div className='dc-text-container'>
                     <div className='dc-text'>
-                        Are you sure you want to delete this event?
+                        Are you sure you want to delete <span className='bold'>{event.summary}</span>?
                     </div>
                 </div>
                 <div className='dc-btn-container'>

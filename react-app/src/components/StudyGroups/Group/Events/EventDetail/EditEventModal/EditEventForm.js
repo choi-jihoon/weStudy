@@ -43,6 +43,10 @@ const EditEventForm = ({ setShowModal, event }) => {
 		setShowModal(false);
 	};
 
+	const handleCancelClick = async (e) => {
+		e.preventDefault();
+		setShowModal(false);
+	};
 
 	const updateSummary = (e) => {
 		setSummary(e.target.value);
@@ -66,14 +70,13 @@ const EditEventForm = ({ setShowModal, event }) => {
 
 
 	return (
-		<form autoComplete="off" onSubmit={handleSubmit} className="form-container group-form-container event-form-container">
-			<div className='group-form-input-container event-form-input-container'>
-				<div className="modal-head">Edit Event</div>
+		<form autoComplete="off" onSubmit={handleSubmit} className="form-container event-form-container">
+			<div className='event-form-input-container'>
 				<div className='form-element-container'>
 					<input
 						name="summary"
 						type="text"
-						placeholder="Event Summary"
+						placeholder="Event Title"
 						value={summary}
 						onChange={updateSummary}
 						required
@@ -123,7 +126,10 @@ const EditEventForm = ({ setShowModal, event }) => {
 					</div>
                 </div>
 
-				<button id='edit-event' type="submit">Edit Event</button>
+				<div className='event-btns-container'>
+				<button id='event-submit' type="submit">Save</button>
+				<button className='cancel-btn' onClick={handleCancelClick}>Cancel</button>
+			</div>
 			</div>
 
 		</form>

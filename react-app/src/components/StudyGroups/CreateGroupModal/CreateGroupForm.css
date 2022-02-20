@@ -62,7 +62,8 @@ button#create-group {
 }
 
 button#create-group:hover,
-button.cancel-btn:hover {
+button.cancel-btn:hover,
+button#create-event-submit:hover {
     transform: scale(1.1);
 }
 

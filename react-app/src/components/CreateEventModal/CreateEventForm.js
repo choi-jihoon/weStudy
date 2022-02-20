@@ -3,12 +3,14 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { createEvent } from "../../store/events";
 
+import './CreateEventForm.css';
+
 const CreateEventForm = ({ setShowModal, groupId }) => {
 	const [errors, setErrors] = useState({});
 	const [summary, setSummary] = useState("");
 	const [description, setDescription] = useState("");
-    const [startTime, setStartTime] = useState("");
-    const [endTime, setEndTime] = useState("");
+	const [startTime, setStartTime] = useState("");
+	const [endTime, setEndTime] = useState("");
 
 	const user = useSelector(state => state.session.user);
 
@@ -17,16 +19,16 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-        console.log(startTime)
+		console.log(startTime)
 
 		const data = await dispatch(createEvent(
-            user.id,
-            groupId,
-            summary,
-            description,
-            startTime,
-            endTime
-        ));
+			user.id,
+			groupId,
+			summary,
+			description,
+			startTime,
+			endTime
+		));
 
 		if (data) {
 			const errors = {}
@@ -41,6 +43,10 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 		setShowModal(false);
 	};
 
+	const handleCancelClick = async (e) => {
+		e.preventDefault();
+		setShowModal(false);
+	};
 
 	const updateSummary = (e) => {
 		setSummary(e.target.value);
@@ -50,13 +56,13 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 		setDescription(e.target.value);
 	};
 
-    const updateStartTime = (e) => {
-        setStartTime(e.target.value);
-    };
+	const updateStartTime = (e) => {
+		setStartTime(e.target.value);
+	};
 
-    const updateEndTime = (e) => {
-        setEndTime(e.target.value);
-    };
+	const updateEndTime = (e) => {
+		setEndTime(e.target.value);
+	};
 
 	useEffect(() => {
 		setErrors(errors)
@@ -64,14 +70,13 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 
 
 	return (
-		<form autoComplete="off" onSubmit={handleSubmit} className="form-container group-form-container event-form-container">
-			<div className='group-form-input-container event-form-input-container'>
-				<div className="modal-head">Create an Event</div>
+		<form autoComplete="off" onSubmit={handleSubmit} className="form-container event-form-container">
+			<div className='event-form-input-container'>
 				<div className='form-element-container'>
 					<input
 						name="summary"
 						type="text"
-						placeholder="Event Summary"
+						placeholder="Event Title"
 						value={summary}
 						onChange={updateSummary}
 						required
@@ -95,33 +100,35 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 					</div>
 				</div>
 
-                <div className='form-element-container'>
-                    <input
-                        name="start_time"
-                        type="datetime-local"
-                        value={startTime}
-                        onChange={updateStartTime}
-                        required
-                    />
-                    <div className='errors-container'>
+				<div className='form-element-container'>
+					<input
+						name="start_time"
+						type="datetime-local"
+						value={startTime}
+						onChange={updateStartTime}
+						required
+					/>
+					<div className='errors-container'>
 						{errors.start_time ? `${errors.start_time}` : ""}
 					</div>
-                </div>
+				</div>
 
-                <div className='form-element-container'>
-                    <input
-                        name="end_time"
-                        type="datetime-local"
-                        value={endTime}
-                        onChange={updateEndTime}
-                        required
-                    />
-                    <div className='errors-container'>
+				<div className='form-element-container'>
+					<input
+						name="end_time"
+						type="datetime-local"
+						value={endTime}
+						onChange={updateEndTime}
+						required
+					/>
+					<div className='errors-container'>
 						{errors.end_time ? `${errors.end_time}` : ""}
 					</div>
-                </div>
-
-				<button id='create-event-submit' type="submit">Add Event</button>
+				</div>
+			</div>
+			<div className='event-btns-container'>
+				<button id='event-submit' type="submit">Create Event</button>
+				<button className='cancel-btn' onClick={handleCancelClick}>Cancel</button>
 			</div>
 
 		</form>

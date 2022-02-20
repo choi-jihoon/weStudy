@@ -48,22 +48,6 @@ const EditGroupForm = ({ setShowModal, group }) => {
 		setShowModal(false);
 	};
 
-	// const handleSubmit = async (e) => {
-	// 	e.preventDefault();
-	// 	const data = await dispatch(editGroup(group.id, groupName, description, user.id));
-
-	// 	if (data) {
-	// 		const errors = {}
-	// 		for (let i = 0; i < data.length; i++) {
-	// 			const error = data[i].split(": ");
-	// 			errors[error[0]] = error[1]
-	// 		}
-	// 		setErrors(errors)
-	// 		return;
-	// 	}
-	// 	setShowModal(false);
-	// };
-
 	const updateImage = (e) => {
 		const file = e.target.files[0];
 		setImage(file);
@@ -84,7 +68,6 @@ const EditGroupForm = ({ setShowModal, group }) => {
 
 	return (
 		<form autoComplete="off" onSubmit={handleSubmit} className="group-form-container">
-			{/* <div className="modal-head">Edit Study Group</div> */}
 			<div className='group-form-input-container'>
 				<div className='form-element-container'>
 					<input

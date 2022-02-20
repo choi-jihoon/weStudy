@@ -73,7 +73,6 @@ const NoteDetail = () => {
                         id='note-area'
                         value={noteText}
                         onChange={updateText}
-                        // onBlur={() => window.alert("Are you sure you want to leave this page? Your changes won't be saved.")}
                     />
                     <div
                         id='save-btn'

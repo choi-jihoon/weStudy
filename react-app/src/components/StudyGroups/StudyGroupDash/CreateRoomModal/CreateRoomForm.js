@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { createRoom } from "../../../../store/rooms";
@@ -39,7 +39,6 @@ const CreateRoomForm = ({ setShowModal, group }) => {
 
 	return (
 		<form onSubmit={handleSubmit} className="form-container">
-			{/* <div className="modal-head">Create a Room</div> */}
 			<div className='form-element-container'>
 				<input
 					className='add-room-input'

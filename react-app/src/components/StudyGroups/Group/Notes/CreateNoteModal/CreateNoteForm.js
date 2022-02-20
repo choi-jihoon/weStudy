@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom';
 
@@ -37,10 +37,6 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 		setTitle(e.target.value);
 	};
 
-	// const updateText = (e) => {
-	// 	setNoteText(e.target.value);
-	// };
-
 	useEffect(() => {
 		setErrors(errors)
 	}, [errors])
@@ -48,7 +44,6 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 
 	return (
 		<form onSubmit={handleSubmit} className="form-container">
-			{/* <div className="modal-head">Create a Note</div> */}
 			<div className='form-element-container'>
 				<input
 					name="note_title"
@@ -62,16 +57,6 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 					{errors.group_name ? `${errors.group_name}` : ""}
 				</div>
 			</div>
-
-			{/* <div className='form-element-container'>
-                <textarea
-                    name='note_text'
-                    value={noteText}
-                    onChange={updateText} />
-				<div className='errors-container'>
-					{errors.note_text ? `${errors.note_text}` : ""}
-				</div>
-			</div> */}
 			<button id='create-note-submit' type="submit">Create</button>
 		</form>
 	);

@@ -38,9 +38,6 @@ const EditProfile = ({ showModal }) => {
 
 	return (
 		<div className="edit-image-form">
-			{/* <div className="modal-head" style={{ marginBottom: 20 }}>
-				Change Profile Picture
-			</div> */}
 			{!image && (
 				<img
 					src={sessionUser.image}

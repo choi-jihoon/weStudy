@@ -13,24 +13,11 @@ import { getGroups } from '../../store/groups';
 
 import './Dashboard.css';
 
-
 let socket;
-
-
-
 
 const Dashboard = () => {
     const dispatch = useDispatch();
-    // const location = useLocation();
-    // const groupsObj = useSelector(state => state.groups);
-    // const roomsObj = useSelector(state => state.rooms);
     const sessionUser = useSelector(state => state.session.user);
-
-    // const path = location.pathname.split('/');
-    // let groupId;
-    // if (path[2]) {
-    //     groupId = path[2];
-    // }
 
     useEffect(() => {
         dispatch(getGroups());

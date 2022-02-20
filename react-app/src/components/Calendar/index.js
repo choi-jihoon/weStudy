@@ -94,25 +94,6 @@ const Calendar = ({ event }) => {
                         console.log(event)
                         window.open(event.htmlLink)
                     })
-
-
-                    /*
-                        Uncomment the following block to get events
-                    */
-
-                    // get events
-                    // gapi.client.calendar.events.list({
-                    //   'calendarId': 'primary',
-                    //   'timeMin': (new Date()).toISOString(),
-                    //   'showDeleted': false,
-                    //   'singleEvents': true,
-                    //   'maxResults': 10,
-                    //   'orderBy': 'startTime'
-                    // }).then(response => {
-                    //   const events = response.result.items
-                    //   console.log('EVENTS: ', events)
-                    // })
-
                 })
         })
     }

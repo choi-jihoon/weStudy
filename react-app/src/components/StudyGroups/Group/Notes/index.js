@@ -8,7 +8,6 @@ import CreateNoteModal from './CreateNoteModal';
 const Notes = ({ group }) => {
     const dispatch = useDispatch();
     const notesObj = useSelector(state => state.notes);
-    // const notes = Object.values(notesObj);
 
     useEffect(() => {
         dispatch(getNotes(group.id))

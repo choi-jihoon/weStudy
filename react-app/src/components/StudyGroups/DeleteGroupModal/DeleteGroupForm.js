@@ -1,11 +1,9 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import { deleteGroup } from "../../../store/groups";
 
 import './DeleteGroupForm.css'
-
 
 function DeleteGroupForm({ showModal, group }) {
     const dispatch = useDispatch();

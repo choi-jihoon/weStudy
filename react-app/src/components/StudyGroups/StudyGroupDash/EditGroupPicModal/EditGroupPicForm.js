@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { updateGroupImage } from "../../../../store/groups";
-
 
 const EditGroupPicForm = ({ showModal, group }) => {
 	const dispatch = useDispatch();
@@ -74,11 +73,11 @@ const EditGroupPicForm = ({ showModal, group }) => {
 				<button
 				>Save</button>
 			</form>
-			{/* {imageLoading && (
+			{imageLoading && (
 				<p>
 					<i className="fas fa-spinner fa-pulse"></i>
 				</p>
-			)} */}
+			)}
 			{errors.map((err, i) => (
 				<li key={i}>{err}</li>
 			))}

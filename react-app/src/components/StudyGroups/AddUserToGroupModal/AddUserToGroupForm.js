@@ -38,7 +38,6 @@ const AddUserToGroupForm = ({ group, setShowModal }) => {
 
     return (
         <form onSubmit={handleSubmit} className='form-container add-user-form'>
-            {/* <div className='modal-head'>Add User to Group</div> */}
             <div className='form-element-container'>
 				<input
                     className='add-user-input'

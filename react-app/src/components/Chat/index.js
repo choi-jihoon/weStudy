@@ -80,7 +80,6 @@ const Chat = () => {
     }, [roomId, room?.room_name, user.username])
 
     return (
-        // <div className='chat-and-input-container'>
         <div className='chat-room-container'>
             <div className='chat-header-container'>
                 <h2 className='room-name'>Welcome to #{room?.room_name}!</h2>
@@ -115,7 +114,6 @@ const Chat = () => {
                             }
                             <p className='chat-text'>{message.msg}</p>
                         </div>
-                        {/* {`${message.user}: ${message.msg}`} */}
                     </div>
                 ))}
             </div>
@@ -128,7 +126,6 @@ const Chat = () => {
                 <button id='send-chat' type='submit'><i className="fas fa-paper-plane"></i></button>
             </form>
         </div>
-        // </div>
     )
 }
 

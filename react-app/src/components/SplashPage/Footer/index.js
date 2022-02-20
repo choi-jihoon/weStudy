@@ -17,6 +17,7 @@ const Footer = () => {
                 <li>Docker</li>
                 <li>SocketIO</li>
                 <li>AWS S3</li>
+                <li>Google Calendar API</li>
             </ul>
         }
         <ul className='copyright'>

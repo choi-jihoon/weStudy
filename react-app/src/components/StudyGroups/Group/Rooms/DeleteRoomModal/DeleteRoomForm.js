@@ -4,7 +4,6 @@ import { useHistory, useLocation } from "react-router-dom";
 
 import { deleteRoom } from '../../../../../store/rooms';
 
-
 function DeleteRoomForm({ showModal, room }) {
     const dispatch = useDispatch();
     const history = useHistory();

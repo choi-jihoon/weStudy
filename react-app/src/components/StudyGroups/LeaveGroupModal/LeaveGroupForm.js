@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 
 import { leaveStudyGroup } from '../../../store/groups';
 
-
 function LeaveGroupForm({ showModal, group }) {
     const dispatch = useDispatch();
     const history = useHistory();

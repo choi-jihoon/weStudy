@@ -7,11 +7,7 @@ import './Rooms.css';
 
 const Rooms = ({ group }) => {
     const dispatch = useDispatch();
-
     const roomsObject = useSelector(state => state.rooms);
-    // const rooms = Object.values(roomsObject.byGroupId[group.id]);
-
-    // const group = useSelector(state => state.groups[group.id]);
 
     useEffect(() => {
         dispatch(getRooms(group.id));

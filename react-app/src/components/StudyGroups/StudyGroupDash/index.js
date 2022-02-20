@@ -7,16 +7,13 @@ import { getRooms } from '../../../store/rooms';
 import { getNotes } from '../../../store/notes';
 import { getEvents } from '../../../store/events';
 
-
 import AddUserToGroupModal from '../AddUserToGroupModal';
 import LeaveGroupModal from '../LeaveGroupModal';
 import RemoveFromGroupModal from '../RemoveFromGroupModal';
 import EditGroupModal from '../../StudyGroups/EditGroupModal';
 import DeleteGroupModal from '../../StudyGroups/DeleteGroupModal';
 
-
 import './StudyGroupDash.css';
-
 
 const StudyGroupDash = () => {
     const dispatch = useDispatch();
@@ -31,30 +28,6 @@ const StudyGroupDash = () => {
         dispatch(getNotes(groupId));
         dispatch(getEvents(groupId));
     }, [dispatch, groupId]);
-
-
-    // useEffect(() => {
-    //     socket = io();
-
-    //     socket.emit('login', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': true })
-    //     console.log('connecting', sessionUser.username)
-    //     socket.on('login', (online_status) => {
-    //         dispatch(getGroup(groupId));
-    //         console.log(online_status.username, 'LOGGED IN!')
-    //     });
-
-    //     socket.on('logout', (online_status) => {
-    //         console.log(online_status.username, 'LOGGED OUT!')
-    //         dispatch(getGroup(groupId));
-    //     })
-
-    //     return (() => {
-    //         console.log('disconnecting from group', sessionUser.username)
-    //         socket.emit('logout', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': false })
-    //         socket.disconnect();
-    //     });
-    // }, [dispatch, groupId, sessionUser.id, sessionUser.username]);
-
 
     return (
         <>

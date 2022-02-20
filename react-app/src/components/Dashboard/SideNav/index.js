@@ -32,7 +32,6 @@ const SideNav = () => {
     const groupObj = useSelector(state => state.groups);
     const roomObj = useSelector(state => state.rooms);
     const notesObj = useSelector(state => state.notes);
-    // const eventsObj = useSelector(state => state.events);
 
     return (
         <div className='side-nav-container'>

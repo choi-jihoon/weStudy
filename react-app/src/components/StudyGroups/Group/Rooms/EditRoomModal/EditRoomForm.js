@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import { editRoom } from "../../../../../store/rooms";
@@ -25,7 +25,6 @@ const EditRoomForm = ({ setShowModal, room }) => {
         setShowModal(false);
 	};
 
-
 	const updateRoomName = (e) => {
 		setRoomName(e.target.value);
 	};
@@ -37,7 +36,6 @@ const EditRoomForm = ({ setShowModal, room }) => {
 
 	return (
 		<form onSubmit={handleSubmit} className="form-container">
-			{/* <div className="modal-head">Edit Room Name</div> */}
 			<div className='form-element-container'>
 				<input
 					name="room_name"

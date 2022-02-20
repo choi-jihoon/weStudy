@@ -1,9 +1,6 @@
-import React from "react";
 import { useDispatch } from "react-redux";
 
 import { removeUserFromGroup } from '../../../store/groups';
-
-
 
 function RemoveFromGroupForm({ showModal, group, user }) {
     const dispatch = useDispatch();

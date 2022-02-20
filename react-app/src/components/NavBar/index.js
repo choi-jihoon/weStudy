@@ -1,5 +1,3 @@
-
-import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
@@ -35,27 +33,7 @@ const NavBar = () => {
             Home
           </NavLink>
         </li>
-        {/* <li>
-          <NavLink to='/whiteboard' exact={true} activeClassName='active'>
-            Whiteboard
-          </NavLink>
-        </li> */}
-        {/* <li>
-          <LogoutButton />
-        </li> */}
         <DropdownMenu title={userMenu} items={[<CreateGroupModal />, <LogoutButton />]} />
-        {/* <li className='user-profile-nav'>
-          {user &&
-            <>
-              <div>
-                Welcome, {user.username}!
-              </div>
-              <div className='profile-pic-div'>
-                <img className='profile-pic' src={user.image} alt={user.username}></img>
-              </div>
-            </>
-          }
-        </li> */}
       </ul>
     )
   } else {

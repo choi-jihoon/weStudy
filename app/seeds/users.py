@@ -24,6 +24,8 @@ def seed_users():
         username='jstnswn', email='justin@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/effec2ca509045a8b356e543a03bfd48.jpg')
     cameron = User(
         username='Cameroff', email='cameron@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/269908bae471414aba9186107cc35707.jpg')
+    yura = User(
+        username='Yu Ra', email='yura@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/c9715159a57e4942a6d80863003e9061.jpg')
 
     db.session.add(demo)
     db.session.add(fiona)
@@ -35,6 +37,7 @@ def seed_users():
     db.session.add(christy)
     db.session.add(justin)
     db.session.add(cameron)
+    db.session.add(yura)
 
     db.session.commit()
 

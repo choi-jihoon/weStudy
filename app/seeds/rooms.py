@@ -15,7 +15,7 @@ def seed_rooms():
 
     room3 = Room(
         room_name='Icebreakers',
-        user_id=1,
+        user_id=2,
         group_id=3
     )
 

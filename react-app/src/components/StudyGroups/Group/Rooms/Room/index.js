@@ -34,7 +34,7 @@ const Room = ({ room }) => {
     return (
         <div className='room-with-btns'>
             {
-                user.id === room.user_id &&
+                (user.id === room.user_id || user.id === room.group_owner_id) &&
                 <div className='btn-container'>
                     <EditRoomModal room={room} />
                     <DeleteRoomModal room={room} />

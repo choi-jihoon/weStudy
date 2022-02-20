@@ -17,6 +17,9 @@ const EditEventForm = ({ setShowModal, event }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+		console.log('starttime', startTime)
+		console.log('endtime', endTime)
+
 		const data = await dispatch(editEvent(
             event.id,
             user.id,

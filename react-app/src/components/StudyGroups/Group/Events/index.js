@@ -6,6 +6,7 @@ import { getEvents } from "../../../../store/events";
 import { getGroup } from "../../../../store/groups";
 import { getRooms } from "../../../../store/rooms";
 import { getNotes } from "../../../../store/notes";
+import { getAlbums } from "../../../../store/albums";
 import EventDetail from "./EventDetail";
 import CreateEventModal from "../../../CreateEventModal";
 
@@ -23,6 +24,7 @@ const Events = () => {
         dispatch(getEvents(groupId));
         dispatch(getRooms(groupId));
         dispatch(getNotes(groupId));
+        dispatch(getAlbums(groupId));
     }, [dispatch, groupId])
 
 
@@ -30,7 +32,7 @@ const Events = () => {
         <div className='study-group-dash-container'>
             <div className='study-group-title-container'>
                 <div className='study-group-title events-title-container'>
-                    <h1>Upcoming Events for {groupsObj[groupId]?.group_name}</h1>
+                    <h2>Upcoming Events for {groupsObj[groupId]?.group_name}</h2>
                     <CreateEventModal groupId={groupId} />
                 </div>
             </div>

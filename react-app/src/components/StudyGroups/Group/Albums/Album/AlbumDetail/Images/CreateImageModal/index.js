@@ -15,7 +15,7 @@ function CreateImageModal({ albumId }) {
 				id="create-event"
 				onClick={() => setShowModal(true)}
 			>
-				<i className="fas fa-plus"></i>
+				<i className="fas fa-cloud-upload-alt"></i>
 			</li>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>

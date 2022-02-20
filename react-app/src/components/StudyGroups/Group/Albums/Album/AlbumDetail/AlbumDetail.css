@@ -13,10 +13,12 @@
     border-bottom: 1px solid var(--side-panel-text);
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 h2.album-name {
-    color: var(--side-panel-text);
+    color: var(--header-text);
+    font-size: 50px;
 }
 
 

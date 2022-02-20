@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { io } from 'socket.io-client';
 import { getRooms } from '../../store/rooms';
 import { getChatMessages, createChatMessage } from '../../store/chats';
+import { getAlbums } from '../../store/albums';
 import { getNotes } from '../../store/notes';
 
 import './Chat.css';
@@ -49,6 +50,7 @@ const Chat = () => {
     useEffect(() => {
         dispatch(getRooms(groupId));
         dispatch(getNotes(groupId));
+        dispatch(getAlbums(groupId));
         dispatch(getChatMessages(roomId));
 
         setMessages([]);

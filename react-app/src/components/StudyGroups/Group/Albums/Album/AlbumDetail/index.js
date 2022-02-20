@@ -4,6 +4,9 @@ import { useEffect } from 'react';
 
 import { getImages } from '../../../../../../store/images';
 import { getAlbum } from '../../../../../../store/albums';
+import { getRooms } from '../../../../../../store/rooms';
+import { getNotes } from '../../../../../../store/notes';
+
 import CreateImageModal from './Images/CreateImageModal';
 
 import Image from './Images/Image';
@@ -22,6 +25,8 @@ const AlbumDetail = () => {
     useEffect(() => {
         dispatch(getAlbum(albumId));
         dispatch(getImages(albumId));
+        dispatch(getRooms(groupId));
+        dispatch(getNotes(groupId));
     }, [dispatch, albumId])
 
     return(

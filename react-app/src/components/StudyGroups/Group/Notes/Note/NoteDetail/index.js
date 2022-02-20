@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { getNote, editNote } from '../../../../../../store/notes';
+import { getRooms } from '../../../../../../store/rooms';
+import { getAlbums } from '../../../../../../store/albums';
 import DeleteNote from '../DeleteNote';
 
 import './NoteDetail.css';
@@ -13,7 +15,7 @@ import './NoteDetail.css';
 toast.configure();
 
 const NoteDetail = () => {
-    const { noteId } = useParams();
+    const { noteId, groupId } = useParams();
     const dispatch = useDispatch();
     const notes = useSelector(state => state.notes);
     const note = notes.notes[noteId];
@@ -43,6 +45,8 @@ const NoteDetail = () => {
 
     useEffect(() => {
         dispatch(getNote(noteId));
+        dispatch(getRooms(groupId));
+        dispatch(getAlbums(groupId));
     }, [dispatch, noteId]);
 
     useEffect(() => {

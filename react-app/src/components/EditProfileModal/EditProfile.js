@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { updateUserImage } from '../../store/session';
 
+import './EditProfile.css';
 
 const EditProfile = ({ showModal }) => {
 	const dispatch = useDispatch();
@@ -37,31 +38,19 @@ const EditProfile = ({ showModal }) => {
 
 	return (
 		<div className="edit-image-form">
-			<div className="modal-head" style={{ marginBottom: 20 }}>
+			{/* <div className="modal-head" style={{ marginBottom: 20 }}>
 				Change Profile Picture
-			</div>
+			</div> */}
 			{!image && (
 				<img
 					src={sessionUser.image}
 					alt="test"
-					style={{
-						width: 100,
-						height: 100,
-						objectFit: "cover",
-						borderRadius: "50%",
-					}}
 				></img>
 			)}
 			{image && (
 				<img
 					src={URL.createObjectURL(image)}
 					alt="test"
-					style={{
-						width: 100,
-						height: 100,
-						objectFit: "cover",
-						borderRadius: "50%",
-					}}
 				></img>
 			)}
 			<form onSubmit={onSubmit}>
@@ -72,7 +61,7 @@ const EditProfile = ({ showModal }) => {
 					accept="image/*"
 					onChange={updateImage}
 				></input>
-				<button
+				<button id="save-prof-pic"
 				>Save</button>
 			</form>
 			{imageLoading && (

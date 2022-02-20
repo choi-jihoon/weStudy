@@ -5,7 +5,8 @@
 button#add-user,
 button#add-room,
 button#edit-room-submit,
-button#create-note-submit {
+button#create-note-submit,
+button#save-prof-pic {
     font-size: 20px;
     background-color: var(--side-panel-selected);
     color: white;
@@ -22,6 +23,7 @@ button#create-note-submit {
 button#add-user:hover,
 button#add-room:hover,
 button#edit-room-submit:hover,
-button#create-note-submit:hover {
+button#create-note-submit:hover,
+button#save-prof-pic:hover {
     transform: scale(1.1);
 }

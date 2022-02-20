@@ -1,0 +1,58 @@
+.edit-image-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 30px;
+}
+
+.edit-image-form > form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+}
+
+.edit-image-form > form > input[type="file"] {
+	display: none;
+}
+
+.edit-image-form > img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 20%;
+
+    background-color: var(--rhythm);
+}
+
+.edit-image-form > form > label {
+    background-color: var(--top-highlight);
+    padding: 10px 40px;
+
+}
+
+
+/* .edit-image-form > form > label {
+	width: 200px;
+	height: 30px;
+	text-align: center;
+	color: var(--main-container);
+	background-color: var(--dark-blue);
+	border-radius: 25px;
+	padding: 2px 4px;
+	margin-top: 20px;
+	transition: all 0.2s ease-in-out;
+} */
+
+.edit-image-form > form > label:hover {
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+
+.edit-image-form > form > button:hover {
+	transform: scale(1.1);
+	cursor: pointer;
+}

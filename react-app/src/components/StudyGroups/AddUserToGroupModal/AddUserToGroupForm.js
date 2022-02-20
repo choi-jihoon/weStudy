@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addUserToGroup } from '../../../store/groups';
 
+import './AddUserToGroupForm.css';
 
 const AddUserToGroupForm = ({ group, setShowModal }) => {
     const [errors, setErrors] = useState({});
@@ -26,6 +27,7 @@ const AddUserToGroupForm = ({ group, setShowModal }) => {
     }
 
     const updateUsername = (e) => {
+        setErrors({});
         setUsername(e.target.value);
     }
 
@@ -35,10 +37,11 @@ const AddUserToGroupForm = ({ group, setShowModal }) => {
 
 
     return (
-        <form onSubmit={handleSubmit} className='form-container'>
-            <div className='modal-head'>Add User to Group</div>
+        <form onSubmit={handleSubmit} className='form-container add-user-form'>
+            {/* <div className='modal-head'>Add User to Group</div> */}
             <div className='form-element-container'>
 				<input
+                    className='add-user-input'
 					name="username"
 					type="text"
 					placeholder="Add User by Username"
@@ -50,7 +53,7 @@ const AddUserToGroupForm = ({ group, setShowModal }) => {
 					{errors.username ? `${errors.username}` : ""}
 				</div>
 			</div>
-            <button type='submit'>Add</button>
+            <button id='add-user' type='submit'>Add</button>
         </form>
     )
 }

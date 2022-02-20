@@ -50,7 +50,7 @@ const LoginForm = () => {
 	return (
 		<form onSubmit={onLogin} className="login-form" autoComplete="off">
 			<div className='form-content'>
-				<div className="modal-head log-in-modal-head">Welcome back!</div>
+				<div className="modal-head login-modal-head">Welcome back!</div>
 				<div className='login-form-elements-container'>
 					<div className='login-element-container'>
 						<input

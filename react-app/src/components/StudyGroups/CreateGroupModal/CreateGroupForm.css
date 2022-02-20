@@ -37,6 +37,8 @@
 	padding: 10px;
 	border: none;
 	color: var(--side-panel);
+
+    border: 1px solid var(--side-panel-text);
 }
 
 .form-element-container > input:focus {
@@ -56,7 +58,7 @@ button#create-group {
     border-radius: 10px;
     background-color: var(--side-panel-selected);
     color: white;
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 button#create-group:hover,

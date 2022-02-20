@@ -1,0 +1,20 @@
+.add-user-form {
+    padding: 40px;
+}
+
+button#add-user {
+    font-size: 20px;
+    background-color: var(--side-panel-selected);
+    color: white;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.add-user-input {
+    border: 1px solid gray !important;
+    border-radius: 5px !important;
+}
+
+button#add-user:hover {
+    transform: scale(1.1);
+}

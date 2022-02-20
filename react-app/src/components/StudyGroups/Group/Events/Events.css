@@ -49,6 +49,11 @@
     position: relative;
 }
 
+.event-container:hover {
+    transform: scale(1.05);
+    /* transform: rotate(1deg); */
+}
+
 .event-summary {
     background-color: var(--top-highlight);
     display: flex;

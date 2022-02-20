@@ -20,3 +20,42 @@
     border-radius: 7px;
     background-color: var(--side-panel-hover);
 }
+
+
+.all-events-container {
+    display: flex;
+    height: 100%;
+    padding: 20px;
+}
+
+.event-container {
+    border-radius: 5px;
+    width: 300px;
+    height: 350px;
+    /* padding: 20px; */
+
+    display: grid;
+
+    grid-template-rows: 50px auto;
+}
+
+.event-summary {
+    background-color: var(--top-lighter-highlight);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-summary > h3 {
+    color: white;
+}
+
+.event-body {
+    height: 100%;
+    background-color: var(--top-highlight);
+}
+
+.event-body > h4,
+.event-body > p {
+    color: var(--header-text);
+}

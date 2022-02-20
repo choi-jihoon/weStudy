@@ -11,23 +11,27 @@ const EventDetail = ({ event }) => {
 
     return (
         <div className='event-container'>
-            <h3>{event.summary}</h3>
-            <h4>{event.description}</h4>
-            <p>Starts: {event.start_time}</p>
-            <p>Ends: {event.end_time}</p>
-            <p>Attendees: {event.attendee_names.join(', ')}</p>
-            {!event.attendee_names.includes(user.username) ?
-                <JoinEvent event={event} />
-                :
-                <LeaveEvent event={event} />
-             }
-            {user.id === event.user_id &&
-                <div className='event-btn-container'>
-                    <EditEventModal event={event} />
-                    <DeleteEventModal event={event} />
-                </div>
-            }
-            <Calendar event={event} />
+            <div className='event-summary'>
+                <h3>{event.summary}</h3>
+            </div>
+            <div className='event-body'>
+                <h4>{event.description}</h4>
+                <p>Starts: {event.start_time}</p>
+                <p>Ends: {event.end_time}</p>
+                <p>Attendees: {event.attendee_names.join(', ')}</p>
+                {!event.attendee_names.includes(user.username) ?
+                    <JoinEvent event={event} />
+                    :
+                    <LeaveEvent event={event} />
+                }
+                {user.id === event.user_id &&
+                    <div className='event-btn-container'>
+                        <EditEventModal event={event} />
+                        <DeleteEventModal event={event} />
+                    </div>
+                }
+                <Calendar event={event} />
+            </div>
         </div>
     )
 }

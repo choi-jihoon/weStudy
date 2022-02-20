@@ -121,7 +121,7 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 					</div>
                 </div>
 
-				<button id='create-event' type="submit">Add Event</button>
+				<button id='create-event-submit' type="submit">Add Event</button>
 			</div>
 
 		</form>

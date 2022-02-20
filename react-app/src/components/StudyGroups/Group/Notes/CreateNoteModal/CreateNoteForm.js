@@ -57,7 +57,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 					{errors.group_name ? `${errors.group_name}` : ""}
 				</div>
 			</div>
-			<button id='create-note-submit' type="submit">Create</button>
+			<button id='create-note-submit' type="submit">New Note</button>
 		</form>
 	);
 };

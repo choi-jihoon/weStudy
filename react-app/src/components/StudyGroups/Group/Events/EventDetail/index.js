@@ -15,7 +15,7 @@ const EventDetail = ({ event }) => {
                 <h3>{event.summary}</h3>
             </div>
             <div className='event-body'>
-                <h4 className='event-section'>{event.description}</h4>
+                <h4 className='event-section event-description'>{event.description}</h4>
                 <div className='event-start-time event-section'>
                     <p className='event-label'>Starts</p>
                     <p>{event.start_time.slice(0, 25)}</p>

@@ -169,3 +169,7 @@
     bottom: 30px;
     right: 0;
 }
+
+.event-description {
+    font-weight: normal;
+}

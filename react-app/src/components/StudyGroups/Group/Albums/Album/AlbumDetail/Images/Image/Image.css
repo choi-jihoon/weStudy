@@ -1,0 +1,27 @@
+.image-and-btns-container {
+    position: relative;
+}
+
+.image-container:hover {
+    opacity: 0.7;
+}
+
+.delete-image-btn-container {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 20;
+}
+
+.delete-image-btn-container:hover + .image-container {
+    opacity: 0.7;
+}
+
+#delete-image {
+    cursor: pointer;
+}
+
+#delete-image > i:hover {
+    color: var(--terra-cotta);
+    transform: scale(1.1);
+}

@@ -22,7 +22,7 @@ h2.album-name {
 
 .album-images-container {
     overflow-y: scroll;
-    padding: 20px 0;
+    padding: 50px;
     height: 100%;
     display: flex;
     flex-wrap: wrap;

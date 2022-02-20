@@ -153,7 +153,7 @@ export const leaveEvent = (eventId) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json();
-        dispatch(leave(data));
+        dispatch(bail(data));
         return null;
     } else if (res.status < 500) {
         const data = await res.json();
@@ -200,7 +200,7 @@ const events = (state = initialState, action) => {
         case DELETE_EVENT: {
             const newState = { ...state };
             delete newState.events[action.event.id];
-            delete newState.byGroupId[action.event.group_id][action.even.id];
+            delete newState.byGroupId[action.event.group_id][action.event.id];
             return newState;
         }
 

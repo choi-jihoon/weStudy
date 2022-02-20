@@ -1,9 +1,8 @@
 import Calendar from "../../../../Calendar";
+import DeleteEventModal from "./DeleteEventModal";
 
 const EventDetail = ({ event }) => {
-    // const offset = new Date().getTimezoneOffset() / 60
-    // const local = (new Date(event.start_time).setHours((new Date(event.start_time)).getHours() + offset))
-    // const what = new Date(local).toISOString()
+
 
     return (
         <div className='event-container'>
@@ -12,6 +11,7 @@ const EventDetail = ({ event }) => {
             <p>Starts: {event.start_time}</p>
             <p>Ends: {event.end_time}</p>
             <p>Attendees: {event.attendees.map(user => user.username)}</p>
+            <DeleteEventModal event={event} />
             <Calendar event={event} />
         </div>
     )

@@ -61,7 +61,7 @@ def edit_event(eventId):
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@event_routes.route('/<int:eventId', methods=['PATCH'])
+@event_routes.route('/<int:eventId>', methods=['PATCH'])
 def add_attendee(eventId):
     event = Event.query.get(int(eventId))
     user = User.query.get(current_user.get_id())

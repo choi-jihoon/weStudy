@@ -7,6 +7,12 @@ def seed_images():
         study_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/8f3314f413a9419f94eb91a39982bce2.jpg'
     )
 
+    conversion_chart = Image(
+        user_id=1,
+        album_id=1,
+        study_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/a2ac87385bdf44d2854cfe7734e43d95.png'
+    )
+
     meme1 = Image(
         user_id=1,
         album_id=2,
@@ -32,6 +38,7 @@ def seed_images():
     )
 
     db.session.add(we_study_db)
+    db.session.add(conversion_chart)
     db.session.add(meme1)
     db.session.add(meme2)
     db.session.add(meme3)

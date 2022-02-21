@@ -40,7 +40,7 @@ const AlbumDetail = () => {
                     {imagesObj.byAlbumId[albumId] && Object.values((imagesObj.byAlbumId[albumId])).map(image => (
                         <div className='image-container' key={image.id}>
                             <Image image={image} />
-                            {/* <DeleteImageModal image={image} /> */}
+                            <DeleteImageModal image={image} />
                         </div>
                     ))}
                     <li className='last-li'></li>

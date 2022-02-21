@@ -1,4 +1,4 @@
-.events-title-container {
+.study-group-title.events-title-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -13,7 +13,7 @@
     z-index: 20;
 }
 
-.events-title-container > h2 {
+.study-group-title.events-title-container > h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;

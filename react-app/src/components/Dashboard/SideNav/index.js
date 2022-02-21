@@ -37,81 +37,83 @@ const SideNav = () => {
     const albumsObj = useSelector(state => state.albums);
 
     return (
-        <div className='side-nav-container'>
-            <div className='user-pic-name-container'>
-                {userMenu}
-            </div>
-            <ul className='side-panel-nav-links'>
-                <NavLink exact activeClassName='active' to='/'>
-                    <li id='home-link'>
-                        Dashboard
+        <>
+            <div className='side-nav-container'>
+                <div className='user-pic-name-container'>
+                    {userMenu}
+                </div>
+                <ul className='side-panel-nav-links'>
+                    <NavLink exact activeClassName='active' to='/'>
+                        <li id='home-link'>
+                            Dashboard
+                        </li>
+                    </NavLink>
+                    {!groupId &&
+
+                        <CreateGroupModal />
+
+                    }
+                    {(groupId && groupObj) &&
+                        <>
+                            <NavLink exact activeClassName='active'
+                                to={`/groups/${groupId}`}>
+                                <li>
+                                    <i className="fas fa-users"></i>
+                                    {groupObj[groupId]?.group_name}
+                                </li>
+                            </NavLink>
+                            <NavLink exact activeClassName='active'
+                                to={`/groups/${groupId}/events`}>
+                                <li id='events-link'>
+                                    <i className="far fa-calendar-alt"></i>
+                                    Calendar</li>
+                            </NavLink>
+                            <li>Rooms <CreateRoomModal group={groupObj[groupId]} /></li>
+                            <ul className='all-room-with-btns'>
+                                {roomObj.byGroupId[groupId] && Object.values(roomObj.byGroupId[groupId]).map(room => (
+                                    <Room key={room.id} room={room} />
+                                ))}
+                            </ul>
+                            <li>Notes <CreateNoteModal group={groupObj[groupId]} /></li>
+                            <ul>
+                                {notesObj.byGroupId[groupId] && Object.values(notesObj.byGroupId[groupId]).map(note => (
+                                    <Note key={note.id} note={note} />
+                                ))}
+                            </ul>
+                            <li>Albums <CreateAlbumModal group={groupObj[groupId]} /></li>
+                            <ul>
+                                {albumsObj.byGroupId[groupId] && Object.values(albumsObj.byGroupId[groupId]).map(album => (
+                                    <Album key={album.id} album={album} />
+                                ))}
+                            </ul>
+                        </>
+                    }
+                    <li className='logout-btn-container'>
+                        <LogoutButton />
                     </li>
-                </NavLink>
-                {!groupId &&
-
-                    <CreateGroupModal />
-
-                }
-                {(groupId && groupObj) &&
-                    <>
-                        <NavLink exact activeClassName='active'
-                            to={`/groups/${groupId}`}>
-                            <li>
-                                <i className="fas fa-users"></i>
-                                {groupObj[groupId]?.group_name}
-                            </li>
-                        </NavLink>
-                        <NavLink exact activeClassName='active'
-                            to={`/groups/${groupId}/events`}>
-                            <li id='events-link'>
-                                <i className="far fa-calendar-alt"></i>
-                                Calendar</li>
-                        </NavLink>
-                        <li>Rooms <CreateRoomModal group={groupObj[groupId]} /></li>
-                        <ul className='all-room-with-btns'>
-                            {roomObj.byGroupId[groupId] && Object.values(roomObj.byGroupId[groupId]).map(room => (
-                                <Room key={room.id} room={room} />
-                            ))}
-                        </ul>
-                        <li>Notes <CreateNoteModal group={groupObj[groupId]} /></li>
-                        <ul>
-                            {notesObj.byGroupId[groupId] && Object.values(notesObj.byGroupId[groupId]).map(note => (
-                                <Note key={note.id} note={note} />
-                            ))}
-                        </ul>
-                        <li>Albums <CreateAlbumModal group={groupObj[groupId]} /></li>
-                        <ul>
-                            {albumsObj.byGroupId[groupId] && Object.values(albumsObj.byGroupId[groupId]).map(album => (
-                                <Album key={album.id} album={album} />
-                            ))}
-                        </ul>
-                    </>
-                }
-                <li className='logout-btn-container'>
-                    <LogoutButton />
-                </li>
-            </ul>
-            <div className='developer'>
-                <a target="_blank" rel="noreferrer noopener"
-                    href='https://github.com/choi-jihoon/weStudy'>
-                    © 2022 | weStudy
-                </a>
-                <p>Developed by Fiona Choi
-                    <span>
-                        <a target="_blank" rel="noreferrer noopener"
-                            href='https://github.com/choi-jihoon'>
-                            <i className='fab fa-github' />
-                        </a>
-                    </span>
-                    <span>
-                        <a target="_blank" rel="noreferrer noopener"
-                            href='https://www.linkedin.com/in/jihoon-choi-a6967a221/'>
-                            <i className='fab fa-linkedin' />
-                        </a>
-                    </span>
-                </p>
+                <div className='developer'>
+                    <a target="_blank" rel="noreferrer noopener"
+                        href='https://github.com/choi-jihoon/weStudy'>
+                        © 2022 | weStudy
+                    </a>
+                    <p>Developed by Fiona Choi
+                        <span>
+                            <a target="_blank" rel="noreferrer noopener"
+                                href='https://github.com/choi-jihoon'>
+                                <i className='fab fa-github' />
+                            </a>
+                        </span>
+                        <span>
+                            <a target="_blank" rel="noreferrer noopener"
+                                href='https://www.linkedin.com/in/jihoon-choi-a6967a221/'>
+                                <i className='fab fa-linkedin' />
+                            </a>
+                        </span>
+                    </p>
+                </div>
+                </ul>
             </div>
-        </div>
+        </>
     )
 }
 

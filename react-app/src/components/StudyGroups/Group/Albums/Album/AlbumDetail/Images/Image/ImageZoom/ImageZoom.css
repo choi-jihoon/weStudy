@@ -1,0 +1,17 @@
+.zoomed-container {
+    color: var(--soft-black);
+    background-color: rgb(34, 34, 34);
+    font-style: italic;
+    position: relative;
+    border-radius: 7px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 90vh;
+}
+
+.zoomed-image {
+    max-height: 90vh;
+    border-radius: 7px;
+}

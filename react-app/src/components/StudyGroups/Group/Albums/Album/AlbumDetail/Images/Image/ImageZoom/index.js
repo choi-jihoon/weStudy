@@ -1,3 +1,4 @@
+
 import './ImageZoom.css';
 
 function ImageZoom({ image }) {

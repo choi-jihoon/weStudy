@@ -37,15 +37,13 @@ const AlbumDetail = () => {
                 <CreateImageModal albumId={albumId} />
             </div>
             <div className='album-images-container'>
-                <ul className='images-container'>
                     {imagesObj.byAlbumId[albumId] && Object.values((imagesObj.byAlbumId[albumId])).map(image => (
-                        <li className='image-li' key={image.id}>
-                            <DeleteImageModal image={image} />
+                        <div className='image-container' key={image.id}>
                             <Image image={image} />
-                        </li>
+                            <DeleteImageModal image={image} />
+                        </div>
                     ))}
                     <li className='last-li'></li>
-                </ul>
             </div>
         </div>
     )

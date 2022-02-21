@@ -1,17 +1,25 @@
-import DeleteImageModal from "../DeleteImageModal";
+import { useState } from 'react';
+
+import { Modal } from '../../../../../../../../context/Modal';
+import ImageZoom from './ImageZoom';
 
 import './Image.css';
 
 const Image = ({ image }) => {
+    const [showModal, setShowModal] = useState(false);
+
     return (
-        // <div className='image-and-btns-container'>
-        //     <div className='delete-image-btn-container'>
-        //         <DeleteImageModal image={image} />
-        //     </div>
-        //     <div className='image-container'>
-                <img src={image.study_image} alt={image.id}></img>
-        //     </div>
-        // </div>
+        <>
+            <img className='grid-image'
+                onClick={() => setShowModal(true)}
+                src={image.study_image} alt={image.id}></img>
+            {showModal && (
+                <Modal onClose={() => setShowModal(false)}>
+                    <ImageZoom image={image} />
+                </Modal>
+            )}
+        </>
+
     )
 }
 

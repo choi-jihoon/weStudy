@@ -42,6 +42,8 @@
 
     min-height: fit-content;
 
+    grid-area: content;
+
 }
 
 /* .album-images-container {

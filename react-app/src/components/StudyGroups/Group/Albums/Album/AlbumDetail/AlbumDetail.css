@@ -16,6 +16,11 @@
     align-items: center;
     justify-content: space-between;
 
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    background-color: var(--main-container);
+
 }
 
 h2.album-name {

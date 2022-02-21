@@ -1,0 +1,5 @@
+.all-groups-container-header {
+    border-bottom: 1px solid var(--side-panel-text);
+    z-index: 20;
+    background-color: var(--main-container);
+}

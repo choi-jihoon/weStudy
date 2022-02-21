@@ -39,6 +39,10 @@ def seed_groups():
     user13 = User.query.get(13) # savanah
     user14 = User.query.get(14) # tanner
 
+    user15 = User.query.get(15) # cody
+
+    user16 = User.query.get(16) # thien
+
     group1.users.append(user1)
     group1.users.append(user2)
     group1.users.append(user3)
@@ -55,10 +59,12 @@ def seed_groups():
     group2.users.append(user2)
     group2.users.append(user13)
     group2.users.append(user14)
+    group2.users.append(user16)
 
     group3.users.append(user1)
     group3.users.append(user2)
     group3.users.append(user12)
+    group3.users.append(user15)
 
     db.session.add(group1)
     db.session.add(group2)

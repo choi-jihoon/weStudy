@@ -30,11 +30,19 @@ def seed_users():
     viv = User(
         username='BobaGuardian', email='vivian@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/65fb2811209a45af9832b58b0e0e01dc.png')
 
+
     savanah = User(
         username='savnaha', email='savanah@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/f3eb431407724f1280609dd53c39632a.jpg')
 
     tanner = User(
         username='tantan', email='tanner@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/052735d5f6844bc581f223553c96aac0.png')
+
+    cody = User(
+        username='pal_drogo', email='cody@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/935cb05656104cfb96a744c66b5501b7.jpeg')
+
+    thien = User(
+        username='10/thien', email='thien@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/b2c0f85208c84537bd1c47db94e3dee7.png')
+
 
     db.session.add(demo)
     db.session.add(fiona)
@@ -52,6 +60,10 @@ def seed_users():
 
     db.session.add(savanah)
     db.session.add(tanner)
+
+    db.session.add(cody)
+
+    db.session.add(thien)
 
     db.session.commit()
 

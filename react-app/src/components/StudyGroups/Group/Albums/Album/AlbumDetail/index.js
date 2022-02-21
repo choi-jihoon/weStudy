@@ -29,16 +29,21 @@ const AlbumDetail = () => {
         dispatch(getNotes(groupId));
     }, [dispatch, albumId, groupId])
 
-    return(
+    return (
         <div className='album-container'>
             <div className='album-title-container'>
                 <h2 className='album-name'>{album?.title}</h2>
                 <CreateImageModal albumId={albumId} />
             </div>
             <div className='album-images-container'>
-                {imagesObj.byAlbumId[albumId] && Object.values((imagesObj.byAlbumId[albumId])).map(image => (
-                    <Image key={image.id} image={image} />
-                ))}
+                <ul className='images-container'>
+                    {imagesObj.byAlbumId[albumId] && Object.values((imagesObj.byAlbumId[albumId])).map(image => (
+                        <li className='image-li' key={image.id}>
+                            <Image image={image} />
+                        </li>
+                    ))}
+                    <li className='last-li'></li>
+                </ul>
             </div>
         </div>
     )

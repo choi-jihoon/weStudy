@@ -68,6 +68,7 @@ body,
 html {
 	width: 100%;
 	height: 100%;
+	background-color: var(--main-container);
 }
 
 a,
@@ -96,11 +97,13 @@ button {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100%;
+	/* height: 100%; */
 	width: 100%;
 	background-color: var(--base-color);
 	position: absolute;
 
+
+	height: 100vh;
 }
 
 .profile-pic-div {

@@ -1,10 +1,11 @@
-.album-container {
+/* .album-container {
     max-height: 100vh;
     height: 100%;
+    width: 100%;
 
     display: grid;
     grid-template-rows: 111px auto;
-}
+} */
 
 .album-title-container {
     width: 100%;
@@ -14,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+
 }
 
 h2.album-name {
@@ -23,10 +25,10 @@ h2.album-name {
 }
 
 
-.album-images-container {
+/* .album-images-container {
     overflow-y: scroll;
     padding: 50px;
     height: 100%;
     display: flex;
     flex-wrap: wrap;
-}
+} */

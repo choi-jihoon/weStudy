@@ -29,19 +29,21 @@ const Events = () => {
 
 
     return (
-        <div className='study-group-dash-container'>
+        <>
             <div className='study-group-title-container'>
                 <div className='study-group-title events-title-container'>
                     <h2>Upcoming Events for {groupsObj[groupId]?.group_name}</h2>
                     <CreateEventModal groupId={groupId} />
                 </div>
             </div>
-            <div className='all-events-container'>
-                {eventsObj.byGroupId[groupId] && Object.values((eventsObj.byGroupId[groupId])).map(event => (
-                    <EventDetail key={event.id} event={event} />
-                ))}
+            <div className='events-dash-container'>
+                <div className='all-events-container'>
+                    {eventsObj.byGroupId[groupId] && Object.values((eventsObj.byGroupId[groupId])).map(event => (
+                        <EventDetail key={event.id} event={event} />
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     )
 
 }

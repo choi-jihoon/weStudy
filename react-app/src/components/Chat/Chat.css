@@ -31,7 +31,7 @@
     height: 100%;
 
     display: grid;
-    grid-template-rows: 111px auto 100px;
+    grid-template-rows: calc(100vh - 211px) 100px;
     /* overflow-y: scroll; */
 }
 

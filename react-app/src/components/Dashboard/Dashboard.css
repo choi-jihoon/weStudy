@@ -8,14 +8,18 @@
 
     display: grid;
     grid-template-columns: 300px auto;
+    grid-template-areas: 'side main';
     /* grid-template-rows: 100%; */
 
 
 }
 
 .side-nav-container {
-    height: 100%;
+    grid-area: side;
+    height: 100vh;
     background-color: var(--side-panel);
+    position: fixed;
+    width: 300px;
     padding-bottom: 50px;
     border-right: 1px solid var(--side-panel-text);
     /* border-top: 1px solid var(--side-panel-text); */
@@ -25,6 +29,13 @@
 
 .main-container {
     height: 100%;
+    grid-area: main;
+
+    display: grid;
+    grid-template-rows: 111px auto;
+    grid-template-columns: 100%;
+    grid-template-areas: 'header'
+    'content';
 }
 
 .dashboard-nav-links {

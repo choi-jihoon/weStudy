@@ -33,8 +33,6 @@ const StudyGroupDash = () => {
 
     return (
         <>
-            {group &&
-                <div className='study-group-dash-container'>
                     <div className='study-group-title-container'>
                         <div className='study-group-title'>
                             <h2>{group.group_name}</h2>
@@ -51,6 +49,8 @@ const StudyGroupDash = () => {
                             </div>
                         }
                     </div>
+            {group &&
+                <div className='study-group-dash-container'>
                     <div className='sg-main-container'>
                         <div className='sg-info-container'>
                             <div className='sg-img-container'>

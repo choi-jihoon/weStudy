@@ -182,3 +182,11 @@
     font-weight: normal;
     font-style: italic;
 }
+
+.events-dash-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+}

@@ -7,11 +7,11 @@ def seed_images():
         study_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/8f3314f413a9419f94eb91a39982bce2.jpg'
     )
 
-    conversion_chart = Image(
-        user_id=1,
-        album_id=1,
-        study_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/a2ac87385bdf44d2854cfe7734e43d95.png'
-    )
+    # conversion_chart = Image(
+    #     user_id=1,
+    #     album_id=1,
+    #     study_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/a2ac87385bdf44d2854cfe7734e43d95.png'
+    # )
 
     meme1 = Image(
         user_id=1,
@@ -121,6 +121,18 @@ def seed_images():
         study_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/ffaaed79d8d94ada813ed13be219ee6a.jpg'
     )
 
+    gldDB = Image(
+        user_id=2,
+        album_id=4,
+        study_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/cb7bce8f64ef4be4adb0bb6ccd8b0366.jpg'
+    )
+
+    sabDB = Image(
+        user_id=2,
+        album_id=5,
+        study_image='https://cdn.discordapp.com/attachments/834283703039033359/941445099097817158/splittabilldbschema.JPG'
+    )
+
     db.session.add(we_study_db)
     db.session.add(conversion_chart)
     db.session.add(meme1)
@@ -141,6 +153,8 @@ def seed_images():
     db.session.add(pet12)
     db.session.add(pet13)
     db.session.add(pet14)
+    db.session.add(gldDB)
+    db.session.add(sabDB)
     db.session.commit()
 
 def undo_images():

@@ -3,8 +3,9 @@ import { useEffect } from 'react';
 
 import logo from '../../assets/images/logo.png';
 
-import NavBar from '../NavBar';
+import NavBar from './NavBar';
 import Footer from './Footer';
+
 import './SplashPage.css';
 
 const SplashPage = () => {

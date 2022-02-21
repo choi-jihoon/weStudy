@@ -1,14 +1,16 @@
 import { useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
-import Room from "../../StudyGroups/Group/Rooms/Room";
-import Note from "../../StudyGroups/Group/Notes/Note";
-import CreateGroupModal from "../../StudyGroups/CreateGroupModal";
+
+import Album from "../StudyGroups/Group/Album";
+import CreateAlbumModal from "../StudyGroups/Group/Album/CreateAlbumModal";
+import CreateGroupModal from "../StudyGroups/CreateGroupModal";
+import CreateNoteModal from "../../Dashboard/StudyGroups/Group/Note/CreateNoteModal";
+import CreateRoomModal from "../StudyGroups/Group/Room/CreateRoomModal";
+import EditProfileModal from "./EditProfileModal";
 import LogoutButton from "../../auth/LogoutButton";
-import CreateRoomModal from "../../StudyGroups/StudyGroupDash/CreateRoomModal";
-import CreateNoteModal from "../../StudyGroups/Group/Notes/CreateNoteModal";
-import EditProfileModal from "../../EditProfileModal";
-import CreateAlbumModal from "../../StudyGroups/Group/Albums/CreateAlbumModal";
-import Album from "../../StudyGroups/Group/Albums/Album";
+import Note from '../../Dashboard/StudyGroups/Group/Note';
+import Room from '../../Dashboard/StudyGroups/Group/Room';
+
 import './SideNav.css';
 
 const SideNav = () => {

@@ -8,6 +8,7 @@ import { getNotes } from '../../../../../../store/notes';
 import { getAlbums } from '../../../../../../store/albums';
 
 import CreateImageModal from './Images/CreateImageModal';
+import DeleteImageModal from './Images/DeleteImageModal';
 
 import Image from './Images/Image';
 
@@ -39,6 +40,7 @@ const AlbumDetail = () => {
                 <ul className='images-container'>
                     {imagesObj.byAlbumId[albumId] && Object.values((imagesObj.byAlbumId[albumId])).map(image => (
                         <li className='image-li' key={image.id}>
+                            <DeleteImageModal image={image} />
                             <Image image={image} />
                         </li>
                     ))}

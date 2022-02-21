@@ -134,7 +134,7 @@ def seed_images():
     )
 
     db.session.add(we_study_db)
-    db.session.add(conversion_chart)
+    # db.session.add(conversion_chart)
     db.session.add(meme1)
     db.session.add(meme2)
     db.session.add(meme3)

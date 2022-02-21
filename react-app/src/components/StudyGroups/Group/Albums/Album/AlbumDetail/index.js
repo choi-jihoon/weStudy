@@ -33,8 +33,9 @@ const AlbumDetail = () => {
     return (
         <>
             <div className='album-title-container'>
-                <h2 className='album-name'>{album?.title}</h2>
+                <h2 className='album-name'>{album?.title}
                 <CreateImageModal albumId={albumId} />
+                </h2>
             </div>
             <div className='album-container'>
                 <div className='album-images-container'>

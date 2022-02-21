@@ -27,7 +27,7 @@
 } */
 
 .chat-room-container {
-    max-height: 100vh;
+    /* max-height: 100vh; */
     height: 100%;
 
     display: grid;
@@ -62,6 +62,7 @@ h2.room-name {
     /* display: flex;
     justify-content: center;
     align-items: center; */
+    position: relative;
 }
 
 .chat-input-form > input {

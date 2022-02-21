@@ -43,6 +43,8 @@ def seed_groups():
 
     user16 = User.query.get(16) # thien
 
+    user17 = User.query.get(17) # jenn
+
     group1.users.append(user1)
     group1.users.append(user2)
     group1.users.append(user3)
@@ -54,6 +56,7 @@ def seed_groups():
     group1.users.append(user9)
     group1.users.append(user10)
     group1.users.append(user11)
+    group1.users.append(user17)
 
     group2.users.append(user1)
     group2.users.append(user2)

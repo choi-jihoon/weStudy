@@ -21,7 +21,7 @@
 h2.album-name {
     color: var(--header-text);
     font-size: 50px;
-    padding: 0 50px;
+    padding: 0 10px;
 }
 
 

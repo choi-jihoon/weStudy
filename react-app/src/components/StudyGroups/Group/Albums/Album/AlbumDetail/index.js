@@ -31,12 +31,13 @@ const AlbumDetail = () => {
     }, [dispatch, albumId, groupId])
 
     return (
-        <div className='album-container'>
+        <>
             <div className='album-title-container'>
                 <h2 className='album-name'>{album?.title}</h2>
                 <CreateImageModal albumId={albumId} />
             </div>
-            <div className='album-images-container'>
+            <div className='album-container'>
+                <div className='album-images-container'>
                     {imagesObj.byAlbumId[albumId] && Object.values((imagesObj.byAlbumId[albumId])).map(image => (
                         <div className='image-container' key={image.id}>
                             <Image image={image} />
@@ -44,8 +45,9 @@ const AlbumDetail = () => {
                         </div>
                     ))}
                     <li className='last-li'></li>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

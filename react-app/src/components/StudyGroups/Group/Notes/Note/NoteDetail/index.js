@@ -24,11 +24,11 @@ const NoteDetail = () => {
     const [noteText, setNoteText] = useState('');
 
     const notify = () => {
-		toast(`Your edits have been saved!`, {
-			position: toast.POSITION.TOP_RIGHT,
-			autoClose: 2000,
-		});
-	};
+        toast(`Your edits have been saved!`, {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 2000,
+        });
+    };
 
     const updateTitle = (e) => {
         setTitle(e.target.value);
@@ -61,8 +61,9 @@ const NoteDetail = () => {
     }, [note])
 
     return (
-        <div className='note-detail-container'>
-            <div className='edit-container'>
+        <>
+            <div className='note-detail-container'>
+                <div className='edit-container'>
                     <input
                         autoComplete="off"
                         name='note_title'
@@ -70,7 +71,7 @@ const NoteDetail = () => {
                         type='text'
                         value={title}
                         onChange={updateTitle}
-                        // onBlur={handleSave}
+                    // onBlur={handleSave}
                     />
                     <textarea
                         name='note_text'
@@ -78,16 +79,17 @@ const NoteDetail = () => {
                         value={noteText}
                         onChange={updateText}
                     />
-                    <div
-                        id='save-btn'
-                        onClick={handleSave}>
-                        Save <i className="fas fa-pencil-alt"></i>
-                    </div>
-                    <div className='edit-delete-btn-container'>
-                        <DeleteNote note={note} />
-                    </div>
+                </div>
+                <div className='edit-delete-btn-container'>
+                    <DeleteNote note={note} />
+                </div>
+                <div
+                    id='save-btn'
+                    onClick={handleSave}>
+                    Save <i className="fas fa-pencil-alt"></i>
+                </div>
             </div>
-        </div>
+        </>
     )
 
 }

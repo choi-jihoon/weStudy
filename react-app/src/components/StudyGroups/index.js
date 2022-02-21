@@ -16,17 +16,20 @@ const StudyGroups = () => {
 
 
     return (
-        <div className='all-groups-container'>
-            <ul>
-                {groups && groups.map(group => {
-                    return (
-                        <li key={group.id}>
-                            <Group group={group} />
-                        </li>
-                    )
-                })}
-            </ul>
-        </div>
+        <>
+            <div></div>
+            <div className='all-groups-container'>
+                <ul>
+                    {groups && groups.map(group => {
+                        return (
+                            <li key={group.id}>
+                                <Group group={group} />
+                            </li>
+                        )
+                    })}
+                </ul>
+            </div>
+        </>
     )
 }
 

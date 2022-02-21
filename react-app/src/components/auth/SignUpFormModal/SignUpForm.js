@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import DemoLogin from "../DemoLogin";
 import { signUp } from "../../../store/session";
@@ -16,7 +15,6 @@ const SignUpForm = () => {
 	const [password, setPassword] = useState("");
 	const [repeatPassword, setRepeatPassword] = useState("");
 	const [image, setImage] = useState(null);
-	const user = useSelector((state) => state.session.user);
 	const dispatch = useDispatch();
 
 	const onSignUp = async (e) => {
@@ -76,10 +74,6 @@ const SignUpForm = () => {
 			setImage(null);
 		};
 	}, []);
-
-	if (user) {
-		return <Redirect to="/" />;
-	}
 
 
 	return (

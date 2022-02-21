@@ -23,6 +23,17 @@ const StudyGroupDash = () => {
     const group = groups[groupId];
     const sessionUser = useSelector(state => state.session.user);
 
+    const compare = (a, b) => {
+        if (a.username < b.username) {
+            return -1;
+        }
+        if (a.username > b.username) {
+            return 1;
+        }
+        return 0;
+    }
+    const sorted = group?.users.sort(compare);
+
     useEffect(() => {
         dispatch(getGroup(groupId));
         dispatch(getRooms(groupId));
@@ -32,7 +43,7 @@ const StudyGroupDash = () => {
     }, [dispatch, groupId]);
 
     return (
-        <>
+        <> {group &&
                     <div className='study-group-title-container'>
                         <div className='study-group-title'>
                             <h2>{group.group_name}</h2>
@@ -49,12 +60,14 @@ const StudyGroupDash = () => {
                             </div>
                         }
                     </div>
+
+        }
             {group &&
                 <div className='study-group-dash-container'>
                     <div className='sg-main-container'>
                         <div className='sg-info-container'>
                             <div className='sg-img-container'>
-                                <img src={group.group_image} alt={group.group_name}></img>
+                                <img src={group?.group_image} alt={group?.group_name}></img>
                             </div>
                             {/* <EditGroupPicModal group={group} /> */}
                             <div className='sg-descrip-container'>
@@ -62,7 +75,7 @@ const StudyGroupDash = () => {
                             </div>
                         </div>
                         <div className='sg-members-container'>
-                            {group.users?.map(user => {
+                            {sorted.map(user => {
                                 return (
                                     <div key={user.id} className='sg-member'>
                                         <div className='pic-and-status-container'>

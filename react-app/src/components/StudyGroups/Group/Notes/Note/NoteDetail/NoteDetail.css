@@ -24,7 +24,7 @@
 }
 
 .edit-container > input,
-.edit-container > textarea {
+.note-detail-container > textarea {
     /* background-color: var(--honeydew);
     color: var(--raisin-black);
     border: 2px solid var(--honeydew); */
@@ -47,8 +47,9 @@
     /* border-radius: 10px 10px 0 0; */
 }
 
-.edit-container > textarea {
+.note-detail-container > textarea {
     /* width: 75vw; */
+    width: 100%;
     height: 100%;
     padding: 55px 55px;
     font-size: 18px;

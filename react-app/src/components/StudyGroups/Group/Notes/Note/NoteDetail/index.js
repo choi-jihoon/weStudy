@@ -62,27 +62,27 @@ const NoteDetail = () => {
 
     return (
         <>
-            <div className='note-detail-container'>
-                <div className='edit-container'>
-                    <input
-                        autoComplete="off"
-                        name='note_title'
-                        id='edit-note-title'
-                        type='text'
-                        value={title}
-                        onChange={updateTitle}
-                    // onBlur={handleSave}
-                    />
-                    <textarea
-                        name='note_text'
-                        id='note-area'
-                        value={noteText}
-                        onChange={updateText}
-                    />
-                </div>
+            <div className='edit-container'>
+                <input
+                    autoComplete="off"
+                    name='note_title'
+                    id='edit-note-title'
+                    type='text'
+                    value={title}
+                    onChange={updateTitle}
+                // onBlur={handleSave}
+                />
                 <div className='edit-delete-btn-container'>
                     <DeleteNote note={note} />
                 </div>
+            </div>
+            <div className='note-detail-container'>
+                <textarea
+                    name='note_text'
+                    id='note-area'
+                    value={noteText}
+                    onChange={updateText}
+                />
                 <div
                     id='save-btn'
                     onClick={handleSave}>

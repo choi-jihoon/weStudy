@@ -109,6 +109,18 @@ def seed_images():
         study_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/da7429271fcd4c07bd34a740f63aa719.jpg'
     )
 
+    pet13 = Image(
+        user_id=8,
+        album_id=3,
+        study_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/c61cb57e89f8467194e8c3005bb7d11c.jpg'
+    )
+
+    pet14 = Image(
+        user_id=8,
+        album_id=3,
+        study_image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/ffaaed79d8d94ada813ed13be219ee6a.jpg'
+    )
+
     db.session.add(we_study_db)
     db.session.add(conversion_chart)
     db.session.add(meme1)
@@ -127,6 +139,8 @@ def seed_images():
     db.session.add(pet10)
     db.session.add(pet11)
     db.session.add(pet12)
+    db.session.add(pet13)
+    db.session.add(pet14)
     db.session.commit()
 
 def undo_images():

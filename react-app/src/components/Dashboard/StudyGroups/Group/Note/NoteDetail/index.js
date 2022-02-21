@@ -47,7 +47,7 @@ const NoteDetail = () => {
         dispatch(getNote(noteId));
         dispatch(getRooms(groupId));
         dispatch(getAlbums(groupId));
-    }, [dispatch, noteId]);
+    }, [dispatch, noteId, groupId]);
 
     useEffect(() => {
         if (note) {

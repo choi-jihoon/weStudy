@@ -30,11 +30,10 @@ const Events = () => {
 
     return (
         <>
-            <div className='study-group-title-container'>
-                <div className='study-group-title events-title-container'>
-                    <h2>Upcoming Events for {groupsObj[groupId]?.group_name}</h2>
-                    <CreateEventModal groupId={groupId} />
-                </div>
+            <div className='study-group-title events-title-container'>
+                <h2>Upcoming Events for {groupsObj[groupId]?.group_name}
+                <CreateEventModal groupId={groupId} />
+                </h2>
             </div>
             <div className='events-dash-container'>
                 <div className='all-events-container'>

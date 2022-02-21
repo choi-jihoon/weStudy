@@ -1,15 +1,15 @@
-import { Route, Switch } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Route, Switch } from 'react-router-dom';
 import { io } from 'socket.io-client';
 
-import StudyGroupDash from '../StudyGroups/StudyGroupDash';
-import NoteDetail from '../StudyGroups/Group/Notes/Note/NoteDetail';
-import Chat from '../Chat';
+import AlbumDetail from './StudyGroups/Group/Album/AlbumDetail';
+import Chat from './StudyGroups/Group/Room/Chat';
+import Events from './StudyGroups/Group/Events';
+import NoteDetail from './StudyGroups/Group/Note/NoteDetail';
 import SideNav from './SideNav';
-import StudyGroups from '../StudyGroups';
-import Events from '../StudyGroups/Group/Events';
-import AlbumDetail from '../StudyGroups/Group/Albums/Album/AlbumDetail';
+import StudyGroupDash from './StudyGroups/Group/StudyGroupDash';
+import StudyGroups from './StudyGroups';
 
 import { getGroups } from '../../store/groups';
 
@@ -32,11 +32,9 @@ const Dashboard = () => {
         console.log('connecting', sessionUser.username)
         socket.on('login', (online_status) => {
             dispatch(getGroups());
-            console.log(online_status.username, 'LOGGED IN!')
         });
 
         socket.on('logout', (online_status) => {
-            console.log(online_status.username, 'LOGGED OUT!')
             dispatch(getGroups());
         })
 

@@ -3,9 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 
 import { getImages } from '../../../../../../store/images';
-import { getAlbum } from '../../../../../../store/albums';
 import { getRooms } from '../../../../../../store/rooms';
 import { getNotes } from '../../../../../../store/notes';
+import { getAlbums } from '../../../../../../store/albums';
 
 import CreateImageModal from './Images/CreateImageModal';
 
@@ -23,7 +23,7 @@ const AlbumDetail = () => {
     const imagesObj = useSelector(state => state.images);
 
     useEffect(() => {
-        dispatch(getAlbum(albumId));
+        dispatch(getAlbums(groupId));
         dispatch(getImages(albumId));
         dispatch(getRooms(groupId));
         dispatch(getNotes(groupId));

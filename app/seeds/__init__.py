@@ -5,6 +5,8 @@ from .rooms import seed_rooms, undo_rooms
 from .notes import seed_notes, undo_notes
 from .chats import seed_chats, undo_chats
 from .events import seed_events, undo_events
+from .albums import seed_albums, undo_albums
+from .images import seed_images, undo_images
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -20,6 +22,8 @@ def seed():
     seed_notes()
     seed_chats()
     seed_events()
+    seed_albums()
+    seed_images()
     # Add other seed functions here
 
 
@@ -32,4 +36,6 @@ def undo():
     undo_notes()
     undo_chats()
     undo_events()
+    undo_albums()
+    undo_images()
     # Add other undo functions here

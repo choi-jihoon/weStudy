@@ -235,3 +235,22 @@ div#edit-user:hover {
 div#edit-user > i {
     color: var(--header-text);
 }
+
+
+.developer {
+    padding: 40px 20px;
+}
+
+.developer > p,
+.developer > a {
+    font-style: italic;
+}
+
+.developer > p > span > a > i {
+    color: var(--side-panel-text);
+    padding-left: 10px;
+}
+
+.developer > a:hover {
+    color: var(--side-panel-selected);
+}

@@ -91,6 +91,26 @@ const SideNav = () => {
                     <LogoutButton />
                 </li>
             </ul>
+            <div className='developer'>
+                <a target="_blank" rel="noreferrer noopener"
+                    href='https://github.com/choi-jihoon/weStudy'>
+                    © 2022 | weStudy
+                </a>
+                <p>Developed by Fiona Choi
+                    <span>
+                        <a target="_blank" rel="noreferrer noopener"
+                            href='https://github.com/choi-jihoon'>
+                            <i className='fab fa-github' />
+                        </a>
+                    </span>
+                    <span>
+                        <a target="_blank" rel="noreferrer noopener"
+                            href='https://www.linkedin.com/in/jihoon-choi-a6967a221/'>
+                            <i className='fab fa-linkedin' />
+                        </a>
+                    </span>
+                </p>
+            </div>
         </div>
     )
 }

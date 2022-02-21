@@ -18,7 +18,7 @@
 }
 
 #delete-image:hover ~ .grid-image {
-    opacity: 70%;
+    opacity: 0.7;
     cursor: zoom-in;
     transform: scale(1.03);
 }
@@ -66,7 +66,7 @@
 }
 
 .grid-image:hover {
-    opacity: 70%;
+    opacity: 0.7;
     cursor: zoom-in;
     transform: scale(1.03);
 }

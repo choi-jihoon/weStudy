@@ -20,6 +20,13 @@ const Events = () => {
     const eventsObj = useSelector(state => state.events);
     const groupsObj = useSelector(state => state.groups);
 
+    const compare = (a, b) => {
+        if (new Date(a.start_time) < new Date(b.start_time)) return -1;
+        if (new Date(a.start_time) > new Date(b.start_time)) return 1;
+        return 0;
+    }
+
+
     useEffect(() => {
         dispatch(getGroup(groupId));
         dispatch(getEvents(groupId));
@@ -38,7 +45,7 @@ const Events = () => {
             </div>
             <div className='events-dash-container'>
                 <div className='all-events-container'>
-                    {eventsObj.byGroupId[groupId] && Object.values((eventsObj.byGroupId[groupId])).map(event => (
+                    {eventsObj.byGroupId[groupId] && (Object.values(eventsObj.byGroupId[groupId])).sort(compare).map(event => (
                         <EventDetail key={event.id} event={event} />
                     ))}
                 </div>

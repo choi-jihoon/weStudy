@@ -71,7 +71,7 @@ const Calendar = ({ event }) => {
 
     return (
         <div className='google-calendar-icon'>
-            <img onClick={handleClick} src="https://img.icons8.com/fluency/48/000000/google-calendar--v2.png"/>
+            <img alt='google calendar logo' onClick={handleClick} src="https://img.icons8.com/fluency/48/000000/google-calendar--v2.png"/>
             <div className='add-to-google-cal'>Add to Google Calendar</div>
         </div>
     )

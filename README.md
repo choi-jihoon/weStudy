@@ -166,5 +166,5 @@ After 20 weeks as a Full Stack Software Engineering student at App Academy, this
 
 This project also allowed me to explore:
 - learning and utilizing socket.io to implement live chat / broadcasting
-- implementing an external API (Google Calendar) and the handling of OAuth
+- integrating an external API (Google Calendar) and the handling of OAuth
 - setting up Amazon Web Services S3 to handle image uploads

@@ -19,8 +19,6 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		console.log(startTime)
-
 		const data = await dispatch(createEvent(
 			user.id,
 			groupId,

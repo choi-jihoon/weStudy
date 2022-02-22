@@ -70,8 +70,9 @@ const Calendar = ({ event }) => {
 
 
     return (
-        <div className='calendar-container'>
-            <button onClick={handleClick}><i className="fab fa-google"></i></button>
+        <div className='google-calendar-icon'>
+            <img onClick={handleClick} src="https://img.icons8.com/fluency/48/000000/google-calendar--v2.png"/>
+            <div className='add-to-google-cal'>Add to Google Calendar</div>
         </div>
     )
 }

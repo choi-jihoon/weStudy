@@ -99,9 +99,6 @@ h3.event-month {
     border-radius: 5px 0 0 5px;
 }
 
-.event-summary > h3 {
-    color: white;
-}
 
 .event-body {
     position: relative;
@@ -111,10 +108,25 @@ h3.event-month {
     padding: 30px;
 
     border-radius: 0 5px 5px 0;
+
+    display: grid;
+    grid-template-columns: 65% 35%;
 }
 
-.event-body > h3,
-.event-body > h4,
+.event-title-description-container {
+    padding-right: 50px;
+}
+
+.event-title-description-container > h3 {
+    font-size: 30px;
+}
+
+.event-title-description-container > h4 {
+    font-size: 15px;
+}
+
+.event-title-description-container > h3,
+.event-title-description-container > h4,
 .event-body p {
     /* color: var(--header-text); */
     color: var(--main-container);
@@ -171,8 +183,7 @@ h3.event-month {
 }
 
 #join-event,
-#leave-event,
-.calendar-container > button {
+#leave-event {
     display: flex;
     justify-content: center;
     border-radius: 20px;
@@ -189,15 +200,13 @@ h3.event-month {
     transform: scale(1.05);
 }
 
-.calendar-container > button {
+/* .calendar-container > button {
     font-size: 20px;
-    /* width: 266px; */
     width: 50px;
-    /* width: 100%; */
     padding: 5px 0;
     background: linear-gradient(-120deg, #4285f4, #34a853, #fbbc05, #ea4335);
     margin-top: 30px;
-}
+} */
 
 .calendar-container > button > i {
     color: white;
@@ -217,7 +226,6 @@ h3.event-month {
     /* justify-content: space-between; */
     align-items: center;
 
-
 }
 
 .event-section {
@@ -234,6 +242,7 @@ p.event-label.attendees-label {
 
 .attendees-list {
     margin-bottom: 20px;
+    padding-right: 30px;
 }
 
 .event-join-add-btns-container {
@@ -267,6 +276,50 @@ p.event-label.attendees-label {
 
 #join-event,
 #leave-event {
-    width: 50px;
+    width: 70px;
     margin-left: 30px;
+}
+
+.event-title-description-container > h3 {
+    display: flex;
+    align-items: center;
+}
+
+.google-calendar-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 15px;
+    background-color: transparent;
+    padding-right: 10px;
+    position: relative;
+}
+
+.google-calendar-icon > img {
+    width: 40px;
+    cursor: pointer;
+}
+
+.google-calendar-icon > img:hover {
+    transform: scale(1.1);
+}
+
+.add-to-google-cal {
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    top: -5px;
+    right: -110px;
+    width: 130px;
+    background-color: var(--side-panel-selected);
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+
+    font-weight: normal;
+
+}
+
+.google-calendar-icon > img:hover + .add-to-google-cal {
+    opacity: 1;
 }

@@ -172,5 +172,8 @@ This project also allowed me to explore:
 
 # Next Steps
 
-- media queries to make the design more responsive to different sized screens, as well as a mobile-friendly
-- collaborative whiteboard
+- Add User to Group - autofill username suggestions
+- Search for groups by name and request to join
+  - Notifications for when a user requests to join a group
+- Media queries to make the design more responsive to different sized screens, as well as a mobile-friendly
+- Collaborative whiteboard

@@ -315,8 +315,9 @@ p.event-label.attendees-label {
     color: white;
     position: absolute;
     top: -5px;
-    right: -110px;
-    width: 130px;
+    right: -115px;
+    width: 140px;
+    padding: 0 5px;
     background-color: var(--side-panel-selected);
     display: flex;
     justify-content: center;

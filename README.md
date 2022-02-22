@@ -168,3 +168,9 @@ This project also allowed me to explore:
 - learning and utilizing socket.io to implement live chat / broadcasting
 - integrating an external API (Google Calendar) and the handling of OAuth
 - setting up Amazon Web Services S3 to handle image uploads
+
+
+# Next Steps
+
+- media queries to make the design more responsive to different sized screens, as well as a mobile-friendly
+- collaborative whiteboard

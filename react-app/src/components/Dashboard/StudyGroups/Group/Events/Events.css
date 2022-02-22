@@ -41,6 +41,8 @@
     display: flex;
     height: 100%;
     padding: 50px;
+    width: 100%;
+
 
 
     flex-direction: column;
@@ -60,11 +62,13 @@
 
     display: grid;
     grid-template-columns: 200px auto;
+    width: 80%;
 
     /* grid-template-rows: 50px auto; */
 
     /* box-shadow: 5px 5px 5px rgba(87, 87, 87, 0.808); */
 
+    border-radius: 10px;
     position: relative;
 }
 
@@ -92,7 +96,7 @@ h3.event-month {
     justify-content: center;
     align-items: center;
 
-    border-radius: 5px 5px 0 0;
+    border-radius: 5px 0 0 5px;
 }
 
 .event-summary > h3 {
@@ -106,7 +110,7 @@ h3.event-month {
     background-color: whitesmoke;
     padding: 30px;
 
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 5px 5px 0;
 }
 
 .event-body > h4,
@@ -169,12 +173,19 @@ h3.event-month {
 
 .calendar-container > button {
     font-size: 20px;
-    width: 266px;
+    /* width: 266px; */
+    width: 50px;
     /* width: 100%; */
     padding: 5px 0;
     background: linear-gradient(-120deg, #4285f4, #34a853, #fbbc05, #ea4335);
-    margin-bottom: 10px;
+    margin-top: 30px;
 }
+
+.calendar-container > button > i {
+    color: white;
+}
+
+
 
 .calendar-container > button:hover {
     transform: scale(1.05);

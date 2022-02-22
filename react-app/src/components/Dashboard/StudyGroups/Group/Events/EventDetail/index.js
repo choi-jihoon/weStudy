@@ -18,6 +18,9 @@ const EventDetail = ({ event }) => {
                 {/* <h3>{event.summary}</h3> */}
                 <h3 className='event-day'>{eventDay}</h3>
                 <h3 className='event-month'>{eventMonth}</h3>
+                <div className='event-join-add-btns-container'>
+                    <Calendar event={event} />
+                </div>
             </div>
             <div className='event-body'>
                 <h4 className='event-section event-description'>{event.description}</h4>
@@ -41,9 +44,9 @@ const EventDetail = ({ event }) => {
                     </p>
                     <p>{event.attendee_names.length ? event.attendee_names.join(', ') : "No one is attending."}</p>
                 </div>
-                <div className='event-join-add-btns-container'>
+                {/* <div className='event-join-add-btns-container'>
                     <Calendar event={event} />
-                </div>
+                </div> */}
             </div>
             {(user.id === event.user_id || user.id === event.group_owner_id) &&
                 <div className='event-btn-container'>

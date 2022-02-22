@@ -71,7 +71,7 @@ const Calendar = ({ event }) => {
 
     return (
         <div className='calendar-container'>
-            <button onClick={handleClick}>Add to Google Calendar</button>
+            <button onClick={handleClick}><i className="fab fa-google"></i></button>
         </div>
     )
 }

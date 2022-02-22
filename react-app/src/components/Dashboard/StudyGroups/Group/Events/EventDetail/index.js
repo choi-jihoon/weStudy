@@ -41,7 +41,18 @@ const EventDetail = ({ event }) => {
                             }
                         </span>
                     </div>
-                    <p>{event.attendee_names.length ? event.attendee_names.join(', ') : "No one is attending."}</p>
+                    {/* <p>{event.attendee_names.length ? event.attendee_names.join(', ') : "No one is attending."}</p> */}
+                    <div className='attendee-pics-container'>
+                    {event.attendee_pics.length ?
+                            event.attendee_pics.map((image, idx) => (
+                                <div key={idx} className='attendee-pic-container'>
+                                    <img src={image} alt={idx}></img>
+                                </div>
+                            ))
+                            :
+                            <p>No one is attending.</p>
+                        }
+                        </div>
                 </div>
             </div>
 

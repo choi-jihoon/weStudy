@@ -38,7 +38,7 @@ const AddUserToGroupForm = ({ group, setShowModal }) => {
 
 
     return (
-        <form onSubmit={handleSubmit} className='form-container add-user-form'>
+        <form autoComplete='off' onSubmit={handleSubmit} className='form-container add-user-form'>
             <div className='form-element-container'>
 				<input
                     className='add-user-input'

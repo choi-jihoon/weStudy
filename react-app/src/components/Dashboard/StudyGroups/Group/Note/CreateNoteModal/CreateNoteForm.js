@@ -43,7 +43,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 
 
 	return (
-		<form onSubmit={handleSubmit} className="form-container">
+		<form autoComplete="off" onSubmit={handleSubmit} className="form-container">
 			<div className='form-element-container'>
 				<input
 					name="note_title"

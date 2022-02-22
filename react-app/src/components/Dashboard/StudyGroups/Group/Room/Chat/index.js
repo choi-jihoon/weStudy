@@ -115,7 +115,7 @@ const Chat = () => {
                         </div>
                     ))}
                 </div>
-                <form className='chat-input-form' onSubmit={sendChat}>
+                <form autoComplete="off" className='chat-input-form' onSubmit={sendChat}>
                     <input
                         value={chatInput}
                         onChange={updateChatInput}

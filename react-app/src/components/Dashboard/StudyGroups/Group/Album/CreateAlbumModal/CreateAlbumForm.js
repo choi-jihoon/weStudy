@@ -36,7 +36,7 @@ const CreateAlbumForm = ({ setShowModal, group }) => {
 
 
 	return (
-		<form onSubmit={handleSubmit} className="form-container">
+		<form onSubmit={handleSubmit} className="form-container" autoComplete="off">
 			<div className='form-element-container'>
 				<input
 					className='add-title-input'

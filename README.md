@@ -66,7 +66,6 @@ weStudy uses the Flask-SocketIO library to emit to all users currently on the ap
 <img src='https://media.giphy.com/media/O5tycMWBrb9BYBFqn0/giphy.gif' alt='live online status update'>
 <img src='https://media.giphy.com/media/IUGNKJfFWRYhv0OYIO/giphy.gif' alt='live offline status update'>
 
-----------------------------------------
 
 ## Live Chat Messaging
 
@@ -108,7 +107,7 @@ When the user leaves the room and the component becomes unmounted, the clean-up 
 
 The sendChat function emits the message to be broadcasted within the room component the user is currently in, and dispatches the createChatMessage thunk to make an API call to the backend to persist the chat data.
 
-----------------------------------------
+
 ## Full CRUD for Groups, Rooms, Notes, Events, & Albums
 
 Group owners have access to full CRUD for features contained within their group, while group members' edit/delete abilities are limited to items that they have created themselves within the group.
@@ -117,7 +116,7 @@ For example, the owner of a group can delete any room, note, event, or album cre
 
 <img src='https://media.giphy.com/media/Cs9XKj9syzecfY2IOM/giphy.gif' alt='weStudy navigation'>
 
-----------------------------------------
+
 ## Image Sharing with AWS S3
 
 weStudy uses AWS S3 to allow users to upload images from their local computer to add to albums, to set as a group image, and to edit their own profile picture.
@@ -125,6 +124,7 @@ weStudy uses AWS S3 to allow users to upload images from their local computer to
 <img src='https://media.giphy.com/media/0tZ1QFSVe6aHvGCBFj/giphy.gif' alt='album images feature'>
 
 
+----------------------------------------
 
 # Redux Store State
 ![Dashboard](./images/redux.JPG)

@@ -117,18 +117,24 @@ h3.event-month {
     padding-right: 50px;
 }
 
+.event-summary > h3 {
+    cursor: default;
+}
+
 .event-title-description-container > h3 {
     font-size: 30px;
+    cursor: default;
 }
 
 .event-title-description-container > h4 {
     font-size: 15px;
+    cursor: default;
 }
 
 .event-title-description-container > h3,
 .event-title-description-container > h4,
 .event-body p {
-    /* color: var(--header-text); */
+    cursor: default;
     color: var(--main-container);
 }
 

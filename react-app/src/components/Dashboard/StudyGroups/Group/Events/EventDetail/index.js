@@ -24,11 +24,11 @@ const EventDetail = ({ event }) => {
                     <h4 className='event-section event-description'>{event.description}</h4>
                     <div className='event-start-time event-section'>
                         <p className='event-label'>Starts</p>
-                        <p>{event.start_time.slice(0, 25)}</p>
+                        <p>{event.start_time.slice(0, 22)}</p>
                     </div>
                     <div className='event-end-time event-section'>
                         <p className='event-label'>Ends</p>
-                        <p>{event.end_time.slice(0, 25)}</p>
+                        <p>{event.end_time.slice(0, 22)}</p>
                     </div>
                 </div>
                 <div className='attendees-list event-section'>

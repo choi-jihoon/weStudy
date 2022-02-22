@@ -172,7 +172,6 @@ This project also allowed me to explore:
 
 # Next Steps
 
-- Add User to Group - autofill username suggestions
 - Search for groups by name and request to join
   - Notifications for when a user requests to join a group
 - Media queries to make the design more responsive to different sized screens, as well as a mobile-friendly

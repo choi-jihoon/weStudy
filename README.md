@@ -64,7 +64,7 @@ It also makes use of socket.io for live chat, AWS S3 for image uploads, and the 
 weStudy uses the Flask-SocketIO library to emit to all users currently on the app when another user has logged in and when they have logged out without a rerender/refresh. A user's online status can be viewed from the dashboard of a selected study group.
 
 <img src='https://media.giphy.com/media/O5tycMWBrb9BYBFqn0/giphy.gif' alt='live online status update'>
-<img src='https://media.giphy.com/media/IUGNKJfFWRYhv0OYIO/giphy.gif' alt='live offline status update'>
+<!-- <img src='https://media.giphy.com/media/IUGNKJfFWRYhv0OYIO/giphy.gif' alt='live offline status update'> -->
 
 
 ## Live Chat Messaging
@@ -128,7 +128,9 @@ weStudy uses AWS S3 to allow users to upload images from their local computer to
 
 The implementation of the Google Calendar API allows users to add created events to their personal Google calendar by signing in with OAuth.
 
-[ Insert Gif of Adding Event to Calendar ]
+(Currently, this feature is limited to a select number of test emails due to the lack of a Privacy Policy for this app.)
+
+<img src='https://media.giphy.com/media/UKKReS5rRPzlx5PeYw/giphy.gif' alt='adding event to google calendar'>
 
 
 ----------------------------------------
@@ -143,3 +145,17 @@ In addition to being accessible by their unique IDs, rooms, notes, events, and a
 
 # Database Schema
 ![DB Schema](./images/dbschema.JPG)
+
+
+# Conclusion
+
+After 20 weeks as a Full Stack Software Engineering student at App Academy, this capstone project gave me the opportunity to apply and demonstrate what I have learned in:
+- creating a database to seamlessly and coherently connect data
+- setting up a backend server with user authentication, error handling, and API routes following RESTful conventions
+- designing a frontend application with React components and connecting it to the backend
+- making full use of the Redux state store to optimize load times
+
+This project also allowed me to explore:
+- learning and utilizing socket.io to implement live chat / broadcasting
+- implementing an external API (Google Calendar) and the handling of OAuth
+- setting up Amazon Web Services S3 to handle image uploads

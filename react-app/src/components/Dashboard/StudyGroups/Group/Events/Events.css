@@ -62,7 +62,8 @@
 
     display: grid;
     grid-template-columns: 200px auto;
-    width: 80%;
+    width: 70%;
+    min-width: 850px;
 
     /* grid-template-rows: 50px auto; */
 

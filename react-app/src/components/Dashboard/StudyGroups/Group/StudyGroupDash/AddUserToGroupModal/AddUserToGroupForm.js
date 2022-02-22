@@ -72,8 +72,9 @@ const AddUserToGroupForm = ({ group, setShowModal }) => {
                 <div className='errors-container'>
                     {errors.username ? `${errors.username}` : ""}
                 </div>
-                {suggestions && (
+                {suggestions.length > 0 && (
                     <div className='search-results'>
+                        <p>Suggested users:</p>
                         {suggestions.map(suggestion => (
                             <div key={suggestion.id} className='suggestion'>{suggestion.username}</div>
                         ))}

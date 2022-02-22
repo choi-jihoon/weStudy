@@ -55,3 +55,9 @@ def updateUserImage(id):
         db.session.commit()
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@user_routes.route('/<search_query>')
+def search_user(search_query):
+    users = User.query.filter(User.username.ilike(f'{search_query}%'))
+    return {'users': [user.to_dict() for user in users]}

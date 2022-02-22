@@ -1,6 +1,8 @@
 # weStudy
 
-weStudy is a social application where users can create and join study groups in which they can live chat with other members and share notes, images, and events.
+weStudy is a social application where users can create and join study groups, chat with other group members, and share notes, images, and events.
+
+This application uses Flask-SocketIO to allow for live chatting between users.
 
 - [Live Site](https://we-study-capstone.herokuapp.com)
 - [MVP Feature List](https://github.com/choi-jihoon/weStudy/wiki/Feature-List-(MVP))

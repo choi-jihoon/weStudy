@@ -22,7 +22,7 @@ This application uses Flask-SocketIO to allow for live chatting between users.
 
 1. Clone this repository
 
-   ```git@github.com:choi-jihoon/weStudy.git```
+   ```git clone git@github.com:choi-jihoon/weStudy.git```
 
 2. CD into the /app directory and install dependencies
 

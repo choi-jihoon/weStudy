@@ -335,3 +335,28 @@ div.event-label.attendees-label {
 .google-calendar-icon > img:hover + .add-to-google-cal {
     opacity: 1;
 }
+
+.attendee-pics-container {
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.attendee-pic-container {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--rhythm);
+    margin: 5px;
+
+}
+
+.attendee-pic-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

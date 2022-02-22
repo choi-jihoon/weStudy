@@ -5,6 +5,7 @@ import SplashPage from './components/SplashPage';
 import Dashboard from './components/Dashboard';
 import Whiteboard from './components/Whiteboard';
 import { authenticate } from './store/session';
+import { wacky } from './assets/images/wacky';
 
 
 function App() {
@@ -23,6 +24,8 @@ function App() {
   if (!loaded) {
     return null;
   }
+
+  console.log(wacky);
 
   return (
     <BrowserRouter>

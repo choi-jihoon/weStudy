@@ -29,7 +29,7 @@ const Dashboard = () => {
         socket = io();
 
         socket.emit('login', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': true })
-        console.log('connecting', sessionUser.username)
+        // console.log('connecting', sessionUser.username)
         socket.on('login', (online_status) => {
             dispatch(getGroups());
         });
@@ -39,7 +39,7 @@ const Dashboard = () => {
         })
 
         return (() => {
-            console.log('disconnecting from group', sessionUser.username)
+            // console.log('disconnecting from group', sessionUser.username)
             socket.emit('logout', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': false })
             socket.disconnect();
         });

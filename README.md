@@ -74,9 +74,6 @@ The Flask-SocketIO library is also utilized to broadcast messages within chatroo
 
 <img src='https://media.giphy.com/media/mg6P68NF9dDlRn4qm3/giphy.gif' alt='live chat gif'>
 
-Upon mounting/entering the ChatRoom component, a useEffect makes a call to the backend to Flask-SocketIO's built-in join_room() function as well as the "chat" event to display the message that the user has joined the room. When the user leaves the room and the component becomes unmounted, the clean-up function in the useEffect makes a call to the backend to announce that the user has left the room and disconnects the socket for that user.
-
-The sendChat function emits the message to be broadcasted within the room component the user is currently in, and dispatches the createChatMessage thunk to make an API call to the backend to persist the chat data.
 
 ```
 const sendChat = (e) => {
@@ -104,3 +101,34 @@ useEffect(() => {
         })
     }, [roomId, room?.room_name, user.username]);
 ```
+
+Upon mounting/entering the ChatRoom component, a useEffect makes a call to the backend to Flask-SocketIO's built-in join_room() function as well as the "chat" event to display the message that the user has joined the room.
+
+When the user leaves the room and the component becomes unmounted, the clean-up function in the useEffect makes a call to the backend to broadcast that the user has left the room and disconnects the socket for that user.
+
+The sendChat function emits the message to be broadcasted within the room component the user is currently in, and dispatches the createChatMessage thunk to make an API call to the backend to persist the chat data.
+
+----------------------------------------
+## Full CRUD for Groups, Rooms, Notes, Events, & Albums
+
+Group owners have access to full CRUD for features contained within their group, while group members are limited to full CRUD for items that they have created themselves within the group.
+
+For example, the owner of a group can delete any room, note, event, or album created within the group. A group member can only delete a room, note, event, or album that they have created.
+
+<img src='https://media.giphy.com/media/Cs9XKj9syzecfY2IOM/giphy.gif' alt='weStudy navigation'>
+
+----------------------------------------
+## Image Sharing with AWS S3
+
+<img src='https://media.giphy.com/media/ErEL1fe0qG47AVIIGs/giphy.gif' alt='album images feature'>
+
+# Redux Store State
+![Dashboard](./images/redux.JPG)
+
+The Redux store uses a normalized state shape for a time complexity of O(1) when accessing data that's being updated, deleted, and/or rendered.
+
+In addition to being accessible by their unique IDs, rooms, notes, events, and albums are stored by their associated group IDs, chats are stored by their room IDs, and images are stored by their album IDs to optimize load times and reduce the number of fetch calls needed to the backend database.
+
+
+# Database Schema
+![DB Schema](./images/dbschema.JPG)

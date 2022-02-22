@@ -2,18 +2,19 @@
 
 weStudy is a social application where users can create and join study groups, chat with other group members, and share notes, images, and events.
 
-This application uses Flask-SocketIO to allow for live chatting between users.
+This application uses Flask-SocketIO to allow for live chatting between users and live updates of users' online statuses.
 
-- [Live Site](https://we-study-capstone.herokuapp.com)
-- [MVP Feature List](https://github.com/choi-jihoon/weStudy/wiki/Feature-List-(MVP))
-- [Database Schema](https://github.com/choi-jihoon/weStudy/wiki/Database-Schema)
-- [Frontend Routes](https://github.com/choi-jihoon/weStudy/wiki/Frontend-Routes)
-- [API Documentation](https://github.com/choi-jihoon/weStudy/wiki/API-Documentation)
-- [User Stories](https://github.com/choi-jihoon/weStudy/wiki/User-Stories)
+| [Live Site](https://we-study-capstone.herokuapp.com) | [MVP Feature List](https://github.com/choi-jihoon/weStudy/wiki/Feature-List-(MVP)) | [Database Schema](https://github.com/choi-jihoon/weStudy/wiki/Database-Schema) | [Frontend Routes](https://github.com/choi-jihoon/weStudy/wiki/Frontend-Routes) | [API Documentation](https://github.com/choi-jihoon/weStudy/wiki/API-Documentation) | [User Stories](https://github.com/choi-jihoon/weStudy/wiki/User-Stories) |
 
 # Technologies Used
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"  height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"  height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"  height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" height=40 /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original-wordmark.svg" height=40 /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" height=40 />
+weStudy is built on a React / Redux frontend, a Python / Flask backend, and a PostgreSQL database.
+
+
+It also makes use of socket.io for live chat, AWS S3 for image uploads, and the Google Calendar API to allow users to add events to their personal Google calendar through OAuth.
+
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlalchemy/sqlalchemy-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg" height=40 />
+<img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"  height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"  height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"  height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" height=40 /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original-wordmark.svg" height=40 /><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" height=40 />
 
 
 

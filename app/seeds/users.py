@@ -5,7 +5,7 @@ from app.models import db, User
 def seed_users():
     # image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/c203d7ca558d417b9aea8cd102ae32cf.jpg'
     demo = User(
-        username='Demo', email='demo@aa.io', password='password', image='https://fionacapstonebucket.s3.amazonaws.com/defaults/52638a4b87654527b8fa25d13d81862a.png')
+        username='Demo', email='demo@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/09fb955ae10c4aff9708b4d6293fd1d8.png')
     fiona = User(
         username='FionAH', email='fiona@aa.io', password='password', image='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/a2dc96297ad8452980d273e1f6571c35.jpg')
     denise = User(

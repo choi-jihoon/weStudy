@@ -1,5 +1,6 @@
 .form-container.add-user-form {
     padding: 40px;
+    position: relative;
 }
 
 button#add-user,
@@ -26,4 +27,18 @@ button#edit-room-submit:hover,
 button#create-note-submit:hover,
 button#save-prof-pic:hover {
     transform: scale(1.1);
+}
+
+.search-results {
+    padding: 10px 10px 0 10px;
+}
+
+.search-results > p {
+    font-style: italic;
+    color: var(--side-panel);
+}
+
+.suggestion {
+    color: var(--side-panel);
+    padding-left: 10px;
 }

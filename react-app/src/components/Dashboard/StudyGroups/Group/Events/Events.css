@@ -42,6 +42,9 @@
     height: 100%;
     padding: 50px;
 
+
+    flex-direction: column;
+
     overflow-y: scroll;
 
     flex-wrap: wrap;
@@ -49,25 +52,39 @@
 
 .event-container {
     border-radius: 5px;
-    width: 380px;
+    /* width: 380px; */
     min-height: fit-content;
-    height: 500px;
-    margin-right: 40px;
+    /* height: 500px; */
+    /* margin-right: 40px; */
     margin-bottom: 40px;
 
     display: grid;
+    grid-template-columns: 200px auto;
 
-    grid-template-rows: 50px auto;
+    /* grid-template-rows: 50px auto; */
 
-    box-shadow: 5px 5px 5px rgba(87, 87, 87, 0.808);
+    /* box-shadow: 5px 5px 5px rgba(87, 87, 87, 0.808); */
 
     position: relative;
 }
 
-.event-container:hover {
-    transform: scale(1.05);
-    /* transform: rotate(1deg); */
+.event-summary {
+    display: flex;
+    flex-direction: column;
 }
+
+h3.event-day {
+    font-size: 30px;
+}
+
+h3.event-month {
+    font-size: 25px;
+}
+
+/* .event-container:hover {
+    transform: scale(1.05);
+    transform: rotate(1deg);
+} */
 
 .event-summary {
     background-color: var(--top-highlight);
@@ -136,12 +153,13 @@
 .calendar-container > button {
     display: flex;
     justify-content: center;
-    border-radius: 5px;
-    font-size: 20px;
+    border-radius: 20px;
+    font-size: 15px;
     cursor: pointer;
-    padding: 5px 0;
+    /* padding: 5px 0; */
     color: white;
-    width: 70%;
+    /* width: 70%; */
+    width: 20px;
 }
 
 #join-event:hover,
@@ -166,6 +184,11 @@
     border-bottom: 1px dotted var(--main-container);;
     font-weight: bold;
 
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+
+
 }
 
 .event-section {
@@ -174,6 +197,10 @@
 
 .event-label + p {
     font-style: italic;
+}
+
+p.event-label.attendees-label {
+    padding-bottom: 5px;
 }
 
 .attendees-list {
@@ -188,9 +215,9 @@
     width: 100%;
     /* height: 100%; */
 
-    position: absolute;
+    /* position: absolute;
     bottom: 30px;
-    right: 0;
+    right: 0; */
 }
 
 .event-description {
@@ -206,4 +233,11 @@
     height: 100%;
 
     grid-area: content;
+}
+
+
+#join-event,
+#leave-event {
+    width: 50px;
+    margin-left: 30px;
 }

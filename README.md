@@ -124,6 +124,13 @@ weStudy uses AWS S3 to allow users to upload images from their local computer to
 <img src='https://media.giphy.com/media/0tZ1QFSVe6aHvGCBFj/giphy.gif' alt='album images feature'>
 
 
+## Google Calendar API
+
+The implementation of the Google Calendar API allows users to add created events to their personal Google calendar by signing in with OAuth.
+
+[ Insert Gif of Adding Event to Calendar ]
+
+
 ----------------------------------------
 
 # Redux Store State

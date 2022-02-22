@@ -15,14 +15,14 @@ const EventDetail = ({ event }) => {
     return (
         <div className='event-container'>
             <div className='event-summary'>
-                {/* <h3>{event.summary}</h3> */}
                 <h3 className='event-day'>{eventDay}</h3>
                 <h3 className='event-month'>{eventMonth}</h3>
-                <div className='event-join-add-btns-container'>
+                {/* <div className='event-join-add-btns-container'>
                     <Calendar event={event} />
-                </div>
+                </div> */}
             </div>
             <div className='event-body'>
+                <h3>{event.summary}</h3>
                 <h4 className='event-section event-description'>{event.description}</h4>
                 <div className='event-start-time event-section'>
                     <p className='event-label'>Starts</p>

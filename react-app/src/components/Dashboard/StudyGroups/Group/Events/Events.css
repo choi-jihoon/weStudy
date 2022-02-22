@@ -113,10 +113,15 @@ h3.event-month {
     border-radius: 0 5px 5px 0;
 }
 
+.event-body > h3,
 .event-body > h4,
 .event-body p {
     /* color: var(--header-text); */
     color: var(--main-container);
+}
+
+.event-container:hover .event-btn-container {
+    opacity: 1;
 }
 
 .event-btn-container {
@@ -126,6 +131,7 @@ h3.event-month {
 
     display: flex;
     padding: 10px;
+    opacity: 0;
 }
 
 #edit-event {
@@ -137,10 +143,22 @@ h3.event-month {
     cursor: pointer;
 }
 
+#edit-event > i,
+#delete-event > i {
+    color: var(--side-panel-text);
+}
+
 #edit-event > i:hover,
 #delete-event > i:hover {
     transform: scale(1.1);
-    color: white;
+}
+
+#edit-event > i:hover {
+    color: var(--side-panel-selected);
+}
+
+#delete-event > i:hover {
+    color: var(--terra-cotta);
 }
 
 

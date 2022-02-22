@@ -19,6 +19,8 @@ const NoteDetail = () => {
     const dispatch = useDispatch();
     const notes = useSelector(state => state.notes);
     const note = notes.notes[noteId];
+    const user = useSelector(state => state.session.user);
+    const group = useSelector(state => state.groups[groupId])
 
     const [title, setTitle] = useState('');
     const [noteText, setNoteText] = useState('');
@@ -72,9 +74,11 @@ const NoteDetail = () => {
                     onChange={updateTitle}
                 // onBlur={handleSave}
                 />
-                <div className='edit-delete-btn-container'>
-                    <DeleteNote note={note} />
-                </div>
+                {(user.id === note.user_id || user.id === group.owner_id) &&
+                    <div className='edit-delete-btn-container'>
+                        <DeleteNote note={note} />
+                    </div>
+                }
             </div>
             <div className='note-detail-container'>
                 <textarea

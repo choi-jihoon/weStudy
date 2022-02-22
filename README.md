@@ -111,7 +111,7 @@ The sendChat function emits the message to be broadcasted within the room compon
 ----------------------------------------
 ## Full CRUD for Groups, Rooms, Notes, Events, & Albums
 
-Group owners have access to full CRUD for features contained within their group, while group members are limited to full CRUD for items that they have created themselves within the group.
+Group owners have access to full CRUD for features contained within their group, while group members' edit/delete abilities are limited to items that they have created themselves within the group.
 
 For example, the owner of a group can delete any room, note, event, or album created within the group. A group member can only delete a room, note, event, or album that they have created.
 

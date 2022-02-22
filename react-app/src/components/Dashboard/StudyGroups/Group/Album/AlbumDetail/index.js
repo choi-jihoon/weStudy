@@ -49,7 +49,7 @@ const AlbumDetail = () => {
                             <DeleteImageModal image={image} />
                             }
                         </div>
-                    ))}
+                    )).reverse()}
                     <li className='last-li'></li>
                 </div>
             </div>

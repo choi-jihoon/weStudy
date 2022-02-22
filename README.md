@@ -58,4 +58,49 @@ It also makes use of socket.io for live chat, AWS S3 for image uploads, and the 
 9. In order for the Google Calendar API feature to work, you must get a CLIENT_ID and an API_KEY from your Google Developer console and set up OAuth credentials.
 
 
-# Features
+# Features Highlight
+## Live Online / Offline Status Updates
+
+weStudy uses the Flask-SocketIO library to emit to all users currently on the app when another user has logged in and when they have logged out without a rerender/refresh. A user's online status can be viewed from the dashboard of a selected study group.
+
+<img src='https://media.giphy.com/media/O5tycMWBrb9BYBFqn0/giphy.gif' alt='live online status update'>
+<img src='https://media.giphy.com/media/IUGNKJfFWRYhv0OYIO/giphy.gif' alt='live offline status update'>
+
+----------------------------------------
+
+## Live Chat Messaging
+
+The Flask-SocketIO library is also utilized to broadcast messages within chatrooms so that users can live chat.
+
+<img src='https://media.giphy.com/media/mg6P68NF9dDlRn4qm3/giphy.gif' alt='live chat gif'>
+
+Upon mounting/entering the ChatRoom component, a useEffect makes a call to the backend to Flask-SocketIO's built-in join_room() function as well as the "chat" event to display the message that the user has joined the room. When the user leaves the room and the component becomes unmounted, the clean-up function in the useEffect makes a call to the backend to announce that the user has left the room and disconnects the socket for that user.
+
+The sendChat function emits the message to be broadcasted within the room component the user is currently in, and dispatches the createChatMessage thunk to make an API call to the backend to persist the chat data.
+
+```
+const sendChat = (e) => {
+        e.preventDefault();
+        socket.emit('chat', { user: user.username, msg: chatInput, room: room?.room_name, user_image: user.image });
+        dispatch(createChatMessage(roomId, chatInput));
+        setChatInput("");
+    };
+
+useEffect(() => {
+        socket = io();
+        socket.emit('join', { 'username': user.username, 'room': room?.room_name });
+        socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: room?.room_name });
+
+        socket.on('chat', (chat) => {
+            setMessages(messages => [...messages, chat]);
+            scroll();
+        });
+
+        return (() => {
+            socket.emit('leave', { 'username': user.username, 'room': room?.room_name })
+            socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has left the room.`, room: room?.room_name })
+
+            socket.disconnect();
+        })
+    }, [roomId, room?.room_name, user.username]);
+```

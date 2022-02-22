@@ -42,7 +42,6 @@ const Chat = () => {
         setChatInput("");
     };
 
-
     const scroll = () => {
         const chatContainer = document.querySelector('.chat-messages-container');
         chatContainer.scrollTop = chatContainer.scrollHeight;
@@ -62,10 +61,7 @@ const Chat = () => {
 
     useEffect(() => {
         socket = io();
-
         socket.emit('join', { 'username': user.username, 'room': room?.room_name })
-        // console.log('joining', room?.room_name)
-
         socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: room?.room_name })
 
         socket.on('chat', (chat) => {
@@ -74,7 +70,6 @@ const Chat = () => {
         })
 
         return (() => {
-            // console.log('leaving room', room?.room_name)
             socket.emit('leave', { 'username': user.username, 'room': room?.room_name })
             socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has left the room.`, room: room?.room_name })
 

@@ -33,10 +33,10 @@ def create_chat():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-@chat_routes.route('/<int:chatId>', methods=['DELETE'])
-def delete_chat(chatId):
-    chat = Chat.query.get(chatId)
-    data = chat.to_dict()
-    db.session.delete(chat)
-    db.session.commit()
-    return data
+# @chat_routes.route('/<int:chatId>', methods=['DELETE'])
+# def delete_chat(chatId):
+#     chat = Chat.query.get(chatId)
+#     data = chat.to_dict()
+#     db.session.delete(chat)
+#     db.session.commit()
+#     return data

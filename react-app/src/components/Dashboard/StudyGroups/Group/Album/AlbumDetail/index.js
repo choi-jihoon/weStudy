@@ -21,7 +21,10 @@ const AlbumDetail = () => {
 
     const albums = useSelector(state => state.albums);
     const album = albums.albums[albumId];
+    const groups = useSelector(state => state.groups);
+    const group = groups[groupId];
     const imagesObj = useSelector(state => state.images);
+    const user = useSelector(state => state.session.user);
 
     useEffect(() => {
         dispatch(getAlbums(groupId));
@@ -42,7 +45,9 @@ const AlbumDetail = () => {
                     {imagesObj.byAlbumId[albumId] && Object.values((imagesObj.byAlbumId[albumId])).map(image => (
                         <div className='image-container' key={image.id}>
                             <Image image={image} />
+                            {(user.id === image.user_id || user.id === group.owner_id) &&
                             <DeleteImageModal image={image} />
+                            }
                         </div>
                     ))}
                     <li className='last-li'></li>

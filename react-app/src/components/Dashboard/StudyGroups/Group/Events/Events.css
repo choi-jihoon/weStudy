@@ -252,6 +252,10 @@ div.event-label.attendees-label {
     padding-right: 30px;
 }
 
+.attendees-list > .attendees-label {
+    color: var(--main-container);
+}
+
 .event-join-add-btns-container {
     display: flex;
     flex-direction: column;

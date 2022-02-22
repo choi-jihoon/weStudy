@@ -120,7 +120,11 @@ For example, the owner of a group can delete any room, note, event, or album cre
 ----------------------------------------
 ## Image Sharing with AWS S3
 
-<img src='https://media.giphy.com/media/ErEL1fe0qG47AVIIGs/giphy.gif' alt='album images feature'>
+weStudy uses AWS S3 to allow users to upload images from their local computer to add to albums, to set as a group image, and to edit their own profile picture.
+
+<img src='https://media.giphy.com/media/0tZ1QFSVe6aHvGCBFj/giphy.gif' alt='album images feature'>
+
+
 
 # Redux Store State
 ![Dashboard](./images/redux.JPG)

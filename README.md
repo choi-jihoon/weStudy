@@ -61,17 +61,21 @@ It also makes use of socket.io for live chat, AWS S3 for image uploads, and the 
 # Features Highlight
 ## Live Online / Offline Status Updates
 
+<img src='https://media.giphy.com/media/O5tycMWBrb9BYBFqn0/giphy.gif' alt='live online status update'>
+
+
 weStudy uses the Flask-SocketIO library to emit to all users currently on the app when another user has logged in and when they have logged out without a rerender/refresh. A user's online status can be viewed from the dashboard of a selected study group.
 
-<img src='https://media.giphy.com/media/O5tycMWBrb9BYBFqn0/giphy.gif' alt='live online status update'>
 <!-- <img src='https://media.giphy.com/media/IUGNKJfFWRYhv0OYIO/giphy.gif' alt='live offline status update'> -->
 
 
 ## Live Chat Messaging
 
+<img src='https://media.giphy.com/media/mg6P68NF9dDlRn4qm3/giphy.gif' alt='live chat gif'>
+
+
 The Flask-SocketIO library is also utilized to broadcast messages within chatrooms so that users can live chat.
 
-<img src='https://media.giphy.com/media/mg6P68NF9dDlRn4qm3/giphy.gif' alt='live chat gif'>
 
 
 ```
@@ -110,27 +114,32 @@ The sendChat function emits the message to be broadcasted within the room compon
 
 ## Full CRUD for Groups, Rooms, Notes, Events, & Albums
 
+<img src='https://media.giphy.com/media/Cs9XKj9syzecfY2IOM/giphy.gif' alt='weStudy navigation'>
+
+
 Group owners have access to full CRUD for features contained within their group, while group members' edit/delete abilities are limited to items that they have created themselves within the group.
 
 For example, the owner of a group can delete any room, note, event, or album created within the group. A group member can only delete a room, note, event, or album that they have created.
 
-<img src='https://media.giphy.com/media/Cs9XKj9syzecfY2IOM/giphy.gif' alt='weStudy navigation'>
 
 
 ## Image Sharing with AWS S3
 
+<img src='https://media.giphy.com/media/0tZ1QFSVe6aHvGCBFj/giphy.gif' alt='album images feature'>
+
 weStudy uses AWS S3 to allow users to upload images from their local computer to add to albums, to set as a group image, and to edit their own profile picture.
 
-<img src='https://media.giphy.com/media/0tZ1QFSVe6aHvGCBFj/giphy.gif' alt='album images feature'>
 
 
 ## Google Calendar API
+
+<img src='https://media.giphy.com/media/UKKReS5rRPzlx5PeYw/giphy.gif' alt='adding event to google calendar'>
+
 
 The implementation of the Google Calendar API allows users to add created events to their personal Google calendar by signing in with OAuth.
 
 (Currently, this feature is limited to a select number of test emails due to the lack of a Privacy Policy for this app.)
 
-<img src='https://media.giphy.com/media/UKKReS5rRPzlx5PeYw/giphy.gif' alt='adding event to google calendar'>
 
 
 ----------------------------------------

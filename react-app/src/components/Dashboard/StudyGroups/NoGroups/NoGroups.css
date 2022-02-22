@@ -1,0 +1,21 @@
+h2.no-groups {
+    padding-bottom: 20px;
+    font-size: 60px;
+}
+
+h3.no-groups {
+    font-size: 50px;
+}
+
+.no-groups-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    text-align: center;
+}
+
+.no-groups-container p {
+    font-size: 25px;
+}

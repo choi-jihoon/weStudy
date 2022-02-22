@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getGroups } from "../../../store/groups";
 import Group from "./Group";
-
+import NoGroups from "./NoGroups";
 
 import './StudyGroups.css';
 
@@ -21,6 +21,7 @@ const StudyGroups = () => {
         <>
             <div className='all-groups-container'>
                 <ul>
+                    {!groups.length && <NoGroups />}
                     {groups && groups.map(group => {
                         return (
                             <li key={group.id}>

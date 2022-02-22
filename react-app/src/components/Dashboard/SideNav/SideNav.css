@@ -238,7 +238,13 @@ div#edit-user > i {
 
 
 .developer {
-    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 30px;
+    position: absolute;
+    bottom: 0;
 }
 
 .developer > p,

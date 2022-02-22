@@ -16,7 +16,7 @@ def seed_events():
         summary='Post a/A Grad Party',
         description='Whiteboarding DS&A, anyone?',
         start_time='2022-03-12T17:00',
-        end_time='2022-03-12T08:00'
+        end_time='2022-03-12T20:00'
     )
 
     event3 = Event(

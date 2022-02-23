@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Redirect, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import { getAlbums } from '../../../../../store/albums';
 import { getEvents } from '../../../../../store/events';
@@ -59,7 +59,7 @@ const StudyGroupDash = () => {
                 return history.push('/')
             }
         }
-    }, [group, sessionUser])
+    }, [group, sessionUser, history])
 
     return (
         <>

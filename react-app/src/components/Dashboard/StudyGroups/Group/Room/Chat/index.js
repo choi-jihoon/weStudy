@@ -79,7 +79,7 @@ const Chat = () => {
                 return history.push('/')
             }
         }
-    }, [group, user]);
+    }, [group, user, history]);
 
 
     useEffect(() => {

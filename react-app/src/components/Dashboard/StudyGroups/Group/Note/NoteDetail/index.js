@@ -79,7 +79,7 @@ const NoteDetail = () => {
                 return history.push('/')
             }
         }
-    }, [group, user])
+    }, [group, user, history])
 
     return (
         <>

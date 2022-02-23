@@ -74,7 +74,7 @@ const NoteDetail = () => {
                     onChange={updateTitle}
                 // onBlur={handleSave}
                 />
-                {(user.id === note.user_id || user.id === group.owner_id) &&
+                {(user.id === note?.user_id || user.id === group?.owner_id) &&
                     <div className='edit-delete-btn-container'>
                         <DeleteNote note={note} />
                     </div>

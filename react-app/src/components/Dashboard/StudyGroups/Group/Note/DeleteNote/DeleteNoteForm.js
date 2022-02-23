@@ -11,11 +11,10 @@ function DeleteNoteForm({ showModal, note }) {
         e.preventDefault();
         e.stopPropagation();
 
-        history.push(`/groups/${note.group_id}`)
-        await dispatch(deleteNote(note.id));
-
-
+        dispatch(deleteNote(note.id));
         showModal(false);
+        history.push(`/groups/${note.group_id}`);
+
     };
 
     const handleCancelClick = async (e) => {

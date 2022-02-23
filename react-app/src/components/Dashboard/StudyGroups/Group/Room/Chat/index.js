@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import { io } from 'socket.io-client';
 
 import { getAlbums } from '../../../../../../store/albums';
@@ -16,6 +16,7 @@ let socket;
 const Chat = () => {
     const { roomId, groupId } = useParams();
     const dispatch = useDispatch();
+    const history = useHistory();
 
     let chats;
 
@@ -25,12 +26,6 @@ const Chat = () => {
     const groups = useSelector(state => state.groups);
     const group = groups[groupId]
 
-    const checkAccess = () => {
-        if (group?.user_ids.includes(user.id)) {
-            return true;
-        }
-        else return false;
-    }
 
     const chatsObj = useSelector(state => state.chats);
     if (chatsObj.byRoomId[roomId]) {
@@ -69,7 +64,22 @@ const Chat = () => {
         setMessages([]);
 
         scroll();
-    }, [dispatch, roomId, groupId])
+    }, [dispatch, roomId, groupId]);
+
+    useEffect(() => {
+        const checkAccess = (group) => {
+            if (group.user_ids.includes(user.id)) {
+                return true;
+            }
+            else return false;
+        }
+
+        if (user && group) {
+            if (!checkAccess(group)) {
+                return history.push('/')
+            }
+        }
+    }, [group, user]);
 
 
     useEffect(() => {
@@ -90,9 +100,6 @@ const Chat = () => {
         })
     }, [roomId, user.username]);
 
-    if (!checkAccess()) {
-        return <Redirect to='/' />
-    }
 
     return (
         <>

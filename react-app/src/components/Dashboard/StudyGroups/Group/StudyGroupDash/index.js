@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 
 import { getAlbums } from '../../../../../store/albums';
 import { getEvents } from '../../../../../store/events';
@@ -18,18 +18,12 @@ import './StudyGroupDash.css';
 
 const StudyGroupDash = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
     const { groupId } = useParams();
     const groups = useSelector(state => state.groups);
     const notes = useSelector(state => state.notes);
     const group = groups[groupId];
     const sessionUser = useSelector(state => state.session.user);
-
-    const checkAccess = () => {
-        if (group?.user_ids.includes(sessionUser.id)) {
-            return true;
-        }
-        else return false;
-    }
 
 
     const compare = (a, b) => {
@@ -43,6 +37,7 @@ const StudyGroupDash = () => {
     }
     const sorted = group?.users.sort(compare);
 
+
     useEffect(() => {
         dispatch(getGroup(groupId));
         dispatch(getRooms(groupId));
@@ -51,30 +46,42 @@ const StudyGroupDash = () => {
         dispatch(getAlbums(groupId));
     }, [dispatch, groupId]);
 
-    if (!checkAccess()) {
-        return <Redirect to='/' />
-    }
+    useEffect(() => {
+        const checkAccess = (group) => {
+            if (group.user_ids.includes(sessionUser.id)) {
+                return true;
+            }
+            else return false;
+        }
+
+        if (sessionUser && group) {
+            if (!checkAccess(group)) {
+                return history.push('/')
+            }
+        }
+    }, [group, sessionUser])
 
     return (
-        <> {group &&
-                    <div className='study-group-title-container'>
-                        <div className='study-group-title'>
-                            <h2>{group.group_name}</h2>
-                        </div>
-                        <div className='study-group-title-btn-container'>
-                            <AddUserToGroupModal group={group} />{sessionUser.id !== group.owner_id &&
-                                <LeaveGroupModal group={group} />
-                            }
-                        </div>
-                        {sessionUser.id === group.owner_id &&
-                            <div className='sg-edit-del-btn-container'>
-                                <EditGroupModal group={group} />
-                                <DeleteGroupModal group={group} />
-                            </div>
+        <>
+            {group &&
+                <div className='study-group-title-container'>
+                    <div className='study-group-title'>
+                        <h2>{group.group_name}</h2>
+                    </div>
+                    <div className='study-group-title-btn-container'>
+                        <AddUserToGroupModal group={group} />{sessionUser.id !== group.owner_id &&
+                            <LeaveGroupModal group={group} />
                         }
                     </div>
+                    {sessionUser.id === group.owner_id &&
+                        <div className='sg-edit-del-btn-container'>
+                            <EditGroupModal group={group} />
+                            <DeleteGroupModal group={group} />
+                        </div>
+                    }
+                </div>
 
-        }
+            }
             {group &&
                 <div className='study-group-dash-container'>
                     <div className='sg-main-container'>
@@ -112,6 +119,7 @@ const StudyGroupDash = () => {
                 </div>
 
             }
+
         </>
     )
 }

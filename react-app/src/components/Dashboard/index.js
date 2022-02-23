@@ -22,7 +22,6 @@ const Dashboard = () => {
     const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
-
     useEffect(() => {
         dispatch(getGroups());
     }, [dispatch]);

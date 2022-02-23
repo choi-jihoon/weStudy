@@ -160,14 +160,8 @@ const notes = (state = initialState, action) => {
             return newState;
         }
 
-        case CREATE_NOTE: {
-            return updateSingleNote(state, action);
-        }
-
-        case LOAD_NOTE: {
-            return updateSingleNote(state, action);
-        }
-
+        case CREATE_NOTE:
+        case LOAD_NOTE:
         case EDIT_NOTE: {
             return updateSingleNote(state, action);
         }

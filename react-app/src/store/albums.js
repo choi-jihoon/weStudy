@@ -155,14 +155,8 @@ const albums = (state = initialState, action) => {
             return newState;
         }
 
-        case LOAD_ALBUM: {
-            return updateSingleAlbum(state, action);
-        }
-
-        case ADD_ALBUM: {
-            return updateSingleAlbum(state, action);
-        }
-
+        case LOAD_ALBUM:
+        case ADD_ALBUM:
         case EDIT_ALBUM: {
             return updateSingleAlbum(state, action);
         }

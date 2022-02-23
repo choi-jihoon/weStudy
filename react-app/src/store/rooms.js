@@ -158,14 +158,8 @@ const rooms = (state = initialState, action) => {
             return newState;
         }
 
-        case LOAD_ROOM: {
-            return updateSingleRoom(state, action);
-        }
-
-        case CREATE_ROOM: {
-            return updateSingleRoom(state, action);
-        }
-
+        case LOAD_ROOM:
+        case CREATE_ROOM:
         case EDIT_ROOM: {
             return updateSingleRoom(state, action);
         }

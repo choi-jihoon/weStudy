@@ -219,26 +219,11 @@ const groups = (state = initialState, action) => {
             return newState;
         }
 
-        case LOAD_GROUP: {
-            return updateSingleGroup(state, action);
-        }
-
-        case CREATE_GROUP: {
-            return updateSingleGroup(state, action);
-        }
-
-        case EDIT_GROUP: {
-            return updateSingleGroup(state, action);
-        }
-
-        case ADD_TO_GROUP: {
-            return updateSingleGroup(state, action);
-        }
-
-        case REMOVE_FROM_GROUP: {
-            return updateSingleGroup(state, action);
-        }
-
+        case LOAD_GROUP:
+        case CREATE_GROUP:
+        case EDIT_GROUP:
+        case ADD_TO_GROUP:
+        case REMOVE_FROM_GROUP:
         case LEAVE_GROUP: {
             return updateSingleGroup(state, action);
         }

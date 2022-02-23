@@ -202,18 +202,9 @@ const events = (state = initialState, action) => {
             return newState;
         }
 
-        case CREATE_EVENT: {
-            return updateSingleEvent(state, action);
-        }
-
-        case EDIT_EVENT: {
-            return updateSingleEvent(state, action);
-        }
-
-        case JOIN_EVENT: {
-            return updateSingleEvent(state, action);
-        }
-
+        case CREATE_EVENT:
+        case EDIT_EVENT:
+        case JOIN_EVENT:
         case LEAVE_EVENT: {
             return updateSingleEvent(state, action);
         }

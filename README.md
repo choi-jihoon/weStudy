@@ -121,6 +121,8 @@ Group owners have access to full CRUD for features contained within their group,
 
 For example, the owner of a group can delete any room, note, event, or album created within the group. A group member can only delete a room, note, event, or album that they have created.
 
+Note: The NOTES feature allows any user to edit and save a note within the group, as the purpose for notes shared within a study group is for them to be a collaborative space. DELETING a note is reserved for the note creator and the group owner.
+
 
 
 ## Image Sharing with AWS S3

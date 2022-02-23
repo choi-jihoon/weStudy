@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { getNote, editNote } from '../../../../../../store/notes';
 import { getRooms } from '../../../../../../store/rooms';
 import { getAlbums } from '../../../../../../store/albums';
+import { getGroup } from '../../../../../../store/groups';
 import DeleteNote from '../DeleteNote';
 
 import './NoteDetail.css';
@@ -17,6 +18,7 @@ toast.configure();
 const NoteDetail = () => {
     const { noteId, groupId } = useParams();
     const dispatch = useDispatch();
+    const history = useHistory();
     const notes = useSelector(state => state.notes);
     const note = notes.notes[noteId];
     const user = useSelector(state => state.session.user);
@@ -25,12 +27,6 @@ const NoteDetail = () => {
     const [title, setTitle] = useState('');
     const [noteText, setNoteText] = useState('');
 
-    const checkAccess = () => {
-        if (group?.user_ids.includes(user.id)) {
-            return true;
-        }
-        else return false;
-    }
 
     const notify = () => {
         toast(`Your edits have been saved!`, {
@@ -53,6 +49,7 @@ const NoteDetail = () => {
     }
 
     useEffect(() => {
+        dispatch(getGroup(groupId));
         dispatch(getNote(noteId));
         dispatch(getRooms(groupId));
         dispatch(getAlbums(groupId));
@@ -69,9 +66,20 @@ const NoteDetail = () => {
         }
     }, [note]);
 
-    if (!checkAccess()) {
-        return <Redirect to='/' />
-    }
+    useEffect(() => {
+        const checkAccess = (group) => {
+            if (group.user_ids.includes(user.id)) {
+                return true;
+            }
+            else return false;
+        }
+
+        if (user && group) {
+            if (!checkAccess(group)) {
+                return history.push('/')
+            }
+        }
+    }, [group, user])
 
     return (
         <>

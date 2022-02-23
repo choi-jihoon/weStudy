@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 
 import { getAlbums } from '../../../../../store/albums';
 import { getEvents } from '../../../../../store/events';
@@ -23,6 +23,14 @@ const StudyGroupDash = () => {
     const group = groups[groupId];
     const sessionUser = useSelector(state => state.session.user);
 
+    const checkAccess = () => {
+        if (group?.user_ids.includes(sessionUser.id)) {
+            return true;
+        }
+        else return false;
+    }
+
+
     const compare = (a, b) => {
         if (a.username < b.username) {
             return -1;
@@ -41,6 +49,10 @@ const StudyGroupDash = () => {
         dispatch(getEvents(groupId));
         dispatch(getAlbums(groupId));
     }, [dispatch, groupId]);
+
+    if (!checkAccess()) {
+        return <Redirect to='/' />
+    }
 
     return (
         <> {group &&

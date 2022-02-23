@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
@@ -19,6 +19,15 @@ const Events = () => {
 
     const eventsObj = useSelector(state => state.events);
     const groupsObj = useSelector(state => state.groups);
+    const sessionUser = useSelector(state => state.session.user);
+    const group = groupsObj[groupId];
+
+    const checkAccess = () => {
+        if (group?.user_ids.includes(sessionUser.id)) {
+            return true;
+        }
+        else return false;
+    }
 
     const compare = (a, b) => {
         if (new Date(a.start_time) < new Date(b.start_time)) return -1;
@@ -34,6 +43,10 @@ const Events = () => {
         dispatch(getNotes(groupId));
         dispatch(getAlbums(groupId));
     }, [dispatch, groupId])
+
+    if (!checkAccess()) {
+        return <Redirect to='/' />
+    }
 
 
     return (

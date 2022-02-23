@@ -11,9 +11,11 @@ function DeleteNoteForm({ showModal, note }) {
         e.preventDefault();
         e.stopPropagation();
 
-        dispatch(deleteNote(note.id));
+        const groupId = note.group_id
+
+        await dispatch(deleteNote(note.id));
         showModal(false);
-        history.push(`/groups/${note.group_id}`);
+        history.push(`/groups/${groupId}`);
 
     };
 

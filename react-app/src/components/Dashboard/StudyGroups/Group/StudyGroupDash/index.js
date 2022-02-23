@@ -20,6 +20,7 @@ const StudyGroupDash = () => {
     const dispatch = useDispatch();
     const { groupId } = useParams();
     const groups = useSelector(state => state.groups);
+    const notes = useSelector(state => state.notes);
     const group = groups[groupId];
     const sessionUser = useSelector(state => state.session.user);
 

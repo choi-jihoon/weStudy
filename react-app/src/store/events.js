@@ -165,7 +165,15 @@ export const leaveEvent = (eventId) => async (dispatch) => {
     }
 }
 
-
+const updateStoreForSingleEvent = (state, action) => {
+    const newState = { ...state };
+    newState.events[action.event.id] = action.event;
+    newState.byGroupId[action.event.group_id] = {
+        ...newState.byGroupId[action.event.group_id],
+        [action.event.id]: action.event
+    }
+    return newState;
+}
 
 const initialState = {
     events: {},
@@ -188,13 +196,7 @@ const events = (state = initialState, action) => {
         }
 
         case CREATE_EVENT: {
-            const newState = { ...state };
-            newState.events[action.event.id] = action.event;
-            newState.byGroupId[action.event.group_id] = {
-                ...newState.byGroupId[action.event.group_id],
-                [action.event.id]: action.event
-            }
-            return newState;
+            return updateStoreForSingleEvent(state, action);
         }
 
         case DELETE_EVENT: {
@@ -205,33 +207,15 @@ const events = (state = initialState, action) => {
         }
 
         case EDIT_EVENT: {
-            const newState = { ...state };
-            newState.events[action.event.id] = action.event;
-            newState.byGroupId[action.event.group_id] = {
-                ...newState.byGroupId[action.event.group_id],
-                [action.event.id]: action.event
-            };
-            return newState;
+            return updateStoreForSingleEvent(state, action);
         }
 
         case JOIN_EVENT: {
-            const newState = { ...state };
-            newState.events[action.event.id] = action.event;
-            newState.byGroupId[action.event.group_id] = {
-                ...newState.byGroupId[action.event.group_id],
-                [action.event.id]: action.event
-            };
-            return newState;
+            return updateStoreForSingleEvent(state, action);
         }
 
         case LEAVE_EVENT: {
-            const newState = { ...state };
-            newState.events[action.event.id] = action.event;
-            newState.byGroupId[action.event.group_id] = {
-                ...newState.byGroupId[action.event.group_id],
-                [action.event.id]: action.event
-            };
-            return newState;
+            return updateStoreForSingleEvent(state, action);
         }
 
         default:

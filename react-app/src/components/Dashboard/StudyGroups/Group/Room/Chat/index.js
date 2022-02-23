@@ -47,7 +47,7 @@ const Chat = () => {
 
     const sendChat = (e) => {
         e.preventDefault();
-        socket.emit('chat', { user: user.username, msg: chatInput, room: room?.room_name, user_image: user.image });
+        socket.emit('chat', { user: user.username, msg: chatInput, room: roomId, user_image: user.image, created_at: (new Date()).toLocaleTimeString() });
         dispatch(createChatMessage(roomId, chatInput));
         setChatInput("");
     };
@@ -74,8 +74,8 @@ const Chat = () => {
 
     useEffect(() => {
         socket = io();
-        socket.emit('join', { 'username': user.username, 'room': room?.room_name })
-        socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: room?.room_name })
+        socket.emit('join', { 'username': user.username, 'room': roomId })
+        socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: roomId })
 
         socket.on('chat', (chat) => {
             setMessages(messages => [...messages, chat]);
@@ -83,12 +83,12 @@ const Chat = () => {
         })
 
         return (() => {
-            socket.emit('leave', { 'username': user.username, 'room': room?.room_name })
-            socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has left the room.`, room: room?.room_name })
+            socket.emit('leave', { 'username': user.username, 'room': roomId })
+            socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has left the room.`, room: roomId })
 
             socket.disconnect();
         })
-    }, [roomId, room?.room_name, user.username]);
+    }, [roomId, user.username]);
 
     if (!checkAccess()) {
         return <Redirect to='/' />
@@ -125,7 +125,7 @@ const Chat = () => {
                             }
                             <div className='chat-message'>
                                 {message.user !== 'weStudy-Bot' &&
-                                    <p className='chat-username'>{message.user}<span className='created-at-msg'>{(new Date()).toLocaleTimeString()}</span></p>
+                                    <p className='chat-username'>{message.user}<span className='created-at-msg'>{message.created_at}</span></p>
                                 }
                                 <p className='chat-text'>{message.msg}</p>
                             </div>

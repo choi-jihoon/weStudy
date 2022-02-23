@@ -89,8 +89,6 @@
     align-items: center;
 }
 
-
-
 .room-container > .fa-door-open,
 .note-title > .fa-file-alt,
 .fa-users,
@@ -131,9 +129,6 @@
     font-size: 14px;
 }
 
-/* .room-with-btns > a:hover + .btn-container {
-    visibility: visible !important;
-} */
 
 #edit-room,
 #delete-room {

@@ -11,6 +11,13 @@ const CreateRoomForm = ({ setShowModal, group }) => {
 
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		const errors = {};
+		if (roomName.length > 40)
+			errors['room_name'] = 'Room name must be less than 40 characters.';
+		setErrors(errors);
+	}, [roomName]);
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const data = await dispatch(createRoom(roomName, group.id));

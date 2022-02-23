@@ -18,6 +18,15 @@ const CreateGroupForm = ({ setShowModal }) => {
 
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		const errors = {};
+		if (groupName.length > 40)
+			errors['group_name'] = 'Group name must be less than 40 characters.';
+		if (description.length > 255)
+			errors['description'] = 'Description must be less than 255 characters.';
+		setErrors(errors);
+	}, [groupName, description]);
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 

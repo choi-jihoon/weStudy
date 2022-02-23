@@ -14,9 +14,17 @@ const EditEventForm = ({ setShowModal, event }) => {
 
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		const errors = {};
+		if (summary.length > 50)
+			errors['summary'] = 'Event title must be less than 50 characters.';
+		if (description.length > 255)
+			errors['description'] = 'Event description must be less than 255 characters.'
+		setErrors(errors);
+	}, [summary, description]);
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-
 
 		const data = await dispatch(editEvent(
             event.id,

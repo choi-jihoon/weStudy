@@ -126,7 +126,7 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 			</div>
 			<div className='event-btns-container'>
 				<button id='event-submit' type="submit">Create Event</button>
-				<button className='cancel-btn' onClick={handleCancelClick}>Cancel</button>
+				<button id='event-submit-cancel' className='cancel-btn' onClick={handleCancelClick}>Cancel</button>
 			</div>
 
 		</form>

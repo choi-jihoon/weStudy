@@ -128,7 +128,10 @@ export const deleteAlbum = (albumId) => async (dispatch) => {
 const updateSingleAlbum = (state, action) => {
     const newState = { ...state };
     newState.albums[action.album.id] = action.album;
-    newState.byGroupId[action.album.group_id][action.album.id] = action.album;
+    newState.byGroupId[action.album.group_id] = {
+        ...newState.byGroupId[action.album.group_id],
+        [action.album.id]: action.album
+    }
     return newState;
 }
 

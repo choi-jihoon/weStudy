@@ -124,7 +124,10 @@ export const editRoom = (roomId, room_name) => async (dispatch) => {
 const updateSingleRoom = (state, action) => {
     const newState = { ...state };
     newState.rooms[action.room.id] = action.room;
-    newState.byGroupId[action.room.group_id][action.room.id] = action.room;
+    newState.byGroupId[action.room.group_id] = {
+        ...newState.byGroupId[action.room.group_id],
+        [action.room.id]: action.room
+    }
     return newState;
 };
 

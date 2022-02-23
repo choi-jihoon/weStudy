@@ -126,7 +126,7 @@ const EditEventForm = ({ setShowModal, event }) => {
 
 				<div className='event-btns-container'>
 				<button id='event-submit' type="submit">Save</button>
-				<button className='cancel-btn' onClick={handleCancelClick}>Cancel</button>
+				<button id='event-submit-cancel' className='cancel-btn' onClick={handleCancelClick}>Cancel</button>
 			</div>
 			</div>
 

@@ -5,7 +5,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { getNote, editNote } from '../../../../../../store/notes';
+import { getNote, editNote, getNotes } from '../../../../../../store/notes';
 import { getRooms } from '../../../../../../store/rooms';
 import { getAlbums } from '../../../../../../store/albums';
 import { getGroup } from '../../../../../../store/groups';
@@ -53,6 +53,7 @@ const NoteDetail = () => {
         dispatch(getNote(noteId));
         dispatch(getRooms(groupId));
         dispatch(getAlbums(groupId));
+        dispatch(getNotes(groupId));
     }, [dispatch, noteId, groupId]);
 
     useEffect(() => {

@@ -27,7 +27,6 @@ const LoginForm = () => {
 		}
 	};
 
-
 	const updateEmail = (e) => {
 		setEmail(e.target.value);
 	};

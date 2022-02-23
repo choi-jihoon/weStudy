@@ -26,9 +26,7 @@ form.login-form {
 	border-radius: 10px;
 	padding: 10px;
 	border: none;
-	/* border: 1px solid var(--side-panel-text); */
 	color: var(--side-panel);
-
 	transition: all 0.2s ease-in-out;
 }
 
@@ -47,8 +45,6 @@ button#login-account {
 	border-radius: 15px;
 	font-size: 20px;
 	padding: 10px 40px;
-
-
 }
 
 button#login-account:hover {

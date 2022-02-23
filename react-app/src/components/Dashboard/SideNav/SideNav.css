@@ -23,7 +23,6 @@
     background-color: var(--side-panel-hover);
 }
 
-
 .side-panel-nav-links > a > li,
 .room-container,
 .side-panel-nav-links > ul > a > li,
@@ -230,7 +229,6 @@ div#edit-user:hover {
 div#edit-user > i {
     color: var(--header-text);
 }
-
 
 .developer {
     display: flex;

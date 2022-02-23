@@ -36,38 +36,25 @@
     background-color: var(--side-panel-hover);
 }
 
-
 .all-events-container {
     display: flex;
     height: 100%;
     padding: 50px;
     width: 100%;
-
-
-
     flex-direction: column;
-
     overflow-y: scroll;
-
     flex-wrap: wrap;
 }
 
 .event-container {
     border-radius: 5px;
-    /* width: 380px; */
     min-height: fit-content;
-    /* height: 500px; */
-    /* margin-right: 40px; */
     margin-bottom: 40px;
 
     display: grid;
     grid-template-columns: 200px auto;
     width: 70%;
     min-width: 850px;
-
-    /* grid-template-rows: 50px auto; */
-
-    /* box-shadow: 5px 5px 5px rgba(87, 87, 87, 0.808); */
 
     border-radius: 10px;
     position: relative;
@@ -86,11 +73,6 @@ h3.event-month {
     font-size: 25px;
 }
 
-/* .event-container:hover {
-    transform: scale(1.05);
-    transform: rotate(1deg);
-} */
-
 .event-summary {
     background-color: var(--top-highlight);
     display: flex;
@@ -100,11 +82,9 @@ h3.event-month {
     border-radius: 5px 0 0 5px;
 }
 
-
 .event-body {
     position: relative;
     height: 100%;
-    /* background-color: var(--top-highlight); */
     background-color: whitesmoke;
     padding: 30px;
 
@@ -196,9 +176,7 @@ h3.event-month {
     border-radius: 20px;
     font-size: 15px;
     cursor: pointer;
-    /* padding: 5px 0; */
     color: white;
-    /* width: 70%; */
     width: 20px;
 }
 
@@ -206,14 +184,6 @@ h3.event-month {
 #leave-event:hover {
     transform: scale(1.05);
 }
-
-/* .calendar-container > button {
-    font-size: 20px;
-    width: 50px;
-    padding: 5px 0;
-    background: linear-gradient(-120deg, #4285f4, #34a853, #fbbc05, #ea4335);
-    margin-top: 30px;
-} */
 
 .calendar-container > button > i {
     color: white;
@@ -230,7 +200,6 @@ h3.event-month {
     font-weight: bold;
 
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
 
 }
@@ -262,11 +231,6 @@ div.event-label.attendees-label {
     align-items: center;
     justify-content: center;
     width: 100%;
-    /* height: 100%; */
-
-    /* position: absolute;
-    bottom: 30px;
-    right: 0; */
 }
 
 .event-description {
@@ -327,9 +291,7 @@ div.event-label.attendees-label {
     display: flex;
     justify-content: center;
     opacity: 0;
-
     font-weight: normal;
-
 }
 
 .google-calendar-icon > img:hover + .add-to-google-cal {
@@ -352,7 +314,6 @@ div.event-label.attendees-label {
     align-items: center;
     background-color: var(--rhythm);
     margin: 5px;
-
 }
 
 .attendee-pic-container img {

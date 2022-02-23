@@ -6,7 +6,6 @@ nav {
     height: 150px;
     justify-content: center;
     align-items: center;
-    /* background-color: var(--nav-color); */
     background-color: transparent;
 }
 

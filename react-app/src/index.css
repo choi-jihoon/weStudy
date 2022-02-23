@@ -12,7 +12,6 @@
 	--terra-cotta: #ED6A5A;
 
 	--base-color: #1A1D21;
-	/* --main-text-color: #F1FAEE; */
 	--main-text-color: #CFD0D1;
 	--nav-color: #912F40;
 	--button-color: #0F7173;
@@ -32,22 +31,16 @@
 	--top-lighter-highlight: #646260;
 	--header-text: #CFD0D1;
 
-
 	--chat-box-container: #222529;
 	--chat-box-placeholder: #6F7073;
 	--chat-box-hover: #222529;
-
-
+	--chat-container: #6b5c6e5d;
 
 	--send-message: #007A5A;
 	/* CHOCO MINT SLACK THEME */
 
 
-	--chat-container: #6b5c6e5d;
-
 	--toastify-color-light: #383D59;
-
-
 }
 
 *,
@@ -85,7 +78,6 @@ a:active {
 
 button {
 	border: none;
-	/* background-color: var(--button-color); */
 	padding: 5px 10px;
 	cursor: pointer;
 	border-radius: 3px;
@@ -97,12 +89,9 @@ button {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	/* height: 100%; */
 	width: 100%;
 	background-color: var(--base-color);
 	position: absolute;
-
-
 	height: 100vh;
 }
 
@@ -123,7 +112,6 @@ button {
 	height: 100%;
 	object-fit: cover;
 }
-
 
 form > div {
 	color: var(--raisin-black);

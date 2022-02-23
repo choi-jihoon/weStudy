@@ -1,7 +1,6 @@
 .create-image-form-container {
     height: 600px;
     width: 900px;
-
     display: grid;
     grid-template-columns: 600px 300px;
 }
@@ -40,14 +39,12 @@
     cursor: pointer;
 }
 
-
 .if-add-image-container {
     height: 100%;
     position: relative;
     border-radius: 7px 0 0 7px;
     display: flex;
     justify-content: center;
-
 }
 
 .preview-container.image,
@@ -58,7 +55,6 @@
 	object-fit: cover;
     background-color: rgba(128, 128, 128, 0.363);
 }
-
 
 .post-image-btn-container {
     display: flex;

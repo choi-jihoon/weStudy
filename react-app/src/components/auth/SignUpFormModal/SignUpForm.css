@@ -1,12 +1,9 @@
 form.signup-form {
 	width: 800px;
-
 	display: grid;
 	grid-template-columns: 55% 45%;
 	grid-template-rows: 100%;
-
 	border-radius: 10px;
-
 }
 
 .signup-form-image {
@@ -16,15 +13,12 @@ form.signup-form {
 	width: 100%;
 	height: 100%;
 	background-color: var(--side-panel-text);
-
 	border-radius: 7px 0 0 7px;
 }
 
 .signup-form-image > img {
 	width: 80%;
-
 }
-
 
 .form-content {
 	width: 100%;
@@ -33,7 +27,6 @@ form.signup-form {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-
 	padding: 30px 0;
 }
 
@@ -61,8 +54,6 @@ form.signup-form {
 	padding: 10px;
 	border: none;
 	color: var(--side-panel);
-
-	transition: all 0.2s ease-in-out;
 }
 
 .signup-element-container > input:focus {
@@ -72,7 +63,6 @@ form.signup-form {
 .signup-element-container > input:focus::placeholder {
 	color: var(--side-panel-text);
 }
-
 
 .sf-btn-container {
 	display: flex;
@@ -111,8 +101,6 @@ button#create-account:hover,
 	justify-content: center;
 }
 
-
-
 .sf-add-image-container > input[type="file"] {
     display: none;
 }
@@ -120,20 +108,10 @@ button#create-account:hover,
 .preview-container {
 	width: 100px;
 	height: 100px;
-	/* max-height: 100px; */
 	border-radius: 50%;
 	object-fit: cover;
 	background-color: rgba(128, 128, 128, 0.363);
 }
-
-/* .preview-image,
-.preview-container {
-	width: 100px;
-	height: 100px;
-	max-height: 100px;
-	border-radius: 50%;
-	object-fit: cover;
-} */
 
 .sf-add-image-container > label {
     color: var(--oxford-blue);

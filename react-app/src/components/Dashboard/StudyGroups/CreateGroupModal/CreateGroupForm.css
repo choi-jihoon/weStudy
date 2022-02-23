@@ -26,8 +26,6 @@
     padding-bottom: 20px;
 }
 
-
-
 .form-element-container > input {
     width: 100%;
 	height: 40px;
@@ -48,8 +46,6 @@
 .form-element-container > input:focus::placeholder {
     color: var(--side-panel-text);
 }
-
-
 
 button#create-group {
     padding: 10px 40px;
@@ -77,11 +73,6 @@ button.cancel-btn {
     margin-top: 10px;
 }
 
-
-
-
-
-
 .gf-add-image-container > input[type="file"] {
     display: none;
 }
@@ -98,7 +89,6 @@ button.cancel-btn {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-
 }
 
 .gf-add-image-container > label:hover {
@@ -116,14 +106,11 @@ button.cancel-btn {
     cursor: pointer;
 }
 
-
 .gf-add-image-container {
     height: 100%;
     position: relative;
     border-radius: 0 7px 7px 0;
-
 }
-
 
 .preview-image.group,
 .preview-container.group {

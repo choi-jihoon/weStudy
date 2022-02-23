@@ -13,6 +13,13 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 
 	const user = useSelector(state => state.session.user);
 
+	useEffect(() => {
+		const errors = {};
+		if (title.length > 40)
+			errors['note_title'] = 'Note title must be less than 40 characters.';
+		setErrors(errors);
+	}, [title]);
+
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -54,7 +61,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 					required
 				/>
 				<div className='errors-container'>
-					{errors.group_name ? `${errors.group_name}` : ""}
+					{errors.note_title ? `${errors.note_title}` : ""}
 				</div>
 			</div>
 			<button id='create-note-submit' type="submit">New Note</button>

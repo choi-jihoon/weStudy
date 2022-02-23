@@ -9,6 +9,13 @@ const EditAlbumForm = ({ setShowModal, album }) => {
 
 	const dispatch = useDispatch();
 
+	useEffect(() => {
+		const errors = {};
+		if (title.length > 40)
+			errors['title'] = 'Album title must be less than 40 characters.';
+		setErrors(errors);
+	}, [title]);
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const data = await dispatch(editAlbum(album.id, album.group_id, title));

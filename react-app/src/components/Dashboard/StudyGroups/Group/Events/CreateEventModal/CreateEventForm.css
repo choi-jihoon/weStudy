@@ -12,6 +12,9 @@ form > .event-btns-container {
     width: 100%;
 }
 
+#event-submit-cancel {
+    width: 100% !important;
+}
 
 button#event-submit {
     padding: 10px 40px;

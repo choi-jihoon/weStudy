@@ -1,38 +1,8 @@
-/* .chat-and-input-container {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    position: absolute;
-    top: 100px;
-    height: calc(100vh - 100px);
-    padding: 50px;
-    margin-bottom: 200px;
-} */
-
-/* .chat-room-container {
-
-    bottom: 10vh;
-    width: 80%;
-    display: flex;
-    max-height: calc(100vh - 220px);
-    height: calc(100vh - 220px);
-    flex-direction: column;
-
-    overflow-y: scroll;
-    border: 1px solid var(--raisin-black);
-    border-radius: 5px;
-    box-shadow: 5px 5px 10px rgb(94, 94, 94);
-    padding: 25px;
-    background-color: var(--chat-container);
-} */
-
 .chat-room-container {
-    /* max-height: 100vh; */
     height: 100%;
 
     display: grid;
     grid-template-rows: calc(100vh - 211px) 100px;
-    /* overflow-y: scroll; */
 }
 
 .chat-header-container {
@@ -50,18 +20,13 @@ h2.room-name {
 }
 
 .chat-messages-container {
-    /* max-height: calc(100vh - 200px); */
     overflow-y: scroll;
-    /* border-top: 1px solid var(--side-panel-text); */
     padding: 20px 0;
 }
 
 .chat-input-form {
     height: 100%;
     padding: 15px;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
     position: relative;
 }
 
@@ -96,7 +61,6 @@ h2.room-name {
     height: 50px;
     border-radius: 20%;
     background-color: aliceblue;
-
 }
 
 .right {
@@ -120,23 +84,6 @@ h2.room-name {
 .chat-msg:hover {
     background-color: var(--chat-box-hover);
 }
-
-/* .chat-input-form {
-    width: 81%;
-    display: flex;
-    padding: 20px 0;
-    bottom: 5%;
-}
-
-.chat-input-form > input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.chat-input-form > button {
-    right: 0;
-} */
 
 .chat-msg {
     padding: 10px;
@@ -172,7 +119,6 @@ h2.room-name {
 }
 
 .chat-username {
-    /* font-style: italic; */
     font-weight: bold;
 }
 

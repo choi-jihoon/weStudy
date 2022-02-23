@@ -1,11 +1,9 @@
 .all-groups-container {
-
     height: 100%;
     overflow-y: scroll;
 
     min-height: fit-content;
     background-color: var(--base-color);
-    /* padding: 40px 0; */
 
     grid-area: content;
 
@@ -42,8 +40,6 @@
     border-radius: 5px;
 
     padding: 50px 150px;
-    /* margin: 50px 0; */
-    /* background-color: var(--); */
     width: 100%;
     height: 200px;
 
@@ -58,9 +54,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: 30% 70%;
-
     min-width: 619px;
-
 }
 
 .group-title-container {
@@ -91,8 +85,6 @@
 .group-container:hover > .group-btn-container {
     opacity: 1;
 }
-
-
 
 #edit-group,
 #delete-group {

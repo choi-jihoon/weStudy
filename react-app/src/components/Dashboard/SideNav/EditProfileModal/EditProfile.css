@@ -36,19 +36,6 @@
 
 }
 
-
-/* .edit-image-form > form > label {
-	width: 200px;
-	height: 30px;
-	text-align: center;
-	color: var(--main-container);
-	background-color: var(--dark-blue);
-	border-radius: 25px;
-	padding: 2px 4px;
-	margin-top: 20px;
-	transition: all 0.2s ease-in-out;
-} */
-
 .edit-image-form > form > label:hover {
 	transform: scale(1.1);
 	cursor: pointer;

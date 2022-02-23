@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom';
 import './PageNotFound.css';
 
 const PageNotFound = () => {
-
-
     return (
         <div className='page-not-found'>
             <h2 id='pnf-text'>Nothing exists on this page.</h2>

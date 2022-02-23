@@ -29,6 +29,5 @@
     align-items: center;
     height: fit-content;
 
-    /* box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.9); */
     box-shadow: 10px 10px 20px rgb(37, 37, 37);
 }

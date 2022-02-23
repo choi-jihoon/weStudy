@@ -1,5 +1,4 @@
 .page-not-found {
-
 	width: 100%;
 	height: 50%;
     grid-area: content;
@@ -7,7 +6,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
 h2#pnf-text {
@@ -21,7 +19,6 @@ h2#pnf-text {
     background-color: var(--side-panel-selected);
     color: white;
     font-size: 30px;
-
     transition: all 2s ease-in-out;
 }
 

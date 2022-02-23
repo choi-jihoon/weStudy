@@ -1,36 +1,26 @@
 .splash-page-container {
-    /* top: 100px; */
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     height: 100%;
     width: 100%;
-
     position: relative;
-
     background-color: var(--main-container);
 }
 
 .title-container {
     align-self: flex-start;
-
     position: absolute;
     top: 150px;
-
     width: 100%;
     height: 40vh;
     border-top: 1px solid var(--side-panel-text);
     border-bottom: 1px solid var(--side-panel-text);
     padding: 30px 0 0 100px;
-    /* margin-bottom: 200px; */
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-
-    /* background-color: var(--side-panel); */
     position: relative;
 
 }
@@ -40,17 +30,11 @@
     align-items: center;
     position: absolute;
     bottom: -10%;
-
-
 }
 
 .title-image > h1 {
-    /* font-size: 13vw; */
     font-family: proxima-nova, sans-serif;
-
-    /* font-weight: 400; */
     font-size: 200px;
-
 }
 
 .title-container > h4 {
@@ -60,14 +44,10 @@
     color: var(--side-panel-text);
 }
 
-
 .title-image > img {
-    /* height: 100px; */
-    /* width: 10vw; */
     width: 175px;
     margin-left: 50px;
 }
-
 
 .splash-page-nav-links {
     display: flex;
@@ -80,7 +60,6 @@
 
 #login,
 #signup {
-    /* font-size: 3vh; */
     font-size: 20px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
@@ -92,8 +71,6 @@
     transform: scale(1.1);
 }
 
-
-
 .splash-page-footer {
     background-color: var(--header-text);
     position: fixed;
@@ -104,8 +81,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    /* color: var(--header-text); */
 }
 
 .technologies {
@@ -165,12 +140,3 @@
     color: var(--side-panel-selected);
     transform: scale(1.1);
 }
-
-/* .footer-text {
-    transition-duration: 0.2s;
-} */
-
-/* .footer-text:hover {
-    color: white;
-    transform: scale(1.1);
-} */

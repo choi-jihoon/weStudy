@@ -3,8 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { editGroup } from "../../../../../store/groups";
 
-import "./EditGroupForm.css";
-
 const EditGroupForm = ({ setShowModal, group }) => {
 	const [errors, setErrors] = useState({});
 	const [groupName, setGroupName] = useState(group.group_name);

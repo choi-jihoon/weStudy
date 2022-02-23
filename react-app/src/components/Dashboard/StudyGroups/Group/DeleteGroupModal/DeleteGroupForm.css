@@ -15,7 +15,6 @@
     font-size: 25px;
 }
 
-
 .dc-btn-container {
     display: flex;
     justify-content: space-between;
@@ -33,8 +32,6 @@
     color: var(--header-text);
 }
 
-
-
 .form-delete-btn,
 .form-cancel-btn {
     padding: 5px 30px;
@@ -42,7 +39,6 @@
     transition: all 0.2s ease-in-out;
     width: 180px;
 }
-
 
 .form-delete-btn:hover,
 .form-cancel-btn:hover {

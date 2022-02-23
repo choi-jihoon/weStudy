@@ -25,8 +25,6 @@ function App() {
     return null;
   }
 
-  console.log(wacky);
-
   return (
     <BrowserRouter>
       <Switch>

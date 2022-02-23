@@ -19,7 +19,8 @@ h1.title-text-2 {
     width: 10vw;
 }
 
-.sign-up-modal-head2 {
+.sign-up-modal-head2,
+.login-modal-head2 {
     font-size: 3vh;
 }
 
@@ -78,11 +79,13 @@ h1.title-text-2 {
     height: 100%;
 }
 
-.signup-form-elements-container2 {
+.signup-form-elements-container2,
+.login-form-elements-container2 {
     width: 100%;
 }
 
-.signup-element-container2 {
+.signup-element-container2,
+.login-element-container2 {
     width: 100%;
     height: 5vh;
 
@@ -114,28 +117,59 @@ h1.title-text-2 {
     color: var(--side-panel-text);
 }
 
-.sf-btn-container2 {
-    margin-top: 20px;
-}
 
-button#create-account2 {
+
+button#create-account2,
+button#login-account2 {
     background-color: var(--side-panel-selected);
     color: white;
     width: 100%;
     font-size: 25px;
     border-radius: 7px;
-    margin-top: 10px;
 }
 
 button#create-account2:hover {
     transform: scale(1.05);
 }
 
-.sf-btn-container2 p {
-    color: var(--main-container);
-    cursor: pointer;
+.sf-btn-container2 {
+    padding: 20px 0;
 }
 
+.sf-btn-container2 p,
+.sf-btn-container2 p > i {
+    color: var(--main-container);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    align-items: center;
+}
+
+.sf-btn-container2 p {
+    margin-top: 5px;
+}
+
+.sf-btn-container2 p:hover {
+    color: var(--side-panel-selected);
+}
+
+.sf-btn-container2 p:hover > i {
+    color: var(--side-panel-selected);
+}
+
+.demo-button {
+    color: var(--main-container);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    padding-top: 3px;
+    font-weight: bold;
+}
+
+.demo-button:hover {
+    color: var(--terra-cotta);
+}
 
 
 

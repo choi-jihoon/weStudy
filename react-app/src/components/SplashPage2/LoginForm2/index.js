@@ -75,7 +75,7 @@ const LoginForm2 = ({ handleBackToSignup }) => {
 					</div>
 					<div className="sf-btn-container2">
 						<button id='login-account2' type="submit">Login</button>
-                        <p onClick={handleBackToSignup}>No account?</p>
+                        <p onClick={handleBackToSignup}>No account? Sign up for free!</p>
 						<DemoLogin />
 					</div>
 				</div>

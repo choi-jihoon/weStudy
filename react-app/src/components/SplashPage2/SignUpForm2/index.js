@@ -148,7 +148,7 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 
 				<div className="sf-btn-container2">
 					<button id='create-account2' type="submit">Create Account</button>
-					<p onClick={goToLoginForm}>Already have an account?</p>
+					<p onClick={goToLoginForm}>Already have an account? <i className="far fa-arrow-alt-circle-right"></i> </p>
 					<DemoLogin />
 				</div>
 			</div>

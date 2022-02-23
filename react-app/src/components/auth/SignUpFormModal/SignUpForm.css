@@ -80,8 +80,7 @@ button#create-account {
 	width: 288px;
 }
 
-button#create-account:hover,
-.demo-button:hover {
+button#create-account:hover {
 	transform: scale(1.05);
 }
 

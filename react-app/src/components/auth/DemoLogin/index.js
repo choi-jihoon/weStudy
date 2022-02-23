@@ -17,7 +17,7 @@ function DemoLogin() {
 
     return (
         <div className='demo-button' onClick={loginDemo}>
-            Demo User
+            Demo Login
         </div>
     )
 }

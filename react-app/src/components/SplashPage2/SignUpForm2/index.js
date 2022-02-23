@@ -17,7 +17,6 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 
 	const dispatch = useDispatch();
 
-
 	const onSignUp = async (e) => {
 		e.preventDefault();
 		const formData = new FormData();
@@ -51,18 +50,22 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 
 	const updateUsername = (e) => {
 		setUsername(e.target.value);
+		setErrors({});
 	};
 
 	const updateEmail = (e) => {
 		setEmail(e.target.value);
+		setErrors({});
 	};
 
 	const updatePassword = (e) => {
 		setPassword(e.target.value);
+		setErrors({});
 	};
 
 	const updateRepeatPassword = (e) => {
 		setRepeatPassword(e.target.value);
+		setErrors({});
 	};
 
 	useEffect(() => {
@@ -95,7 +98,7 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 								required={true}
 
 							></input>
-							<div className="errors-container">
+							<div className="errors-container2">
 								{errors.username ? `${errors.username}` : ""}
 							</div>
 						</div>
@@ -110,7 +113,7 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 								required={true}
 
 							></input>
-							<div className="errors-container">
+							<div className="errors-container2">
 								{errors.email ? `${errors.email}` : ""}
 							</div>
 						</div>
@@ -136,7 +139,7 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 								value={repeatPassword}
 								required={true}
 							></input>
-							<div className="errors-container">
+							<div className="errors-container2">
 								{errors.password ? `${errors.password}` : ""}
 							</div>
 						</div>

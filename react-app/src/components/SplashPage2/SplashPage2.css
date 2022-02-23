@@ -2,7 +2,7 @@
     width: 75%;
     height: 100%;
     display: grid;
-    grid-template-columns: 67% 33%;
+    grid-template-columns: 70% 30%;
 }
 
 .title-container-2 {
@@ -16,8 +16,7 @@ h1.title-text-2 {
 }
 
 #logo {
-    width: 100px;
-    height: 100px;
+    width: 10vw;
 }
 
 .sign-up-modal-head2 {
@@ -45,11 +44,11 @@ h1.title-text-2 {
 
 .form-container1 {
     display: flex;
-    /* transform: translateX(-50%); */
 }
 
 .form-container2 {
     min-width: 22vw;
+    min-height: fit-content;
 }
 
 
@@ -61,6 +60,16 @@ h1.title-text-2 {
     align-items: center;
     height: 50vh;
     min-width: 22vw;
+    min-height: fit-content;
+}
+
+.errors-container2 {
+    z-index: 200;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    color: red;
+    font-size: 12px;
 }
 
 .form-content2 {
@@ -78,6 +87,7 @@ h1.title-text-2 {
     height: 5vh;
 
     margin: 1vh 0;
+    position: relative;
 }
 
 .signup-element-container2 > input,
@@ -104,14 +114,29 @@ h1.title-text-2 {
     color: var(--side-panel-text);
 }
 
+.sf-btn-container2 {
+    margin-top: 20px;
+}
+
 button#create-account2 {
     background-color: var(--side-panel-selected);
     color: white;
     width: 100%;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 7px;
     margin-top: 10px;
 }
+
+button#create-account2:hover {
+    transform: scale(1.05);
+}
+
+.sf-btn-container2 p {
+    color: var(--main-container);
+    cursor: pointer;
+}
+
+
 
 
 .show-signup {

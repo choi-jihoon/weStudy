@@ -10,6 +10,7 @@ import NoteDetail from './StudyGroups/Group/Note/NoteDetail';
 import SideNav from './SideNav';
 import StudyGroupDash from './StudyGroups/Group/StudyGroupDash';
 import StudyGroups from './StudyGroups';
+import PageNotFound from '../PageNotFound';
 
 import { getGroups } from '../../store/groups';
 
@@ -30,11 +31,11 @@ const Dashboard = () => {
 
         socket.emit('login', { 'id': sessionUser.id, 'username': sessionUser.username, 'room': 'we-study', 'online': true })
         // console.log('connecting', sessionUser.username)
-        socket.on('login', (online_status) => {
+        socket.on('login', (status) => {
             dispatch(getGroups());
         });
 
-        socket.on('logout', (online_status) => {
+        socket.on('logout', (status) => {
             dispatch(getGroups());
         })
 
@@ -68,6 +69,9 @@ const Dashboard = () => {
                     </Route>
                     <Route exact path='/groups/:groupId/albums/:albumId'>
                         <AlbumDetail />
+                    </Route>
+                    <Route>
+                        <PageNotFound />
                     </Route>
                 </Switch>
             </div>

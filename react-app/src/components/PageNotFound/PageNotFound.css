@@ -1,0 +1,30 @@
+.page-not-found {
+
+	width: 100%;
+	height: 50%;
+    grid-area: content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+h2#pnf-text {
+    font-size: 50px;
+}
+
+#return {
+    padding: 10px 20px;
+    border-radius: 10px;
+    margin-top: 50px;
+    background-color: var(--side-panel-selected);
+    color: white;
+    font-size: 30px;
+
+    transition: all 2s ease-in-out;
+}
+
+#return:hover {
+    transform: rotate(180deg);
+}

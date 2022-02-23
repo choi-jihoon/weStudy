@@ -10,12 +10,12 @@ const load = images => ({
 const create = image => ({
     type: CREATE_IMAGE,
     image
-})
+});
 
 const remove = image => ({
     type: DELETE_IMAGE,
     image
-})
+});
 
 export const getImages = (albumId) => async (dispatch) => {
     const res = await fetch(`/api/albums/${albumId}/images`);
@@ -24,16 +24,16 @@ export const getImages = (albumId) => async (dispatch) => {
         const data = await res.json();
         if (data.errors) {
             return;
-        }
+        };
         dispatch(load(data.images))
-    }
+    };
 };
 
 export const createImage = (formData) => async (dispatch) => {
     const res = await fetch(`/api/images/`, {
         method: 'POST',
         body: formData,
-    })
+    });
 
     if (res.ok) {
         const data = await res.json();
@@ -43,11 +43,11 @@ export const createImage = (formData) => async (dispatch) => {
         const data = await res.json();
         if (data.errors) {
             return data.errors;
-        }
+        };
     } else {
         return { 'ERROR': 'An error occurred. Please try again.' }
-    }
-}
+    };
+};
 
 export const deleteImage = (imageId) => async (dispatch) => {
     const res = await fetch(`/api/images/${imageId}`, {
@@ -62,10 +62,10 @@ export const deleteImage = (imageId) => async (dispatch) => {
         const data = await res.json();
         if (data.errors) {
             return data.errors;
-        }
+        };
     } else {
         return {'ERROR': 'An error occurred. Please try again.'}
-    }
+    };
 };
 
 

@@ -125,7 +125,7 @@ export const deleteAlbum = (albumId) => async (dispatch) => {
     }
 }
 
-const updateStoreForSingleAlbum = (state, action) => {
+const updateSingleAlbum = (state, action) => {
     const newState = { ...state };
     newState.albums[action.album.id] = action.album;
     newState.byGroupId[action.album.group_id] = {
@@ -156,15 +156,15 @@ const albums = (state = initialState, action) => {
         }
 
         case LOAD_ALBUM: {
-            return updateStoreForSingleAlbum(state, action);
+            return updateSingleAlbum(state, action);
         }
 
         case ADD_ALBUM: {
-            return updateStoreForSingleAlbum(state, action);
+            return updateSingleAlbum(state, action);
         }
 
         case EDIT_ALBUM: {
-            return updateStoreForSingleAlbum(state, action);
+            return updateSingleAlbum(state, action);
         }
 
         case DELETE_ALBUM: {

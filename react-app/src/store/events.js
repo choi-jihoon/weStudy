@@ -165,7 +165,7 @@ export const leaveEvent = (eventId) => async (dispatch) => {
     }
 }
 
-const updateStoreForSingleEvent = (state, action) => {
+const updateSingleEvent = (state, action) => {
     const newState = { ...state };
     newState.events[action.event.id] = action.event;
     newState.byGroupId[action.event.group_id] = {
@@ -195,10 +195,6 @@ const events = (state = initialState, action) => {
             return newState;
         }
 
-        case CREATE_EVENT: {
-            return updateStoreForSingleEvent(state, action);
-        }
-
         case DELETE_EVENT: {
             const newState = { ...state };
             delete newState.events[action.event.id];
@@ -206,16 +202,20 @@ const events = (state = initialState, action) => {
             return newState;
         }
 
+        case CREATE_EVENT: {
+            return updateSingleEvent(state, action);
+        }
+
         case EDIT_EVENT: {
-            return updateStoreForSingleEvent(state, action);
+            return updateSingleEvent(state, action);
         }
 
         case JOIN_EVENT: {
-            return updateStoreForSingleEvent(state, action);
+            return updateSingleEvent(state, action);
         }
 
         case LEAVE_EVENT: {
-            return updateStoreForSingleEvent(state, action);
+            return updateSingleEvent(state, action);
         }
 
         default:

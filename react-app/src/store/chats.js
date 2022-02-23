@@ -53,7 +53,7 @@ export const createChatMessage = (room_id, message) => async (dispatch) => {
     } else {
         return {'ERROR': 'An error occurred. Please try again.'}
     }
-}
+};
 
 export const deleteChatMessage = (chatId) => async (dispatch) => {
     const res = await fetch(`/api/chats/${chatId}`, {
@@ -72,7 +72,9 @@ export const deleteChatMessage = (chatId) => async (dispatch) => {
     } else {
         return {'ERROR': 'An error occurred. Please try again.'}
     }
-}
+};
+
+
 
 const initialState = {
     chats: {},
@@ -93,12 +95,6 @@ const chats = (state = initialState, action) => {
             };
             return newState;
         }
-
-        // case CREATE_CHAT: {
-        //     const newState = { ...state };
-        //     newState[action.chat.id] = action.chat;
-        //     return newState;
-        // }
 
         case CREATE_CHAT: {
             return state;

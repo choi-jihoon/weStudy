@@ -27,7 +27,7 @@ const edit = (note) => ({
 const remove = (note) => ({
     type: DELETE_NOTE,
     note
-})
+});
 
 export const getNotes = (groupId) => async (dispatch) => {
     const res = await fetch(`/api/groups/${groupId}/notes`);
@@ -35,9 +35,9 @@ export const getNotes = (groupId) => async (dispatch) => {
         const data = await res.json();
         if (data.errors) {
             return;
-        }
+        };
         dispatch(loadNotes(data.notes))
-    }
+    };
 };
 
 export const getNote = (noteId) => async (dispatch) => {
@@ -46,10 +46,10 @@ export const getNote = (noteId) => async (dispatch) => {
         const data = await res.json();
         if (data.errors) {
             return;
-        }
+        };
         dispatch(loadNote(data))
-    }
-}
+    };
+};
 
 export const createNote = (user_id, group_id, note_title) => async (dispatch) => {
     const res = await fetch(`/api/notes/`, {
@@ -62,7 +62,7 @@ export const createNote = (user_id, group_id, note_title) => async (dispatch) =>
             group_id,
             note_title,
         })
-    })
+    });
 
     if (res.ok) {
         const data = await res.json();
@@ -72,12 +72,11 @@ export const createNote = (user_id, group_id, note_title) => async (dispatch) =>
         const data = await res.json();
         if (data.errors) {
             return data;
-        }
+        };
     } else {
         return {'ERROR': 'An error occurred. Please try again.'}
-    }
-
-}
+    };
+};
 
 export const editNote = (noteId, note_title, note_text) => async (dispatch) => {
     const res = await fetch(`/api/notes/${noteId}`, {
@@ -89,7 +88,7 @@ export const editNote = (noteId, note_title, note_text) => async (dispatch) => {
             note_title,
             note_text
         })
-    })
+    });
 
     if (res.ok) {
         const data = await res.json();
@@ -99,11 +98,11 @@ export const editNote = (noteId, note_title, note_text) => async (dispatch) => {
         const data = await res.json();
         if (data.errors) {
             return data;
-        }
+        };
     } else {
         return {'ERROR': 'An error occurred. Please try again.'}
-    }
-}
+    };
+};
 
 export const deleteNote = (noteId) => async (dispatch) => {
     const res = await fetch(`/api/notes/${noteId}`, {
@@ -113,16 +112,18 @@ export const deleteNote = (noteId) => async (dispatch) => {
     if (res.ok) {
         const data = await res.json();
         dispatch(remove(data));
-        return
+        return;
     } else if (res.status < 500) {
         const data = await res.json();
         if (data.errors) {
             return data;
-        }
+        };
     } else {
         return {'ERROR': 'An error occurred. Please try again.'}
-    }
-}
+    };
+};
+
+
 
 const initialState = {
     notes: {},

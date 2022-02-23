@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { io } from 'socket.io-client';
 
 import { getAlbums } from '../../../../../../store/albums';
 import { getChatMessages, createChatMessage } from '../../../../../../store/chats';
 import { getNotes } from '../../../../../../store/notes';
 import { getRooms } from '../../../../../../store/rooms';
+import { getGroup } from '../../../../../../store/groups';
 
 import './Chat.css';
 
@@ -21,6 +22,15 @@ const Chat = () => {
     const user = useSelector(state => state.session.user);
     const rooms = useSelector(state => state.rooms);
     const room = rooms.rooms[roomId];
+    const groups = useSelector(state => state.groups);
+    const group = groups[groupId]
+
+    const checkAccess = () => {
+        if (group?.user_ids.includes(user.id)) {
+            return true;
+        }
+        else return false;
+    }
 
     const chatsObj = useSelector(state => state.chats);
     if (chatsObj.byRoomId[roomId]) {
@@ -44,10 +54,13 @@ const Chat = () => {
 
     const scroll = () => {
         const chatContainer = document.querySelector('.chat-messages-container');
-        chatContainer.scrollTop = chatContainer.scrollHeight;
+        if (chatContainer) {
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
     }
 
     useEffect(() => {
+        dispatch(getGroup(groupId));
         dispatch(getRooms(groupId));
         dispatch(getNotes(groupId));
         dispatch(getAlbums(groupId));
@@ -75,7 +88,11 @@ const Chat = () => {
 
             socket.disconnect();
         })
-    }, [roomId, room?.room_name, user.username])
+    }, [roomId, room?.room_name, user.username]);
+
+    if (!checkAccess()) {
+        return <Redirect to='/' />
+    }
 
     return (
         <>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -24,6 +24,13 @@ const NoteDetail = () => {
 
     const [title, setTitle] = useState('');
     const [noteText, setNoteText] = useState('');
+
+    const checkAccess = () => {
+        if (group?.user_ids.includes(user.id)) {
+            return true;
+        }
+        else return false;
+    }
 
     const notify = () => {
         toast(`Your edits have been saved!`, {
@@ -60,7 +67,11 @@ const NoteDetail = () => {
             setTitle("");
             setNoteText("");
         }
-    }, [note])
+    }, [note]);
+
+    if (!checkAccess()) {
+        return <Redirect to='/' />
+    }
 
     return (
         <>

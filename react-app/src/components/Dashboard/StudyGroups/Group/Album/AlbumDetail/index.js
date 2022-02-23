@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 
 import { getImages } from '../../../../../../store/images';
 import { getRooms } from '../../../../../../store/rooms';
@@ -26,12 +26,25 @@ const AlbumDetail = () => {
     const imagesObj = useSelector(state => state.images);
     const user = useSelector(state => state.session.user);
 
+    const checkAccess = () => {
+        if (group?.user_ids.includes(user.id)) {
+            return true;
+        }
+        else return false;
+    }
+
     useEffect(() => {
         dispatch(getAlbums(groupId));
         dispatch(getImages(albumId));
         dispatch(getRooms(groupId));
         dispatch(getNotes(groupId));
     }, [dispatch, albumId, groupId])
+
+
+
+    if (!checkAccess()) {
+        return <Redirect to='/' />
+    }
 
     return (
         <>

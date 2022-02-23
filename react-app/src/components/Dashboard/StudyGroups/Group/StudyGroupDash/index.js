@@ -37,12 +37,6 @@ const StudyGroupDash = () => {
     }
     const sorted = group?.users.sort(compare);
 
-    const checkAccess = (group) => {
-        if (group.user_ids.includes(sessionUser.id)) {
-            return true;
-        }
-        else return false;
-    }
 
     useEffect(() => {
         dispatch(getGroup(groupId));
@@ -53,6 +47,13 @@ const StudyGroupDash = () => {
     }, [dispatch, groupId]);
 
     useEffect(() => {
+        const checkAccess = (group) => {
+            if (group.user_ids.includes(sessionUser.id)) {
+                return true;
+            }
+            else return false;
+        }
+
         if (sessionUser && group) {
             if (!checkAccess(group)) {
                 return history.push('/')

@@ -28,12 +28,6 @@ const AlbumDetail = () => {
     const imagesObj = useSelector(state => state.images);
     const user = useSelector(state => state.session.user);
 
-    const checkAccess = (group) => {
-        if (group.user_ids.includes(user.id)) {
-            return true;
-        }
-        else return false;
-    }
 
     useEffect(() => {
         dispatch(getGroup(groupId));
@@ -44,13 +38,19 @@ const AlbumDetail = () => {
     }, [dispatch, albumId, groupId])
 
     useEffect(() => {
+        const checkAccess = (group) => {
+            if (group.user_ids.includes(user.id)) {
+                return true;
+            }
+            else return false;
+        }
+
         if (user && group) {
-            console.log(group.user_ids)
             if (!checkAccess(group)) {
                 return history.push('/')
             }
         }
-    }, [group, user])
+    }, [group, user, history])
 
     return (
         <>

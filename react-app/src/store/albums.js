@@ -76,7 +76,7 @@ export const createAlbum = (group_id, title) => async (dispatch) => {
             return data.errors;
         }
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
+        return { 'ERROR': 'An error occurred. Please try again.' }
     }
 }
 
@@ -102,7 +102,7 @@ export const editAlbum = (albumId, group_id, title) => async (dispatch) => {
             return data.errors;
         }
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
+        return { 'ERROR': 'An error occurred. Please try again.' }
     }
 }
 
@@ -121,10 +121,19 @@ export const deleteAlbum = (albumId) => async (dispatch) => {
             return data.errors;
         }
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
+        return { 'ERROR': 'An error occurred. Please try again.' }
     }
 }
 
+const updateStoreForSingleAlbum = (state, action) => {
+    const newState = { ...state };
+    newState.albums[action.album.id] = action.album;
+    newState.byGroupId[action.album.group_id] = {
+        ...newState.byGroupId[action.album.group_id],
+        [action.album.id]: action.album
+    };
+    return newState;
+}
 
 const initialState = {
     albums: {},
@@ -147,33 +156,15 @@ const albums = (state = initialState, action) => {
         }
 
         case LOAD_ALBUM: {
-            const newState = { ...state };
-            newState.albums[action.album.id] = action.album;
-            newState.byGroupId[action.album.group_id] = {
-                ...newState.byGroupId[action.album.group_id],
-                [action.album.id]: action.album
-            }
-            return newState;
+            return updateStoreForSingleAlbum(state, action);
         }
 
         case ADD_ALBUM: {
-            const newState = { ...state };
-            newState.albums[action.album.id] = action.album;
-            newState.byGroupId[action.album.group_id] = {
-                ...newState.byGroupId[action.album.group_id],
-                [action.album.id]: action.album
-            }
-            return newState;
+            return updateStoreForSingleAlbum(state, action);
         }
 
         case EDIT_ALBUM: {
-            const newState = { ...state };
-            newState.albums[action.album.id] = action.album;
-            newState.byGroupId[action.album.group_id] = {
-                ...newState.byGroupId[action.album.group_id],
-                [action.album.id]: action.album
-            }
-            return newState;
+            return updateStoreForSingleAlbum(state, action);
         }
 
         case DELETE_ALBUM: {
@@ -182,7 +173,6 @@ const albums = (state = initialState, action) => {
             delete newState.byGroupId[action.album.group_id][action.album.id];
             return newState;
         }
-
 
         default:
             return state;

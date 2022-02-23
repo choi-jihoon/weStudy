@@ -171,7 +171,7 @@ const updateStoreForSingleEvent = (state, action) => {
     newState.byGroupId[action.event.group_id] = {
         ...newState.byGroupId[action.event.group_id],
         [action.event.id]: action.event
-    }
+    };
     return newState;
 }
 

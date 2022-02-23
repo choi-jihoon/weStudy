@@ -5,6 +5,8 @@ import SplashPage from './components/SplashPage';
 import Dashboard from './components/Dashboard';
 import { authenticate } from './store/session';
 
+import SplashPage2 from './components/SplashPage2';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -27,7 +29,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path='/'>
-          {sessionUser ? <Dashboard /> : <SplashPage />}
+          {sessionUser ? <Dashboard /> : <SplashPage2 />}
         </Route>
         {/* <Route exact path='/whiteboard'>
           <Whiteboard />

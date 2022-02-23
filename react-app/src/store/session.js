@@ -1,4 +1,3 @@
-// constants
 const SET_USER = "session/SET_USER";
 const REMOVE_USER = "session/REMOVE_USER";
 const UPDATE_USER = "session/UPDATE_USER";
@@ -29,9 +28,8 @@ export const authenticate = () => async (dispatch) => {
     if (data.errors) {
       return;
     }
-
     dispatch(setUser(data));
-  }
+  };
 };
 
 export const login = (email, password) => async (dispatch) => {
@@ -54,10 +52,10 @@ export const login = (email, password) => async (dispatch) => {
     const data = await response.json();
     if (data.errors) {
       return data.errors;
-    }
+    };
   } else {
     return ["An error occurred. Please try again."];
-  }
+  };
 };
 
 export const logout = () => async (dispatch) => {
@@ -69,7 +67,7 @@ export const logout = () => async (dispatch) => {
 
   if (response.ok) {
     dispatch(removeUser());
-  }
+  };
 };
 
 export const signUp = (formData) => async (dispatch) => {
@@ -86,10 +84,10 @@ export const signUp = (formData) => async (dispatch) => {
     const data = await response.json();
     if (data.errors) {
       return data.errors;
-    }
+    };
   } else {
     return ["An error occurred. Please try again."];
-  }
+  };
 };
 
 export const updateUserImage = (formData, id) => async (dispatch) => {
@@ -112,11 +110,14 @@ export default function reducer(state = initialState, action) {
   switch (action.type) {
     case SET_USER:
       return { user: action.payload };
+
     case REMOVE_USER:
       return { user: null };
+
     case UPDATE_USER:
       return { user: action.user };
+
     default:
       return state;
-  }
-}
+  };
+};

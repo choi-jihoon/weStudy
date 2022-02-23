@@ -168,10 +168,7 @@ export const leaveEvent = (eventId) => async (dispatch) => {
 const updateSingleEvent = (state, action) => {
     const newState = { ...state };
     newState.events[action.event.id] = action.event;
-    newState.byGroupId[action.event.group_id] = {
-        ...newState.byGroupId[action.event.group_id],
-        [action.event.id]: action.event
-    };
+    newState.byGroupId[action.event.group_id][action.event.id] = action.event;
     return newState;
 }
 

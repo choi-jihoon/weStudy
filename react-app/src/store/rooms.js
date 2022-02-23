@@ -7,27 +7,27 @@ const EDIT_ROOM = 'rooms/EDIT_ROOM';
 const loadRooms = (rooms) => ({
     type: LOAD_ROOMS,
     rooms
-})
+});
 
 const loadRoom = (room) => ({
     type: LOAD_ROOM,
     room
-})
+});
 
 const create = (room) => ({
     type: CREATE_ROOM,
     room
-})
+});
 
 const remove = (room) => ({
     type: DELETE_ROOM,
     room
-})
+});
 
 const edit = (room) => ({
     type: EDIT_ROOM,
     room
-})
+});
 
 export const getRooms = (groupId) => async (dispatch) => {
     const res = await fetch(`/api/groups/${groupId}/rooms`);
@@ -35,10 +35,10 @@ export const getRooms = (groupId) => async (dispatch) => {
         const data = await res.json();
         if (data.errors) {
             return;
-        }
+        };
         dispatch(loadRooms(data.rooms))
-    }
-}
+    };
+};
 
 export const getRoom = (roomId) => async (dispatch) => {
     const res = await fetch(`/api/rooms/${roomId}`);
@@ -46,10 +46,10 @@ export const getRoom = (roomId) => async (dispatch) => {
         const data = await res.json();
         if (data.errors) {
             return;
-        }
+        };
         dispatch(loadRoom(data));
-    }
-}
+    };
+};
 
 export const createRoom = (room_name, group_id) => async (dispatch) => {
     const res = await fetch(`/api/rooms/`, {
@@ -61,7 +61,7 @@ export const createRoom = (room_name, group_id) => async (dispatch) => {
             room_name,
             group_id
         })
-    })
+    });
 
     if (res.ok) {
         const data = await res.json();
@@ -71,11 +71,11 @@ export const createRoom = (room_name, group_id) => async (dispatch) => {
         const data = await res.json();
         if (data.errors) {
             return data.errors;
-        }
+        };
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
-    }
-}
+        return { 'ERROR': 'An error occurred. Please try again.' }
+    };
+};
 
 export const deleteRoom = (roomId) => async (dispatch) => {
     const res = await fetch(`/api/rooms/${roomId}`, {
@@ -90,11 +90,11 @@ export const deleteRoom = (roomId) => async (dispatch) => {
         const data = await res.json();
         if (data.errors) {
             return data.errors;
-        }
+        };
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
-    }
-}
+        return { 'ERROR': 'An error occurred. Please try again.' }
+    };
+};
 
 export const editRoom = (roomId, room_name) => async (dispatch) => {
     const res = await fetch(`/api/rooms/${roomId}`, {
@@ -105,7 +105,7 @@ export const editRoom = (roomId, room_name) => async (dispatch) => {
         body: JSON.stringify({
             room_name
         })
-    })
+    });
 
     if (res.ok) {
         const data = await res.json();
@@ -115,11 +115,18 @@ export const editRoom = (roomId, room_name) => async (dispatch) => {
         const data = await res.json();
         if (data.errors) {
             return data.errors;
-        }
+        };
     } else {
-        return {'ERROR': 'An error occurred. Please try again.'}
-    }
-}
+        return { 'ERROR': 'An error occurred. Please try again.' }
+    };
+};
+
+const updateSingleRoom = (state, action) => {
+    const newState = { ...state };
+    newState.rooms[action.room.id] = action.room;
+    newState.byGroupId[action.room.group_id][action.room.id] = action.room;
+    return newState;
+};
 
 const initialState = {
     rooms: {},
@@ -141,26 +148,6 @@ const rooms = (state = initialState, action) => {
             return newState;
         }
 
-        case LOAD_ROOM: {
-            const newState = { ...state };
-            newState.rooms[action.room.id] = action.room;
-            newState.byGroupId[action.room.group_id] = {
-                ...newState.byGroupId[action.room.group_id],
-                [action.room.id]: action.room
-            }
-            return newState;
-        }
-
-        case CREATE_ROOM: {
-            const newState = { ...state };
-            newState.rooms[action.room.id] = action.room;
-            newState.byGroupId[action.room.group_id] = {
-                ...newState.byGroupId[action.room.group_id],
-                [action.room.id]: action.room
-            }
-            return newState;
-        }
-
         case DELETE_ROOM: {
             const newState = { ...state };
             delete newState.rooms[action.room.id];
@@ -168,16 +155,21 @@ const rooms = (state = initialState, action) => {
             return newState;
         }
 
+        case LOAD_ROOM: {
+            return updateSingleRoom(state, action);
+        }
+
+        case CREATE_ROOM: {
+            return updateSingleRoom(state, action);
+        }
+
         case EDIT_ROOM: {
-            const newState = { ...state };
-            newState.rooms[action.room.id] = action.room;
-            newState.byGroupId[action.room.group_id][action.room.id] = action.room;
-            return newState;
+            return updateSingleRoom(state, action);
         }
 
         default:
             return state;
-    }
-}
+    };
+};
 
 export default rooms;

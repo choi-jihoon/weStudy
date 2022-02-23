@@ -74,8 +74,6 @@ export const deleteChatMessage = (chatId) => async (dispatch) => {
     }
 };
 
-
-
 const initialState = {
     chats: {},
     byRoomId: {}

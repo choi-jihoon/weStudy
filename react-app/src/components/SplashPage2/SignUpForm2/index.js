@@ -7,14 +7,16 @@ import { signUp } from "../../../store/session";
 
 import "./SignUpForm2.css";
 
-const SignUpForm2 = () => {
+const SignUpForm2 = ({ goToLoginForm }) => {
 	const [errors, setErrors] = useState({});
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [repeatPassword, setRepeatPassword] = useState("");
 	const [image, setImage] = useState(null);
+
 	const dispatch = useDispatch();
+
 
 	const onSignUp = async (e) => {
 		e.preventDefault();
@@ -143,6 +145,7 @@ const SignUpForm2 = () => {
 
 				<div className="sf-btn-container2">
 					<button id='create-account2' type="submit">Create Account</button>
+					<p onClick={goToLoginForm}>Already have an account?</p>
 					<DemoLogin />
 				</div>
 			</div>

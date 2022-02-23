@@ -1,17 +1,18 @@
 .splash-page-container-2 {
-    width: 100%;
+    width: 75%;
     height: 100%;
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 67% 33%;
 }
 
 .title-container-2 {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
 }
 
 h1.title-text-2 {
-    font-size: 100px;
+    font-size: 10vw;
 }
 
 #logo {
@@ -19,15 +20,128 @@ h1.title-text-2 {
     height: 100px;
 }
 
+.sign-up-modal-head2 {
+    font-size: 3vh;
+}
+
 .forms-container {
-    border: 1px solid red;
     display: flex;
-    width: 300px;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-form-container {
+    width: 22vw;
+    display: flex;
     overflow: hidden;
     position: relative;
+    background-color: whitesmoke;
+
+    border-radius: 10px;
+
+}
+
+.form-container1 {
+    display: flex;
+    /* transform: translateX(-50%); */
 }
 
 .form-container2 {
-    min-width: 300px;
-    border: 1px solid blue;
+    min-width: 22vw;
+}
+
+
+.signup-form2,
+.login-form2 {
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    min-width: 22vw;
+}
+
+.form-content2 {
+    width: 100%;
+    padding: 40px;
+    height: 100%;
+}
+
+.signup-form-elements-container2 {
+    width: 100%;
+}
+
+.signup-element-container2 {
+    width: 100%;
+    height: 5vh;
+
+    margin: 1vh 0;
+}
+
+.signup-element-container2 > input,
+.login-element-container2 > input {
+    padding: 5px 15px;
+    margin: 5px 0;
+    border-radius: 7px;
+    outline: 0;
+    border: 1px solid var(--side-panel-text);
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100%;
+
+    font-size: larger;
+}
+
+.signup-element-container2 > input:focus,
+.login-element-container2 > input:focus {
+    outline: none;
+}
+
+.signup-element-container2 > input:focus::placeholder,
+.login-element-container2 > input:focus::placeholder {
+    color: var(--side-panel-text);
+}
+
+button#create-account2 {
+    background-color: var(--side-panel-selected);
+    color: white;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+
+
+.show-signup {
+	width: 22vw;
+	margin: auto;
+	animation: slide-in 0.3s linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+.hide-signup {
+	width: 22vw;
+	margin: auto;
+	animation: slide-out 0.3s linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slide-out {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes slide-in {
+
+	100% {
+		transform: translateX(-100%);
+	}
 }

@@ -5,10 +5,11 @@ import { login } from "../../../store/session";
 import DemoLogin from "../../auth/DemoLogin";
 import "./LoginForm2.css";
 
-const LoginForm2 = () => {
+const LoginForm2 = ({ handleBackToSignup }) => {
 	const [errors, setErrors] = useState({});
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+    const [showSignUp, setShowSignUp] = useState(true);
 	const dispatch = useDispatch();
 
 	const onLogin = async (e) => {
@@ -74,6 +75,7 @@ const LoginForm2 = () => {
 					</div>
 					<div className="sf-btn-container2">
 						<button id='login-account2' type="submit">Login</button>
+                        <p onClick={handleBackToSignup}>No account?</p>
 						<DemoLogin />
 					</div>
 				</div>

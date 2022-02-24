@@ -1,0 +1,354 @@
+.splash-page-container-2 {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: 'left right';
+    position: relative;
+    cursor: default;
+}
+
+.title-container-2 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    display: grid;
+    grid-template-rows: 52vh 48vh;
+    grid-template-columns: 100vw;
+    grid-template-areas: 'top'
+    'bottom';
+}
+
+.about-links {
+    padding-left: 5%;
+    grid-area: bottom;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: 'all none';
+}
+
+.left-container-links {
+    display: flex;
+    padding-top: 3vh;
+}
+
+.developer-name-text {
+    align-self: center;
+    padding-bottom: 12%;
+    width: 100%;
+}
+
+p#developed-by {
+    font-size: 2vh;
+    color: var(--side-panel-text);
+}
+
+p#fiona-choi {
+    font-size: 5vh;
+    color: var(--side-panel-text);
+}
+
+.github-linkedin {
+    display: flex;
+    width: 80%;
+    padding-left: 7vw;
+}
+
+.github-linkedin > a > i {
+    color: var(--side-panel-text);
+    font-size: 5vh;
+    padding-left: 1.5vw;
+}
+
+.all-technologies {
+    display: flex;
+    width: 130%;
+    justify-content: space-between;
+    padding: 6vh 0;
+}
+
+.technologies-used > ul > li > i {
+    font-size: 12px;
+    padding-right: 10px;
+    color: var(--side-panel-text);
+}
+
+.technologies-used > ul > li {
+    font-size: 2.2vh;
+    padding: 2vh 0;
+    display: flex;
+    align-items: center;
+
+    font-family: proxima-nova-condensed, sans-serif;
+
+    font-weight: 400;
+
+    font-style: normal;
+    color: var(--side-panel-text);
+
+}
+
+.title-text-container-2 {
+    padding-left: 5%;
+
+    width: 100vw;
+    display: flex;
+    align-items: center;
+
+    position: absolute;
+    bottom: 48vh;
+
+    border-bottom: 1px solid var(--side-panel-text);
+    border-top: 1px solid var(--side-panel-text);
+
+    /* padding-top: 8%; */
+}
+
+h1.title-text-2 {
+    font-size: 12vw;
+    padding-right: 20px;
+}
+
+#logo {
+    width: 10vw;
+    height: 100%;
+}
+
+.sign-up-modal-head2,
+.login-modal-head2 {
+    font-size: 30px;
+    align-self: flex-start;
+
+    font-family: proxima-nova-condensed;
+    font-weight: bold;
+
+    color: var(--side-panel);
+}
+
+
+
+.forms-container {
+    grid-area: right;
+    display: flex;
+    width: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    bottom: 24vh;
+}
+
+.current-form-container {
+    /* width: 22vw; */
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    background-color: whitesmoke;
+    box-shadow: 10px 10px 20px 10px rgb(32, 32, 32);
+
+    border-radius: 10px;
+
+    /* min-width: var(--login-signup-form-width); */
+    width: var(--login-signup-form-width);
+
+    padding-bottom: 10px;
+}
+
+.form-container1 {
+    display: flex;
+}
+
+.form-container2 {
+    /* width: 22vw; */
+    min-height: fit-content;
+    padding-top: 20px;
+
+    width: var(--login-signup-form-width);
+}
+
+
+.signup-form2,
+.login-form2 {
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    /* min-width: 22vw; */
+    min-height: fit-content;
+    width: var(--login-signup-form-width);
+}
+
+.errors-container2 {
+    z-index: 200;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    color: red;
+    font-size: 12px;
+}
+
+.form-content2 {
+    width: 100%;
+    padding: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signup-form-elements-container2,
+.login-form-elements-container2 {
+    width: 100%;
+}
+
+.signup-element-container2,
+.login-element-container2 {
+    width: 100%;
+    height: 5vh;
+
+    margin: 1vh 0;
+    position: relative;
+}
+
+.signup-element-container2 > input,
+.login-element-container2 > input {
+    padding: 5px 15px;
+    margin: 5px 0;
+    border-radius: 7px;
+    outline: 0;
+    border: 1px solid var(--side-panel-text);
+    background-color: whitesmoke;
+    width: 100%;
+    height: 100%;
+
+    font-size: larger;
+}
+
+.signup-element-container2 > input:focus,
+.login-element-container2 > input:focus {
+    outline: none;
+}
+
+.signup-element-container2 > input:focus::placeholder,
+.login-element-container2 > input:focus::placeholder {
+    color: var(--side-panel-text);
+}
+
+
+
+button#create-account2,
+button#login-account2 {
+    background-color: var(--side-panel-selected);
+    color: white;
+    width: 100%;
+    font-size: 25px;
+    border-radius: 7px;
+}
+
+button#create-account2:hover,
+button#login-account2:hover {
+    transform: scale(1.05);
+}
+
+.sf-btn-container2 {
+    padding: 20px 0;
+    width: 100%;
+}
+
+.sf-btn-container2 p,
+.sf-btn-container2 p > i {
+    color: var(--side-panel);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    align-items: center;
+}
+
+.sf-btn-container2 p {
+    margin-top: 5px;
+}
+
+.sf-btn-container2 p:hover {
+    color: var(--side-panel-selected);
+}
+
+.sf-btn-container2 p:hover > i {
+    color: var(--side-panel-selected);
+}
+
+.demo-button {
+    color: var(--side-panel);
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    /* padding-top: 2px; */
+    font-weight: bold;
+}
+
+.demo-button:hover {
+    color: var(--terra-cotta);
+}
+
+
+
+.show-signup {
+	/* width: 22vw; */
+    width: var(--login-signup-form-width);
+	margin: auto;
+	animation: slide-in 0.3s linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+.hide-signup {
+	/* width: 22vw; */
+    width: var(--login-signup-form-width);
+	margin: auto;
+	animation: slide-out 0.3s linear;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes slide-out {
+	0% {
+		transform: translateX(-100%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes slide-in {
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+
+.copyright-text {
+    color: black;
+    position: absolute;
+    bottom: 3%;
+    left: 38%;
+    font-size: 12px;
+    font-style: italic;
+
+    transition: all 0.01s ease-in-out;
+}
+
+.copyright-text:hover {
+    color: var(--side-panel-selected);
+}
+
+
+i.fa-github.splash-icon:hover,
+i.fa-linkedin.splash-icon:hover {
+    color: white;
+}

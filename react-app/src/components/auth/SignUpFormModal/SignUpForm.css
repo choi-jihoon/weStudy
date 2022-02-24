@@ -80,12 +80,11 @@ button#create-account {
 	width: 288px;
 }
 
-button#create-account:hover,
-.demo-button:hover {
+button#create-account:hover {
 	transform: scale(1.05);
 }
 
-.demo-button {
+/* .demo-button {
 	color: white;
 	cursor: pointer;
 	border: none;
@@ -99,7 +98,7 @@ button#create-account:hover,
 
 	display: flex;
 	justify-content: center;
-}
+} */
 
 .sf-add-image-container > input[type="file"] {
     display: none;

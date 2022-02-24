@@ -10,6 +10,7 @@ import { getAlbums } from "../../../../../store/albums";
 
 import CreateEventModal from "./CreateEventModal";
 import EventDetail from "./EventDetail";
+import NoEvents from "./NoEvents";
 
 import './Events.css';
 
@@ -63,6 +64,7 @@ const Events = () => {
             </div>
             <div className='events-dash-container'>
                 <div className='all-events-container'>
+                    {(!eventsObj.byGroupId[groupId] || !(Object.values(eventsObj.byGroupId[groupId])).length) && <NoEvents />}
                     {eventsObj.byGroupId[groupId] && (Object.values(eventsObj.byGroupId[groupId])).sort(compare).map(event => (
                         <EventDetail key={event.id} event={event} />
                     ))}

@@ -81,6 +81,7 @@
 .sg-main-container {
     height: 100%;
     padding: 30px;
+    width: 100%;
 
     display: grid;
     grid-template-columns: 40% 60%;

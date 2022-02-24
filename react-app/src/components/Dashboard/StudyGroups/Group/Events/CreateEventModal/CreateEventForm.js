@@ -117,6 +117,7 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 						onChange={updateStartTime}
 						required
 						format="yyyy-MM-ddTHH:mm"
+						step="60"
 					/>
 					<div className='errors-container'>
 						{errors.start_time ? `${errors.start_time}` : ""}

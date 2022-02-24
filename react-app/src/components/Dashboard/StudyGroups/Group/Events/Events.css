@@ -54,7 +54,7 @@
 
     display: grid;
     grid-template-columns: 200px 40vw;
-    width: 60vw;
+    width: calc(200px + 40vw);
     /* min-width: 60vw; */
     /* max-width: 60vw; */
 

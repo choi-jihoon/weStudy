@@ -85,7 +85,7 @@ const SplashPage2 = () => {
                                 <ul>
                                     <li>
                                         <i className="fas fa-circle"></i>
-                                        Create Albums
+                                        Add Albums
                                     </li>
                                     <li>
                                         <i className="fas fa-circle"></i>
@@ -93,7 +93,19 @@ const SplashPage2 = () => {
                                     </li>
                                     <li>
                                         <i className="fas fa-circle"></i>
-                                        Keep Track of Events
+                                        Organize Events
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='technologies-used'>
+                                <ul>
+                                    <li>
+                                        <i className="fas fa-circle"></i>
+                                        Invite Friends
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-circle"></i>
+                                        Learn Together
                                     </li>
                                 </ul>
                             </div>

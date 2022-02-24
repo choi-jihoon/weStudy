@@ -243,6 +243,11 @@ div#edit-user > i {
 .developer > p,
 .developer > a {
     font-style: italic;
+    padding-top: 5px;
+}
+
+.developer > p {
+    cursor: default;
 }
 
 .developer > p > span > a > i {

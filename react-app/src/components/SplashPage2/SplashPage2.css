@@ -5,6 +5,7 @@
     grid-template-columns: 60% 40%;
     grid-template-areas: 'left right';
     position: relative;
+    cursor: default;
 }
 
 .title-container-2 {
@@ -121,7 +122,14 @@ h1.title-text-2 {
 .login-modal-head2 {
     font-size: 30px;
     align-self: flex-start;
+
+    font-family: proxima-nova-condensed;
+    font-weight: bold;
+
+    color: var(--side-panel);
 }
+
+
 
 .forms-container {
     grid-area: right;
@@ -146,6 +154,7 @@ h1.title-text-2 {
     /* min-width: var(--login-signup-form-width); */
     width: var(--login-signup-form-width);
 
+    padding-bottom: 10px;
 }
 
 .form-container1 {
@@ -253,7 +262,7 @@ button#login-account2:hover {
 
 .sf-btn-container2 p,
 .sf-btn-container2 p > i {
-    color: var(--main-container);
+    color: var(--side-panel);
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -274,11 +283,11 @@ button#login-account2:hover {
 }
 
 .demo-button {
-    color: var(--main-container);
+    color: var(--side-panel);
     display: flex;
     justify-content: center;
     cursor: pointer;
-    padding-top: 3px;
+    /* padding-top: 2px; */
     font-weight: bold;
 }
 
@@ -320,4 +329,20 @@ button#login-account2:hover {
 	100% {
 		transform: translateX(-100%);
 	}
+}
+
+
+.copyright-text {
+    color: black;
+    position: absolute;
+    bottom: 3%;
+    left: 38%;
+    font-size: 12px;
+    font-style: italic;
+
+    transition: all 0.01s ease-in-out;
+}
+
+.copyright-text:hover {
+    color: var(--side-panel-selected);
 }

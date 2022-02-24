@@ -117,6 +117,12 @@ const SplashPage2 = () => {
                             <LoginForm2 handleBackToSignup={handleBackToSignup} />
                         </div>
                     </div>
+                    <p className='copyright-text'>
+                        <a target="_blank" rel="noreferrer noopener"
+                            href='https://github.com/choi-jihoon/weStudy'>
+                            © 2022 | weStudy
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>

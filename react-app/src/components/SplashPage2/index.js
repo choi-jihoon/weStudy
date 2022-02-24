@@ -69,15 +69,15 @@ const SplashPage2 = () => {
                                 <ul>
                                     <li>
                                         <i className="fas fa-circle"></i>
-                                        React
+                                        Create Study Groups
                                     </li>
                                     <li>
                                         <i className="fas fa-circle"></i>
-                                        Redux
+                                        Live Chat Message
                                     </li>
                                     <li>
                                         <i className="fas fa-circle"></i>
-                                        JavaScript
+                                        Collaborate on Notes
                                     </li>
                                 </ul>
                             </div>
@@ -85,19 +85,19 @@ const SplashPage2 = () => {
                                 <ul>
                                     <li>
                                         <i className="fas fa-circle"></i>
-                                        Python
+                                        Create Albums
                                     </li>
                                     <li>
                                         <i className="fas fa-circle"></i>
-                                        Flask
+                                        Share Pictures
                                     </li>
                                     <li>
                                         <i className="fas fa-circle"></i>
-                                        SQLAlchemy
+                                        Keep Track of Events
                                     </li>
                                 </ul>
                             </div>
-                            <div className='technologies-used'>
+                            {/* <div className='technologies-used'>
                                 <ul>
                                     <li>
                                         <i className="fas fa-circle"></i>
@@ -107,12 +107,12 @@ const SplashPage2 = () => {
                                         <i className="fas fa-circle"></i>
                                         AWS S3
                                     </li>
-                                    {/* <li>
+                                    <li>
                                         <i className="fas fa-circle"></i>
                                         Google Calendar API
-                                    </li> */}
+                                    </li>
                                 </ul>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

@@ -35,6 +35,13 @@ const NoteDetail = () => {
         });
     };
 
+    const notifyError = () => {
+        toast.error(`Your title's too long!`, {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 2000,
+        });
+    };
+
     const updateTitle = (e) => {
         setTitle(e.target.value);
     }
@@ -44,6 +51,11 @@ const NoteDetail = () => {
     }
 
     const handleSave = (e) => {
+        if (title.length > 40) {
+            notifyError();
+            return;
+        }
+
         dispatch(editNote(noteId, title, noteText))
         notify();
     }

@@ -64,10 +64,12 @@ const EditEventForm = ({ setShowModal, event }) => {
 
     const updateStartTime = (e) => {
         setStartTime(e.target.value);
+		setErrors({});
     };
 
     const updateEndTime = (e) => {
         setEndTime(e.target.value);
+		setErrors({});
     };
 
 	useEffect(() => {
@@ -133,7 +135,7 @@ const EditEventForm = ({ setShowModal, event }) => {
                 </div>
 
 				<div className='event-btns-container'>
-				<button id='event-submit' type="submit">Save</button>
+				<button disabled={Object.keys(errors).length > 0} id='event-submit' type="submit">Save</button>
 				<button id='event-submit-cancel' className='cancel-btn' onClick={handleCancelClick}>Cancel</button>
 			</div>
 			</div>

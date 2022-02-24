@@ -58,7 +58,7 @@ const EditAlbumForm = ({ setShowModal, album }) => {
 				</div>
 			</div>
 
-			<button id='edit-room-submit' type="submit">Edit Album Title</button>
+			<button disabled={Object.keys(errors).length > 0} id='edit-room-submit' type="submit">Edit Album Title</button>
 		</form>
 	);
 };

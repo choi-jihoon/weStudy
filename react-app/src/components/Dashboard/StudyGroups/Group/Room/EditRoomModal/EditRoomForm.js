@@ -57,7 +57,7 @@ const EditRoomForm = ({ setShowModal, room }) => {
 				</div>
 			</div>
 
-			<button id='edit-room-submit' type="submit">Edit Room Name</button>
+			<button disabled={Object.keys(errors).length > 0} id='edit-room-submit' type="submit">Edit Room Name</button>
 		</form>
 	);
 };

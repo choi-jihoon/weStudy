@@ -4,6 +4,10 @@
     color: var(--main-container-text) !important;
 }
 
+.active li p {
+    color: var(--main-container-text) !important;
+}
+
 .active > li > .fa-door-open,
 .active > li > .fa-file-alt,
 .active > li > .fa-users,
@@ -31,6 +35,15 @@
     color: var(--side-panel-text);
     font-weight: normal;
     cursor: pointer;
+}
+
+.room-container > p {
+    color: var(--side-panel-text);
+}
+
+.note-title {
+    display: flex;
+    align-items: center;
 }
 
 .fa-file-alt {
@@ -86,6 +99,13 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+p.side-nav-overflow-control {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .room-container > .fa-door-open,

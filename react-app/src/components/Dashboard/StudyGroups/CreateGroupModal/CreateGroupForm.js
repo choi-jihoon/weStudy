@@ -112,7 +112,7 @@ const CreateGroupForm = ({ setShowModal }) => {
 						{errors.description ? `${errors.description}` : ""}
 					</div>
 				</div>
-				<button id='create-group' type="submit">Create Group</button>
+				<button disabled={Object.keys(errors).length > 0} id='create-group' type="submit">Create Group</button>
 				<button className='cancel-btn' onClick={handleCancelClick}>Cancel</button>
 			</div>
 

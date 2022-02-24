@@ -28,7 +28,7 @@ const Room = ({ room }) => {
                 to={`/groups/${room.group_id}/rooms/${room.id}/chat`}>
                 <li className='room-container'>
                     <i className="fas fa-door-open"></i>
-                    {room.room_name}
+                    <p className='side-nav-overflow-control'>{room.room_name}</p>
                 </li>
             </NavLink>
         </div>

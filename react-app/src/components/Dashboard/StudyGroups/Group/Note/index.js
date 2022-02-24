@@ -6,7 +6,9 @@ const Note = ({ note }) => {
             to={`/groups/${note.group_id}/notes/${note.id}`}>
             <li className='note-title'>
                 <i className="far fa-file-alt"></i>
-                {note.note_title}
+                <p className='side-nav-overflow-control'>
+                    {note.note_title}
+                </p>
             </li>
         </NavLink>
     )

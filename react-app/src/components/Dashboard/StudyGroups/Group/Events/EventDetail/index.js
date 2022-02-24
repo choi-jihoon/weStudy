@@ -20,7 +20,9 @@ const EventDetail = ({ event }) => {
             </div>
             <div className='event-body'>
                 <div className='event-title-description-container'>
-                    <h3>{event.summary} <Calendar event={event} /></h3>
+                    <div className='event-summary-and-cal-container'>
+                        <h3>{event.summary}</h3> <Calendar event={event} />
+                    </div>
                     <h4 className='event-section event-description'>{event.description}</h4>
                     <div className='event-start-time event-section'>
                         <p className='event-label'>Starts</p>

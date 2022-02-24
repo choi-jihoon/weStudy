@@ -99,7 +99,6 @@ h3.event-month {
 .event-title-description-container {
     padding-right: 50px;
     max-width: 383px;
-
 }
 
 .event-summary > h3 {
@@ -110,6 +109,17 @@ h3.event-month {
     font-size: 30px;
     cursor: default;
 }
+
+.event-summary-and-cal-container > h3 {
+    color: var(--main-container);
+    font-size: 30px;
+    cursor: default;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 .event-title-description-container > h4 {
     font-size: 15px;
@@ -266,6 +276,10 @@ div.event-label.attendees-label {
 .event-title-description-container > h3 {
     display: flex;
     align-items: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .google-calendar-icon {
@@ -328,4 +342,9 @@ div.event-label.attendees-label {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.event-summary-and-cal-container {
+    display: flex;
+    align-items: center;
 }

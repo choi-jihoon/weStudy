@@ -55,10 +55,13 @@ def seed_events():
     user10 = User.query.get(10)
     user11 = User.query.get(11)
     user17 = User.query.get(17)
+    user16 = User.query.get(16)
 
     user13 = User.query.get(13)
     user12 = User.query.get(12)
     user14 = User.query.get(14)
+
+    user15 = User.query.get(15)
 
     event1.attendees.append(user1)
     event1.attendees.append(user2)
@@ -79,9 +82,11 @@ def seed_events():
     event3.attendees.append(user2)
     event3.attendees.append(user13)
     event3.attendees.append(user14)
+    event3.attendees.append(user16)
 
     event4.attendees.append(user2)
     event4.attendees.append(user12)
+    event4.attendees.append(user15)
     db.session.commit()
 
 

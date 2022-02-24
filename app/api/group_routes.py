@@ -26,7 +26,11 @@ def get_groups():
 @group_routes.route('/<int:groupId>')
 def get_group(groupId):
     group = Group.query.get(int(groupId))
-    return group.to_dict()
+    if group:
+        return group.to_dict()
+    else:
+        return {'errors': 'Group does not exist.'}
+
 
 
 @group_routes.route('/', methods=['POST'])

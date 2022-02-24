@@ -32,12 +32,20 @@ const Events = () => {
 
 
     useEffect(() => {
-        dispatch(getGroup(groupId));
-        dispatch(getEvents(groupId));
-        dispatch(getRooms(groupId));
-        dispatch(getNotes(groupId));
-        dispatch(getAlbums(groupId));
-    }, [dispatch, groupId])
+        const fetch = async () => {
+            const data = await dispatch(getGroup(groupId));
+            if (data && data.errors) {
+                return history.push('/');
+            }
+            else {
+                dispatch(getEvents(groupId));
+                dispatch(getRooms(groupId));
+                dispatch(getNotes(groupId));
+                dispatch(getAlbums(groupId));
+            }
+        };
+        fetch();
+    }, [dispatch, groupId, history])
 
     useEffect(() => {
         const checkAccess = (group) => {

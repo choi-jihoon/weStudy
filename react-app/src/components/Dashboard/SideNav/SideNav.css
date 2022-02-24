@@ -20,6 +20,8 @@
     background-color: var(--side-panel-selected) !important;
 }
 
+
+
 .side-panel-nav-links > a > li:hover,
 .room-container:hover,
 .side-panel-nav-links > ul > a > li.note-title:hover,
@@ -169,7 +171,7 @@ p.side-nav-overflow-control {
     color: var(--main-container-text);
 }
 
-
+/*
 li.logout-btn-container {
     width: 100%;
     padding: 10px 20px;
@@ -191,7 +193,22 @@ li.logout-btn-container {
 
 .logout-btn-container:hover {
     background-color: var(--side-panel-hover);
+} */
+
+#logout {
+    padding-left: 15px;
+    cursor: pointer;
 }
+
+#logout > i {
+    font-size: 20px;
+}
+
+#logout > i:hover {
+    color: white;
+    transform: scale(1.1);
+}
+
 
 .user-pic-name-container {
     width: 100%;
@@ -255,9 +272,10 @@ div#edit-user > i {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 30px 30px;
+    padding: 20px 30px;
     position: absolute;
     bottom: 0;
+    width: 300px;
 }
 
 .developer > p,

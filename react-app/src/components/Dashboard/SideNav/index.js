@@ -26,6 +26,7 @@ const SideNav = () => {
             </div>
             <div className='username-text'>
                 <NavLink to='/'>{user.username}</NavLink>
+                <LogoutButton />
             </div>
         </>
     )
@@ -88,9 +89,9 @@ const SideNav = () => {
                             </ul>
                         </>
                     }
-                    <li className='logout-btn-container'>
+                    {/* <li className='logout-btn-container'>
                         <LogoutButton />
-                    </li>
+                    </li> */}
                     <div className='developer'>
                         <a target="_blank" rel="noreferrer noopener"
                             href='https://github.com/choi-jihoon/weStudy'>

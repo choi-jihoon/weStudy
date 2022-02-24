@@ -272,10 +272,12 @@ div#edit-user > i {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px 30px;
+    padding: 20px 30px 30px 30px;
     position: absolute;
     bottom: 0;
     width: 300px;
+
+    /* box-shadow: 0 -1px 3px rgba(255, 255, 255, 0.267); */
 }
 
 .developer > p,

@@ -106,7 +106,7 @@ const StudyGroupDash = () => {
                                             </div>
                                         </div>
                                         <div className='sg-member-name'>
-                                            {user.username}
+                                            {user.id === group.owner_id && <i className="fas fa-crown"></i>}{user.username}
                                         </div>
                                         {(sessionUser.id === group.owner_id && sessionUser.id !== user.id) &&
                                             <RemoveFromGroupModal group={group} user={user} />

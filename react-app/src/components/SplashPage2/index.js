@@ -101,6 +101,38 @@ const SplashPage2 = () => {
                                 <ul>
                                     <li>
                                         <i className="fas fa-circle"></i>
+                                        React
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-circle"></i>
+                                        Redux
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-circle"></i>
+                                        JavaScript
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='technologies-used'>
+                                <ul>
+                                    <li>
+                                        <i className="fas fa-circle"></i>
+                                        Python
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-circle"></i>
+                                        Flask
+                                    </li>
+                                    <li>
+                                        <i className="fas fa-circle"></i>
+                                        SQLAlchemy
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className='technologies-used'>
+                                <ul>
+                                    <li>
+                                        <i className="fas fa-circle"></i>
                                         SocketIO
                                     </li>
                                     <li>

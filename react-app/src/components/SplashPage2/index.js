@@ -1,11 +1,17 @@
 import { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import logo from '../../assets/images/teallogo.png';
 import SignUpForm2 from './SignUpForm2';
 import LoginForm2 from './LoginForm2';
+import { wacky } from '../../assets/images/wacky';
+
 import './SplashPage2.css';
 
 const SplashPage2 = () => {
+    const history = useHistory();
+
+    console.log(wacky);
 
     const [showSignUp, setShowSignUp] = useState(false);
 
@@ -22,14 +28,18 @@ const SplashPage2 = () => {
     const goToLoginForm = (e) => {
         e.preventDefault();
         setShowSignUp(true);
-    }
+    };
 
     const handleBackToSignup = (e) => {
         e.preventDefault();
         document.querySelector('.form-container1').classList.remove('show-signup')
         document.querySelector('.form-container1').classList.add('hide-signup')
         setShowSignUp(false);
-    }
+    };
+
+    useEffect(() => {
+        history.push('/');
+    }, [history]);
 
     return (
         <div className='splash-page-container-2'>

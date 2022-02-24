@@ -12,6 +12,7 @@ import CreateImageModal from './Image/CreateImageModal';
 import DeleteImageModal from './Image/DeleteImageModal';
 
 import Image from './Image';
+import NoImages from './NoImages';
 
 import './AlbumDetail.css';
 
@@ -61,6 +62,7 @@ const AlbumDetail = () => {
             </div>
             <div className='album-container'>
                 <div className='album-images-container'>
+                {(!imagesObj.byAlbumId[albumId] || !(Object.values(imagesObj.byAlbumId[albumId])).length) && <NoImages />}
                     {imagesObj.byAlbumId[albumId] && Object.values((imagesObj.byAlbumId[albumId])).map(image => (
                         <div className='image-container' key={image.id}>
                             <Image image={image} />

@@ -42,6 +42,13 @@ const NoteDetail = () => {
         });
     };
 
+    const notifyEmptyError = () => {
+        toast.error(`You need a title!`, {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 2000,
+        });
+    };
+
     const updateTitle = (e) => {
         setTitle(e.target.value);
     }
@@ -53,6 +60,11 @@ const NoteDetail = () => {
     const handleSave = (e) => {
         if (title.length > 40) {
             notifyError();
+            return;
+        }
+
+        if (title.length === 0) {
+            notifyEmptyError();
             return;
         }
 

@@ -135,3 +135,12 @@ input {
 .bold {
 	font-weight: bold;
 }
+
+button#create-group:disabled,
+button#add-room:disabled,
+button#edit-room-submit:disabled,
+button#event-submit:disabled,
+button#create-note-submit:disabled {
+	transform: none;
+	opacity: 0.5;
+}

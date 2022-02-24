@@ -64,7 +64,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 					{errors.note_title ? `${errors.note_title}` : ""}
 				</div>
 			</div>
-			<button id='create-note-submit' type="submit">New Note</button>
+			<button disabled={Object.keys(errors).length > 0} id='create-note-submit' type="submit">New Note</button>
 		</form>
 	);
 };

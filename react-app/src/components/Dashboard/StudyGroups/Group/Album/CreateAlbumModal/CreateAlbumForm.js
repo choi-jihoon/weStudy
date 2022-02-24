@@ -58,7 +58,7 @@ const CreateAlbumForm = ({ setShowModal, group }) => {
 				</div>
 			</div>
 
-			<button id='add-room' type="submit">Create Album</button>
+			<button disabled={Object.keys(errors).length > 0} id='add-room' type="submit">Create Album</button>
 		</form>
 	);
 };

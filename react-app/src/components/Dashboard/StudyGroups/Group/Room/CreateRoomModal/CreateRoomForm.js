@@ -61,7 +61,7 @@ const CreateRoomForm = ({ setShowModal, group }) => {
 				</div>
 			</div>
 
-			<button id='add-room' type="submit">Create Room</button>
+			<button disabled={Object.keys(errors).length > 0} id='add-room' type="submit">Create Room</button>
 		</form>
 	);
 };

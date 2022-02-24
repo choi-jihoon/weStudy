@@ -9,7 +9,6 @@ const LoginForm2 = ({ handleBackToSignup }) => {
 	const [errors, setErrors] = useState({});
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-    const [showSignUp, setShowSignUp] = useState(true);
 	const dispatch = useDispatch();
 
 	const onLogin = async (e) => {
@@ -24,22 +23,23 @@ const LoginForm2 = ({ handleBackToSignup }) => {
 			}
 
 			setErrors(errors);
-			return
+			return;
 		}
 	};
 
 	const updateEmail = (e) => {
 		setEmail(e.target.value);
+        setErrors({});
 	};
 
 	const updatePassword = (e) => {
 		setPassword(e.target.value);
+        setErrors({});
 	};
-
 
 	useEffect(() => {
 		setErrors(errors)
-	}, [errors])
+	}, [errors]);
 
 
 	return (

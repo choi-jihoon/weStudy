@@ -19,11 +19,12 @@
     align-items: center;
 
     position: absolute;
-    bottom: 32vh;
+    bottom: 47vh;
 
     border-bottom: 1px solid var(--side-panel-text);
     border-top: 1px solid var(--side-panel-text);
-    padding-top: 8%;
+
+    /* padding-top: 8%; */
 }
 
 h1.title-text-2 {

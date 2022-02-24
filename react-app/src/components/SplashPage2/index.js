@@ -34,8 +34,10 @@ const SplashPage2 = () => {
     return (
         <div className='splash-page-container-2'>
             <div className='title-container-2'>
-                <h1 className='title-text-2'>weStudy</h1>
-                <img id='logo' src={logo} alt='logo'></img>
+                <div className='title-text-container-2'>
+                    <h1 className='title-text-2'>weStudy</h1>
+                    <img id='logo' src={logo} alt='logo'></img>
+                </div>
             </div>
             <div className='forms-container'>
                 <div className='current-form-container'>

@@ -56,7 +56,7 @@ const LoginForm2 = ({ handleBackToSignup }) => {
 							onChange={updateEmail}
 							required={true}
 						/>
-						<div className='errors-container'>
+						<div className='errors-container2'>
 							{errors.email ? `${errors.email}` : ""}
 						</div>
 					</div>
@@ -69,7 +69,7 @@ const LoginForm2 = ({ handleBackToSignup }) => {
 							onChange={updatePassword}
 							required={true}
 						/>
-						<div className='errors-container'>
+						<div className='errors-container2'>
 							{errors.password ? `${errors.password}` : ""}
 						</div>
 					</div>

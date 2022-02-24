@@ -33,8 +33,8 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 			groupId,
 			summary,
 			description,
-			startTime,
-			endTime
+			startTime.slice(0,16),
+			endTime.slice(0,16)
 		));
 
 		if (data) {

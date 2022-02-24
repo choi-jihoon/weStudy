@@ -32,8 +32,8 @@ const EditEventForm = ({ setShowModal, event }) => {
             event.group_id,
             summary,
             description,
-            startTime,
-            endTime
+            startTime.slice(0,16),
+			endTime.slice(0,16)
         ));
 
 		if (data) {
@@ -116,7 +116,7 @@ const EditEventForm = ({ setShowModal, event }) => {
                         onChange={updateStartTime}
                         required
 						format="yyyy-MM-ddTHH:mm"
-						step="60"
+						step="3600"
                     />
                     <div className='errors-container'>
 						{errors.start_time ? `${errors.start_time}` : ""}
@@ -131,6 +131,7 @@ const EditEventForm = ({ setShowModal, event }) => {
                         onChange={updateEndTime}
                         required
 						format="yyyy-MM-ddTHH:mm"
+						step="60"
                     />
                     <div className='errors-container'>
 						{errors.end_time ? `${errors.end_time}` : ""}

@@ -19,7 +19,9 @@ const Album = ({ album }) => {
                 to={`/groups/${album.group_id}/albums/${album.id}`}>
                 <li className='album-title room-container'>
                     <i className="far fa-images"></i>
-                    {album.title}
+                    <p className='side-nav-overflow-control'>
+                        {album.title}
+                    </p>
                 </li>
             </NavLink>
         </div>

@@ -41,6 +41,11 @@
     color: var(--side-panel-text);
 }
 
+.note-title {
+    display: flex;
+    align-items: center;
+}
+
 .fa-file-alt {
     color: var(--side-panel-text);
 }

@@ -31,12 +31,20 @@ const AlbumDetail = () => {
 
 
     useEffect(() => {
-        dispatch(getGroup(groupId));
-        dispatch(getAlbums(groupId));
-        dispatch(getImages(albumId));
-        dispatch(getRooms(groupId));
-        dispatch(getNotes(groupId));
-    }, [dispatch, albumId, groupId])
+        const fetch = async () => {
+            const data = await dispatch(getGroup(groupId));
+            if (data && data.errors) {
+                return history.push('/');
+            }
+            else {
+                dispatch(getAlbums(groupId));
+                dispatch(getImages(albumId));
+                dispatch(getRooms(groupId));
+                dispatch(getNotes(groupId));
+            }
+        };
+        fetch();
+    }, [dispatch, albumId, groupId, history])
 
     useEffect(() => {
         const checkAccess = (group) => {

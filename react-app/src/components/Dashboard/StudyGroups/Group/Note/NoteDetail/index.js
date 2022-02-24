@@ -61,12 +61,20 @@ const NoteDetail = () => {
     }
 
     useEffect(() => {
-        dispatch(getGroup(groupId));
-        dispatch(getNote(noteId));
-        dispatch(getRooms(groupId));
-        dispatch(getAlbums(groupId));
-        dispatch(getNotes(groupId));
-    }, [dispatch, noteId, groupId]);
+        const fetch = async () => {
+            const data = await dispatch(getGroup(groupId));
+            if (data && data.errors) {
+                return history.push('/');
+            }
+            else {
+                dispatch(getNote(noteId));
+                dispatch(getRooms(groupId));
+                dispatch(getAlbums(groupId));
+                dispatch(getNotes(groupId));
+            }
+        };
+        fetch();
+    }, [dispatch, noteId, groupId, history]);
 
     useEffect(() => {
         if (note) {

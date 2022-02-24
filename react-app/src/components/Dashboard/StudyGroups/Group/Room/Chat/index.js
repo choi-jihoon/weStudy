@@ -55,16 +55,24 @@ const Chat = () => {
     }
 
     useEffect(() => {
-        dispatch(getGroup(groupId));
-        dispatch(getRooms(groupId));
-        dispatch(getNotes(groupId));
-        dispatch(getAlbums(groupId));
-        dispatch(getChatMessages(roomId));
+        const fetch = async () => {
+            const data = await dispatch(getGroup(groupId));
+            if (data && data.errors) {
+                return history.push('/');
+            }
+            else {
+                dispatch(getRooms(groupId));
+                dispatch(getNotes(groupId));
+                dispatch(getAlbums(groupId));
+                dispatch(getChatMessages(roomId));
+            }
+        };
+        fetch();
 
         setMessages([]);
 
         scroll();
-    }, [dispatch, roomId, groupId]);
+    }, [dispatch, roomId, groupId, history]);
 
     useEffect(() => {
         const checkAccess = (group) => {

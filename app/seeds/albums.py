@@ -8,13 +8,13 @@ def seed_albums():
     )
 
     album2 = Album(
-        user_id=1,
+        user_id=2,
         group_id=1,
         title='Programmer Humor'
     )
 
     album3 = Album(
-        user_id=1,
+        user_id=2,
         group_id=1,
         title='Pets'
     )

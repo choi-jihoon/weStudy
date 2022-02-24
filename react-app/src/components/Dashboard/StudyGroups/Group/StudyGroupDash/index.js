@@ -52,13 +52,13 @@ const StudyGroupDash = () => {
                 return true;
             }
             else return false;
-        }
+        };
 
         if (sessionUser && group) {
             if (!checkAccess(group)) {
                 return history.push('/')
-            }
-        }
+            };
+        };
     }, [group, sessionUser, history])
 
     return (

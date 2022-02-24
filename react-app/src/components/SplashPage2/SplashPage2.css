@@ -3,12 +3,92 @@
     height: 100%;
     display: grid;
     grid-template-columns: 60% 40%;
+    grid-template-areas: 'left right';
+    position: relative;
 }
 
 .title-container-2 {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    display: grid;
+    grid-template-rows: 52vh 48vh;
+    grid-template-columns: 100vw;
+    grid-template-areas: 'top'
+    'bottom';
+}
+
+.about-links {
+    padding-left: 5%;
+    grid-area: bottom;
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-areas: 'all none';
+}
+
+.left-container-links {
+    display: flex;
+    padding-top: 3vh;
+}
+
+.developer-name-text {
+    align-self: center;
+    padding-bottom: 12%;
+    width: 100%;
+}
+
+p#developed-by {
+    font-size: 2vh;
+    color: var(--side-panel-text);
+}
+
+p#fiona-choi {
+    font-size: 5vh;
+    color: var(--side-panel-text);
+}
+
+.github-linkedin {
+    display: flex;
+    width: 80%;
+    padding-left: 7vw;
+}
+
+.github-linkedin > a > i {
+    color: var(--side-panel-text);
+    font-size: 5vh;
+    padding-left: 1.5vw;
+}
+
+.all-technologies {
+    display: flex;
+    width: 130%;
+    justify-content: space-between;
+    padding: 6vh 0;
+}
+
+.technologies-used > ul > li > i {
+    font-size: 12px;
+    padding-right: 10px;
+    color: var(--side-panel-text);
+}
+
+.technologies-used > ul > li {
+    font-size: 2.2vh;
+    padding: 2vh 0;
+    display: flex;
+    align-items: center;
+
+    font-family: proxima-nova-condensed, sans-serif;
+
+    font-weight: 400;
+
+    font-style: normal;
+    color: var(--side-panel-text);
+
 }
 
 .title-text-container-2 {
@@ -44,11 +124,13 @@ h1.title-text-2 {
 }
 
 .forms-container {
+    grid-area: right;
     display: flex;
     width: 100%;
-    position: relative;
+    position: absolute;
     justify-content: center;
     align-items: center;
+    bottom: 24vh;
 }
 
 .current-form-container {
@@ -57,7 +139,7 @@ h1.title-text-2 {
     overflow: hidden;
     position: relative;
     background-color: whitesmoke;
-    box-shadow: 10px 10px 20px 10px rgb(59, 59, 59);
+    box-shadow: 10px 10px 20px 10px rgb(32, 32, 32);
 
     border-radius: 10px;
 

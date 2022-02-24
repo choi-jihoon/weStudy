@@ -53,10 +53,10 @@
     margin-bottom: 40px;
 
     display: grid;
-    grid-template-columns: 200px auto;
-    width: 70%;
-    min-width: 850px;
-    max-width: 70vw;
+    grid-template-columns: 200px 40vw;
+    width: 60vw;
+    /* min-width: 60vw; */
+    /* max-width: 60vw; */
 
     border-radius: 10px;
     position: relative;
@@ -97,8 +97,9 @@ h3.event-month {
 }
 
 .event-title-description-container {
-    padding-right: 50px;
-    max-width: 383px;
+    padding-right: 15px;
+    /* max-width: 383.5px; */
+    max-width: 30vw;
 }
 
 .event-summary > h3 {

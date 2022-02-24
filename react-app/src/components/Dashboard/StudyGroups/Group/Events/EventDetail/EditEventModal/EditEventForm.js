@@ -115,6 +115,7 @@ const EditEventForm = ({ setShowModal, event }) => {
                         value={startTime}
                         onChange={updateStartTime}
                         required
+						format="yyyy-MM-ddTHH:mm"
                     />
                     <div className='errors-container'>
 						{errors.start_time ? `${errors.start_time}` : ""}
@@ -128,6 +129,7 @@ const EditEventForm = ({ setShowModal, event }) => {
                         value={endTime}
                         onChange={updateEndTime}
                         required
+						format="yyyy-MM-ddTHH:mm"
                     />
                     <div className='errors-container'>
 						{errors.end_time ? `${errors.end_time}` : ""}

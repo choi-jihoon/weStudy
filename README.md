@@ -1,5 +1,7 @@
 # weStudy
 
+![Splash Page](./images/splashpage.JPG)
+
 weStudy is a social application where users can create and join study groups, chat with other group members, and share notes, images, and events.
 
 This application uses Flask-SocketIO to allow for live chatting between users and live updates of users' online statuses.
@@ -81,15 +83,15 @@ The Flask-SocketIO library is also utilized to broadcast messages within chatroo
 ```
 const sendChat = (e) => {
         e.preventDefault();
-        socket.emit('chat', { user: user.username, msg: chatInput, room: room?.room_name, user_image: user.image });
+        socket.emit('chat', { user: user.username, msg: chatInput, room: room?.id, user_image: user.image });
         dispatch(createChatMessage(roomId, chatInput));
         setChatInput("");
     };
 
 useEffect(() => {
         socket = io();
-        socket.emit('join', { 'username': user.username, 'room': room?.room_name });
-        socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: room?.room_name });
+        socket.emit('join', { 'username': user.username, 'room': room?.id });
+        socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: room?.id });
 
         socket.on('chat', (chat) => {
             setMessages(messages => [...messages, chat]);
@@ -97,12 +99,12 @@ useEffect(() => {
         });
 
         return (() => {
-            socket.emit('leave', { 'username': user.username, 'room': room?.room_name })
-            socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has left the room.`, room: room?.room_name })
+            socket.emit('leave', { 'username': user.username, 'room': room?.id })
+            socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has left the room.`, room: room?.id })
 
             socket.disconnect();
         })
-    }, [roomId, room?.room_name, user.username]);
+    }, [roomId, room?.id, user.username]);
 ```
 
 Upon mounting/entering the ChatRoom component, a useEffect makes a call to the backend to Flask-SocketIO's built-in join_room() function as well as the "chat" event to display the message that the user has joined the room.
@@ -173,7 +175,7 @@ This project also allowed me to explore:
 
 
 # Next Steps
-
+- Display of active users in a given chatroom
 - Search for groups by name and request to join
   - Notifications for when a user requests to join a group
 - Media queries to make the design more responsive to different sized screens, as well as a mobile-friendly

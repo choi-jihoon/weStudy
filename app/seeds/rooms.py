@@ -3,25 +3,25 @@ from app.models import db, Room
 def seed_rooms():
     room1 = Room(
         room_name='Icebreakers',
-        user_id=1,
+        user_id=2,
         group_id=1
     )
 
     room2 = Room(
         room_name='Resources',
-        user_id=2,
+        user_id=1,
         group_id=1
     )
 
     room3 = Room(
         room_name='Icebreakers',
-        user_id=2,
+        user_id=1,
         group_id=3
     )
 
     room4 = Room(
         room_name='Icebreakers',
-        user_id=2,
+        user_id=1,
         group_id=2
     )
 

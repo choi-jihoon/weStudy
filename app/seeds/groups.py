@@ -4,21 +4,21 @@ def seed_groups():
     group1 = Group(
         group_name = 'S&C LLC',
         description = '9/20 Bootbamp Cohort Study Buddies',
-        owner_id = 1,
+        owner_id = 2,
         group_image = 'https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/956dd8e3405b4874ae587292f0609c8a.png'
     )
 
     group2 = Group(
         group_name = 'Group Proj 1',
         description = 'Gotta Latte Do (dream team) - JavaScript / Express',
-        owner_id = 2,
+        owner_id = 1,
         group_image = 'https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/6f299160a4564f318b0d96a2c80126f8.jpg'
     )
 
     group3 = Group(
         group_name = 'Group Proj 2',
         description = 'SplitaBill (dream team trio) - React / Python / Flask',
-        owner_id = 2,
+        owner_id = 1,
         group_image ='https://fionacapstonebucket.s3.us-west-1.amazonaws.com/defaults/d8a241022059400b81ca3d206ddda495.jpg'
     )
 

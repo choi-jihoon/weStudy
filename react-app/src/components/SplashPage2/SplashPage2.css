@@ -19,7 +19,7 @@
     align-items: center;
 
     position: absolute;
-    bottom: 47vh;
+    bottom: 48vh;
 
     border-bottom: 1px solid var(--side-panel-text);
     border-top: 1px solid var(--side-panel-text);
@@ -29,6 +29,7 @@
 
 h1.title-text-2 {
     font-size: 12vw;
+    padding-right: 20px;
 }
 
 #logo {

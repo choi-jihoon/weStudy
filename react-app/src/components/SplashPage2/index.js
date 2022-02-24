@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-import logo from '../../assets/images/logo.png';
+import logo from '../../assets/images/teallogo.png';
 import SignUpForm2 from './SignUpForm2';
 import LoginForm2 from './LoginForm2';
 import './SplashPage2.css';

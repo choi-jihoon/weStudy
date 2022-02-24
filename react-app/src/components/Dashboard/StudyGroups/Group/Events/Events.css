@@ -251,10 +251,10 @@ div.event-label.attendees-label {
 .event-description {
     font-weight: normal;
     font-style: italic;
-
+/*
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; */
 }
 
 .events-dash-container {

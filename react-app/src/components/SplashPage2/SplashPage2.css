@@ -346,3 +346,9 @@ button#login-account2:hover {
 .copyright-text:hover {
     color: var(--side-panel-selected);
 }
+
+
+i.fa-github.splash-icon:hover,
+i.fa-linkedin.splash-icon:hover {
+    color: white;
+}

@@ -256,5 +256,12 @@ div#edit-user > i {
 }
 
 .developer > a:hover {
-    color: var(--side-panel-selected);
+    color: white;
+}
+
+
+.fa-github:hover,
+.fa-linkedin:hover {
+    color: white;
+    transform: scale(1.1);
 }

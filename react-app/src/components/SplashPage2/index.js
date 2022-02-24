@@ -46,11 +46,11 @@ const SplashPage2 = () => {
                             <div className='github-linkedin'>
                                 <a target="_blank" rel="noreferrer noopener"
                                     href='https://github.com/choi-jihoon'>
-                                    <i className='fab fa-github' />
+                                    <i className='fab fa-github splash-icon' />
                                 </a>
                                 <a target="_blank" rel="noreferrer noopener"
                                     href='https://www.linkedin.com/in/jihoon-choi-a6967a221/'>
-                                    <i className='fab fa-linkedin' />
+                                    <i className='fab fa-linkedin splash-icon' />
                                 </a>
                             </div>
                         </div>

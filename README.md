@@ -1,6 +1,6 @@
 # weStudy
 
-![Splash Page](./images/splashpage.JPG)
+![Splash Page](./images/finalsplash.JPG)
 
 weStudy is a social application where users can create and join study groups, chat with other group members, and share notes, images, and events.
 

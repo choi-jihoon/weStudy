@@ -16,12 +16,13 @@ const LoginForm2 = ({ handleBackToSignup }) => {
 		const data = await dispatch(login(email, password));
 		if (data) {
 			const errors = {};
-			const dataArr = data.map(error => error.split(":"));
+			// const dataArr = data.map(error => error.split(":"));
 
-			for (let i = 0; i < dataArr.length; i++) {
-				errors[dataArr[i][0]] = dataArr[i][1]
-			}
-
+			// for (let i = 0; i < dataArr.length; i++) {
+			// 	errors[dataArr[i][0]] = dataArr[i][1]
+			// }
+			errors['email'] = 'Invalid email and/or password.';
+			// errors['password'] = 'Invalid credentials.';
 			setErrors(errors);
 			return;
 		}

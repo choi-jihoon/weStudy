@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import { createEvent } from "../../../../../../store/events";
 
 import './CreateEventForm.css';
+
+toast.configure();
 
 const CreateEventForm = ({ setShowModal, groupId }) => {
 	const [errors, setErrors] = useState({});
@@ -11,6 +16,13 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 	const [description, setDescription] = useState("");
 	const [startTime, setStartTime] = useState("");
 	const [endTime, setEndTime] = useState("");
+
+	const notify = () => {
+        toast.success(`Event Created!`, {
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 2000,
+        });
+    };
 
 	const user = useSelector(state => state.session.user);
 
@@ -47,6 +59,7 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 			return;
 		}
 
+		notify();
 		setShowModal(false);
 	};
 

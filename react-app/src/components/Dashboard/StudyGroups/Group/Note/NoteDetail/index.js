@@ -30,21 +30,21 @@ const NoteDetail = () => {
 
     const notify = () => {
         toast(`Your edits have been saved!`, {
-            position: toast.POSITION.TOP_RIGHT,
+            position: toast.POSITION.BOTTOM_RIGHT,
             autoClose: 2000,
         });
     };
 
     const notifyError = () => {
         toast.error(`Your title's too long!`, {
-            position: toast.POSITION.TOP_RIGHT,
+            position: toast.POSITION.TOP_CENTER,
             autoClose: 2000,
         });
     };
 
     const notifyEmptyError = () => {
         toast.error(`You need a title!`, {
-            position: toast.POSITION.TOP_RIGHT,
+            position: toast.POSITION.TOP_CENTER,
             autoClose: 2000,
         });
     };

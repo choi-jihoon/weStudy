@@ -8,10 +8,10 @@ import { signUp } from "../../../store/session";
 import "./SignUpForm2.css";
 
 const SignUpForm2 = ({ goToLoginForm }) => {
-	const [errors, setErrors] = useState({});
-	const [username, setUsername] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [signUpErrors, setSignUpErrors] = useState({});
+	const [newUsername, setNewUsername] = useState("");
+	const [newEmail, setNewEmail] = useState("");
+	const [newPassword, setNewPassword] = useState("");
 	const [repeatPassword, setRepeatPassword] = useState("");
 	const [image, setImage] = useState(null);
 
@@ -19,11 +19,20 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 
 	const onSignUp = async (e) => {
 		e.preventDefault();
+		const errors={};
+		if (newUsername.length === 0) errors['newUsername'] = 'This field is required.';
+		if (newEmail.length === 0) errors['newEmail'] = 'This field is required.';
+		if (newPassword.length === 0) errors['newPassword'] = 'This field is required.';
+		if (repeatPassword.length === 0) errors['repeat_password'] = 'This field is required.';
+		if (Object.values(errors).length) {
+			return setSignUpErrors(errors)
+		}
+
 		const formData = new FormData();
-		if (password === repeatPassword) {
-			formData.append("username", username);
-			formData.append("email", email);
-			formData.append("password", password);
+		if (newPassword === repeatPassword) {
+			formData.append("username", newUsername);
+			formData.append("email", newEmail);
+			formData.append("password", newPassword);
 			if (image) {
 				formData.append("image", image);
 			}
@@ -36,44 +45,46 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 					errors[dataArr[i][0]] = dataArr[i][1];
 				}
 
-				setErrors(errors);
+				console.log(errors)
+				setSignUpErrors(errors);
 				return;
 			}
 		} else {
+			console.log('hello')
 			const errors = {};
-			errors["password"] = "Passwords do not match.";
-			setErrors(errors);
+			errors["repeat_password"] = "Passwords do not match.";
+			setSignUpErrors(errors);
 			return;
 		}
 	};
 
 
-	const updateUsername = (e) => {
-		setUsername(e.target.value);
-		setErrors({});
+	const updateNewUsername = (e) => {
+		setNewUsername(e.target.value);
+		setSignUpErrors({});
 	};
 
-	const updateEmail = (e) => {
-		setEmail(e.target.value);
-		setErrors({});
+	const updateNewEmail = (e) => {
+		setNewEmail(e.target.value);
+		setSignUpErrors({});
 	};
 
-	const updatePassword = (e) => {
-		setPassword(e.target.value);
-		setErrors({});
+	const updateNewPassword = (e) => {
+		setNewPassword(e.target.value);
+		setSignUpErrors({});
 	};
 
 	const updateRepeatPassword = (e) => {
 		setRepeatPassword(e.target.value);
-		setErrors({});
+		setSignUpErrors({});
 	};
 
 	useEffect(() => {
 		return () => {
-			setErrors({});
-			setUsername("");
-			setEmail("");
-			setPassword("");
+			setSignUpErrors({});
+			setNewUsername("");
+			setNewEmail("");
+			setNewPassword("");
 			setRepeatPassword("");
 			setImage(null);
 		};
@@ -91,30 +102,32 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 						<div className="signup-element-container2">
 							<input
 								type="text"
-								name="username"
-								onChange={updateUsername}
+								name="newUsername"
+								onChange={updateNewUsername}
 								placeholder="Username"
-								value={username}
-								required={true}
+								value={newUsername}
+								// required={true}
 
 							></input>
 							<div className="errors-container2">
-								{errors.username ? `${errors.username}` : ""}
+								{signUpErrors.newUsername ? `${signUpErrors.newUsername}` : ""}
+								{signUpErrors.username ? `${signUpErrors.username}` : ""}
 							</div>
 						</div>
 
 						<div className="signup-element-container2">
 							<input
 								type="email"
-								name="email"
+								name="newEmail"
 								placeholder="Email"
-								onChange={updateEmail}
-								value={email}
-								required={true}
+								onChange={updateNewEmail}
+								value={newEmail}
+								// required={true}
 
 							></input>
 							<div className="errors-container2">
-								{errors.email ? `${errors.email}` : ""}
+								{signUpErrors.newEmail ? `${signUpErrors.newEmail}` : ""}
+								{signUpErrors.email ? `${signUpErrors.email}` : ""}
 							</div>
 						</div>
 
@@ -123,11 +136,15 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 								type="password"
 								name="password"
 								placeholder="Password"
-								onChange={updatePassword}
-								value={password}
-								required={true}
+								onChange={updateNewPassword}
+								value={newPassword}
+								// required={true}
 
 							></input>
+							<div className="errors-container2">
+								{signUpErrors.newPassword ? `${signUpErrors.newPassword}` : ""}
+								{signUpErrors.password ? `${signUpErrors.password}` : ""}
+							</div>
 						</div>
 
 						<div className="signup-element-container2">
@@ -137,10 +154,10 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 								placeholder="Confirm Password"
 								onChange={updateRepeatPassword}
 								value={repeatPassword}
-								required={true}
+								// required={true}
 							></input>
 							<div className="errors-container2">
-								{errors.password ? `${errors.password}` : ""}
+								{signUpErrors.repeat_password ? `${signUpErrors.repeat_password}` : ""}
 							</div>
 						</div>
 					</div>

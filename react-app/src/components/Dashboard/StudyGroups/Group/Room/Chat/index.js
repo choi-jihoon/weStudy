@@ -115,6 +115,15 @@ const Chat = () => {
         <>
             <div className='chat-header-container'>
                 <h2 className='room-name'>Welcome to #{room?.room_name}!</h2>
+                <div className='active-users-container'>
+                    {room?.active_users.map(user => {
+                        return (
+                            <div key={user.id} className='active-user-img-container'>
+                                <img className='active-user-img' src={user.image} alt={user.id}></img>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
             <div className='chat-room-container'>
                 <div className='chat-messages-container'>

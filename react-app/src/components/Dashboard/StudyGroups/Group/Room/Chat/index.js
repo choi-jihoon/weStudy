@@ -6,7 +6,7 @@ import { io } from 'socket.io-client';
 import { getAlbums } from '../../../../../../store/albums';
 import { getChatMessages, createChatMessage } from '../../../../../../store/chats';
 import { getNotes } from '../../../../../../store/notes';
-import { getRooms, joinChatRoom, leaveChatRoom } from '../../../../../../store/rooms';
+import { getRooms, joinChatRoom, leaveChatRoom, getRoom } from '../../../../../../store/rooms';
 import { getGroup } from '../../../../../../store/groups';
 
 import './Chat.css';
@@ -92,19 +92,32 @@ const Chat = () => {
 
     useEffect(() => {
         socket = io();
-        socket.emit('join', { 'username': user.username, 'room': roomId });
-        socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: roomId });
+
         dispatch(joinChatRoom(roomId));
+
+        socket.emit('join', { 'username': user.username, 'room': roomId });
+        socket.emit('join_room', { 'username': user.username, 'room': roomId })
+        socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has joined the room.`, room: roomId });
 
         socket.on('chat', (chat) => {
             setMessages(messages => [...messages, chat]);
             scroll();
-        })
+        });
+
+        socket.on('join_room', (user) => {
+            dispatch(getRooms(groupId));
+        });
+
+        socket.on('leave_room', (user) => {
+            dispatch(getRooms(groupId));
+        });
+
 
         return (() => {
-            socket.emit('leave', { 'username': user.username, 'room': roomId });
-            socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has left the room.`, room: roomId });
             dispatch(leaveChatRoom(roomId));
+            socket.emit('leave', { 'username': user.username, 'room': roomId });
+            socket.emit('leave_room', { 'username': user.username, 'room': roomId })
+            socket.emit('chat', { user: 'weStudy-Bot', msg: `${user.username} has left the room.`, room: roomId });
 
             socket.disconnect();
         })

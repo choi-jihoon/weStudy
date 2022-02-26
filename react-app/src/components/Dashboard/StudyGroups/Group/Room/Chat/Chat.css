@@ -168,6 +168,7 @@ button#send-chat:disabled {
     display: flex;
     align-items: center;
     width: auto;
+    max-width: 50%;
 }
 
 

@@ -176,7 +176,7 @@ This project also allowed me to explore:
 
 # Next Steps
 - [x] Display of active users in a given chatroom
-- Search for groups by name and request to join
-  - Notifications for when a user requests to join a group
-- Media queries to make the design more responsive to different sized screens, as well as a mobile-friendly
-- Collaborative whiteboard
+- [] Search for groups by name and request to join
+  - [] Notifications for when a user requests to join a group
+- [] Media queries to make the design more responsive to different sized screens, as well as a mobile-friendly
+- [] Collaborative whiteboard

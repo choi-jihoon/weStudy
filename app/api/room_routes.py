@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import current_user
-from app.models import db, Room, Chat
+from app.models import db, Room, Chat, User
 from app.forms import RoomForm
 
 def validation_errors_to_error_messages(validation_errors):
@@ -58,3 +58,21 @@ def delete_room(roomId):
 def get_chats(roomId):
     chats = Chat.query.filter(Chat.room_id == roomId).all()
     return { 'chats': [chat.to_dict() for chat in chats] }
+
+
+@room_routes.route('/<int:roomId>/join', methods=['PATCH'])
+def join_chatroom(roomId):
+    room = Room.query.get(int(roomId))
+    user = User.query.get(current_user.get_id())
+    room.active_users.append(user)
+    db.session.commit()
+    return room.to_dict()
+
+
+@room_routes.route('/<int:roomId>/leave', methods=['PATCH'])
+def leave_chatroom(roomId):
+    room = Room.query.get(int(roomId))
+    user = User.query.get(current_user.get_id())
+    room.active_users.pop(room.active_users.index(user))
+    db.session.commit()
+    return room.to_dict()

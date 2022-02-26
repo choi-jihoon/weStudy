@@ -43,12 +43,11 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 					errors[dataArr[i][0]] = dataArr[i][1];
 				}
 
-				console.log(errors)
+				// console.log(errors)
 				setSignUpErrors(errors);
 				return;
 			}
 		} else {
-			console.log('hello')
 			const errors = {};
 			errors["repeat_password"] = "Passwords do not match.";
 			setSignUpErrors(errors);

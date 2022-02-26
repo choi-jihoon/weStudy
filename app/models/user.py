@@ -2,6 +2,7 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from .event import attendees
+from .room import active_participants
 
 study_groups = db.Table(
     'study_group',
@@ -28,7 +29,7 @@ class User(db.Model, UserMixin):
     attending_events = db.relationship('Event', back_populates='attendees', secondary=attendees)
     albums = db.relationship('Album', back_populates='user', cascade='all, delete')
     images = db.relationship('Image', back_populates='user', cascade="all, delete")
-
+    current_room = db.relationship('Room', back_populates='active_users', secondary=active_participants)
 
     @property
     def password(self):

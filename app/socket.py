@@ -59,3 +59,12 @@ def on_active(data):
 @socketio.on('logout')
 def on_inactive(data):
     emit('logout', data, broadcast=True)
+
+
+@socketio.on('join_room')
+def on_join_room(data):
+    emit('join_room', data, broadcast=True)
+
+@socketio.on('leave_room')
+def on_leave_room(data):
+    emit('leave_room', data, broadcast=True)

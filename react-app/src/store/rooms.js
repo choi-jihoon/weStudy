@@ -3,6 +3,8 @@ const LOAD_ROOM = 'rooms/LOAD_ROOM';
 const CREATE_ROOM = 'rooms/CREATE_ROOM';
 const DELETE_ROOM = 'rooms/DELETE_ROOM';
 const EDIT_ROOM = 'rooms/EDIT_ROOM';
+const JOIN_ROOM = 'rooms/JOIN_ROOM';
+const LEAVE_ROOM = 'rooms/LEAVE_ROOM';
 
 const loadRooms = (rooms) => ({
     type: LOAD_ROOMS,
@@ -28,6 +30,16 @@ const edit = (room) => ({
     type: EDIT_ROOM,
     room
 });
+
+const joinRoom = (room) => ({
+    type: JOIN_ROOM,
+    room
+});
+
+const leaveRoom = (room) => ({
+    type: LEAVE_ROOM,
+    room
+})
 
 export const getRooms = (groupId) => async (dispatch) => {
     const res = await fetch(`/api/groups/${groupId}/rooms`);
@@ -121,6 +133,42 @@ export const editRoom = (roomId, room_name) => async (dispatch) => {
     };
 };
 
+export const joinChatRoom = (roomId) => async (dispatch) => {
+    const res = await fetch(`/api/rooms/${roomId}/join`, {
+        method: 'PATCH'
+    });
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(joinRoom(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        };
+    } else {
+        return { 'ERROR': 'An error occurred. Please try again.' }
+    };
+}
+
+export const leaveChatRoom = (roomId) => async (dispatch) => {
+    const res = await fetch(`/api/rooms/${roomId}/leave`, {
+        method: 'PATCH'
+    });
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(leaveRoom(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        };
+    } else {
+        return { 'ERROR': 'An error occurred. Please try again.' }
+    };
+}
+
 const updateSingleRoom = (state, action) => {
     const newState = { ...state };
     newState.rooms[action.room.id] = action.room;
@@ -160,7 +208,9 @@ const rooms = (state = initialState, action) => {
 
         case LOAD_ROOM:
         case CREATE_ROOM:
-        case EDIT_ROOM: {
+        case EDIT_ROOM:
+        case JOIN_ROOM:
+        case LEAVE_ROOM: {
             return updateSingleRoom(state, action);
         }
 

@@ -29,6 +29,10 @@ const CreateGroupForm = ({ setShowModal }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+		const errors = {};
+		if (!groupName.length) errors['group_name'] = 'This field is required.';
+		if (!description.length) errors['description'] = 'This field is required.';
+		if (Object.values(errors).length) return setErrors(errors);
 
 		const formData = new FormData();
 		formData.append('group_name', groupName);
@@ -84,7 +88,6 @@ const CreateGroupForm = ({ setShowModal }) => {
 	return (
 		<form autoComplete="off" onSubmit={handleSubmit} className="group-form-container">
 			<div className='group-form-input-container'>
-				{/* <div className="modal-head gf-modal-head">Create a Study Group</div> */}
 				<div className='form-element-container'>
 					<input
 						name="group_name"
@@ -92,7 +95,6 @@ const CreateGroupForm = ({ setShowModal }) => {
 						placeholder="Study Group Name"
 						value={groupName}
 						onChange={updateGroupName}
-						required
 					/>
 					<div className='errors-container'>
 						{errors.group_name ? `${errors.group_name}` : ""}
@@ -106,7 +108,6 @@ const CreateGroupForm = ({ setShowModal }) => {
 						placeholder="Description"
 						value={description}
 						onChange={updateDescription}
-						required
 					/>
 					<div className='errors-container'>
 						{errors.description ? `${errors.description}` : ""}

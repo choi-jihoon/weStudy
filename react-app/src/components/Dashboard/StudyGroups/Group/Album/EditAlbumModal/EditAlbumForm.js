@@ -18,6 +18,11 @@ const EditAlbumForm = ({ setShowModal, album }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		const errors = {};
+		if (!title.length) errors['title'] = 'This field is required.';
+		if (Object.values(errors).length) return setErrors(errors);
+
 		const data = await dispatch(editAlbum(album.id, album.group_id, title));
 
 		if (data) {
@@ -51,7 +56,7 @@ const EditAlbumForm = ({ setShowModal, album }) => {
 					placeholder="Album Title"
 					value={title}
 					onChange={updateTitle}
-					required
+
 				/>
 				<div className='errors-container'>
 					{errors.title ? `${errors.title}` : ""}

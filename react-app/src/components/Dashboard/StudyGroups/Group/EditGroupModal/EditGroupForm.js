@@ -25,6 +25,11 @@ const EditGroupForm = ({ setShowModal, group }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+		const errors = {};
+		if (!groupName.length) errors['group_name'] = 'This field is required.';
+		if (!description.length) errors['description'] = 'This field is required.';
+		if (Object.values(errors).length) return setErrors(errors);
+
 		const formData = new FormData();
 		formData.append('group_name', groupName);
 		formData.append('description', description);
@@ -83,7 +88,6 @@ const EditGroupForm = ({ setShowModal, group }) => {
 						placeholder="Study Group Name"
 						value={groupName}
 						onChange={updateGroupName}
-						required
 					/>
 					<div className='errors-container'>
 						{errors.group_name ? `${errors.group_name}` : ""}
@@ -97,7 +101,6 @@ const EditGroupForm = ({ setShowModal, group }) => {
 						placeholder="Description"
 						value={description}
 						onChange={updateDescription}
-						required
 					/>
 					<div className='errors-container'>
 						{errors.description ? `${errors.description}` : ""}

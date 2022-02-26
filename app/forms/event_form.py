@@ -15,5 +15,5 @@ class EventForm(FlaskForm):
     group_id = IntegerField('group_id', validators=[DataRequired()])
     summary = StringField('summary', validators=[DataRequired(), Length(min=1, max=50, message="Event title must be less than 50 characters.")])
     description = StringField('description', validators=[DataRequired(), Length(min=1, max=255, message="Event description must be less than 255 characters.")])
-    start_time = DateTimeLocalField('start_time', format='%Y-%m-%dT%H:%M', validators=[DataRequired()])
-    end_time = DateTimeLocalField('end_time', format='%Y-%m-%dT%H:%M', validators=[DataRequired(), check_times])
+    start_time = DateTimeLocalField('start_time', format='%Y-%m-%dT%H:%M', validators=[DataRequired(message='Please enter date in yyyy-MM-ddTHH:mm format.')])
+    end_time = DateTimeLocalField('end_time', format='%Y-%m-%dT%H:%M', validators=[DataRequired(message='Please enter date in yyyy-MM-ddTHH:mm format.'), check_times])

@@ -26,6 +26,13 @@ const EditEventForm = ({ setShowModal, event }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+		const errors = {};
+		if (!summary.length) errors['summary'] = 'This field is required.';
+		if (!description.length) errors['description'] = 'This field is required.';
+		if (!startTime.length) errors['start_time'] = 'This field is required.';
+		if (!endTime.length) errors['end_time'] = 'This field is required.';
+		if (Object.values(errors).length) return setErrors(errors);
+
 		const data = await dispatch(editEvent(
             event.id,
             user.id,
@@ -87,7 +94,7 @@ const EditEventForm = ({ setShowModal, event }) => {
 						placeholder="Event Title"
 						value={summary}
 						onChange={updateSummary}
-						required
+
 					/>
 					<div className='errors-container'>
 						{errors.summary ? `${errors.summary}` : ""}
@@ -101,7 +108,7 @@ const EditEventForm = ({ setShowModal, event }) => {
 						placeholder="Event Description"
 						value={description}
 						onChange={updateDescription}
-						required
+
 					/>
 					<div className='errors-container'>
 						{errors.description ? `${errors.description}` : ""}
@@ -114,9 +121,9 @@ const EditEventForm = ({ setShowModal, event }) => {
                         type="datetime-local"
                         value={startTime}
                         onChange={updateStartTime}
-                        required
+
 						format="yyyy-MM-ddTHH:mm"
-						step="3600"
+						placeholder='Start Time: yyyy-MM-ddTHH:mm'
                     />
                     <div className='errors-container'>
 						{errors.start_time ? `${errors.start_time}` : ""}
@@ -129,9 +136,9 @@ const EditEventForm = ({ setShowModal, event }) => {
                         type="datetime-local"
                         value={endTime}
                         onChange={updateEndTime}
-                        required
+
 						format="yyyy-MM-ddTHH:mm"
-						step="60"
+						placeholder='End Time: yyyy-MM-ddTHH:mm'
                     />
                     <div className='errors-container'>
 						{errors.end_time ? `${errors.end_time}` : ""}

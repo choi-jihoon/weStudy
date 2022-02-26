@@ -136,7 +136,6 @@ const EditEventForm = ({ setShowModal, event }) => {
                         type="datetime-local"
                         value={endTime}
                         onChange={updateEndTime}
-
 						format="yyyy-MM-ddTHH:mm"
 						placeholder='End Time: yyyy-MM-ddTHH:mm'
                     />

@@ -23,6 +23,11 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		const errors = {};
+		if (!title.length) errors['note_title'] = 'This field is required.';
+		if (Object.values(errors).length) return setErrors(errors);
+
 		const data = await dispatch(createNote(user.id, group.id, title));
 
 		if (data.errors) {
@@ -58,7 +63,7 @@ const CreateNoteForm = ({ setShowModal, group }) => {
 					placeholder="Title"
 					value={title}
 					onChange={updateTitle}
-					required
+
 				/>
 				<div className='errors-container'>
 					{errors.note_title ? `${errors.note_title}` : ""}

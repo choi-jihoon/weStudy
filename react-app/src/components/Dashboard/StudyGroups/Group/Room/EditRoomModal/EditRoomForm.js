@@ -18,6 +18,11 @@ const EditRoomForm = ({ setShowModal, room }) => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
+
+		const errors = {};
+		if (!roomName.length) errors['room_name'] = 'This field is required.';
+		if (Object.values(errors).length) return setErrors(errors);
+
 		const data = await dispatch(editRoom(room.id, roomName));
 
 		if (data) {
@@ -50,7 +55,7 @@ const EditRoomForm = ({ setShowModal, room }) => {
 					placeholder="Room Name"
 					value={roomName}
 					onChange={updateRoomName}
-					required
+
 				/>
 				<div className='errors-container'>
 					{errors.room_name ? `${errors.room_name}` : ""}

@@ -40,6 +40,13 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
+		const errors = {};
+		if (!summary.length) errors['summary'] = 'This field is required.';
+		if (!description.length) errors['description'] = 'This field is required.';
+		if (!startTime.length) errors['start_time'] = 'This field is required.';
+		if (!endTime.length) errors['end_time'] = 'This field is required.';
+		if (Object.values(errors).length) return setErrors(errors);
+
 		const data = await dispatch(createEvent(
 			user.id,
 			groupId,
@@ -101,7 +108,7 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 						placeholder="Event Title"
 						value={summary}
 						onChange={updateSummary}
-						required
+
 					/>
 					<div className='errors-container'>
 						{errors.summary ? `${errors.summary}` : ""}
@@ -115,7 +122,7 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 						placeholder="Event Description"
 						value={description}
 						onChange={updateDescription}
-						required
+
 					/>
 					<div className='errors-container'>
 						{errors.description ? `${errors.description}` : ""}
@@ -128,9 +135,8 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 						type="datetime-local"
 						value={startTime}
 						onChange={updateStartTime}
-						required
+						placeholder='Start Time: yyyy-MM-ddTHH:mm'
 						format="yyyy-MM-ddTHH:mm"
-						step="60"
 					/>
 					<div className='errors-container'>
 						{errors.start_time ? `${errors.start_time}` : ""}
@@ -143,7 +149,7 @@ const CreateEventForm = ({ setShowModal, groupId }) => {
 						type="datetime-local"
 						value={endTime}
 						onChange={updateEndTime}
-						required
+						placeholder='End Time: yyyy-MM-ddTHH:mm'
 						format="yyyy-MM-ddTHH:mm"
 					/>
 					<div className='errors-container'>

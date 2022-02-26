@@ -20,13 +20,11 @@ const SignUpForm2 = ({ goToLoginForm }) => {
 	const onSignUp = async (e) => {
 		e.preventDefault();
 		const errors={};
-		if (newUsername.length === 0) errors['newUsername'] = 'This field is required.';
-		if (newEmail.length === 0) errors['newEmail'] = 'This field is required.';
-		if (newPassword.length === 0) errors['newPassword'] = 'This field is required.';
-		if (repeatPassword.length === 0) errors['repeat_password'] = 'This field is required.';
-		if (Object.values(errors).length) {
-			return setSignUpErrors(errors)
-		}
+		if (!newUsername.length) errors['newUsername'] = 'This field is required.';
+		if (!newEmail.length) errors['newEmail'] = 'This field is required.';
+		if (!newPassword.length) errors['newPassword'] = 'This field is required.';
+		if (!repeatPassword.length) errors['repeat_password'] = 'This field is required.';
+		if (Object.values(errors).length) return setSignUpErrors(errors);
 
 		const formData = new FormData();
 		if (newPassword === repeatPassword) {

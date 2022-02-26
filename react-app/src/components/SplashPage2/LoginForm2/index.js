@@ -14,9 +14,9 @@ const LoginForm2 = ({ handleBackToSignup }) => {
 	const onLogin = async (e) => {
 		e.preventDefault();
 		const errors = {};
-		if (email.length === 0) errors['email'] = 'This field is required.';
-		if (password.length === 0) errors['password'] = 'This field is required.';
-		if (Object.values(errors)) return setErrors(errors)
+		if (!email.length) errors['email'] = 'This field is required.';
+		if (!password.length) errors['password'] = 'This field is required.';
+		if (Object.values(errors).length) return setErrors(errors);
 
 		const data = await dispatch(login(email, password));
 		if (data) {

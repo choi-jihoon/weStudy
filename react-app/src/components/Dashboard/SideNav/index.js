@@ -89,9 +89,6 @@ const SideNav = () => {
                             </ul>
                         </>
                     }
-                    {/* <li className='logout-btn-container'>
-                        <LogoutButton />
-                    </li> */}
                     <div className='developer'>
                         <a target="_blank" rel="noreferrer noopener"
                             href='https://github.com/choi-jihoon/weStudy'>

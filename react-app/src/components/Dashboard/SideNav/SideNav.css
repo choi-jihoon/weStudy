@@ -9,6 +9,7 @@
 }
 
 .active > li > .fa-door-open,
+.active > li > i,
 .active > li > .fa-file-alt,
 .active > li > .fa-users,
 .active > li > .fa-calendar-alt,
@@ -111,11 +112,17 @@ p.side-nav-overflow-control {
 }
 
 .room-container > .fa-door-open,
+.room-container > i,
 .note-title > .fa-file-alt,
 .fa-users,
 .fa-images {
     color: var(--side-panel-text);
     padding-right: 10px;
+    font-style: normal;
+}
+
+.active-users-num {
+    padding-left: 10px;
 }
 
 .fa-calendar-alt {

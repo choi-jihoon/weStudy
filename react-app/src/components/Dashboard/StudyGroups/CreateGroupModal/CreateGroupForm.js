@@ -32,7 +32,6 @@ const CreateGroupForm = ({ setShowModal }) => {
 		const errors = {};
 		if (!groupName.length) errors['group_name'] = 'This field is required.';
 		if (!description.length) errors['description'] = 'This field is required.';
-		console.log(Object.values(errors))
 		if (Object.values(errors).length) return setErrors(errors);
 
 		const formData = new FormData();

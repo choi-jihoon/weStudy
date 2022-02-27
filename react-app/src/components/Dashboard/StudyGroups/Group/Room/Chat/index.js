@@ -6,7 +6,7 @@ import { io } from 'socket.io-client';
 import { getAlbums } from '../../../../../../store/albums';
 import { getChatMessages, createChatMessage } from '../../../../../../store/chats';
 import { getNotes } from '../../../../../../store/notes';
-import { getRooms, joinChatRoom, leaveChatRoom, getRoom } from '../../../../../../store/rooms';
+import { getRooms, joinChatRoom, leaveChatRoom } from '../../../../../../store/rooms';
 import { getGroup } from '../../../../../../store/groups';
 
 import './Chat.css';
@@ -121,7 +121,7 @@ const Chat = () => {
 
             socket.disconnect();
         })
-    }, [roomId, user.username, dispatch]);
+    }, [roomId, user.username, dispatch, groupId]);
 
 
     return (

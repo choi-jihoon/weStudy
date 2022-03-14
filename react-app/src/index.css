@@ -145,3 +145,79 @@ button#create-note-submit:disabled {
 	opacity: 0.5;
 	cursor: default;
 }
+
+
+@media only screen and (max-width: 600px) {
+	.splash-page-container-2 {
+		grid-template-areas: 'header'
+		'form'
+		'footer';
+
+		grid-template-columns: 100%;
+		grid-template-rows: 20% 60% 20%;
+	}
+
+	.title-container-2 {
+		grid-area: header;
+		width: 100%;
+	}
+
+	.title-text-container-2 {
+		position: relative;
+		height: fit-content;
+		width: 100%;
+		bottom: 33%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+	}
+
+	.forms-container {
+		grid-area: form;
+		position: relative;
+		bottom:auto;
+	}
+
+
+	.current-form-container {
+		padding: 30px 0;
+		padding-left: 0;
+	}
+
+	.about-links {
+		position: fixed;
+		bottom: 0;
+		display: flex;
+		border: 1px solid red;
+		height: fit-content;
+		padding: 0;
+	}
+
+	.left-container-links {
+		border: 1px solid red;
+		padding: 0;
+		width: 100%;
+	}
+
+	.developer-name-text {
+		padding: 0;
+	}
+
+	.all-technologies {
+		display: none;
+	}
+
+	.github-linkedin {
+		border: 1px solid red;
+	}
+
+	.github-linkedin > a > i {
+		font-size: 20px;
+	}
+
+	.form-content2 {
+		padding-left: 20px;
+	}
+
+}

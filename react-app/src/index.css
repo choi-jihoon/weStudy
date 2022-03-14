@@ -204,6 +204,7 @@ button#create-note-submit:disabled {
 		display: grid;
 		grid-template-areas: 'left right';
 		grid-template-columns: 50% 50%;
+		position: relative;
 	}
 
 	.developer-name-text > p {
@@ -226,6 +227,11 @@ button#create-note-submit:disabled {
 		font-size: 35px;
 		margin: 0 10px;
 
+	}
+
+	p#developed-by {
+		position: absolute;
+		bottom: 40px;
 	}
 
 }

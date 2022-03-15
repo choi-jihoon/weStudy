@@ -313,7 +313,7 @@ button#login-account2:hover {
 
 .hide-signup {
 	/* width: 22vw; */
-    width: var(--form-width);
+    width: var(--login-signup-form-width);
 	margin: auto;
 	animation: slide-out 0.3s linear;
 	animation-iteration-count: 1;

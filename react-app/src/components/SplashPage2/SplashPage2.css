@@ -142,7 +142,7 @@ h1.title-text-2 {
 }
 
 .current-form-container {
-    /* width: 22vw; */
+
     display: flex;
     overflow: hidden;
     position: relative;
@@ -151,10 +151,11 @@ h1.title-text-2 {
 
     border-radius: 10px;
 
-    /* min-width: var(--login-signup-form-width); */
     width: var(--login-signup-form-width);
 
     padding: 10px 0;
+
+    height: calc(var(--login-signup-form-width) * 1.1);
 
 }
 
@@ -165,6 +166,7 @@ h1.title-text-2 {
 .form-container2 {
     /* width: 22vw; */
     min-height: fit-content;
+
     padding-top: 20px;
 
     width: var(--login-signup-form-width);

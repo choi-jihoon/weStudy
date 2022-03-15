@@ -145,3 +145,115 @@ button#create-note-submit:disabled {
 	opacity: 0.5;
 	cursor: default;
 }
+
+@media screen and (max-width: 2560px) and (min-width: 601px) {
+    .form-container2,
+    .signup-form2,
+    .login-form2,
+    .show-signup,
+    .hide-signup,
+    .current-form-container {
+        width: 400px;
+        height: calc(400px * 1.1);
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+	.splash-page-container-2 {
+		grid-template-areas: 'header'
+		'form'
+		'footer';
+
+		grid-template-columns: 100%;
+		grid-template-rows: 20% 60% 20%;
+	}
+
+	.form-container2,
+    .signup-form2,
+    .login-form2,
+    .show-signup,
+    .hide-signup,
+    .current-form-container {
+        width: 400px;
+        height: calc(400px * 1.1);
+    }
+
+	.title-container-2 {
+		grid-area: header;
+		width: 100%;
+	}
+
+	.title-text-container-2 {
+		position: relative;
+		height: fit-content;
+		width: 100%;
+		bottom: 33%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+	}
+
+	.forms-container {
+		grid-area: form;
+		position: relative;
+		bottom:auto;
+	}
+
+
+	.current-form-container {
+		padding: 30px 0;
+		padding-left: 0;
+	}
+
+	.about-links {
+		position: fixed;
+		bottom: 3%;
+		display: flex;
+		height: fit-content;
+		padding: 0;
+	}
+
+	.left-container-links {
+		padding: 0;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.developer-name-text {
+		padding: 10px;
+		display: grid;
+		grid-template-areas: 'left right';
+		grid-template-columns: 50% 50%;
+		position: relative;
+	}
+
+	.developer-name-text > p {
+		grid-area: left;
+		padding-left: 20px;
+	}
+
+	.all-technologies {
+		display: none;
+	}
+
+	.github-linkedin {
+		grid-area: right;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.github-linkedin > a > i {
+		font-size: 35px;
+		margin: 0 10px;
+
+	}
+
+	p#developed-by {
+		position: absolute;
+		bottom: 40px;
+	}
+
+}

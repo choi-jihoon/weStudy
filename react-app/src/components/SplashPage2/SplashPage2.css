@@ -159,15 +159,16 @@ h1.title-text-2 {
 
 }
 
+
 .form-container1 {
     display: flex;
 }
 
 .form-container2 {
     /* width: 22vw; */
-    min-height: fit-content;
+    /* min-height: fit-content; */
 
-    padding-top: 20px;
+    /* padding-top: 20px; */
 
     width: var(--login-signup-form-width);
 }
@@ -312,7 +313,7 @@ button#login-account2:hover {
 
 .hide-signup {
 	/* width: 22vw; */
-    width: var(--login-signup-form-width);
+    width: var(--form-width);
 	margin: auto;
 	animation: slide-out 0.3s linear;
 	animation-iteration-count: 1;

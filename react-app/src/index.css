@@ -39,7 +39,7 @@
 	--send-message: #007A5A;
 	/* CHOCO MINT SLACK THEME */
 
-	--login-signup-form-width: 400px;
+	--login-signup-form-width: 425px;
 
 	--toastify-color-light: #383D59;
 }
@@ -146,6 +146,18 @@ button#create-note-submit:disabled {
 	cursor: default;
 }
 
+@media screen and (max-width: 2560px) and (min-width: 601px) {
+    .form-container2,
+    .signup-form2,
+    .login-form2,
+    .show-signup,
+    .hide-signup,
+    .current-form-container {
+        width: 400px;
+        height: calc(400px * 1.1);
+    }
+}
+
 
 @media only screen and (max-width: 600px) {
 	.splash-page-container-2 {
@@ -156,6 +168,16 @@ button#create-note-submit:disabled {
 		grid-template-columns: 100%;
 		grid-template-rows: 20% 60% 20%;
 	}
+
+	.form-container2,
+    .signup-form2,
+    .login-form2,
+    .show-signup,
+    .hide-signup,
+    .current-form-container {
+        width: 400px;
+        height: calc(400px * 1.1);
+    }
 
 	.title-container-2 {
 		grid-area: header;

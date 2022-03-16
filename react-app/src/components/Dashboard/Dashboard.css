@@ -104,7 +104,7 @@
 @media only screen and (max-width: 912px) {
     .dashboard-container {
         display: grid;
-        grid-template-rows: 10% auto;
+        grid-template-rows: 91px auto;
         grid-template-columns: 100%;
         grid-template-areas: 'menu'
         'main';
@@ -123,7 +123,7 @@
 
     .main-container {
         grid-area: main;
-        grid-template-rows: 5% auto;
+        grid-template-rows: 62px auto;
         display: grid;
         grid-template-areas: 'header'
         'content';
@@ -131,8 +131,8 @@
 
     .all-groups-container {
         grid-area: content;
-        position: relative;
-        top: 0;
+        position: absolute;
+        top: 120px;
         left: 0;
     }
 
@@ -174,5 +174,47 @@
         background-color: var(--side-panel);
     }
 
+    .study-group-title-container {
+        display: flex;
+        justify-content: center;
+        height:100%;
+    }
+
+    div#add-user-to-group {
+        padding-right: 20px;
+    }
+
+    .study-group-title {
+        padding: 0 20px;
+    }
+
+    .study-group-title > h2 {
+        font-size: 30px;
+    }
+
+    div.sg-main-container {
+        grid-template-rows: auto auto;
+        grid-template-columns: 100%;
+        grid-template-areas: 'info'
+        'members';
+    }
+
+    .sg-info-container {
+        grid-area: info;
+        width: 100%;
+        padding: 0;
+    }
+
+    .sg-img-container {
+        height: 100%;
+        width: auto;
+    }
+
+    .sg-members-container {
+        grid-area: members;
+        padding: 20px 10px;
+        justify-content: center;
+
+    }
 
 }

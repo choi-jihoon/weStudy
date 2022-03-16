@@ -146,7 +146,8 @@ button#create-note-submit:disabled {
 	cursor: default;
 }
 
-@media screen and (max-width: 2560px) and (min-width: 601px) {
+
+@media screen and (max-width: 1280px) and (min-width: 601px) {
     .form-container2,
     .signup-form2,
     .login-form2,
@@ -154,12 +155,12 @@ button#create-note-submit:disabled {
     .hide-signup,
     .current-form-container {
         width: 400px;
-        height: calc(400px * 1.1);
+        min-height: calc(400px * 1.1);
     }
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 912px) {
 	.splash-page-container-2 {
 		grid-template-areas: 'header'
 		'form'
@@ -176,7 +177,8 @@ button#create-note-submit:disabled {
     .hide-signup,
     .current-form-container {
         width: 400px;
-        height: calc(400px * 1.1);
+		max-width: 100%;
+        /* height: calc(400px * 1.1); */
     }
 
 	.title-container-2 {
@@ -197,8 +199,7 @@ button#create-note-submit:disabled {
 
 	.forms-container {
 		grid-area: form;
-		position: relative;
-		bottom:auto;
+		bottom: 24vh;
 	}
 
 
@@ -256,4 +257,15 @@ button#create-note-submit:disabled {
 		bottom: 40px;
 	}
 
+}
+
+@media only screen and (max-width: 600px) and (min-height: 720px) {
+	p#fiona-choi {
+		width: 300px;
+
+	}
+
+	p#developed-by {
+		bottom: 50px;
+	}
 }

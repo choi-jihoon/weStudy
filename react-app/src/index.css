@@ -146,7 +146,8 @@ button#create-note-submit:disabled {
 	cursor: default;
 }
 
-@media screen and (max-width: 2560px) and (min-width: 601px) {
+
+@media screen and (max-width: 1280px) and (min-width: 601px) {
     .form-container2,
     .signup-form2,
     .login-form2,

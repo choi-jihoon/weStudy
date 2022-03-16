@@ -296,4 +296,15 @@
         padding: 15px;
         column-count: 1;
     }
+
+    .study-group-title.events-title-container {
+        z-index: 1;
+        position: relative;
+        height: auto;
+    }
+
+    .study-group-title.events-title-container > h2 {
+        font-size: 20px;
+        width: 100%;
+    }
 }

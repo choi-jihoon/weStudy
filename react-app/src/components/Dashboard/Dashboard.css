@@ -172,6 +172,7 @@
         top: 100%;
         width: 100%;
         background-color: var(--side-panel);
+        border: 1px solid var(--side-panel-text);
     }
 
     .study-group-title-container {
@@ -256,5 +257,20 @@
     .chat-msg.left > .chat-message,
     .chat-msg.right > .chat-message {
         width: 90%;
+    }
+
+    .edit-container > input {
+        font-size: 20px;
+        height: auto;
+        padding: 15px;
+    }
+
+    .note-detail-container {
+        border-right: none;
+        border-bottom: none;
+    }
+
+    .note-detail-container > textarea {
+        padding: 15px;
     }
 }

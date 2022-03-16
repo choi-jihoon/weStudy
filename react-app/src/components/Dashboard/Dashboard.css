@@ -145,6 +145,24 @@
         min-width: fit-content;
     }
 
+    .group-image-container {
+        width: 75px;
+        height: 75px;
+        margin: 0 auto;
+    }
+
+    .group-title-container {
+        padding: 0;
+    }
+
+    .group-title-container > h4 {
+        font-size: 20px;
+    }
+
+    .group-title-container > p {
+        font-size: 12px;
+    }
+
     .developer {
         visibility: hidden;
     }

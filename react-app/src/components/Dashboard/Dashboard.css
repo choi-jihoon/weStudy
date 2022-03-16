@@ -153,12 +153,23 @@
 
 
     #logout {
-        visibility: hidden;
+        margin-left: 10px;
     }
 
     .menu-btn {
         visibility: visible;
         margin-left: 30px;
+        position: relative;
+    }
+
+    .side-panel-nav-links {
+        visibility: hidden;
+        
+        z-index: 200;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        background-color: var(--side-panel);
     }
 
 

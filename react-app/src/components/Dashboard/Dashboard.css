@@ -47,6 +47,8 @@
 
 .side-panel-nav-links {
     overflow-y: scroll;
+    display: block;
+    visibility: visible;
 }
 
 .user-pic-name-container > ul > li {
@@ -92,4 +94,269 @@
     width: 600px;
     padding-bottom: 50px;
     padding-left: 50px;
+}
+
+.menu-btn {
+    visibility: hidden;
+}
+
+
+@media only screen and (max-width: 912px) {
+    .dashboard-container {
+        display: grid;
+        grid-template-rows: 91px auto;
+        grid-template-columns: 100%;
+        grid-template-areas: 'menu'
+        'main';
+    }
+
+    .side-nav-container {
+        grid-area: menu;
+        position: relative;
+        height: 100%;
+        padding: 0;
+        display:flex;
+        flex-direction: column;
+        width: 100%;
+        border: 0;
+    }
+
+    .main-container {
+        grid-area: main;
+        grid-template-rows: 62px auto;
+        display: grid;
+        grid-template-areas: 'header'
+        'content';
+    }
+
+    .all-groups-container {
+        grid-area: content;
+        position: absolute;
+        top: 120px;
+        left: 0;
+    }
+
+    .group-container {
+        padding: 10px;
+        height: fit-content;
+    }
+
+    .group-title {
+        min-width: fit-content;
+    }
+
+    .group-image-container {
+        width: 75px;
+        height: 75px;
+        margin: 0 auto;
+    }
+
+    .group-title-container {
+        padding: 0;
+    }
+
+    .group-title-container > h4 {
+        font-size: 20px;
+    }
+
+    .group-title-container > p {
+        font-size: 12px;
+    }
+
+    .developer {
+        visibility: hidden;
+    }
+
+    div#edit-user {
+        right: 50px;
+    }
+
+
+    #logout {
+        margin-left: 10px;
+    }
+
+    .menu-btn {
+        visibility: visible;
+        margin-left: 30px;
+        position: relative;
+    }
+
+    .side-panel-nav-links {
+        visibility: hidden;
+        display: none;
+        z-index: 2;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        background-color: var(--side-panel);
+        border: 1px solid var(--side-panel-text);
+    }
+
+    .study-group-title-container {
+        display: flex;
+        justify-content: center;
+        height:100%;
+    }
+
+    div#add-user-to-group {
+        padding-right: 20px;
+    }
+
+    .study-group-title {
+        padding: 0 20px;
+    }
+
+    .study-group-title > h2 {
+        font-size: 30px;
+    }
+
+    div.sg-main-container {
+        grid-template-rows: auto auto;
+        grid-template-columns: 100%;
+        grid-template-areas: 'info'
+        'members';
+    }
+
+    .sg-info-container {
+        grid-area: info;
+        width: 100%;
+        padding: 0;
+    }
+
+    .sg-img-container {
+        height: 100%;
+        width: auto;
+    }
+
+    .sg-members-container {
+        grid-area: members;
+        padding: 20px 10px;
+        justify-content: center;
+
+    }
+
+    .chat-header-container {
+        height: auto;
+        padding: 15px;
+    }
+
+    .active-user-img-container {
+        width: 20px;
+        height: 20px;
+    }
+
+    .chat-room-container {
+        grid-template-rows: auto 100px;
+    }
+
+    .chat-msg.right > .chat-profile-pic {
+        margin-right: 0;
+    }
+
+    .chat-msg.left > .chat-profile-pic {
+        margin-left: 0;
+    }
+
+    .profile-pic-div.chat-profile-pic {
+        width: 35px;
+        height: 35px;
+    }
+
+    .right > .chat-message > p.chat-text {
+        text-align: right;
+    }
+
+    .profile-pic-div.chat-profile-pic > img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .chat-msg.left > .chat-message,
+    .chat-msg.right > .chat-message {
+        width: 90%;
+    }
+
+    .edit-container > input {
+        font-size: 20px;
+        height: auto;
+        padding: 15px;
+    }
+
+    .note-detail-container {
+        border-right: none;
+        border-bottom: none;
+    }
+
+    .note-detail-container > textarea {
+        padding: 15px;
+    }
+
+    .album-title-container {
+        z-index: 1;
+        grid-area: header;
+        position: relative;
+        height: auto;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .album-title-container > h2 {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    #create-event {
+        margin-right: 0;
+    }
+
+    div.album-images-container {
+        padding: 15px;
+        column-count: 1;
+    }
+
+    .study-group-title.events-title-container {
+        z-index: 1;
+        position: relative;
+        height: auto;
+    }
+
+    .study-group-title.events-title-container > h2 {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    .all-events-container {
+        padding: 15px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .event-container {
+        grid-template-rows: auto auto auto;
+        grid-template-columns: 100%;
+    }
+
+    .event-summary {
+        flex-direction: row-reverse;
+        border-radius: 5px 5px 0 0;
+    }
+    .event-month {
+        padding-right: 20px;
+    }
+
+    .event-body {
+        border-radius: 0 0 5px 5px;
+        grid-template-rows: 65% 35%;
+        grid-template-columns: 100%;
+    }
+
+    .event-title-description-container {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .event-btn-container {
+        opacity: 1;
+    }
 }

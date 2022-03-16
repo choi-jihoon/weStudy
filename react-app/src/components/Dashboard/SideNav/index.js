@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -16,6 +17,23 @@ import './SideNav.css';
 const SideNav = () => {
     const location = useLocation();
     const user = useSelector(state => state.session.user);
+    const [open, setOpen] = useState(true)
+
+
+    const toggleMenu = (e) => {
+        const dropdown = document.querySelector('.side-panel-nav-links')
+        if (!open) {
+            dropdown.style.display = 'block';
+            dropdown.style.visibility = 'visible';
+            setOpen(true);
+        }
+        else {
+            dropdown.style.display = 'none';
+            dropdown.style.visibility = 'hidden';
+            setOpen(false);
+        }
+    }
+
     const userMenu = (
         <>
             <div className='user-profile-edit-container'>
@@ -26,6 +44,7 @@ const SideNav = () => {
             </div>
             <div className='username-text'>
                 <NavLink to='/'>{user.username}</NavLink>
+                <i className="fa-solid fa-bars menu-btn" onClick={toggleMenu}></i>
                 <LogoutButton />
             </div>
         </>

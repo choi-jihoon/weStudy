@@ -291,4 +291,9 @@
     #create-event {
         margin-right: 0;
     }
+
+    div.album-images-container {
+        padding: 15px;
+        column-count: 1;
+    }
 }

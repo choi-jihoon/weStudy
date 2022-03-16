@@ -17,7 +17,7 @@ import './SideNav.css';
 const SideNav = () => {
     const location = useLocation();
     const user = useSelector(state => state.session.user);
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(true)
 
 
     const toggleMenu = (e) => {

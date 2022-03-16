@@ -47,6 +47,8 @@
 
 .side-panel-nav-links {
     overflow-y: scroll;
+    display: block;
+    visibility: visible;
 }
 
 .user-pic-name-container > ul > li {
@@ -164,7 +166,7 @@
 
     .side-panel-nav-links {
         visibility: hidden;
-        
+        display: none;
         z-index: 200;
         position: absolute;
         top: 100%;

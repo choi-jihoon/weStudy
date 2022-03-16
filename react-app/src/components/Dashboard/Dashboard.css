@@ -167,7 +167,7 @@
     .side-panel-nav-links {
         visibility: hidden;
         display: none;
-        z-index: 200;
+        z-index: 2;
         position: absolute;
         top: 100%;
         width: 100%;
@@ -239,7 +239,22 @@
         margin-left: 0;
     }
 
+    .profile-pic-div.chat-profile-pic {
+        width: 35px;
+        height: 35px;
+    }
+
     .right > .chat-message > p.chat-text {
         text-align: right;
+    }
+
+    .profile-pic-div.chat-profile-pic > img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .chat-msg.left > .chat-message,
+    .chat-msg.right > .chat-message {
+        width: 90%;
     }
 }

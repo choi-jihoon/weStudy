@@ -75,6 +75,8 @@ h2.room-name {
     align-self: flex-start;
     display: flex;
     align-items: center;
+
+    
 }
 
 .center > div > p {

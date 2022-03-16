@@ -155,7 +155,7 @@ h1.title-text-2 {
 
     padding: 10px 0;
 
-    
+    max-height: 600px;
 
     /* height: calc(var(--login-signup-form-width) * 1.1); */
 
@@ -169,8 +169,9 @@ h1.title-text-2 {
 .form-container2 {
     /* width: 22vw; */
     min-height: fit-content;
+    max-height: 600px;
 
-    padding-top: 20px;
+    /* padding-top: 20px; */
 
     width: var(--login-signup-form-width);
 }
@@ -183,7 +184,10 @@ h1.title-text-2 {
     justify-content: center;
     align-items: center;
     height: 50vh;
+
     /* min-width: 22vw; */
+    max-height: 600px;
+
     min-height: fit-content;
     width: var(--login-signup-form-width);
 }

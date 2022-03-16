@@ -273,4 +273,22 @@
     .note-detail-container > textarea {
         padding: 15px;
     }
+
+    .album-title-container {
+        z-index: 1;
+        grid-area: header;
+        position: relative;
+        height: auto;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .album-title-container > h2 {
+        font-size: 20px;
+        width: 100%;
+    }
+
+    #create-event {
+        margin-right: 0;
+    }
 }

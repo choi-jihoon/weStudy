@@ -155,7 +155,7 @@ button#create-note-submit:disabled {
     .hide-signup,
     .current-form-container {
         width: 400px;
-        height: calc(400px * 1.1);
+        /* height: calc(400px * 1.1); */
     }
 }
 
@@ -177,7 +177,7 @@ button#create-note-submit:disabled {
     .hide-signup,
     .current-form-container {
         width: 400px;
-        height: calc(400px * 1.1);
+        /* height: calc(400px * 1.1); */
     }
 
 	.title-container-2 {

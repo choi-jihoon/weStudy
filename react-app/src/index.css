@@ -155,12 +155,12 @@ button#create-note-submit:disabled {
     .hide-signup,
     .current-form-container {
         width: 400px;
-        /* height: calc(400px * 1.1); */
+        min-height: calc(400px * 1.1);
     }
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 912px) {
 	.splash-page-container-2 {
 		grid-template-areas: 'header'
 		'form'
@@ -177,6 +177,7 @@ button#create-note-submit:disabled {
     .hide-signup,
     .current-form-container {
         width: 400px;
+		max-width: 100%;
         /* height: calc(400px * 1.1); */
     }
 
@@ -198,8 +199,7 @@ button#create-note-submit:disabled {
 
 	.forms-container {
 		grid-area: form;
-		position: relative;
-		bottom:auto;
+		bottom: 24vh;
 	}
 
 
@@ -257,4 +257,15 @@ button#create-note-submit:disabled {
 		bottom: 40px;
 	}
 
+}
+
+@media only screen and (max-width: 600px) and (min-height: 720px) {
+	p#fiona-choi {
+		width: 300px;
+
+	}
+
+	p#developed-by {
+		bottom: 50px;
+	}
 }

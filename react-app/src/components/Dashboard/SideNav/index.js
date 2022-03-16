@@ -27,6 +27,7 @@ const SideNav = () => {
             <div className='username-text'>
                 <NavLink to='/'>{user.username}</NavLink>
                 <LogoutButton />
+                <i className="fa-solid fa-bars menu-btn"></i>
             </div>
         </>
     )

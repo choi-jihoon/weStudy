@@ -217,4 +217,29 @@
 
     }
 
+    .chat-header-container {
+        height: auto;
+        padding: 15px;
+    }
+
+    .active-user-img-container {
+        width: 20px;
+        height: 20px;
+    }
+
+    .chat-room-container {
+        grid-template-rows: auto 100px;
+    }
+
+    .chat-msg.right > .chat-profile-pic {
+        margin-right: 0;
+    }
+
+    .chat-msg.left > .chat-profile-pic {
+        margin-left: 0;
+    }
+
+    .right > .chat-message > p.chat-text {
+        text-align: right;
+    }
 }

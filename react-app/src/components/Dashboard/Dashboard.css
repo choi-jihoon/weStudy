@@ -180,6 +180,7 @@
         visibility: visible;
         margin-left: 30px;
         position: relative;
+        cursor: pointer;
     }
 
     .side-panel-nav-links {

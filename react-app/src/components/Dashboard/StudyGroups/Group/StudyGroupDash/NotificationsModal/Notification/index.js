@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { acceptRequest } from "../../../../../../../store/notifications";
+import { acceptRequest, rejectRequest } from "../../../../../../../store/notifications";
 import { getGroup } from "../../../../../../../store/groups";
 
 const Notification = ({ notification }) => {
@@ -13,8 +13,17 @@ const Notification = ({ notification }) => {
             const buttons = document.querySelector('.notification-btns');
             buttons.style.display = 'none';
             return;
-        }
-    }
+        };
+    };
+
+    const handleReject = async (e) => {
+        e.preventDefault();
+        const data = await dispatch(rejectRequest(notification.id));
+        if (!data) {
+            await dispatch(getGroup(notification.group_id));
+            return;
+        };
+    };
 
     return (
         <div className='notification-container'>
@@ -25,7 +34,7 @@ const Notification = ({ notification }) => {
                 {!notification.seen &&
                 <>
                     <button id='accept-request' onClick={handleAccept}>Accept</button>
-                    <button id='reject-request'>Reject</button>
+                    <button id='reject-request' onClick={handleReject}>Reject</button>
                 </>
                 }
             </div>

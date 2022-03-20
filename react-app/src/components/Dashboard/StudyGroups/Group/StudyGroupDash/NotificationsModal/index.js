@@ -7,7 +7,6 @@ import './NotificationsModal.css';
 
 function NotificationsModal({ group }) {
 	const [showModal, setShowModal] = useState(false);
-    console.log(group.notifications)
 
     const isNewNotifications = (notifications) => {
         if (notifications) {

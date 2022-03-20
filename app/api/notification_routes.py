@@ -29,3 +29,11 @@ def accept_request(notificationId):
         db.session.commit()
         return {'notification': notification.to_dict(), 'group': group.to_dict()}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@notification_routes.route('/<int:notificationId>/reject', methods=['PATCH'])
+def reject_request(notificationId):
+    notification = Notification.query.get(int(notificationId))
+    notification.seen = True
+    db.session.commit()
+    return notification.to_dict()

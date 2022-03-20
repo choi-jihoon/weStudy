@@ -1,5 +1,6 @@
 const LOAD_NOTIFICATIONS = 'notifications/LOAD_NOTIFICATIONS';
 const ACCEPT_REQUEST = 'notifications/ACCEPT_REQUEST';
+const REJECT_REQUEST = 'notifications/REJECT_REQUEST';
 
 const load = notifications => ({
     type: LOAD_NOTIFICATIONS,
@@ -10,6 +11,11 @@ const accept = data => ({
     type: ACCEPT_REQUEST,
     notification: data.notification,
     group: data.group
+});
+
+const reject = notification => ({
+    type: REJECT_REQUEST,
+    notification
 })
 
 export const getNotifications = (groupId) => async (dispatch) => {
@@ -47,6 +53,25 @@ export const acceptRequest = (notificationId, group_id, username) => async (disp
     };
 }
 
+export const rejectRequest = (notificationId) => async (dispatch) => {
+    const res = await fetch(`/api/notifications/${notificationId}/reject`, {
+        method: 'PATCH'
+    });
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(reject(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        };
+    } else {
+        return { 'ERROR': 'An error occurred. Please try again.' }
+    };
+};
+
 const initialState = {
     notifications: {},
     byGroupId: {}
@@ -67,7 +92,8 @@ const notifications = (state = initialState, action) => {
             return newState;
         }
 
-        case ACCEPT_REQUEST: {
+        case ACCEPT_REQUEST:
+        case REJECT_REQUEST: {
             const newState = { ...state };
             newState.notifications[action.notification.id] = action.notification;
             newState.byGroupId[action.notification.group_id] = {

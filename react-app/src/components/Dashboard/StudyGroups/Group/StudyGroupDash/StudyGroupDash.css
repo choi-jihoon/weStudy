@@ -49,23 +49,27 @@
 }
 
 #add-user-to-group,
-#leave-group {
+#leave-group,
+#group-notifications {
     font-size: 30px;
 }
 
-#add-user-to-group {
+#add-user-to-group,
+#group-notifications {
     padding-right: 50px;
 }
 
 #add-user-to-group > i,
-#leave-group > i {
+#leave-group > i,
+#group-notifications > i {
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     color: var(--header-text);
 }
 
 #add-user-to-group > i:hover,
-#leave-group > i:hover {
+#leave-group > i:hover,
+#group-notifications > i:hover {
     transform: scale(1.2);
 }
 

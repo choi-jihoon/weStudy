@@ -29,7 +29,7 @@ function NotificationsModal({ group }) {
 	return (
 		<>
 			<div
-				id="add-user-to-group"
+				id="group-notifications"
 
 			>
 				<i className={isNewNotifications(group.notifications) ? "fa-solid fa-bell new-notifications" : "fa-solid fa-bell"}

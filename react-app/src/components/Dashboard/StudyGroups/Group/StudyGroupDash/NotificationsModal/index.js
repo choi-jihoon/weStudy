@@ -3,7 +3,7 @@ import { Modal } from "../../../../../../context/Modal";
 
 import Notifications from "./Notifications";
 
-function NotificationsModal() {
+function NotificationsModal({ group }) {
 	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
@@ -14,13 +14,14 @@ function NotificationsModal() {
 		<>
 			<div
 				id="add-user-to-group"
-				onClick={() => setShowModal(true)}
+
 			>
-				<i className="fa-solid fa-bell"></i>
+				<i className="fa-solid fa-bell"
+                onClick={() => setShowModal(true)}></i>
 			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
-					<Notifications />
+					<Notifications group={group} />
 				</Modal>
 			)}
 		</>

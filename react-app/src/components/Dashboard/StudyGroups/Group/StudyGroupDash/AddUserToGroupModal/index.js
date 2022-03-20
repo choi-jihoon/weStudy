@@ -13,9 +13,10 @@ function AddUserToGroupModal({ group }) {
 		<>
 			<div
 				id="add-user-to-group"
-				onClick={() => setShowModal(true)}
+
 			>
-				<i className="fas fa-user-plus"></i>
+				<i className="fas fa-user-plus"
+				onClick={() => setShowModal(true)}></i>
 			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>

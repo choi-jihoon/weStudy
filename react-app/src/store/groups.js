@@ -6,6 +6,7 @@ const ADD_TO_GROUP = 'groups/ADD_TO_GROUP';
 const LOAD_GROUP = 'groups/LOAD_GROUP';
 const LEAVE_GROUP = 'groups/LEAVE_GROUP';
 const REMOVE_FROM_GROUP = 'groups/REMOVE_FROM_GROUP';
+const REQUEST_TO_JOIN = 'groups/REQUEST_TO_JOIN';
 
 const loadGroups = (groups) => ({
     type: LOAD_GROUPS,
@@ -46,6 +47,11 @@ const removeFromGroup = (group) => ({
     type: REMOVE_FROM_GROUP,
     group
 });
+
+const requestToJoin = (group) => ({
+    type: REQUEST_TO_JOIN,
+    group
+})
 
 export const getGroups = () => async (dispatch) => {
     const res = await fetch(`/api/groups/`);
@@ -151,6 +157,29 @@ export const addUserToGroup = (groupId, username) => async (dispatch) => {
     };
 };
 
+export const requestToJoinGroup = (user_id, group_name) => async (dispatch) => {
+    const res = await fetch(`/api/groups/join`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ user_id, group_name })
+    })
+
+    if (res.ok) {
+        const data = await res.json();
+        dispatch(requestToJoin(data));
+        return null;
+    } else if (res.status < 500) {
+        const data = await res.json();
+        if (data.errors) {
+            return data.errors;
+        };
+    } else {
+        return { 'ERROR': 'An error occurred. Please try again.' }
+    };
+}
+
 export const leaveStudyGroup = (groupId) => async (dispatch) => {
     const res = await fetch(`/api/groups/${groupId}/leave`, {
         method: 'PATCH',
@@ -224,7 +253,8 @@ const groups = (state = initialState, action) => {
         case EDIT_GROUP:
         case ADD_TO_GROUP:
         case REMOVE_FROM_GROUP:
-        case LEAVE_GROUP: {
+        case LEAVE_GROUP:
+        case REQUEST_TO_JOIN: {
             return updateSingleGroup(state, action);
         }
 

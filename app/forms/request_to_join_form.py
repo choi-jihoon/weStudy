@@ -15,7 +15,7 @@ def user_already_in_group(form, field):
     user_id = form.data['user_id']
     group = Group.query.filter(Group.group_name == group_name).first()
     user = User.query.get(user_id)
-    if user in group.users:
+    if group and user in group.users:
         raise ValidationError('You already belong to that group.')
 
 class RequestToJoinForm(FlaskForm):

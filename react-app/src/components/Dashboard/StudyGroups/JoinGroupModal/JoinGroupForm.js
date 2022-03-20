@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { requestToJoinGroup } from '../../../../store/groups';
 
 
 const JoinGroupForm = ({ setShowModal }) => {
@@ -7,22 +8,24 @@ const JoinGroupForm = ({ setShowModal }) => {
     const [groupName, setGroupName] = useState('');
     const [suggestions, setSuggestions] = useState([]);
 
+    const user = useSelector(state => state.session.user);
+
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         // user_id, group_name
-        // const data = await dispatch(addUserToGroup(group.id, username))
+        const data = await dispatch(requestToJoinGroup(user.id, groupName))
 
-        // if (data) {
-        //     const errors = {}
-        //     for (let i = 0; i < data.length; i++) {
-        //         const error = data[i].split(": ");
-        //         errors[error[0]] = error[1]
-        //     }
-        //     setErrors(errors)
-        //     return;
-        // }
+        if (data) {
+            const errors = {}
+            for (let i = 0; i < data.length; i++) {
+                const error = data[i].split(": ");
+                errors[error[0]] = error[1]
+            }
+            setErrors(errors)
+            return;
+        }
         setShowModal(false);
     }
 
@@ -68,7 +71,7 @@ const JoinGroupForm = ({ setShowModal }) => {
                     required
                 />
                 <div className='errors-container'>
-                    {errors.groupName ? `${errors.groupName}` : ""}
+                    {errors.group_name ? `${errors.group_name}` : ""}
                 </div>
                 {suggestions.length > 0 && (
                     <div className='search-results'>

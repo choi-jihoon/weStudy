@@ -11,12 +11,11 @@ function JoinGroupModal() {
 
 	return (
 		<>
-			<div
-				id="add-user-to-group"
+			<li className='create-study-group'
 				onClick={() => setShowModal(true)}
 			>
-				<i className="fas fa-user-plus"></i>
-			</div>
+				Join a Group<i className="fa-solid fa-magnifying-glass"></i>
+			</li>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
 					<JoinGroupForm setShowModal={setShowModal} />

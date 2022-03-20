@@ -14,15 +14,15 @@ const JoinGroupForm = ({ setShowModal }) => {
         // user_id, group_name
         // const data = await dispatch(addUserToGroup(group.id, username))
 
-        if (data) {
-            const errors = {}
-            for (let i = 0; i < data.length; i++) {
-                const error = data[i].split(": ");
-                errors[error[0]] = error[1]
-            }
-            setErrors(errors)
-            return;
-        }
+        // if (data) {
+        //     const errors = {}
+        //     for (let i = 0; i < data.length; i++) {
+        //         const error = data[i].split(": ");
+        //         errors[error[0]] = error[1]
+        //     }
+        //     setErrors(errors)
+        //     return;
+        // }
         setShowModal(false);
     }
 
@@ -45,6 +45,7 @@ const JoinGroupForm = ({ setShowModal }) => {
         if (res.ok) {
             const possibleGroups = await res.json();
             setSuggestions(possibleGroups.groups);
+            console.log(suggestions)
         }
 
     }

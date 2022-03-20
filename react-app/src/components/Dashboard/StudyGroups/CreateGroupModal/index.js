@@ -12,7 +12,7 @@ function CreateGroupModal() {
 	return (
 		<>
 			<li className='create-study-group'
-				id="create-group"
+				// id="create-group"
 				onClick={() => setShowModal(true)}
 			>
 				Create a Study Group <i className="fas fa-plus"></i>

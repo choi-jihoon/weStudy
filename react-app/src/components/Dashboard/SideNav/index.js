@@ -11,6 +11,7 @@ import EditProfileModal from "./EditProfileModal";
 import LogoutButton from "../../auth/LogoutButton";
 import Note from '../../Dashboard/StudyGroups/Group/Note';
 import Room from '../../Dashboard/StudyGroups/Group/Room';
+import JoinGroupModal from "../StudyGroups/JoinGroupModal";
 
 import './SideNav.css';
 
@@ -71,7 +72,10 @@ const SideNav = () => {
                         </li>
                     </NavLink>
                     {!groupId &&
-                        <CreateGroupModal />
+                        <>
+                            <CreateGroupModal />
+                            <JoinGroupModal />
+                        </>
                     }
                     {(groupId && groupObj) &&
                         <>

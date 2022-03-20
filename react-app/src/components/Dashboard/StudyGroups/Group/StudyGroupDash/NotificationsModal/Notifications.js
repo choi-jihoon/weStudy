@@ -19,7 +19,7 @@ const Notifications = ({ group }) => {
             })}
             {!notifications.length && (
                 <div className='notification-container'>
-                    You have no new notifications.
+                    There are no new notifications.
                 </div>
             )}
         </div>

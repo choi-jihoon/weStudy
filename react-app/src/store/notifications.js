@@ -74,11 +74,12 @@ const notifications = (state = initialState, action) => {
                 ...newState.byGroupId[action.notification.group_id],
                 [action.notification.id]: action.notification
             }
+            return newState;
         }
 
         default:
             return state;
-    }
-}
+    };
+};
 
 export default notifications;

@@ -8,6 +8,7 @@ import chats from './chats';
 import events from './events';
 import albums from './albums';
 import images from './images';
+import notifications from './notifications';
 
 const rootReducer = combineReducers({
   session,
@@ -17,7 +18,8 @@ const rootReducer = combineReducers({
   chats,
   events,
   albums,
-  images
+  images,
+  notifications,
 });
 
 

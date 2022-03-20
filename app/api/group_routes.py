@@ -270,3 +270,9 @@ def search_groups(search_query):
     curr_user = User.query.get(curr_user_id)
     groups = Group.query.filter(Group.group_name.ilike(f'{search_query}%'), Group.owner_id != curr_user_id)
     return {'groups': [group.to_dict() for group in groups if curr_user not in group.users]}
+
+
+@group_routes.route('/<int:groupId>/notifications')
+def get_notifications(groupId):
+    notifications = Notification.query.filter(Notification.group_id == groupId)
+    return {'notifications': [notification.to_dict() for notification in notifications]}

@@ -18,7 +18,9 @@ const Notification = ({ notification }) => {
 
     return (
         <div className='notification-container'>
-            {notification.message}
+            <div className='notification-message'>
+                {notification.message}
+            </div>
             <div className='notification-btns'>
                 {!notification.seen &&
                 <>

@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import EditGroupModal from '../../EditGroupModal';
 import Notification from './Notification';
 
 const Notifications = ({ group }) => {
@@ -8,7 +7,7 @@ const Notifications = ({ group }) => {
 
     let notifications = [];
     if (notificationsObj.byGroupId[group.id]) {
-        notifications = Object.values(notificationsObj.byGroupId[group.id])
+        notifications = Object.values(notificationsObj.byGroupId[group.id]).filter(notification => !notification.seen)
     }
 
     return (

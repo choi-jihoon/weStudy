@@ -30,6 +30,8 @@ class User(db.Model, UserMixin):
     albums = db.relationship('Album', back_populates='user', cascade='all, delete')
     images = db.relationship('Image', back_populates='user', cascade="all, delete")
     current_room = db.relationship('Room', back_populates='active_users', secondary=active_participants)
+    notifications = db.relationship('Notification', back_populates='user', cascade="all, delete")
+
 
     @property
     def password(self):

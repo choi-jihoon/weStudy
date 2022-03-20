@@ -245,4 +245,4 @@ def search_groups(search_query):
     curr_user_id = current_user.get_id()
     curr_user = User.query.get(curr_user_id)
     groups = Group.query.filter(Group.group_name.ilike(f'{search_query}%'), Group.owner_id != curr_user_id)
-    return {'groups': [group.group_name for group in groups if curr_user not in group.users]}
+    return {'groups': [group.to_dict() for group in groups if curr_user not in group.users]}

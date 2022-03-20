@@ -18,6 +18,7 @@ class Notification(db.Model):
         return {
             'id': self.id,
             'user_id': self.user_id,
+            'username': self.user.username,
             'group_id': self.group_id,
             'seen': self.seen,
             'created_at': self.created_at,

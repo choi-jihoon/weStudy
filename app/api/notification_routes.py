@@ -16,7 +16,7 @@ def validation_errors_to_error_messages(validation_errors):
 
 notification_routes = Blueprint('notifications', __name__)
 
-@notification_routes.route('/<int:notificationId>', methods=['PATCH'])
+@notification_routes.route('/<int:notificationId>/accept', methods=['PATCH'])
 def accept_request(notificationId):
     form = AddToGroupForm()
     form['csrf_token'].data = request.cookies['csrf_token']

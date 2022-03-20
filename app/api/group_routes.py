@@ -183,7 +183,7 @@ def request_to_join_group():
         group = Group.query.filter(Group.group_name == form.data['group_name']).first()
         curr_user_id = current_user.get_id()
         user = User.query.get(curr_user_id)
-        group.users.append(user)
+        # group.users.append(user)
 
         notification = Notification(
             user_id=curr_user_id,

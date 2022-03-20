@@ -86,5 +86,6 @@ class Group(db.Model):
             'owner_name': self.owner.username,
             'group_image': self.group_image,
             'users': [user.to_dict() for user in self.users],
-            'user_ids': [user.id for user in self.users]
+            'user_ids': [user.id for user in self.users],
+            'notifications': [notification.to_dict() for notification in self.notifications]
         }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Modal } from "../../../../context/Modal";
-import AddUserToGroupForm from "./AddUserToGroupForm";
+import JoinGroupForm from "./JoinGroupForm";
 
 function JoinGroupModal() {
 	const [showModal, setShowModal] = useState(false);
@@ -19,7 +19,7 @@ function JoinGroupModal() {
 			</div>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
-					<AddUserToGroupForm setShowModal={setShowModal} />
+					<JoinGroupForm setShowModal={setShowModal} />
 				</Modal>
 			)}
 		</>

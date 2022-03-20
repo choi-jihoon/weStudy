@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import current_user
 from app.aws_s3 import (upload_file_to_s3, allowed_file, get_unique_filename)
 from app.models import db, Group, User, Room, Note, Event, Album
-from app.forms import GroupForm, AddToGroupForm, UpdateImage
+from app.forms import GroupForm, AddToGroupForm, RequestToJoinForm
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -172,6 +172,19 @@ def join_group(groupId):
     group.users.append(user)
     db.session.commit()
     return group.to_dict()
+
+
+@group_routes.route('/join', methods=['PATCH'])
+def request_to_join_group():
+    form = RequestToJoinForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        group = Group.query.filter(Group.group_name == form.data['group_name']).first()
+        curr_user_id = current_user.get_id()
+        user = User.query.get(curr_user_id)
+        group.users.append(user)
+        db.session.commit()
+        return group.to_dict()
 
 
 @group_routes.route('/<int:groupId>/leave', methods=['PATCH'])

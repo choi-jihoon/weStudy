@@ -11,6 +11,7 @@ const JoinGroupForm = ({ setShowModal }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // user_id, group_name
         // const data = await dispatch(addUserToGroup(group.id, username))
 
         if (data) {
@@ -73,7 +74,7 @@ const JoinGroupForm = ({ setShowModal }) => {
                     <div className='search-results'>
                         <p>Suggested groups:</p>
                         {suggestions.map(suggestion => (
-                            <div key={suggestion.id} className='suggestion'>{suggestion.group_name} ({suggestion.users.length} members)</div>
+                            <div key={suggestion.id} className='suggestion'>{suggestion.group_name} ({suggestion.owner_name})</div>
                         ))}
                     </div>
                 )}

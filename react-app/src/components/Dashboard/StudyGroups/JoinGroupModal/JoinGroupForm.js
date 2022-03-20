@@ -45,7 +45,6 @@ const JoinGroupForm = ({ setShowModal }) => {
         if (res.ok) {
             const possibleGroups = await res.json();
             setSuggestions(possibleGroups.groups);
-            console.log(suggestions)
         }
 
     }
@@ -63,7 +62,7 @@ const JoinGroupForm = ({ setShowModal }) => {
                     className='add-user-input'
                     name="groupName"
                     type="text"
-                    placeholder="Search for Groups by Name"
+                    placeholder="Search for a Group"
                     value={groupName}
                     onChange={handleSearch}
                     required

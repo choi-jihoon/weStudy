@@ -73,6 +73,7 @@ class Group(db.Model):
     notes = db.relationship('Note', back_populates='group', cascade="all, delete")
     events = db.relationship('Event', back_populates='group', cascade="all, delete")
     albums = db.relationship('Album', back_populates='group', cascade="all, delete")
+    notifications = db.relationship('Notification', back_populates='group', cascade="all, delete")
 
     def to_dict(self):
         return {

@@ -6,3 +6,4 @@ from .chat import Chat
 from .event import Event
 from .album import Album
 from .image import Image
+from .notification import Notification

@@ -26,14 +26,18 @@ def accept_request(notificationId):
         user = User.query.filter(User.username == form.data['username']).first()
         group.users.append(user)
         notification.seen = True
+        data = notification.to_dict()
+        db.session.delete(notification)
         db.session.commit()
-        return {'notification': notification.to_dict(), 'group': group.to_dict()}
+        return {'notification': data, 'group': group.to_dict()}
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
 @notification_routes.route('/<int:notificationId>/reject', methods=['PATCH'])
 def reject_request(notificationId):
     notification = Notification.query.get(int(notificationId))
-    notification.seen = True
+    # notification.seen = True
+    data = notification.to_dict()
+    db.session.delete(notification)
     db.session.commit()
-    return notification.to_dict()
+    return data

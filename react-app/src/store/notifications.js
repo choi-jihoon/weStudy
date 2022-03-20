@@ -92,14 +92,20 @@ const notifications = (state = initialState, action) => {
             return newState;
         }
 
-        case ACCEPT_REQUEST:
-        case REJECT_REQUEST: {
+        case ACCEPT_REQUEST: {
             const newState = { ...state };
             newState.notifications[action.notification.id] = action.notification;
             newState.byGroupId[action.notification.group_id] = {
                 ...newState.byGroupId[action.notification.group_id],
                 [action.notification.id]: action.notification
             }
+            return newState;
+        }
+
+        case REJECT_REQUEST: {
+            const newState = { ...state };
+            delete newState.notifications[action.notification.id];
+            delete newState.byGroupId[action.notification.group_id][action.notification.id];
             return newState;
         }
 

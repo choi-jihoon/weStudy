@@ -10,8 +10,6 @@ const Notification = ({ notification }) => {
         const data = await dispatch(acceptRequest(notification.id, notification.group_id, notification.username));
         if (!data) {
             await dispatch(getGroup(notification.group_id))
-            const buttons = document.querySelector('.notification-btns');
-            buttons.style.display = 'none';
             return;
         };
     };

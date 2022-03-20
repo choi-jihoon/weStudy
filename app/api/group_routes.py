@@ -238,3 +238,9 @@ def get_events(groupId):
 def get_albums(groupId):
     albums = Album.query.filter(Album.group_id == groupId)
     return {'albums': [album.to_dict() for album in albums]}
+
+
+@group_routes.route('/<search_query>')
+def search_groups(search_query):
+    groups = Group.query.filter(Group.group_name.ilike(f'{search_query}%'))
+    return {'groups': [group.to_dict() for group in groups]}

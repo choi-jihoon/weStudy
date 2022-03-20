@@ -1,0 +1,46 @@
+.new-notifications {
+    color: gold !important;
+}
+
+.notifications-container {
+    padding: 20px;
+}
+
+.notification-container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    color: var(--main-container);
+}
+
+.notification-message {
+    color: var(--main-container);
+}
+
+.notification-btns {
+    padding-left: 50px;
+}
+
+.notification-btns > button {
+    padding: 0 10px;
+    border-radius: 7px;
+    color: white;
+}
+
+#accept-request {
+    background-color: var(--side-panel-selected);
+}
+
+#reject-request {
+    background-color: var(--terra-cotta);
+    margin-left: 10px;
+}
+
+#accept-request:hover,
+#reject-request:hover {
+    transform: scale(1.2);
+}
+
+.notification-container:last-child {
+    padding-bottom: 0;
+}

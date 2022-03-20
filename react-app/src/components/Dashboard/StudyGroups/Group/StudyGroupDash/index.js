@@ -7,12 +7,14 @@ import { getEvents } from '../../../../../store/events';
 import { getGroup } from '../../../../../store/groups';
 import { getNotes } from '../../../../../store/notes';
 import { getRooms } from '../../../../../store/rooms';
+import { getNotifications } from '../../../../../store/notifications';
 
 import AddUserToGroupModal from './AddUserToGroupModal';
 import DeleteGroupModal from '../DeleteGroupModal';
 import EditGroupModal from '../EditGroupModal';
 import LeaveGroupModal from './LeaveGroupModal';
 import RemoveFromGroupModal from './RemoveFromGroupModal';
+import NotificationsModal from './NotificationsModal';
 
 import './StudyGroupDash.css';
 
@@ -24,7 +26,6 @@ const StudyGroupDash = () => {
     const notes = useSelector(state => state.notes);
     const group = groups[groupId];
     const sessionUser = useSelector(state => state.session.user);
-
 
     const compare = (a, b) => {
         if (a.username.toLowerCase() < b.username.toLowerCase()) {
@@ -49,6 +50,7 @@ const StudyGroupDash = () => {
                 dispatch(getNotes(groupId));
                 dispatch(getEvents(groupId));
                 dispatch(getAlbums(groupId));
+                dispatch(getNotifications(groupId));
             }
         }
         fetch();
@@ -77,7 +79,9 @@ const StudyGroupDash = () => {
                         <h2>{group.group_name}</h2>
                     </div>
                     <div className='study-group-title-btn-container'>
-                        <AddUserToGroupModal group={group} />{sessionUser.id !== group.owner_id &&
+                        <AddUserToGroupModal group={group} />
+                        <NotificationsModal group={group} />
+                        {sessionUser.id !== group.owner_id &&
                             <LeaveGroupModal group={group} />
                         }
                     </div>

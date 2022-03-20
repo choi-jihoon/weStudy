@@ -1,7 +1,8 @@
 from flask import Blueprint, request
 from flask_login import current_user
+from datetime import datetime
 from app.aws_s3 import (upload_file_to_s3, allowed_file, get_unique_filename)
-from app.models import db, Group, User, Room, Note, Event, Album
+from app.models import db, Group, User, Room, Note, Event, Album, Notification
 from app.forms import GroupForm, AddToGroupForm, RequestToJoinForm
 
 def validation_errors_to_error_messages(validation_errors):
@@ -182,7 +183,16 @@ def request_to_join_group():
         group = Group.query.filter(Group.group_name == form.data['group_name']).first()
         curr_user_id = current_user.get_id()
         user = User.query.get(curr_user_id)
-        group.users.append(user)
+        # group.users.append(user)
+
+        notification = Notification(
+            user_id=curr_user_id,
+            group_id=group.id,
+            seen=False,
+            created_at=datetime.utcnow(),
+            message=f'{user.username} has requested to join.')
+
+        db.session.add(notification)
         db.session.commit()
         return group.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
@@ -260,3 +270,9 @@ def search_groups(search_query):
     curr_user = User.query.get(curr_user_id)
     groups = Group.query.filter(Group.group_name.ilike(f'{search_query}%'), Group.owner_id != curr_user_id)
     return {'groups': [group.to_dict() for group in groups if curr_user not in group.users]}
+
+
+@group_routes.route('/<int:groupId>/notifications')
+def get_notifications(groupId):
+    notifications = Notification.query.filter(Notification.group_id == groupId)
+    return {'notifications': [notification.to_dict() for notification in notifications]}

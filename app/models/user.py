@@ -30,6 +30,8 @@ class User(db.Model, UserMixin):
     albums = db.relationship('Album', back_populates='user', cascade='all, delete')
     images = db.relationship('Image', back_populates='user', cascade="all, delete")
     current_room = db.relationship('Room', back_populates='active_users', secondary=active_participants)
+    notifications = db.relationship('Notification', back_populates='user', cascade="all, delete")
+
 
     @property
     def password(self):
@@ -73,6 +75,7 @@ class Group(db.Model):
     notes = db.relationship('Note', back_populates='group', cascade="all, delete")
     events = db.relationship('Event', back_populates='group', cascade="all, delete")
     albums = db.relationship('Album', back_populates='group', cascade="all, delete")
+    notifications = db.relationship('Notification', back_populates='group', cascade="all, delete")
 
     def to_dict(self):
         return {
@@ -83,5 +86,6 @@ class Group(db.Model):
             'owner_name': self.owner.username,
             'group_image': self.group_image,
             'users': [user.to_dict() for user in self.users],
-            'user_ids': [user.id for user in self.users]
+            'user_ids': [user.id for user in self.users],
+            'notifications': [notification.to_dict() for notification in self.notifications]
         }

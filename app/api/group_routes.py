@@ -2,7 +2,7 @@ from flask import Blueprint, request
 from flask_login import current_user
 from app.aws_s3 import (upload_file_to_s3, allowed_file, get_unique_filename)
 from app.models import db, Group, User, Room, Note, Event, Album
-from app.forms import GroupForm, AddToGroupForm, UpdateImage
+from app.forms import GroupForm, AddToGroupForm, RequestToJoinForm
 
 def validation_errors_to_error_messages(validation_errors):
     """
@@ -174,6 +174,20 @@ def join_group(groupId):
     return group.to_dict()
 
 
+@group_routes.route('/join', methods=['PATCH'])
+def request_to_join_group():
+    form = RequestToJoinForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        group = Group.query.filter(Group.group_name == form.data['group_name']).first()
+        curr_user_id = current_user.get_id()
+        user = User.query.get(curr_user_id)
+        group.users.append(user)
+        db.session.commit()
+        return group.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
 @group_routes.route('/<int:groupId>/leave', methods=['PATCH'])
 def leave_group(groupId):
     curr_user_id = current_user.get_id()
@@ -238,3 +252,11 @@ def get_events(groupId):
 def get_albums(groupId):
     albums = Album.query.filter(Album.group_id == groupId)
     return {'albums': [album.to_dict() for album in albums]}
+
+
+@group_routes.route('/<search_query>')
+def search_groups(search_query):
+    curr_user_id = current_user.get_id()
+    curr_user = User.query.get(curr_user_id)
+    groups = Group.query.filter(Group.group_name.ilike(f'{search_query}%'), Group.owner_id != curr_user_id)
+    return {'groups': [group.to_dict() for group in groups if curr_user not in group.users]}

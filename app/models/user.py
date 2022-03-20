@@ -80,6 +80,7 @@ class Group(db.Model):
             'group_name': self.group_name,
             'description': self.description,
             'owner_id': self.owner_id,
+            'owner_name': self.owner.username,
             'group_image': self.group_image,
             'users': [user.to_dict() for user in self.users],
             'user_ids': [user.id for user in self.users]

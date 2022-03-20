@@ -9,3 +9,4 @@ from .chat_form import ChatForm
 from .event_form import EventForm
 from .album_form import AlbumForm
 from .image_form import ImageForm
+from .request_to_join_form import RequestToJoinForm

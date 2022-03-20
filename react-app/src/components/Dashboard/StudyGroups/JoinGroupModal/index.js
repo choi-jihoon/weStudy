@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { Modal } from "../../../../context/Modal";
-import CreateGroupForm from "./CreateGroupForm";
+import JoinGroupForm from "./JoinGroupForm";
 
-function CreateGroupModal() {
+function JoinGroupModal() {
 	const [showModal, setShowModal] = useState(false);
 
 	useEffect(() => {
@@ -12,18 +12,17 @@ function CreateGroupModal() {
 	return (
 		<>
 			<li className='create-study-group'
-				// id="create-group"
 				onClick={() => setShowModal(true)}
 			>
-				Create a Study Group <i className="fas fa-plus"></i>
+				Join a Group<i className="fa-solid fa-magnifying-glass"></i>
 			</li>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
-					<CreateGroupForm setShowModal={setShowModal} />
+					<JoinGroupForm setShowModal={setShowModal} />
 				</Modal>
 			)}
 		</>
 	);
 }
 
-export default CreateGroupModal;
+export default JoinGroupModal;

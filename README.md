@@ -157,7 +157,12 @@ In addition to being accessible by their unique IDs, rooms, notes, events, and a
 
 
 # Database Schema
+
+## v1.0.0
 ![DB Schema](./images/dbschema.JPG)
+
+## v1.1.0
+![DB Schema v1.1.0](./images/weStudydbschemav1.1.0.JPG)
 
 
 # Conclusion

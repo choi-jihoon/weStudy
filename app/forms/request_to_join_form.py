@@ -22,8 +22,9 @@ def already_requested(form, field):
     group_name = field.data
     user_id = form.data['user_id']
     group = Group.query.filter(Group.group_name == group_name).first()
-    notification = Notification.query.filter(Notification.group_id == group.id, Notification.user_id == user_id).first()
-    if notification:
+    if group:
+        notification = Notification.query.filter(Notification.group_id == group.id, Notification.user_id == user_id).first()
+    if group and notification:
         raise ValidationError('You already sent a request to join this group.')
 
 class RequestToJoinForm(FlaskForm):
